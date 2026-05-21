@@ -1,0 +1,2226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avilo — Clinic App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-dark:#172030;
+  --navy-mid:#2B3A52;
+  --navy-light:#3D5068;
+  --teal:#0D9488;
+  --teal-dark:#0A7A70;
+  --teal-light:#4DD9C0;
+  --teal-wash:#E8F8F6;
+  --teal-wash-mid:#D1F0EC;
+  --slate:#475569;
+  --slate-light:#94A3B8;
+  --border:#E2E8F0;
+  --border-subtle:#F1F5F9;
+  --white:#FFFFFF;
+  --red:#EF4444;
+  --red-light:#FEF2F2;
+  --amber:#F59E0B;
+  --amber-light:#FEF3C7;
+  --green:#10B981;
+  --green-light:#ECFDF5;
+  --bg:#F8FAFC;
+  --shadow-sm: 0 1px 3px rgba(23,32,48,0.06), 0 1px 2px rgba(23,32,48,0.04);
+  --shadow-md: 0 4px 16px rgba(23,32,48,0.08), 0 2px 6px rgba(23,32,48,0.05);
+  --shadow-lg: 0 8px 32px rgba(23,32,48,0.10), 0 4px 12px rgba(23,32,48,0.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,system-ui,sans-serif;
+  font-size:14px;font-weight:400;line-height:1.6;color:var(--slate);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow:hidden;
+}
+h1,h2,h3,h4{letter-spacing:-0.02em;color:var(--navy-dark);font-weight:700}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,textarea{font-family:inherit;font-size:14px}
+svg{display:block}
+
+/* =========== APP SHELL =========== */
+.app{display:flex;height:100vh;width:100vw;overflow:hidden}
+
+/* Sidebar */
+.sidebar{
+  width:240px;flex-shrink:0;
+  background:var(--navy-dark);color:#fff;
+  display:flex;flex-direction:column;
+  padding:20px 14px;
+}
+.brand{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 10px 18px;
+}
+.brand-sq{width:12px;height:12px;background:var(--teal);border-radius:3px}
+.brand-name{font-weight:800;font-size:18px;letter-spacing:-0.02em;color:#fff}
+.nav-section-label{
+  font-size:10px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
+  padding:14px 10px 8px;
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 10px;border-radius:8px;
+  color:rgba(255,255,255,0.75);font-weight:600;font-size:13.5px;
+  cursor:pointer;transition:all 0.15s;position:relative;
+  margin-bottom:2px;
+}
+.nav-item:hover{background:rgba(255,255,255,0.05);color:#fff}
+.nav-item.active{background:var(--teal);color:#fff}
+.nav-item .red-dot{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:7px;height:7px;background:var(--red);border-radius:50%;
+  box-shadow:0 0 0 2px var(--navy-dark);
+}
+.nav-item.active .red-dot{box-shadow:0 0 0 2px var(--teal)}
+.nav-divider{
+  height:1px;background:var(--navy-light);margin:14px 10px;
+  opacity:0.5;
+}
+.sidebar-bottom{margin-top:auto}
+.user-pill{
+  display:flex;align-items:center;gap:10px;
+  padding:10px;border-radius:10px;
+  background:rgba(255,255,255,0.04);
+  margin-bottom:8px;
+}
+.user-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:12px;flex-shrink:0;
+}
+.user-info{flex:1;min-width:0}
+.user-name{color:#fff;font-weight:700;font-size:13px;line-height:1.2}
+.user-role{color:rgba(255,255,255,0.5);font-size:11px}
+.user-chev{color:rgba(255,255,255,0.4);flex-shrink:0}
+.role-switcher{
+  display:flex;padding:3px;border-radius:8px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  margin-bottom:4px;
+}
+.role-option{
+  flex:1;text-align:center;padding:6px 8px;
+  font-size:11px;font-weight:600;border-radius:6px;
+  color:rgba(255,255,255,0.55);cursor:pointer;
+  transition:all 0.15s;
+}
+.role-option.active{background:var(--teal);color:#fff}
+
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}
+
+/* Top bar */
+.topbar{
+  height:60px;background:#fff;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;flex-shrink:0;
+}
+.topbar-title{font-size:18px;font-weight:700;color:var(--navy-dark)}
+.topbar-right{display:flex;align-items:center;gap:14px}
+.connected-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 11px;border-radius:999px;
+  background:var(--green-light);color:#065f46;
+  font-size:12px;font-weight:600;
+  border:1px solid #bbf7d0;cursor:default;
+  position:relative;
+}
+.connected-pill .dot{width:7px;height:7px;background:var(--green);border-radius:50%}
+.tooltip{
+  position:absolute;top:calc(100% + 6px);right:0;
+  background:var(--navy-dark);color:#fff;
+  padding:7px 10px;border-radius:6px;font-size:11px;font-weight:500;
+  white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.15s;z-index:10;
+}
+.connected-pill:hover .tooltip{opacity:1}
+.icon-btn{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--slate);cursor:pointer;position:relative;
+}
+.icon-btn:hover{background:var(--bg)}
+.icon-badge{
+  position:absolute;top:4px;right:4px;
+  background:var(--red);color:#fff;
+  font-size:9px;font-weight:800;
+  width:15px;height:15px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid #fff;
+}
+.practice-select{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:8px;
+  border:1px solid var(--border);background:#fff;
+  font-size:12.5px;font-weight:600;color:var(--navy-dark);
+  cursor:pointer;
+}
+
+/* Content */
+.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:28px 32px}
+
+/* View mode switcher - floating */
+.view-mode-wrap{
+  position:absolute;top:76px;right:32px;z-index:20;
+  display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+}
+.view-mode-label{
+  font-size:9.5px;font-weight:800;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--slate-light);
+}
+.view-mode{
+  display:flex;padding:3px;border-radius:8px;
+  background:#fff;box-shadow:var(--shadow-md);
+  border:1px solid var(--border);
+}
+.view-mode-opt{
+  padding:6px 12px;font-size:11.5px;font-weight:600;
+  color:var(--slate);border-radius:6px;cursor:pointer;
+  transition:all 0.15s;
+}
+.view-mode-opt.active{background:var(--teal);color:#fff}
+
+/* Role banner */
+.role-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 16px;margin-bottom:18px;
+  background:var(--teal-wash);border:1px solid var(--teal-wash-mid);
+  border-radius:10px;font-size:13px;color:var(--navy-dark);
+}
+.role-banner-link{color:var(--teal);font-weight:700;cursor:pointer}
+
+/* =========== DASHBOARD =========== */
+.page-header{margin-bottom:24px}
+.page-title{font-size:24px;font-weight:800;color:var(--navy-dark);letter-spacing:-0.02em}
+.page-sub{font-size:14px;color:var(--slate);margin-top:4px}
+
+.stat-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;
+}
+.stat{
+  background:#fff;border-radius:16px;padding:22px;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);
+  position:relative;transition:all 0.2s;
+}
+.stat:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.stat.alert{background:var(--red-light);border-left:3px solid var(--red)}
+.stat-icon{
+  position:absolute;top:20px;right:20px;
+  width:32px;height:32px;border-radius:8px;
+  background:var(--teal-wash);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+}
+.stat.alert .stat-icon{background:#fee2e2;color:var(--red)}
+.stat.success .stat-icon{background:var(--green-light);color:var(--green)}
+.stat.neutral .stat-icon{background:var(--border-subtle);color:var(--slate)}
+.stat-num{
+  font-size:32px;font-weight:800;letter-spacing:-0.03em;
+  color:var(--navy-dark);line-height:1;margin-bottom:8px;
+}
+.stat-num.teal{color:var(--teal)}
+.stat-num.red{color:var(--red)}
+.stat-num.muted{color:var(--slate-light)}
+.stat-label{font-size:13px;color:var(--slate);font-weight:500}
+.stat-trend{
+  font-size:12px;font-weight:600;color:var(--teal);margin-top:8px;
+}
+.stat-sub{font-size:12px;color:var(--slate-light);margin-top:8px}
+.stat-action{
+  font-size:12px;font-weight:700;color:var(--red);margin-top:8px;cursor:pointer;
+}
+.stat-action:hover{text-decoration:underline}
+
+.grid-2{display:grid;grid-template-columns:1.85fr 1fr;gap:16px;margin-bottom:20px}
+
+.panel{
+  background:#fff;border-radius:12px;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);
+  overflow:hidden;
+}
+.panel-header{
+  padding:18px 20px;border-bottom:1px solid var(--border-subtle);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.panel-title{font-size:15px;font-weight:700;color:var(--navy-dark)}
+.filter-pills{display:flex;gap:6px;flex-wrap:wrap}
+.filter-pill{
+  padding:5px 11px;border-radius:999px;
+  font-size:11.5px;font-weight:600;color:var(--slate);
+  cursor:pointer;transition:all 0.15s;
+  border:1px solid transparent;
+}
+.filter-pill:hover{background:var(--border-subtle)}
+.filter-pill.active{background:var(--teal);color:#fff}
+
+.activity-group-label{
+  font-size:11px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--slate-light);
+  padding:14px 20px 8px;
+  background:var(--bg);
+  border-bottom:1px solid var(--border-subtle);
+}
+.activity-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;
+  padding:14px 20px;align-items:center;
+  border-bottom:1px solid var(--border-subtle);
+  cursor:pointer;transition:background 0.12s;position:relative;
+}
+.activity-row:hover{background:var(--bg)}
+.activity-row:hover .activity-arrow{opacity:1}
+.activity-row:last-child{border-bottom:0}
+.activity-status{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.activity-status.handled{background:var(--teal)}
+.activity-status.escalated{background:var(--red)}
+.activity-status.manual{background:var(--navy-dark)}
+.activity-status.closed{background:var(--slate-light)}
+.activity-body{min-width:0}
+.activity-name{font-weight:700;color:var(--navy-dark);font-size:13.5px}
+.activity-desc{font-size:12.5px;color:var(--slate);margin-top:1px;line-height:1.4}
+.activity-time{font-size:11.5px;color:var(--slate-light);white-space:nowrap;font-weight:500}
+.activity-arrow{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  color:var(--teal);font-size:11px;font-weight:700;
+  opacity:0;transition:opacity 0.15s;
+  display:flex;align-items:center;gap:4px;
+  background:#fff;padding:4px 8px;border-radius:6px;
+  box-shadow:var(--shadow-sm);
+}
+
+/* Escalations dark panel */
+.esc-panel{
+  background:var(--navy-dark);color:#fff;
+  border-radius:12px;padding:20px;box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;
+}
+.esc-header{
+  display:flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:700;color:#fff;margin-bottom:16px;
+}
+.esc-pulse{
+  width:8px;height:8px;background:var(--red);border-radius:50%;
+  animation:pulse 1.8s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(0.7);opacity:0.5}
+}
+.esc-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:14px;margin-bottom:10px;
+}
+.esc-name{color:#fff;font-weight:700;font-size:13.5px;margin-bottom:4px}
+.esc-msg{
+  color:rgba(255,255,255,0.7);font-style:italic;font-size:12.5px;
+  line-height:1.5;margin-bottom:8px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.esc-time{color:rgba(255,255,255,0.4);font-size:11px;margin-bottom:10px}
+.esc-actions{display:flex;gap:6px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:7px 12px;border-radius:7px;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all 0.15s;white-space:nowrap;
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-dark)}
+.btn-ghost-dark{
+  background:transparent;color:rgba(255,255,255,0.85);
+  border-color:rgba(255,255,255,0.2);
+}
+.btn-ghost-dark:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05)}
+.btn-ghost-light{
+  background:#fff;color:var(--navy-dark);border-color:var(--border);
+}
+.btn-ghost-light:hover{border-color:var(--navy-dark)}
+.btn-lg{padding:10px 18px;font-size:13px;border-radius:8px}
+
+.esc-empty{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:30px 10px;
+}
+.esc-empty-icon{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(16,185,129,0.15);color:var(--green);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.esc-empty-title{color:#fff;font-weight:700;font-size:15px;margin-bottom:4px}
+.esc-empty-sub{color:rgba(255,255,255,0.55);font-size:12.5px}
+
+/* Chart panel */
+.chart-panel{padding:18px 20px 22px}
+.chart-tabs{display:flex;gap:4px;margin-bottom:18px;padding:3px;background:var(--border-subtle);border-radius:8px;width:fit-content}
+.chart-tab{
+  padding:6px 14px;border-radius:6px;font-size:12.5px;font-weight:600;color:var(--slate);
+  cursor:pointer;transition:all 0.15s;
+}
+.chart-tab.active{background:#fff;color:var(--navy-dark);box-shadow:var(--shadow-sm)}
+.chart-wrap{
+  display:grid;grid-template-columns:32px 1fr;gap:10px;height:180px;
+}
+.chart-y{display:flex;flex-direction:column-reverse;justify-content:space-between;padding:4px 0 20px;font-size:10px;color:var(--slate-light);text-align:right;font-weight:500}
+.chart-bars{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:12px;
+  align-items:end;border-bottom:1px solid var(--border);position:relative;padding:0 4px;
+}
+.chart-bars::before{
+  content:"";position:absolute;left:0;right:0;top:25%;height:1px;
+  background:var(--border-subtle);pointer-events:none;
+}
+.chart-bars::after{
+  content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:var(--border-subtle);pointer-events:none;
+}
+.chart-day{display:flex;flex-direction:column;align-items:center;height:100%;position:relative}
+.chart-bar{
+  width:100%;max-width:32px;display:flex;flex-direction:column;justify-content:flex-end;
+  border-radius:5px 5px 0 0;overflow:hidden;position:relative;transition:transform 0.15s;
+}
+.chart-bar:hover{transform:translateY(-2px)}
+.chart-bar.today{box-shadow:0 0 0 2px var(--teal-light)}
+.chart-bar-red{background:var(--red);flex-shrink:0}
+.chart-bar-teal{background:var(--teal);flex:1}
+.chart-xlabel{
+  position:absolute;bottom:-20px;font-size:10.5px;color:var(--slate-light);font-weight:600;
+}
+.chart-bar.today + .chart-xlabel, .chart-day.today .chart-xlabel{color:var(--teal);font-weight:800}
+.chart-tip{
+  position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  background:var(--navy-dark);color:#fff;padding:6px 10px;border-radius:6px;
+  font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.15s;z-index:5;
+}
+.chart-day:hover .chart-tip{opacity:1}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.team-card{
+  background:#fff;border-radius:12px;padding:16px;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;
+}
+.team-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--teal-wash);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;flex-shrink:0;
+}
+.team-info{flex:1;min-width:0}
+.team-name{font-weight:700;color:var(--navy-dark);font-size:13.5px}
+.team-role{font-size:11.5px;color:var(--slate-light)}
+.team-stats{font-size:12px;color:var(--slate);margin-top:4px}
+.team-stats b{color:var(--navy-dark);font-weight:700}
+.team-mini-chart{display:flex;gap:3px;align-items:end;height:28px;width:60px;flex-shrink:0}
+.team-mini-bar{flex:1;background:var(--teal);border-radius:2px;min-height:4px}
+
+/* Empty dashboard */
+.empty-welcome{
+  background:#fff;border-radius:16px;padding:60px 40px;text-align:center;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);
+  max-width:720px;margin:20px auto;
+}
+.empty-big-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--teal-wash);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.empty-welcome h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.empty-welcome .empty-sub{font-size:15px;color:var(--slate);max-width:460px;margin:0 auto}
+.empty-guide{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  margin-top:40px;text-align:left;
+}
+.empty-guide h4{
+  font-size:12px;font-weight:700;color:var(--teal);
+  letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;
+}
+.empty-guide ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.empty-guide li{
+  font-size:13.5px;color:var(--navy-dark);
+  padding:8px 10px;border-radius:6px;cursor:pointer;
+  transition:background 0.15s;
+}
+.empty-guide li:hover{background:var(--bg)}
+
+/* =========== CONVERSATIONS =========== */
+.convo-layout{
+  display:grid;grid-template-columns:360px 1fr;
+  height:calc(100vh - 60px);
+  background:#fff;
+}
+.convo-list{
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  min-width:0;overflow:hidden;
+}
+.convo-list-header{
+  padding:20px 20px 14px;border-bottom:1px solid var(--border-subtle);
+  flex-shrink:0;
+}
+.convo-title-row{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;
+}
+.convo-page-title{font-size:20px;font-weight:800;color:var(--navy-dark);letter-spacing:-0.02em}
+.search-box{
+  position:relative;margin-bottom:12px;
+}
+.search-box input{
+  width:100%;padding:9px 12px 9px 34px;
+  border:1px solid var(--border);border-radius:8px;
+  background:#fff;color:var(--navy-dark);font-size:13px;
+  transition:border-color 0.15s;
+}
+.search-box input::placeholder{color:var(--slate-light)}
+.search-box input:focus{outline:none;border-color:var(--teal)}
+.search-box svg{
+  position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  color:var(--slate-light);
+}
+.convo-filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.convo-filters::-webkit-scrollbar{display:none}
+.convo-filters .filter-pill{
+  flex-shrink:0;background:var(--border-subtle);
+}
+.convo-filters .filter-pill.active{background:var(--teal);color:#fff}
+.convo-filters .red-dot-inline{
+  display:inline-block;width:6px;height:6px;background:var(--red);
+  border-radius:50%;margin-right:5px;vertical-align:middle;
+}
+
+.convo-rows{flex:1;overflow-y:auto}
+.convo-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:12px;
+  padding:14px 20px;border-bottom:1px solid var(--border-subtle);
+  cursor:pointer;transition:background 0.12s;
+  position:relative;height:90px;
+}
+.convo-row:hover{background:var(--bg)}
+.convo-row.active{
+  background:var(--teal-wash);
+  box-shadow:inset 3px 0 0 var(--teal);
+}
+.convo-row.escalated{
+  box-shadow:inset 2px 0 0 var(--red);
+}
+.convo-row.active.escalated{box-shadow:inset 3px 0 0 var(--teal)}
+.convo-avatar{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;flex-shrink:0;
+}
+.convo-avatar.esc{background:#fee2e2;color:var(--red)}
+.convo-avatar.ai{background:var(--teal-wash);color:var(--teal)}
+.convo-avatar.closed{background:var(--border-subtle);color:var(--slate)}
+.convo-avatar.manual{background:#e5e7ef;color:var(--navy-dark)}
+.convo-body{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.convo-name{font-weight:700;color:var(--navy-dark);font-size:13.5px;line-height:1.2}
+.convo-preview{
+  font-size:12.5px;color:var(--slate);line-height:1.45;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.convo-meta{
+  display:flex;gap:6px;margin-top:3px;
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+}
+.convo-pract{color:var(--slate-light)}
+.convo-badge{padding:2px 6px;border-radius:4px}
+.convo-badge.esc{background:#fee2e2;color:var(--red)}
+.convo-badge.ai{background:var(--teal-wash);color:var(--teal-dark)}
+.convo-badge.closed{background:var(--border-subtle);color:var(--slate)}
+.convo-badge.manual{background:#e5e7ef;color:var(--navy-mid)}
+.convo-right{
+  display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+  flex-shrink:0;
+}
+.convo-time{font-size:10.5px;color:var(--slate-light);font-weight:500}
+.convo-unread-dot{width:7px;height:7px;background:var(--teal);border-radius:50%}
+.convo-action-pill{
+  background:var(--red);color:#fff;
+  font-size:9px;font-weight:800;letter-spacing:0.06em;
+  padding:2px 6px;border-radius:4px;text-transform:uppercase;
+}
+
+/* Active thread */
+.thread-pane{
+  background:var(--bg);display:flex;flex-direction:column;
+  overflow:hidden;min-width:0;
+}
+.thread-header{
+  background:#fff;padding:18px 28px;
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-sm);z-index:2;flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.thread-patient{display:flex;align-items:center;gap:14px;min-width:0}
+.thread-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:#fee2e2;color:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:15px;flex-shrink:0;
+}
+.thread-name{font-size:20px;font-weight:700;color:var(--navy-dark);letter-spacing:-0.02em;line-height:1.2}
+.thread-phone{font-size:12.5px;color:var(--slate-light);font-family:ui-monospace,monospace}
+.thread-desc{font-size:12px;color:var(--slate);margin-top:4px}
+.thread-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0}
+.thread-status{
+  padding:5px 12px;border-radius:999px;
+  font-size:10.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+}
+.thread-status.esc{background:#fee2e2;color:var(--red)}
+.thread-status.ai{background:var(--teal-wash);color:var(--teal-dark)}
+.thread-status.manual{background:#e5e7ef;color:var(--navy-dark)}
+.thread-status.closed{background:var(--border-subtle);color:var(--slate)}
+.thread-actions{display:flex;gap:8px}
+.view-as-btn{
+  background:#fff;color:var(--slate);border:1px solid var(--border);
+  padding:6px 10px;border-radius:6px;font-size:12px;font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  margin-left:auto;
+}
+.view-as-btn:hover{border-color:var(--teal);color:var(--teal)}
+
+.thread-body{
+  flex:1;overflow-y:auto;padding:20px 28px;
+}
+
+.context-card{
+  background:var(--teal-wash);border:1px solid var(--teal-wash-mid);
+  border-radius:10px;padding:12px 14px;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy-dark);
+}
+.context-card svg{color:var(--teal);flex-shrink:0}
+.context-link{margin-left:auto;color:var(--teal);font-weight:700;font-size:12.5px;cursor:pointer;white-space:nowrap}
+.context-link:hover{text-decoration:underline}
+
+.ai-explain{
+  background:var(--amber-light);border-left:3px solid var(--amber);
+  border-radius:8px;padding:14px 16px;margin-bottom:14px;
+  display:flex;gap:12px;
+}
+.ai-explain-icon{
+  width:30px;height:30px;border-radius:8px;flex-shrink:0;
+  background:rgba(245,158,11,0.2);color:#b45309;
+  display:flex;align-items:center;justify-content:center;
+}
+.ai-explain-body{flex:1;min-width:0}
+.ai-explain-title{font-weight:700;color:#92400E;font-size:13px;margin-bottom:2px}
+.ai-explain-text{font-size:13px;color:var(--navy-dark);line-height:1.55}
+.ai-explain-conf{
+  font-size:11.5px;color:#92400E;margin-top:6px;font-family:ui-monospace,monospace;font-weight:600;
+}
+
+.messages{display:flex;flex-direction:column;gap:14px;max-width:720px}
+.msg-wrap{display:flex;flex-direction:column;gap:4px;max-width:78%}
+.msg-wrap.out{align-self:flex-end;align-items:flex-end}
+.msg-wrap.in{align-self:flex-start;align-items:flex-start}
+.msg-sender{
+  font-size:11px;font-weight:700;color:var(--slate);
+  display:flex;align-items:center;gap:5px;padding:0 4px;
+}
+.msg-sender .tag{
+  font-size:9px;font-weight:800;letter-spacing:0.08em;
+  padding:2px 6px;border-radius:4px;text-transform:uppercase;
+}
+.msg-sender .tag.ai{background:var(--teal-wash);color:var(--teal-dark)}
+.msg-sender .tag.reminder{background:var(--border-subtle);color:var(--slate)}
+.msg-bubble{
+  padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.5;
+  word-wrap:break-word;white-space:pre-line;
+}
+.msg-bubble.patient{background:var(--border-subtle);color:var(--navy-dark);border-bottom-left-radius:4px}
+.msg-bubble.ai{background:var(--teal);color:#fff;border-bottom-right-radius:4px}
+.msg-bubble.reminder{background:var(--border-subtle);color:var(--slate);border-bottom-left-radius:4px;font-style:normal}
+.msg-bubble.practitioner{background:var(--navy-dark);color:#fff;border-bottom-right-radius:4px}
+.msg-time{font-size:10.5px;color:var(--slate-light);padding:0 4px;font-weight:500}
+.msg-conf{font-size:10.5px;color:var(--slate-light);padding:0 4px;font-family:ui-monospace,monospace}
+
+.inline-banner{
+  background:var(--amber-light);border-left:3px solid var(--amber);
+  padding:10px 14px;border-radius:6px;
+  font-size:12.5px;color:#92400E;font-weight:500;
+  display:flex;align-items:center;gap:8px;
+  margin:4px 0;
+}
+.timeline-marker{
+  text-align:center;padding:10px 0;
+  font-size:11.5px;color:var(--slate-light);font-weight:600;
+}
+.timeline-marker::before,.timeline-marker::after{
+  content:"";display:inline-block;width:40px;height:1px;
+  background:var(--border);vertical-align:middle;margin:0 10px;
+}
+
+.input-area{
+  background:#fff;border-top:1px solid var(--border);
+  padding:16px 28px;flex-shrink:0;
+}
+.input-row{
+  display:flex;gap:8px;align-items:flex-end;
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:10px;padding:8px;
+  transition:border-color 0.15s;
+}
+.input-row:focus-within{border-color:var(--teal)}
+.input-row.disabled{background:var(--bg);border-color:var(--border)}
+.input-row textarea{
+  flex:1;border:0;outline:0;resize:none;background:transparent;
+  padding:6px 8px;min-height:22px;max-height:100px;color:var(--navy-dark);
+}
+.input-row textarea::placeholder{color:var(--slate-light)}
+.send-btn{
+  width:36px;height:36px;border-radius:8px;background:var(--teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.send-btn:hover{background:var(--teal-dark)}
+.input-helper{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;color:var(--slate-light);margin-top:8px;gap:12px;
+}
+.input-helper .ai-suggest{color:var(--slate-light);font-weight:600;opacity:0.6}
+
+/* Empty conversations */
+.convo-list-empty{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:40px 20px;
+}
+.convo-list-empty-icon{
+  width:60px;height:60px;border-radius:50%;background:var(--teal-wash);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.convo-list-empty h4{font-size:15px;font-weight:700;color:var(--navy-dark);margin-bottom:6px}
+.convo-list-empty p{font-size:12.5px;color:var(--slate);line-height:1.5;max-width:240px}
+
+.thread-empty{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:40px 20px;background:var(--bg);
+}
+.thread-empty-icon{
+  width:80px;height:80px;border-radius:50%;background:var(--teal-wash);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.thread-empty h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.thread-empty p{font-size:14px;color:var(--slate);max-width:360px}
+
+/* =========== SMS PREVIEW =========== */
+.sms-layout{
+  display:grid;grid-template-columns:420px 1fr;gap:24px;
+  align-items:flex-start;
+}
+
+.sms-controls{
+  background:#fff;border-radius:12px;padding:22px;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);
+}
+.sms-section-label{
+  font-size:11px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--slate-light);margin-bottom:10px;
+}
+.sms-section + .sms-section{margin-top:22px;padding-top:22px;border-top:1px solid var(--border-subtle)}
+.scenario-pills{display:flex;flex-direction:column;gap:6px}
+.scenario-pill{
+  padding:10px 12px;border-radius:8px;border:1px solid var(--border);
+  font-size:13px;font-weight:600;color:var(--navy-dark);cursor:pointer;
+  transition:all 0.15s;background:#fff;text-align:left;
+}
+.scenario-pill:hover{border-color:var(--teal)}
+.scenario-pill.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.scenario-desc{
+  margin-top:10px;padding:10px 12px;
+  background:var(--bg);border-radius:8px;
+  font-size:12.5px;color:var(--slate);line-height:1.5;
+}
+
+.field{margin-bottom:12px}
+.field label{
+  display:block;font-size:11.5px;font-weight:700;
+  color:var(--navy-dark);margin-bottom:5px;
+}
+.field input,.field textarea{
+  width:100%;padding:8px 10px;
+  border:1px solid var(--border);border-radius:7px;
+  font-size:13px;color:var(--navy-dark);background:#fff;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--teal)}
+.field textarea{resize:vertical;min-height:70px;line-height:1.5}
+
+.tone-pills{display:flex;gap:6px}
+.tone-pill{
+  flex:1;padding:8px 10px;border-radius:7px;border:1px solid var(--border);
+  font-size:12px;font-weight:600;color:var(--slate);cursor:pointer;text-align:center;
+  background:#fff;transition:all 0.15s;
+}
+.tone-pill:hover{border-color:var(--teal)}
+.tone-pill.active{background:var(--teal);border-color:var(--teal);color:#fff}
+
+.radio-group{display:flex;flex-direction:column;gap:6px}
+.radio-row{
+  display:flex;align-items:center;gap:10px;padding:8px 10px;
+  border-radius:7px;cursor:pointer;border:1px solid transparent;
+  font-size:13px;color:var(--navy-dark);
+}
+.radio-row:hover{background:var(--bg)}
+.radio-row.active{background:var(--teal-wash);border-color:var(--teal-wash-mid)}
+.radio-dot{
+  width:16px;height:16px;border-radius:50%;border:2px solid var(--border);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+}
+.radio-row.active .radio-dot{border-color:var(--teal)}
+.radio-row.active .radio-dot::after{
+  content:"";width:7px;height:7px;background:var(--teal);border-radius:50%;
+}
+
+.legend{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.legend-row{
+  display:flex;align-items:center;gap:9px;
+  font-size:12px;color:var(--slate);
+}
+.legend-sq{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+
+/* Phone */
+.phone-col{display:flex;flex-direction:column;align-items:center;gap:24px;padding:8px 0}
+.phone{
+  width:340px;height:700px;
+  background:var(--navy-dark);border-radius:44px;
+  padding:12px;box-shadow:var(--shadow-lg);
+  position:relative;
+  flex-shrink:0;
+}
+.phone-notch{
+  position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  width:110px;height:32px;background:#000;border-radius:20px;z-index:3;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;
+}
+.phone-notch::before,.phone-notch::after{content:"";width:6px;height:6px;border-radius:50%;background:#1a1a1a}
+.phone-screen{
+  width:100%;height:100%;background:#fff;
+  border-radius:32px;overflow:hidden;
+  display:flex;flex-direction:column;position:relative;
+}
+.ios-status{
+  height:48px;flex-shrink:0;padding:14px 28px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:14px;font-weight:700;color:#000;
+}
+.ios-status-icons{display:flex;gap:5px;align-items:center}
+.ios-header{
+  padding:10px 14px 14px;
+  border-bottom:1px solid #d1d1d6;
+  display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;
+  background:rgba(246,246,246,0.9);
+}
+.ios-back{
+  position:absolute;left:12px;top:16px;color:#007AFF;
+}
+.ios-info{
+  position:absolute;right:14px;top:16px;color:#007AFF;
+}
+.ios-header-avatar{
+  width:42px;height:42px;border-radius:50%;background:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;font-size:16px;
+}
+.ios-header-name{font-size:11px;font-weight:600;color:#000;text-align:center;line-height:1.3}
+.ios-header-sub{font-size:10px;color:#8e8e93;font-family:ui-monospace,monospace}
+
+.ios-messages{
+  flex:1;overflow-y:auto;padding:14px 12px 12px;
+  display:flex;flex-direction:column;gap:3px;
+  background:#fff;
+}
+.ios-time-divider{
+  text-align:center;font-size:10px;color:#8e8e93;
+  margin:10px 0 6px;font-weight:500;
+}
+.ios-time-divider b{color:#000;font-weight:700;margin-right:4px}
+.ios-reminder-label{
+  text-align:center;font-size:9px;color:#8e8e93;margin:4px 0 2px;
+  font-weight:500;letter-spacing:0.02em;
+}
+.ios-msg-row{display:flex;margin-bottom:2px}
+.ios-msg-row.in{justify-content:flex-start}
+.ios-msg-row.out{justify-content:flex-end}
+.ios-bubble{
+  max-width:78%;padding:7px 12px;border-radius:18px;
+  font-size:13px;line-height:1.4;white-space:pre-line;
+  word-wrap:break-word;
+}
+.ios-bubble.in{background:#e9e9eb;color:#000;border-bottom-left-radius:4px}
+.ios-bubble.out{background:#007AFF;color:#fff;border-bottom-right-radius:4px}
+.ios-bubble.reminder{background:#e9e9eb;color:#000}
+.ios-delivered{
+  text-align:right;font-size:9.5px;color:#8e8e93;
+  padding:2px 6px 0;font-weight:500;
+}
+
+.ios-input{
+  padding:8px 10px 12px;border-top:1px solid #d1d1d6;
+  display:flex;align-items:center;gap:8px;background:#fff;flex-shrink:0;
+}
+.ios-input-box{
+  flex:1;padding:7px 12px;border:1px solid #d1d1d6;
+  border-radius:16px;font-size:12px;color:#8e8e93;
+}
+.ios-camera,.ios-input-send{color:#c7c7cc}
+
+/* phone home indicator */
+.phone-home{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:130px;height:4px;background:#000;border-radius:3px;z-index:3;
+}
+
+/* Scenario note */
+.scenario-note{
+  max-width:420px;background:var(--amber-light);border-left:3px solid var(--amber);
+  padding:12px 16px;border-radius:8px;font-size:12.5px;color:#92400E;
+  line-height:1.55;
+}
+
+/* Info callouts */
+.callouts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;width:100%;
+}
+.callout{
+  background:#fff;border-radius:10px;padding:14px;
+  border:1px solid var(--border);box-shadow:var(--shadow-sm);
+}
+.callout-icon{
+  width:28px;height:28px;border-radius:7px;
+  background:var(--teal-wash);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;margin-bottom:8px;
+}
+.callout h5{font-size:12.5px;font-weight:700;color:var(--navy-dark);margin-bottom:3px}
+.callout p{font-size:11.5px;color:var(--slate);line-height:1.5}
+
+/* Modal */
+.modal-back{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(23,32,48,0.5);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.modal-back.open{display:flex}
+.modal{
+  background:#fff;border-radius:16px;padding:28px;max-width:420px;width:100%;
+  box-shadow:var(--shadow-lg);
+}
+.modal h3{font-size:20px;margin-bottom:8px}
+.modal p{font-size:13.5px;color:var(--slate);margin-bottom:22px;line-height:1.55}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+
+/* Page toggling */
+.page{display:none}
+.page.active{display:block}
+.page.full{padding:0;margin:-28px -32px}
+
+/* Scrollbars */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+
+@media (max-width:1200px){
+  .sms-layout{grid-template-columns:1fr}
+  .phone-col{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-sq"></span><span class="brand-name">Avilo</span></div>
+
+    <div class="nav-section-label">Main</div>
+    <div class="nav-item active" data-nav="dashboard" onclick="goto('dashboard')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item" data-nav="conversations" onclick="goto('conversations')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Conversations
+      <span class="red-dot" id="nav-esc-dot"></span>
+    </div>
+
+    <div class="nav-section-label">Preview tool</div>
+    <div class="nav-item" data-nav="sms-preview" onclick="goto('sms-preview')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      SMS Preview
+    </div>
+
+    <div class="nav-divider"></div>
+
+    <div class="nav-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </div>
+    <div class="nav-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="14.83" y1="9.17" x2="18.36" y2="5.64"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+      Help
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-pill">
+        <div class="user-avatar">KM</div>
+        <div class="user-info"><div class="user-name">Keegan Mitchell</div><div class="user-role">Owner</div></div>
+        <svg class="user-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="role-switcher">
+        <div class="role-option active" data-role="owner" onclick="setRole('owner')">Owner view</div>
+        <div class="role-option" data-role="practitioner" onclick="setRole('practitioner')">Practitioner view</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-right">
+        <div class="connected-pill">
+          <span class="dot"></span>Cliniko connected
+          <span class="tooltip">Connected to Northside Physiotherapy · au5 shard</span>
+        </div>
+        <div class="practice-select">
+          Northside Physio
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="icon-btn">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="icon-badge">3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content" id="content">
+
+      <div class="view-mode-wrap">
+        <div class="view-mode-label">Demo view</div>
+        <div class="view-mode">
+          <div class="view-mode-opt active" data-view="populated" onclick="setView('populated')">Populated</div>
+          <div class="view-mode-opt" data-view="empty" onclick="setView('empty')">Empty state</div>
+        </div>
+      </div>
+
+      <!-- ============ DASHBOARD ============ -->
+      <div class="page active" id="page-dashboard">
+        <div id="role-banner" style="display:none" class="role-banner">
+          <div>Viewing as: <b>Dr. Sarah Chen</b> · showing only this practitioner's patients</div>
+          <span class="role-banner-link" onclick="setRole('owner')">Exit view</span>
+        </div>
+
+        <div class="page-header">
+          <div class="page-title">Dashboard</div>
+          <div class="page-sub" id="dash-greeting">Good morning, Keegan — here's what happened overnight.</div>
+        </div>
+
+        <div id="dash-populated">
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="stat-num" id="stat-handled">23</div>
+              <div class="stat-label">Handled by Avilo today</div>
+              <div class="stat-trend">↑ 18% vs yesterday</div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
+              </div>
+              <div class="stat-num teal" id="stat-recovered">7</div>
+              <div class="stat-label">Appointments recovered</div>
+              <div class="stat-sub">≈ $770 in revenue</div>
+            </div>
+            <div class="stat alert">
+              <div class="stat-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div class="stat-num red" id="stat-esc">2</div>
+              <div class="stat-label">Need your attention</div>
+              <div class="stat-action" onclick="goto('conversations')">Review now →</div>
+            </div>
+            <div class="stat neutral">
+              <div class="stat-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div class="stat-num" id="stat-volume">31</div>
+              <div class="stat-label">Total inbound messages</div>
+              <div class="stat-sub">74% handled autonomously</div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="panel">
+              <div class="panel-header">
+                <div class="panel-title">Recent activity</div>
+                <div class="filter-pills">
+                  <div class="filter-pill active">All</div>
+                  <div class="filter-pill">Handled</div>
+                  <div class="filter-pill">Escalated</div>
+                  <div class="filter-pill">Manual takeover</div>
+                  <div class="filter-pill">Closed</div>
+                </div>
+              </div>
+              <div id="activity-feed">
+                <div class="activity-group-label">Today</div>
+
+                <div class="activity-row" onclick="goto('conversations','sarah')">
+                  <div class="activity-status escalated">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Sarah Bennett <span style="color:var(--red);font-size:10px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;margin-left:6px">Escalated</span></div>
+                    <div class="activity-desc">"Hi, I think I need to speak to someone about my back pain, it's getting worse"</div>
+                  </div>
+                  <div class="activity-time">2 min ago</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','tom')">
+                  <div class="activity-status escalated">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Tom O'Brien <span style="color:var(--red);font-size:10px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;margin-left:6px">Escalated</span></div>
+                    <div class="activity-desc">"Can I ask about the invoice from last week?"</div>
+                  </div>
+                  <div class="activity-time">18 min ago</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','marcus')">
+                  <div class="activity-status handled">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Marcus Webb</div>
+                    <div class="activity-desc">Rescheduled to Fri 15 Aug · 11:30am with Dr. Patel</div>
+                  </div>
+                  <div class="activity-time">32 min ago</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','priya')">
+                  <div class="activity-status handled">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Priya Sharma</div>
+                    <div class="activity-desc">Cancelled Thursday · rebook requested</div>
+                  </div>
+                  <div class="activity-time">1 hr ago</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','james')">
+                  <div class="activity-status handled">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">James O'Brien</div>
+                    <div class="activity-desc">Confirmed appointment</div>
+                  </div>
+                  <div class="activity-time">2 hr ago</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-group-label">Yesterday</div>
+
+                <div class="activity-row" onclick="goto('conversations','emma')">
+                  <div class="activity-status manual">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Dr. Chen took over conversation with Emma Richardson</div>
+                    <div class="activity-desc">Manual takeover</div>
+                  </div>
+                  <div class="activity-time">7:12pm</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','liam')">
+                  <div class="activity-status handled">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Liam Nguyen</div>
+                    <div class="activity-desc">Rescheduled to Mon 18 Aug · 9:00am</div>
+                  </div>
+                  <div class="activity-time">6:48pm</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','ashleigh')">
+                  <div class="activity-status handled">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Ashleigh Wright</div>
+                    <div class="activity-desc">Cancelled (auto) · policy notice sent</div>
+                  </div>
+                  <div class="activity-time">4:22pm</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+
+                <div class="activity-row" onclick="goto('conversations','david')">
+                  <div class="activity-status closed">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                  </div>
+                  <div class="activity-body">
+                    <div class="activity-name">Conversation with David Park closed</div>
+                    <div class="activity-desc">No further messages</div>
+                  </div>
+                  <div class="activity-time">2:15pm</div>
+                  <div class="activity-arrow">View →</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="esc-panel" id="esc-panel">
+              <div class="esc-header"><span class="esc-pulse"></span>Needs your attention</div>
+              <div id="esc-populated">
+                <div class="esc-card">
+                  <div class="esc-name">Sarah Bennett</div>
+                  <div class="esc-msg">"Hi, I think I need to speak to someone about my back pain, it's getting worse"</div>
+                  <div class="esc-time">Today · 10:14am · Dr. Chen</div>
+                  <div class="esc-actions">
+                    <button class="btn btn-primary" onclick="goto('conversations','sarah');takeover()">Take over</button>
+                    <button class="btn btn-ghost-dark" onclick="goto('conversations','sarah')">View</button>
+                  </div>
+                </div>
+                <div class="esc-card">
+                  <div class="esc-name">Tom O'Brien</div>
+                  <div class="esc-msg">"Can I ask about the invoice from last week?"</div>
+                  <div class="esc-time">Today · 9:58am · Dr. Patel</div>
+                  <div class="esc-actions">
+                    <button class="btn btn-primary" onclick="goto('conversations','tom');takeover()">Take over</button>
+                    <button class="btn btn-ghost-dark" onclick="goto('conversations','tom')">View</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel chart-panel">
+            <div class="panel-header" style="padding:0 0 16px;border-bottom:0">
+              <div class="panel-title">This week</div>
+              <div class="practice-select" style="font-size:12px">Last 7 days
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="chart-tabs">
+              <div class="chart-tab active">Volume</div>
+              <div class="chart-tab">Outcomes</div>
+            </div>
+            <div class="chart-wrap">
+              <div class="chart-y"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span></div>
+              <div class="chart-bars" id="chart"></div>
+            </div>
+          </div>
+
+          <div id="team-row" style="margin-top:20px">
+            <div class="page-header" style="margin-bottom:16px">
+              <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-light)">Team breakdown</div>
+            </div>
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="team-avatar">SC</div>
+                <div class="team-info">
+                  <div class="team-name">Dr. Sarah Chen</div>
+                  <div class="team-role">Physiotherapist</div>
+                  <div class="team-stats">Handled: <b>12</b> · Escalated: <b>1</b> · This week</div>
+                </div>
+                <div class="team-mini-chart"><span class="team-mini-bar" style="height:40%"></span><span class="team-mini-bar" style="height:70%"></span><span class="team-mini-bar" style="height:50%"></span><span class="team-mini-bar" style="height:90%"></span><span class="team-mini-bar" style="height:55%"></span></div>
+              </div>
+              <div class="team-card">
+                <div class="team-avatar">RP</div>
+                <div class="team-info">
+                  <div class="team-name">Dr. Raj Patel</div>
+                  <div class="team-role">Physiotherapist</div>
+                  <div class="team-stats">Handled: <b>8</b> · Escalated: <b>1</b> · This week</div>
+                </div>
+                <div class="team-mini-chart"><span class="team-mini-bar" style="height:55%"></span><span class="team-mini-bar" style="height:40%"></span><span class="team-mini-bar" style="height:70%"></span><span class="team-mini-bar" style="height:45%"></span><span class="team-mini-bar" style="height:60%"></span></div>
+              </div>
+              <div class="team-card">
+                <div class="team-avatar">OP</div>
+                <div class="team-info">
+                  <div class="team-name">Dr. Olivia Park</div>
+                  <div class="team-role">Exercise Physiologist</div>
+                  <div class="team-stats">Handled: <b>6</b> · Escalated: <b>0</b> · This week</div>
+                </div>
+                <div class="team-mini-chart"><span class="team-mini-bar" style="height:30%"></span><span class="team-mini-bar" style="height:50%"></span><span class="team-mini-bar" style="height:40%"></span><span class="team-mini-bar" style="height:60%"></span><span class="team-mini-bar" style="height:35%"></span></div>
+              </div>
+              <div class="team-card">
+                <div class="team-avatar">JF</div>
+                <div class="team-info">
+                  <div class="team-name">Dr. James Foster</div>
+                  <div class="team-role">Physiotherapist · Part-time</div>
+                  <div class="team-stats">Handled: <b>3</b> · Escalated: <b>0</b> · This week</div>
+                </div>
+                <div class="team-mini-chart"><span class="team-mini-bar" style="height:20%"></span><span class="team-mini-bar" style="height:0%"></span><span class="team-mini-bar" style="height:35%"></span><span class="team-mini-bar" style="height:25%"></span><span class="team-mini-bar" style="height:15%"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="dash-empty" style="display:none">
+          <div class="empty-welcome">
+            <div class="empty-big-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h2>Welcome to Avilo, Keegan.</h2>
+            <div class="empty-sub">You're all set up. The dashboard will populate with activity once your patients start messaging.</div>
+            <div class="empty-guide">
+              <div>
+                <h4>While you wait</h4>
+                <ul>
+                  <li>→ Review your practice settings</li>
+                  <li>→ Invite your team</li>
+                  <li>→ Send a test notification</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Need help?</h4>
+                <ul>
+                  <li>→ Read the documentation</li>
+                  <li>→ Email support@avilo.com.au</li>
+                  <li>→ Book an onboarding call</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ CONVERSATIONS ============ -->
+      <div class="page full" id="page-conversations">
+        <div class="convo-layout">
+          <div class="convo-list" id="convo-list-pane"></div>
+          <div class="thread-pane" id="thread-pane"></div>
+        </div>
+      </div>
+
+      <!-- ============ SMS PREVIEW ============ -->
+      <div class="page" id="page-sms-preview">
+        <div class="page-header">
+          <div class="page-title">SMS Preview</div>
+          <div class="page-sub">See the conversation as your patient sees it.</div>
+        </div>
+
+        <div class="sms-layout">
+          <!-- Controls -->
+          <div class="sms-controls">
+            <div class="sms-section">
+              <div class="sms-section-label">Choose a scenario</div>
+              <div class="scenario-pills" id="scenario-pills">
+                <button class="scenario-pill active" data-scen="reschedule" onclick="setScenario('reschedule')">Reschedule</button>
+                <button class="scenario-pill" data-scen="cancel-auto" onclick="setScenario('cancel-auto')">Cancellation (auto-cancel)</button>
+                <button class="scenario-pill" data-scen="cancel-hold" onclick="setScenario('cancel-hold')">Cancellation (hold-and-notify)</button>
+                <button class="scenario-pill" data-scen="escalation" onclick="setScenario('escalation')">Escalation (AI can't handle)</button>
+              </div>
+              <div class="scenario-desc" id="scenario-desc"></div>
+            </div>
+
+            <div class="sms-section">
+              <div class="sms-section-label">Practice settings</div>
+              <div class="field">
+                <label>Practice name</label>
+                <input type="text" id="f-practice" value="Northside Physiotherapy" oninput="renderPhone()">
+              </div>
+              <div class="field">
+                <label>Practitioner name</label>
+                <input type="text" id="f-pract" value="Dr. Sarah Chen" oninput="renderPhone()">
+              </div>
+              <div class="field">
+                <label>Tone</label>
+                <div class="tone-pills">
+                  <button class="tone-pill active" data-tone="warm" onclick="setTone('warm')">Warm</button>
+                  <button class="tone-pill" data-tone="professional" onclick="setTone('professional')">Professional</button>
+                  <button class="tone-pill" data-tone="brief" onclick="setTone('brief')">Brief</button>
+                </div>
+              </div>
+              <div class="field" id="policy-field" style="display:none">
+                <label>Cancellation policy text</label>
+                <textarea id="f-policy" oninput="renderPhone()">We appreciate 24 hours' notice for cancellations. A cancellation fee may apply for late cancellations.</textarea>
+              </div>
+              <div class="field">
+                <label>Out-of-hours behaviour</label>
+                <div class="radio-group">
+                  <div class="radio-row active" data-ooh="normal" onclick="setOOH('normal')">
+                    <div class="radio-dot"></div>Handle normally
+                  </div>
+                  <div class="radio-row" data-ooh="hold" onclick="setOOH('hold')">
+                    <div class="radio-dot"></div>Send holding message
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sms-section">
+              <div class="sms-section-label">Preview legend</div>
+              <div class="legend">
+                <div class="legend-row"><span class="legend-sq" style="background:#007AFF"></span>Blue = Patient</div>
+                <div class="legend-row"><span class="legend-sq" style="background:#e9e9eb;border:1px solid #d1d1d6"></span>Grey = Practice / Avilo AI</div>
+                <div class="legend-row"><span class="legend-sq" style="background:#e9e9eb;border:1px solid #d1d1d6"></span>"Reminder" label = Automated Cliniko reminder</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="phone-col">
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-home"></div>
+              <div class="phone-screen">
+                <div class="ios-status">
+                  <span>10:14</span>
+                  <div class="ios-status-icons">
+                    <svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="7" rx="0.5"/><rect x="10" y="2" width="3" height="10" rx="0.5"/><rect x="15" y="0" width="3" height="12" rx="0.5"/></svg>
+                    <svg width="14" height="10" viewBox="0 0 18 14" fill="currentColor"><path d="M9 14L0 5.5a12 12 0 0 1 18 0L9 14z" opacity="0.4"/><path d="M9 14L3 8a8 8 0 0 1 12 0L9 14z" opacity="0.6"/><path d="M9 14L6 11a4 4 0 0 1 6 0L9 14z"/></svg>
+                    <svg width="22" height="10" viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="1" width="22" height="10" rx="2.5"/><rect x="3" y="3" width="18" height="6" rx="1" fill="currentColor"/><rect x="24.5" y="4" width="2" height="4" rx="0.5" fill="currentColor"/></svg>
+                  </div>
+                </div>
+                <div class="ios-header">
+                  <svg class="ios-back" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 14 2 8 8 2"/></svg>
+                  <svg class="ios-info" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <div class="ios-header-avatar" id="ios-avatar">N</div>
+                  <div class="ios-header-name" id="ios-name">Northside Physiotherapy</div>
+                  <div class="ios-header-sub">+61 468 048 291</div>
+                </div>
+                <div class="ios-messages" id="ios-messages"></div>
+                <div class="ios-input">
+                  <svg class="ios-camera" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  <div class="ios-input-box">Text Message</div>
+                  <svg class="ios-input-send" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l-1.5 1.5L16 9H3v2h13l-5.5 5.5L12 18l8-8-8-8z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div id="scenario-note" class="scenario-note" style="display:none"></div>
+
+            <div class="callouts">
+              <div class="callout">
+                <div class="callout-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <h5>Your practice, your voice</h5>
+                <p>Customise practice name, practitioner names, cancellation policy, and tone. Avilo adapts without sounding templated.</p>
+              </div>
+              <div class="callout">
+                <div class="callout-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h5>Compliance built in</h5>
+                <p>All messages include an opt-out path as required by the Spam Act 2003. Opt-outs are honoured automatically.</p>
+              </div>
+              <div class="callout">
+                <div class="callout-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </div>
+                <h5>Never pretends to be human</h5>
+                <p>Avilo speaks on behalf of your practice, but never invents a fake staff member. Fast, professional responses — nothing deceptive.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-back" id="modal" onclick="if(event.target.id==='modal')closeModal()">
+  <div class="modal">
+    <h3 id="modal-title">Take over this conversation?</h3>
+    <p id="modal-body">Avilo will stop responding. Your next reply will be sent to the patient from your practice's number.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost-light btn-lg" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary btn-lg" id="modal-confirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==================== STATE ==================== */
+const state = {
+  page: 'dashboard',
+  view: 'populated',
+  role: 'owner',
+  activeConvo: 'sarah',
+  scenario: 'reschedule',
+  tone: 'warm',
+  ooh: 'normal',
+  threadMessages: {}, // per-convo in-memory added messages
+  convoStatus: {},    // per-convo status overrides (after takeover)
+};
+
+/* ==================== CONVERSATIONS DATA ==================== */
+const CONVOS = {
+  sarah: {
+    name:'Sarah Bennett',initials:'SB',phone:'+61 412 334 189',
+    practitioner:'Dr. Sarah Chen',specialty:'Physiotherapy',since:'March 2023',
+    status:'escalated',lastTime:'2 min ago',lastPreview:"\"Hi, I think I need to speak to someone about my back pain, it's getting worse\"",
+    unread:true,practOnly:'chen',
+    appointment:'Thursday 14 Aug · 3:00pm · Dr. Chen · 30 min follow-up',
+    aiExplain:{
+      title:'Why Avilo escalated:',
+      text:"The patient's message contains clinical language that suggests a health concern beyond scheduling. Avilo doesn't handle clinical conversations and has flagged this for your attention.",
+      conf:'Confidence: 0.34 — below your escalation threshold (0.75)'
+    },
+    messages:[
+      {type:'reminder',text:'Hi Sarah, this is a reminder of your appointment on Thursday 14 Aug at 3:00pm with Dr. Chen. Reply to confirm, reschedule, or if you have any questions.',time:'Wed 13 Aug · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:"Hi, I think I need to speak to someone about my back pain, it's getting worse",time:'Today · 10:14am'},
+      {type:'banner',text:'⚠ Avilo has paused this conversation and alerted you. No reply has been sent to the patient.'},
+      {type:'ai-internal',text:'Intent: UNCLEAR · Escalated · Confidence: 0.34',time:'Today · 10:14am'},
+    ],
+  },
+  tom: {
+    name:"Tom O'Brien",initials:'TO',phone:'+61 432 778 554',
+    practitioner:'Dr. Raj Patel',specialty:'Physiotherapy',since:'July 2024',
+    status:'escalated',lastTime:'18 min ago',lastPreview:"\"Can I ask about the invoice from last week?\"",
+    unread:true,practOnly:'patel',
+    appointment:'Tuesday 19 Aug · 11:00am · Dr. Patel · 30 min follow-up',
+    aiExplain:{
+      title:'Why Avilo escalated:',
+      text:"The patient is asking about billing — Avilo doesn't handle invoice or payment queries. Flagged for the practice to respond.",
+      conf:'Confidence: 0.28 — below your escalation threshold (0.75)'
+    },
+    messages:[
+      {type:'reminder',text:'Hi Tom, this is a reminder of your appointment on Tuesday 19 Aug at 11:00am with Dr. Patel. Reply to confirm, reschedule, or if you have any questions.',time:'Today · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Can I ask about the invoice from last week?',time:'Today · 9:58am'},
+      {type:'banner',text:'⚠ Avilo has paused this conversation and alerted you. No reply has been sent to the patient.'},
+    ],
+  },
+  marcus: {
+    name:'Marcus Webb',initials:'MW',phone:'+61 421 556 912',
+    practitioner:'Dr. Raj Patel',specialty:'Physiotherapy',since:'May 2024',
+    status:'ai',lastTime:'32 min ago',lastPreview:'"1 please!"',unread:false,practOnly:'patel',
+    appointment:'Friday 15 Aug · 11:30am · Dr. Patel · 30 min follow-up',
+    messages:[
+      {type:'reminder',text:'Hi Marcus, this is a reminder of your appointment on Wednesday 14 Aug at 10:00am with Dr. Patel. Reply to confirm, reschedule, or if you have any questions.',time:'Today · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Hey sorry can I reschedule Wednesday?',time:'Today · 9:52am'},
+      {type:'ai',text:"No problem Marcus! I can see you're booked with Dr. Patel on Wednesday at 10am. When works best for you?",time:'Today · 9:52am',conf:'AI · 0.94 confidence'},
+      {type:'patient',text:'Friday morning would be great',time:'Today · 9:53am'},
+      {type:'ai',text:'I have these available with Dr. Patel:\n1. Fri 15 Aug · 9:00am\n2. Fri 15 Aug · 11:30am\n3. Fri 15 Aug · 2:00pm\n\nReply with 1, 2 or 3 to confirm.',time:'Today · 9:54am',conf:'AI · 0.92 confidence'},
+      {type:'patient',text:'1 please!',time:'Today · 9:54am'},
+      {type:'ai',text:"Done ✓ You're booked in for Friday 15 Aug at 11:30am with Dr. Patel. We'll send a reminder closer to the date.",time:'Today · 9:54am',conf:'AI · 0.96 confidence'},
+    ],
+  },
+  priya: {
+    name:'Priya Sharma',initials:'PS',phone:'+61 425 664 302',
+    practitioner:'Dr. Sarah Chen',specialty:'Physiotherapy',since:'January 2024',
+    status:'ai',lastTime:'1 hr ago',lastPreview:'"Yes please, next Wednesday afternoon would be great"',unread:false,practOnly:'chen',
+    appointment:'Wednesday 20 Aug · 2:30pm · Dr. Chen · 30 min follow-up',
+    messages:[
+      {type:'reminder',text:'Hi Priya, this is a reminder of your appointment on Thursday 14 Aug at 4:00pm with Dr. Chen. Reply to confirm, reschedule, or if you have any questions.',time:'Today · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Hi, I need to cancel Thursday. Can I rebook for later?',time:'Today · 9:18am'},
+      {type:'ai',text:"No worries Priya — I've cancelled Thursday 14 Aug at 4pm with Dr. Chen. Would you like me to find another time?",time:'Today · 9:18am',conf:'AI · 0.93 confidence'},
+      {type:'patient',text:'Yes please, next Wednesday afternoon would be great',time:'Today · 9:19am'},
+      {type:'ai',text:"I have these with Dr. Chen next Wednesday:\n1. Wed 20 Aug · 1:30pm\n2. Wed 20 Aug · 2:30pm\n3. Wed 20 Aug · 4:00pm\n\nReply with 1, 2 or 3.",time:'Today · 9:19am',conf:'AI · 0.95 confidence'},
+      {type:'patient',text:'2',time:'Today · 9:21am'},
+      {type:'ai',text:"Booked ✓ Wednesday 20 Aug at 2:30pm with Dr. Chen. See you then!",time:'Today · 9:21am',conf:'AI · 0.96 confidence'},
+    ],
+  },
+  james: {
+    name:"James O'Brien",initials:'JO',phone:'+61 411 884 221',
+    practitioner:'Dr. Sarah Chen',specialty:'Physiotherapy',since:'October 2023',
+    status:'closed',lastTime:'2 hr ago',lastPreview:'"Perfect, thank you!"',unread:false,practOnly:'chen',
+    appointment:'Friday 15 Aug · 3:30pm · Dr. Chen · 30 min follow-up',
+    messages:[
+      {type:'reminder',text:'Hi James, this is a reminder of your appointment on Friday 15 Aug at 3:30pm with Dr. Chen. Reply to confirm.',time:'Today · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Confirming, see you Friday',time:'Today · 8:33am'},
+      {type:'ai',text:"Thanks James, we've got you confirmed for Friday 15 Aug at 3:30pm with Dr. Chen. See you then!",time:'Today · 8:33am',conf:'AI · 0.97 confidence'},
+      {type:'patient',text:'Perfect, thank you!',time:'Today · 8:34am'},
+    ],
+  },
+  emma: {
+    name:'Emma Richardson',initials:'ER',phone:'+61 417 223 554',
+    practitioner:'Dr. Sarah Chen',specialty:'Physiotherapy',since:'April 2022',
+    status:'manual',lastTime:'Yesterday · 7:12pm',lastPreview:'"Hi Dr. Chen, just wanted to check in about my rehab program..."',unread:false,practOnly:'chen',
+    appointment:'Monday 18 Aug · 10:00am · Dr. Chen · 45 min extended follow-up',
+    messages:[
+      {type:'reminder',text:'Hi Emma, this is a reminder of your appointment on Monday 18 Aug at 10:00am with Dr. Chen.',time:'Yesterday · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Hi Dr. Chen, just wanted to check in about my rehab program — is it OK to do the exercises twice daily?',time:'Yesterday · 7:10pm'},
+      {type:'timeline',text:'Dr. Chen took over this conversation · Yesterday · 7:12pm'},
+      {type:'practitioner',text:"Hi Emma — yes, twice daily is fine if there's no increased pain. We'll go through it on Monday. Any sharp pain, back off.",time:'Yesterday · 7:14pm',sender:'Dr. Chen'},
+      {type:'patient',text:'Great, thanks!',time:'Yesterday · 7:15pm'},
+    ],
+  },
+  liam: {
+    name:'Liam Nguyen',initials:'LN',phone:'+61 438 445 112',
+    practitioner:'Dr. Olivia Park',specialty:'Exercise Physiology',since:'February 2025',
+    status:'closed',lastTime:'Yesterday · 6:48pm',lastPreview:'"Sounds good, see you then"',unread:false,practOnly:'park',
+    appointment:'Monday 18 Aug · 9:00am · Dr. Park · 45 min initial',
+    messages:[
+      {type:'reminder',text:'Hi Liam, this is a reminder of your appointment on Friday 15 Aug at 9:00am with Dr. Park.',time:'Yesterday · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Can I push it back to next week?',time:'Yesterday · 6:46pm'},
+      {type:'ai',text:'Of course Liam. I have Mon 18 Aug at 9:00am with Dr. Park — does that work?',time:'Yesterday · 6:46pm',conf:'AI · 0.95 confidence'},
+      {type:'patient',text:'Sounds good, see you then',time:'Yesterday · 6:48pm'},
+      {type:'ai',text:"Booked ✓ Monday 18 Aug at 9:00am with Dr. Park. See you then!",time:'Yesterday · 6:48pm',conf:'AI · 0.97 confidence'},
+    ],
+  },
+  ashleigh: {
+    name:'Ashleigh Wright',initials:'AW',phone:'+61 422 991 003',
+    practitioner:'Dr. Raj Patel',specialty:'Physiotherapy',since:'August 2024',
+    status:'closed',lastTime:'Yesterday · 4:22pm',lastPreview:'"Ok thanks"',unread:false,practOnly:'patel',
+    appointment:'— cancelled —',
+    messages:[
+      {type:'reminder',text:'Hi Ashleigh, this is a reminder of your appointment on Thursday 14 Aug at 10:00am with Dr. Patel.',time:'Yesterday · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Hi can I cancel my appointment tomorrow pls',time:'Yesterday · 4:20pm'},
+      {type:'ai',text:"Thanks for letting us know Ashleigh — I've cancelled your Thursday 14 Aug at 10:00am with Dr. Patel. Just a heads up — we appreciate 24 hours' notice for cancellations, so a late cancellation fee may apply.",time:'Yesterday · 4:21pm',conf:'AI · 0.89 confidence'},
+      {type:'patient',text:'Ok thanks',time:'Yesterday · 4:22pm'},
+    ],
+  },
+  david: {
+    name:'David Park',initials:'DP',phone:'+61 419 224 667',
+    practitioner:'Dr. Sarah Chen',specialty:'Physiotherapy',since:'June 2023',
+    status:'closed',lastTime:'Yesterday · 2:15pm',lastPreview:'"No worries, appreciate it"',unread:false,practOnly:'chen',
+    appointment:'Monday 25 Aug · 11:00am · Dr. Chen · 30 min follow-up',
+    messages:[
+      {type:'reminder',text:'Hi David, this is a reminder of your appointment on Wednesday 13 Aug at 2:00pm with Dr. Chen.',time:'Day before yesterday · 9:00am',tag:'REMINDER'},
+      {type:'patient',text:'Running 10 mins late, is that ok?',time:'Yesterday · 2:12pm'},
+      {type:'ai',text:"Thanks for the heads up David — that's fine, we'll see you shortly.",time:'Yesterday · 2:13pm',conf:'AI · 0.93 confidence'},
+      {type:'patient',text:'No worries, appreciate it',time:'Yesterday · 2:15pm'},
+    ],
+  },
+};
+
+const CONVO_ORDER = ['sarah','tom','marcus','priya','james','emma','liam','ashleigh','david'];
+
+/* ==================== SMS SCENARIOS ==================== */
+const SCENARIOS = {
+  reschedule: {
+    desc:"A patient replies asking to move their appointment. Avilo finds available times and books the new slot.",
+    showPolicy:false,
+    patientName:'Sarah',
+    lines: (ctx,tone) => [
+      {type:'divider',day:'Today',time:'9:00am'},
+      {type:'reminder-label'},
+      {type:'in',text:`Hi Sarah, this is a reminder of your appointment on Thursday 14 Aug at 3:00pm with ${ctx.pract} at ${ctx.practice}. Reply to confirm, reschedule, or if you have any questions.`},
+      {type:'divider',day:'Today',time:'10:14am'},
+      {type:'out',text:'Hey sorry can I move my appointment? Something came up tmrw'},
+      {type:'in',text: tone==='warm'
+        ? `No problem Sarah! I can see you're booked in with ${ctx.pract} tomorrow at 3pm. When works best for you to reschedule?`
+        : tone==='professional'
+        ? `Thank you for letting us know, Sarah. You are currently booked with ${ctx.pract} tomorrow at 3:00pm. When would you prefer to reschedule?`
+        : `Noted. You're booked with ${ctx.pract} tomorrow at 3pm. When would you like to reschedule to?`
+      },
+      {type:'out',text:'Maybe Thursday arvo? Or Friday morning if possible'},
+      {type:'in',text: tone==='warm'
+        ? `Great news — I have these available with ${ctx.pract}:\n\n1. Thu 21 Aug · 2:00pm\n2. Thu 21 Aug · 4:30pm\n3. Fri 22 Aug · 8:30am\n\nReply with 1, 2 or 3 to confirm, or let me know if none of these work.`
+        : tone==='professional'
+        ? `The following times are available with ${ctx.pract}:\n\n1. Thursday 21 August · 2:00pm\n2. Thursday 21 August · 4:30pm\n3. Friday 22 August · 8:30am\n\nPlease reply with 1, 2 or 3 to confirm.`
+        : `Available with ${ctx.pract}:\n1. Thu 21 Aug 2:00pm\n2. Thu 21 Aug 4:30pm\n3. Fri 22 Aug 8:30am\n\nReply 1, 2 or 3.`
+      },
+      {type:'out',text:'1 please!'},
+      {type:'in',text: tone==='warm'
+        ? `Done ✓ You're booked in for Thursday 21 Aug at 2:00pm with ${ctx.pract}. We'll send a reminder closer to the date. See you then!`
+        : tone==='professional'
+        ? `Your appointment has been rescheduled to Thursday 21 August at 2:00pm with ${ctx.pract}. A reminder will be sent closer to the date.`
+        : `Rescheduled to Thu 21 Aug 2:00pm with ${ctx.pract}. Confirmation reminder sent.`
+      },
+      {type:'delivered'},
+    ],
+  },
+  'cancel-auto': {
+    desc:"A patient cancels. Avilo cancels in Cliniko and offers to rebook.",
+    showPolicy:false,
+    patientName:'Marcus',
+    lines: (ctx,tone) => [
+      {type:'divider',day:'Today',time:'9:00am'},
+      {type:'reminder-label'},
+      {type:'in',text:`Hi Marcus, this is a reminder of your appointment on Friday 15 Aug at 11:30am with ${ctx.pract} at ${ctx.practice}. Reply to confirm, reschedule, or if you have any questions.`},
+      {type:'divider',day:'Today',time:'10:22am'},
+      {type:'out',text:'Hi I need to cancel Friday unfortunately, not going to make it'},
+      {type:'in',text: tone==='warm'
+        ? `No problem Marcus — I've cancelled your Friday 15 Aug appointment at 11:30am with ${ctx.pract}. Would you like me to find you another time?`
+        : tone==='professional'
+        ? `Thank you for letting us know. Your Friday 15 August appointment at 11:30am with ${ctx.pract} has been cancelled. Would you like to book another time?`
+        : `Cancelled Fri 15 Aug 11:30am with ${ctx.pract}. Would you like to rebook?`
+      },
+      {type:'out',text:'Yeah please, maybe next week sometime'},
+      {type:'in',text: tone==='warm'
+        ? `Of course. I have these available with ${ctx.pract} next week:\n\n1. Mon 18 Aug · 11:00am\n2. Wed 20 Aug · 2:30pm\n3. Thu 21 Aug · 9:00am\n\nReply with 1, 2 or 3 to book, or let me know if none of these suit.`
+        : tone==='professional'
+        ? `The following times are available with ${ctx.pract} next week:\n\n1. Monday 18 August · 11:00am\n2. Wednesday 20 August · 2:30pm\n3. Thursday 21 August · 9:00am\n\nPlease reply with 1, 2 or 3 to book.`
+        : `Available next week with ${ctx.pract}:\n1. Mon 18 Aug 11:00am\n2. Wed 20 Aug 2:30pm\n3. Thu 21 Aug 9:00am\n\nReply 1, 2 or 3.`
+      },
+      {type:'out',text:'Wednesday works'},
+      {type:'in',text: tone==='warm'
+        ? `Booked in ✓ Wednesday 20 Aug at 2:30pm with ${ctx.pract}. We'll remind you closer to the date. See you then!`
+        : tone==='professional'
+        ? `Confirmed for Wednesday 20 August at 2:30pm with ${ctx.pract}. A reminder will be sent closer to the date.`
+        : `Booked Wed 20 Aug 2:30pm with ${ctx.pract}.`
+      },
+      {type:'delivered'},
+    ],
+  },
+  'cancel-hold': {
+    desc:"A patient cancels. Avilo sends a holding message referencing your cancellation policy and alerts the team.",
+    showPolicy:true,
+    patientName:'Ashleigh',
+    lines: (ctx,tone) => [
+      {type:'divider',day:'Today',time:'9:00am'},
+      {type:'reminder-label'},
+      {type:'in',text:`Hi Ashleigh, this is a reminder of your appointment on Thursday 14 Aug at 10:00am with ${ctx.pract} at ${ctx.practice}. Reply to confirm, reschedule, or if you have any questions.`},
+      {type:'divider',day:'Today',time:'9:47am'},
+      {type:'out',text:'Hi can I cancel my appointment tomorrow pls'},
+      {type:'in',text: tone==='warm'
+        ? `Thanks for letting us know Ashleigh. I'll flag this with the practice and someone will be in touch shortly to sort out another time for you.\n\nJust a heads up — ${ctx.policy} Someone will confirm with you directly.`
+        : tone==='professional'
+        ? `Thank you for letting us know. The practice has been notified and will be in touch shortly to arrange an alternative time.\n\nPlease note: ${ctx.policy} A member of the team will confirm directly.`
+        : `Flagged with the practice — someone will contact you directly.\n\nNote: ${ctx.policy}`
+      },
+      {type:'delivered'},
+    ],
+  },
+  escalation: {
+    desc:"A patient sends an ambiguous or clinical message. Avilo escalates to the practitioner without responding.",
+    showPolicy:false,
+    patientName:'Sarah',
+    lines: (ctx,tone) => [
+      {type:'divider',day:'Today',time:'9:00am'},
+      {type:'reminder-label'},
+      {type:'in',text:`Hi Sarah, this is a reminder of your appointment on Thursday 14 Aug at 3:00pm with ${ctx.pract} at ${ctx.practice}. Reply to confirm, reschedule, or if you have any questions.`},
+      {type:'divider',day:'Today',time:'10:14am'},
+      {type:'out',text:"Hi, I think I need to speak to someone about my back pain, it's getting worse"},
+      {type:'in',text: tone==='warm'
+        ? `Thanks for your message Sarah — I want to make sure we get this right, so I've flagged it for the team. Someone will be in touch shortly.`
+        : tone==='professional'
+        ? `Thank you for your message, Sarah. This has been flagged for the clinical team and someone will be in touch with you shortly.`
+        : `Message flagged for the team. Someone will be in touch shortly.`
+      },
+      {type:'delivered'},
+    ],
+    note:"In this scenario, Avilo detected clinical language beyond scheduling ('back pain getting worse') and escalated immediately. The practitioner has been alerted via Slack/Teams/SMS and will take over the conversation manually from the Avilo app.",
+  },
+};
+
+/* ==================== NAV / VIEW ==================== */
+function goto(page, convoId){
+  state.page = page;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>{
+    n.classList.toggle('active', n.dataset.nav===page);
+  });
+  const titles = {dashboard:'Dashboard',conversations:'Conversations','sms-preview':'SMS Preview'};
+  document.getElementById('topbar-title').textContent = titles[page];
+  if(window.location.hash.slice(1)!==page) history.replaceState(null,'','#'+page);
+
+  if(page==='conversations'){
+    if(convoId) state.activeConvo = convoId;
+    renderConvoList();
+    renderThread();
+  }
+  if(page==='sms-preview'){
+    renderPhone();
+  }
+  document.querySelector('.content').scrollTop = 0;
+}
+window.addEventListener('hashchange',()=>{
+  const h=window.location.hash.slice(1);
+  if(['dashboard','conversations','sms-preview'].includes(h)) goto(h);
+});
+
+function setView(v){
+  state.view = v;
+  document.querySelectorAll('.view-mode-opt').forEach(o=>o.classList.toggle('active', o.dataset.view===v));
+  const content = document.getElementById('content');
+  content.style.opacity='0.4';
+  setTimeout(()=>{
+    applyView();
+    content.style.opacity='1';
+  },150);
+}
+content.style && (document.getElementById('content').style.transition='opacity 0.15s');
+
+function applyView(){
+  if(state.view==='populated'){
+    document.getElementById('dash-populated').style.display='';
+    document.getElementById('dash-empty').style.display='none';
+    document.getElementById('nav-esc-dot').style.display='';
+  } else {
+    document.getElementById('dash-populated').style.display='none';
+    document.getElementById('dash-empty').style.display='';
+    document.getElementById('nav-esc-dot').style.display='none';
+  }
+  renderConvoList();
+  renderThread();
+}
+
+function setRole(r){
+  state.role = r;
+  document.querySelectorAll('.role-option').forEach(o=>o.classList.toggle('active', o.dataset.role===r));
+  document.getElementById('role-banner').style.display = r==='practitioner' ? 'flex' : 'none';
+  document.getElementById('team-row').style.display = r==='owner' ? '' : 'none';
+  if(r==='practitioner'){
+    document.getElementById('stat-handled').textContent='12';
+    document.getElementById('stat-recovered').textContent='4';
+    document.getElementById('stat-esc').textContent='1';
+    document.getElementById('stat-volume').textContent='17';
+    document.getElementById('dash-greeting').textContent = "Good morning, Dr. Chen — here's what happened overnight.";
+  } else {
+    document.getElementById('stat-handled').textContent='23';
+    document.getElementById('stat-recovered').textContent='7';
+    document.getElementById('stat-esc').textContent='2';
+    document.getElementById('stat-volume').textContent='31';
+    document.getElementById('dash-greeting').textContent = "Good morning, Keegan — here's what happened overnight.";
+  }
+  renderConvoList();
+  renderThread();
+}
+
+/* ==================== DASHBOARD CHART ==================== */
+function renderChart(){
+  const data = [
+    {d:'Mon',h:19,e:2},{d:'Tue',h:24,e:1},{d:'Wed',h:17,e:3},{d:'Thu',h:28,e:2},
+    {d:'Fri',h:22,e:4},{d:'Sat',h:12,e:0,today:true},{d:'Sun',h:8,e:1},
+  ];
+  const max = 40;
+  const el = document.getElementById('chart');
+  el.innerHTML = data.map(d=>{
+    const totalPct = Math.round(((d.h+d.e)/max)*100);
+    const escPct = (d.h+d.e)>0 ? Math.round((d.e/(d.h+d.e))*100) : 0;
+    return `
+      <div class="chart-day ${d.today?'today':''}">
+        <div class="chart-tip">${d.d} · Handled ${d.h} · Escalated ${d.e}</div>
+        <div class="chart-bar ${d.today?'today':''}" style="height:${totalPct}%">
+          <div class="chart-bar-red" style="height:${escPct}%"></div>
+          <div class="chart-bar-teal"></div>
+        </div>
+        <div class="chart-xlabel">${d.d}</div>
+      </div>`;
+  }).join('');
+}
+
+/* ==================== CONVERSATIONS ==================== */
+function filterConvosForRole(){
+  if(state.role==='practitioner'){
+    return CONVO_ORDER.filter(id=>CONVOS[id].practOnly==='chen');
+  }
+  return CONVO_ORDER.slice();
+}
+
+function renderConvoList(){
+  const pane = document.getElementById('convo-list-pane');
+  if(!pane) return;
+  if(state.view==='empty'){
+    pane.innerHTML = `
+      <div class="convo-list-header">
+        <div class="convo-title-row"><div class="convo-page-title">Conversations</div></div>
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input placeholder="Search patients or messages...">
+        </div>
+        <div class="convo-filters">
+          <div class="filter-pill active">All</div>
+          <div class="filter-pill">Needs attention</div>
+          <div class="filter-pill">AI handling</div>
+          <div class="filter-pill">Closed</div>
+        </div>
+      </div>
+      <div class="convo-list-empty">
+        <div class="convo-list-empty-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h4>No conversations yet</h4>
+        <p>When patients reply to Cliniko reminders, conversations will appear here.</p>
+      </div>`;
+    return;
+  }
+
+  const ids = filterConvosForRole();
+  const escCount = ids.filter(id=>(state.convoStatus[id]||CONVOS[id].status)==='escalated').length;
+  const header = `
+    <div class="convo-list-header">
+      <div class="convo-title-row"><div class="convo-page-title">Conversations</div></div>
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input placeholder="Search patients or messages...">
+      </div>
+      <div class="convo-filters">
+        <div class="filter-pill active">All</div>
+        <div class="filter-pill"><span class="red-dot-inline"></span>Needs attention · ${escCount}</div>
+        <div class="filter-pill">AI handling</div>
+        <div class="filter-pill">My patients</div>
+        <div class="filter-pill">Closed</div>
+      </div>
+    </div>`;
+
+  const rows = ids.map(id=>{
+    const c = CONVOS[id];
+    const status = state.convoStatus[id] || c.status;
+    const active = state.activeConvo===id ? 'active' : '';
+    const escClass = status==='escalated' ? 'escalated' : '';
+    const avatarClass = status==='escalated' ? 'esc' : status==='ai' ? 'ai' : status==='manual' ? 'manual' : 'closed';
+    const badgeText = {escalated:'Escalated',ai:'AI handling',closed:'Closed',manual:'Manual'}[status];
+    const badgeClass = status;
+    return `
+      <div class="convo-row ${active} ${escClass}" onclick="selectConvo('${id}')">
+        <div class="convo-avatar ${avatarClass}">${c.initials}</div>
+        <div class="convo-body">
+          <div class="convo-name">${c.name}</div>
+          <div class="convo-preview">${c.lastPreview}</div>
+          <div class="convo-meta">
+            <span class="convo-badge ${badgeClass}">${badgeText}</span>
+            <span class="convo-pract">${c.practitioner}</span>
+          </div>
+        </div>
+        <div class="convo-right">
+          <span class="convo-time">${c.lastTime}</span>
+          ${status==='escalated' ? '<span class="convo-action-pill">Action</span>' : (c.unread ? '<span class="convo-unread-dot"></span>' : '')}
+        </div>
+      </div>`;
+  }).join('');
+
+  pane.innerHTML = header + `<div class="convo-rows">${rows}</div>`;
+}
+
+function selectConvo(id){
+  state.activeConvo = id;
+  renderConvoList();
+  renderThread();
+}
+
+function renderThread(){
+  const pane = document.getElementById('thread-pane');
+  if(!pane) return;
+
+  if(state.view==='empty'){
+    pane.innerHTML = `
+      <div class="thread-empty">
+        <div class="thread-empty-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Select a conversation</h3>
+        <p>Or wait for your first patient message — we'll notify you when it arrives.</p>
+      </div>`;
+    return;
+  }
+
+  const id = state.activeConvo;
+  const c = CONVOS[id];
+  if(!c){ pane.innerHTML=''; return; }
+  const status = state.convoStatus[id] || c.status;
+  const statusLabels = {
+    escalated:'Escalated · Needs you',
+    ai:'Avilo is handling',
+    manual:'You took over',
+    closed:'Closed',
+  };
+  const statusClasses = {escalated:'esc',ai:'ai',manual:'manual',closed:'closed'};
+
+  const actions = (() => {
+    if(status==='escalated') return `
+      <button class="btn btn-primary btn-lg" onclick="takeover()">Take over this conversation</button>
+      <button class="btn btn-ghost-light btn-lg" onclick="markResolved()">Mark as resolved</button>`;
+    if(status==='ai') return `
+      <button class="btn btn-primary btn-lg" onclick="takeover()">Take over</button>
+      <button class="btn btn-ghost-light btn-lg">Let Avilo continue</button>`;
+    if(status==='manual') return `
+      <button class="btn btn-ghost-light btn-lg" onclick="handBack()">Hand back to Avilo</button>`;
+    return `<button class="btn btn-ghost-light btn-lg" onclick="reopenConvo()">Reopen conversation</button>`;
+  })();
+
+  const extraMsgs = state.threadMessages[id] || [];
+  const allMsgs = c.messages.concat(extraMsgs);
+
+  const showExplain = status==='escalated' && c.aiExplain;
+
+  // Determine scenario to use if "View as patient" clicked
+  const patientScenario = status==='escalated' ? 'escalation' : (c.messages.some(m=>m.text && m.text.includes('cancel')) ? 'cancel-auto' : 'reschedule');
+
+  pane.innerHTML = `
+    <div class="thread-header">
+      <div class="thread-patient">
+        <div class="thread-avatar">${c.initials}</div>
+        <div>
+          <div class="thread-name">${c.name}</div>
+          <div class="thread-phone">${c.phone}</div>
+          <div class="thread-desc">Patient of ${c.practitioner} · ${c.specialty} · Patient since ${c.since}</div>
+        </div>
+      </div>
+      <div class="thread-right">
+        <div class="thread-status ${statusClasses[status]}">${statusLabels[status]}</div>
+        <div class="thread-actions">${actions}</div>
+      </div>
+    </div>
+    <div class="thread-body" id="thread-body">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <button class="view-as-btn" onclick="viewAsPatient('${patientScenario}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          View as patient
+        </button>
+      </div>
+      ${showExplain ? `
+        <div class="ai-explain">
+          <div class="ai-explain-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v1H7a2 2 0 0 0-2 2v3H4a2 2 0 0 0 0 4h1v3a2 2 0 0 0 2 2h2v1a3 3 0 0 0 6 0v-1h2a2 2 0 0 0 2-2v-3h1a2 2 0 0 0 0-4h-1V8a2 2 0 0 0-2-2h-2V5a3 3 0 0 0-3-3z"/></svg>
+          </div>
+          <div class="ai-explain-body">
+            <div class="ai-explain-title">${c.aiExplain.title}</div>
+            <div class="ai-explain-text">${c.aiExplain.text}</div>
+            <div class="ai-explain-conf">${c.aiExplain.conf}</div>
+          </div>
+        </div>` : ''}
+      <div class="context-card">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div><b>Upcoming appointment:</b> ${c.appointment}</div>
+        <span class="context-link">Link to Cliniko →</span>
+      </div>
+      <div class="messages">
+        ${allMsgs.map(renderMessage).join('')}
+      </div>
+    </div>
+    ${renderInputArea(status, c.name)}
+  `;
+}
+
+function renderMessage(m){
+  if(m.type==='banner'){
+    return `<div class="inline-banner"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>${m.text.replace(/^⚠\s*/,'')}</div>`;
+  }
+  if(m.type==='timeline'){
+    return `<div class="timeline-marker">${m.text}</div>`;
+  }
+  if(m.type==='reminder'){
+    return `
+      <div class="msg-wrap in">
+        <div class="msg-sender"><span class="tag reminder">Cliniko reminder</span></div>
+        <div class="msg-bubble reminder">${m.text}</div>
+        <div class="msg-time">${m.time}</div>
+      </div>`;
+  }
+  if(m.type==='patient'){
+    return `
+      <div class="msg-wrap in">
+        <div class="msg-bubble patient">${m.text}</div>
+        <div class="msg-time">${m.time}</div>
+      </div>`;
+  }
+  if(m.type==='ai'){
+    return `
+      <div class="msg-wrap out">
+        <div class="msg-sender"><span class="tag ai">Avilo AI</span></div>
+        <div class="msg-bubble ai">${m.text}</div>
+        <div class="msg-conf">${m.conf||''} · ${m.time||''}</div>
+      </div>`;
+  }
+  if(m.type==='ai-internal'){
+    return `
+      <div class="msg-wrap out">
+        <div class="msg-sender"><span class="tag" style="background:#fee2e2;color:var(--red)">Internal · not sent</span></div>
+        <div class="msg-bubble" style="background:#fee2e2;color:var(--red);font-family:ui-monospace,monospace;font-size:12px">${m.text}</div>
+        <div class="msg-conf">${m.time||''}</div>
+      </div>`;
+  }
+  if(m.type==='practitioner'){
+    return `
+      <div class="msg-wrap out">
+        <div class="msg-sender">${m.sender||'You'}</div>
+        <div class="msg-bubble practitioner">${m.text}</div>
+        <div class="msg-time">${m.time}</div>
+      </div>`;
+  }
+  return '';
+}
+
+function renderInputArea(status, patientName){
+  if(status==='escalated' || status==='manual'){
+    return `
+      <div class="input-area">
+        <div class="input-row">
+          <textarea placeholder="Type your reply to ${patientName.split(' ')[0]}..." id="msg-input" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
+          <button class="send-btn" onclick="sendMessage()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l-1.5 1.5L16 9H3v2h13l-5.5 5.5L12 18l8-8-8-8z"/></svg>
+          </button>
+        </div>
+        <div class="input-helper">
+          <span>Your reply will be sent from the practice's Avilo number. ${patientName.split(' ')[0]} will see it as coming from your practice, not from Avilo AI.</span>
+          <span class="ai-suggest">Suggest a reply with AI · coming soon</span>
+        </div>
+      </div>`;
+  }
+  if(status==='ai'){
+    return `
+      <div class="input-area">
+        <div class="input-row disabled">
+          <textarea placeholder="Avilo is handling this conversation. Click 'Take over' to respond manually." disabled></textarea>
+        </div>
+      </div>`;
+  }
+  return `
+    <div class="input-area">
+      <div class="input-row disabled">
+        <textarea placeholder="This conversation is closed." disabled></textarea>
+      </div>
+    </div>`;
+}
+
+/* ==================== ACTIONS ==================== */
+function takeover(){
+  openModal('Take over this conversation?',
+    "Avilo will stop responding. Your next reply will be sent to the patient from your practice's number.",
+    ()=>{
+      const id = state.activeConvo;
+      state.convoStatus[id] = 'manual';
+      state.threadMessages[id] = (state.threadMessages[id]||[]).concat([
+        {type:'timeline',text:`You took over this conversation · ${nowStr()}`}
+      ]);
+      closeModal();
+      renderConvoList();
+      renderThread();
+    });
+}
+function handBack(){
+  openModal('Hand back to Avilo?',
+    'Are you sure? Avilo will respond to the next patient message.',
+    ()=>{
+      const id = state.activeConvo;
+      state.convoStatus[id] = 'ai';
+      state.threadMessages[id] = (state.threadMessages[id]||[]).concat([
+        {type:'timeline',text:`Handed back to Avilo · ${nowStr()}`}
+      ]);
+      closeModal();
+      renderConvoList();
+      renderThread();
+    });
+}
+function markResolved(){
+  const id = state.activeConvo;
+  state.convoStatus[id] = 'closed';
+  renderConvoList();
+  renderThread();
+}
+function reopenConvo(){
+  const id = state.activeConvo;
+  state.convoStatus[id] = 'manual';
+  renderConvoList();
+  renderThread();
+}
+function sendMessage(){
+  const input = document.getElementById('msg-input');
+  if(!input || !input.value.trim()) return;
+  const id = state.activeConvo;
+  state.threadMessages[id] = (state.threadMessages[id]||[]).concat([
+    {type:'practitioner',text:input.value.trim(),time:'Now',sender:'You'}
+  ]);
+  input.value='';
+  renderThread();
+  setTimeout(()=>{
+    const body = document.getElementById('thread-body');
+    if(body) body.scrollTop = body.scrollHeight;
+  },50);
+}
+function viewAsPatient(scen){
+  state.scenario = scen;
+  goto('sms-preview');
+  setScenario(scen);
+}
+
+function nowStr(){
+  const d=new Date();
+  const h=d.getHours(), m=d.getMinutes();
+  const hh = h%12||12;
+  const mm = m<10?'0'+m:m;
+  return `Today · ${hh}:${mm}${h>=12?'pm':'am'}`;
+}
+
+/* ==================== MODAL ==================== */
+function openModal(title,body,onConfirm){
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-body').textContent = body;
+  const btn = document.getElementById('modal-confirm');
+  btn.onclick = onConfirm;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+}
+
+/* ==================== SMS PREVIEW ==================== */
+function setScenario(s){
+  state.scenario = s;
+  document.querySelectorAll('.scenario-pill').forEach(p=>p.classList.toggle('active', p.dataset.scen===s));
+  document.getElementById('scenario-desc').textContent = SCENARIOS[s].desc;
+  document.getElementById('policy-field').style.display = SCENARIOS[s].showPolicy ? '' : 'none';
+  renderPhone();
+}
+function setTone(t){
+  state.tone = t;
+  document.querySelectorAll('.tone-pill').forEach(p=>p.classList.toggle('active', p.dataset.tone===t));
+  renderPhone();
+}
+function setOOH(o){
+  state.ooh = o;
+  document.querySelectorAll('.radio-row').forEach(r=>r.classList.toggle('active', r.dataset.ooh===o));
+}
+
+function renderPhone(){
+  const scenario = SCENARIOS[state.scenario];
+  const practice = document.getElementById('f-practice').value || 'Northside Physiotherapy';
+  const pract = document.getElementById('f-pract').value || 'Dr. Sarah Chen';
+  const policy = document.getElementById('f-policy').value || '';
+  const ctx = {practice, pract, policy};
+
+  document.getElementById('ios-avatar').textContent = practice.charAt(0).toUpperCase();
+  document.getElementById('ios-name').textContent = practice;
+
+  const lines = scenario.lines(ctx, state.tone);
+  const html = lines.map(l=>{
+    if(l.type==='divider') return `<div class="ios-time-divider"><b>${l.day}</b>${l.time}</div>`;
+    if(l.type==='reminder-label') return `<div class="ios-reminder-label">Automated reminder from Cliniko</div>`;
+    if(l.type==='in') return `<div class="ios-msg-row in"><div class="ios-bubble in">${escapeHtml(l.text)}</div></div>`;
+    if(l.type==='out') return `<div class="ios-msg-row out"><div class="ios-bubble out">${escapeHtml(l.text)}</div></div>`;
+    if(l.type==='delivered') return `<div class="ios-delivered">Delivered</div>`;
+    return '';
+  }).join('');
+
+  document.getElementById('ios-messages').innerHTML = html;
+  const msgs = document.getElementById('ios-messages');
+  msgs.scrollTop = msgs.scrollHeight;
+
+  const note = document.getElementById('scenario-note');
+  if(scenario.note){
+    note.style.display='';
+    note.textContent = scenario.note;
+  } else {
+    note.style.display='none';
+  }
+}
+
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ==================== INIT ==================== */
+document.addEventListener('DOMContentLoaded',()=>{
+  const h=window.location.hash.slice(1);
+  const start = ['dashboard','conversations','sms-preview'].includes(h) ? h : 'dashboard';
+  renderChart();
+  applyView();
+  setScenario('reschedule');
+  goto(start);
+});
+</script>
+</body>
+</html>
