@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en-AU">
+<!doctype html>
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pricing — Avilo</title>
+<title>Pricing &mdash; Avilo</title>
 <meta name="description" content="Per-practice pricing for Avilo. No per-message fees, no per-user fees. Pays for itself when Avilo recovers two appointments a month.">
 <meta property="og:title" content="Avilo Pricing — Pays for itself in two appointments">
 <meta property="og:description" content="Flat monthly subscription. Founding pricing for the first 5 practices. No per-message fees.">
@@ -245,10 +247,61 @@ a{color:var(--teal);text-decoration:none}
   .footer-grid{grid-template-columns:1fr;gap:32px}
   .founding-bar{flex-direction:column;text-align:center;gap:10px}
 }
+
+/* ── v2 pricing: 2-card layout with locations selector ────────────── */
+.price-grid-2{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+@media (max-width:900px){.price-grid-2{grid-template-columns:1fr;gap:18px}}
+.price-grid-2 .price-card{transition:all .3s ease}
+.price-grid-2 .price-card.featured{transform:none}
+.price-grid-2 .price-card.featured:hover{transform:translateY(-2px)}
+
+/* Segmented control for locations */
+.loc-control{margin:0 0 22px;padding:18px 20px;background:linear-gradient(180deg,var(--teal-wash) 0%,#fff 100%);border:1px solid var(--teal-wash-mid);border-radius:14px}
+.loc-control .lc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.loc-control .lc-label{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:-.005em;display:flex;align-items:center;gap:8px}
+.loc-control .lc-label svg{color:var(--teal)}
+.loc-control .lc-hint{font-size:11.5px;color:var(--slate-light);font-weight:500}
+.loc-segments{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:5px}
+.loc-seg{font-family:inherit;background:transparent;border:0;padding:9px 6px;font-size:13.5px;font-weight:700;color:var(--slate);cursor:pointer;border-radius:7px;transition:all .2s;letter-spacing:-.005em}
+.loc-seg:hover{color:var(--navy)}
+.loc-seg.active{background:var(--teal);color:#fff;box-shadow:0 2px 6px rgba(13,148,136,.25)}
+
+/* Price block for Full Suite needs space for transitions */
+.price-amount-block{min-height:80px}
+.price-amount.custom{align-items:baseline}
+.price-amount.custom .pa-num{font-size:36px;letter-spacing:-.025em}
+.price-per-loc{display:block;font-size:13px;color:var(--slate-light);margin-top:6px;font-weight:500}
+
+/* Toggle row above pricing cards: annual / monthly (visual treatment) */
+.pricing-toggle{display:flex;justify-content:center;margin:0 auto 32px;gap:0;background:#F5F7FA;border:1px solid var(--border);border-radius:12px;padding:5px;max-width:fit-content}
+.pt-btn{font-family:inherit;background:transparent;border:0;padding:9px 18px;font-size:13.5px;font-weight:600;color:var(--slate);cursor:pointer;border-radius:8px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.pt-btn.active{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(23,32,48,.08)}
+.pt-btn .savings{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:var(--teal-wash);padding:3px 7px;border-radius:99px}
+
+/* New compare table (2-col) */
+.cmp-table-2{margin-top:40px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+.cmp-row-2{display:grid;grid-template-columns:2.4fr 1fr 1fr;align-items:center;padding:14px 26px;border-bottom:1px solid var(--border-subtle);font-size:14.5px}
+.cmp-row-2:last-child{border-bottom:0}
+.cmp-row-2.head{background:var(--navy);color:#fff;font-weight:700;font-size:13px;padding:20px 26px}
+.cmp-row-2.head .cmp-cell{justify-content:center;flex-direction:column;gap:3px}
+.cmp-row-2.head .cmp-tier{font-size:14.5px;font-weight:800;letter-spacing:-.01em}
+.cmp-row-2.head .cmp-price{font-size:11.5px;color:rgba(255,255,255,.55);font-weight:600;letter-spacing:.04em}
+.cmp-row-2.head .cmp-tier.featured{color:var(--teal-light)}
+.cmp-row-2.section-head{background:var(--teal-wash);color:var(--navy);font-weight:800;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border-bottom:1px solid var(--teal-wash-mid)}
+.cmp-row-2:nth-child(odd):not(.head):not(.section-head){background:#FAFBFC}
+@media (max-width:900px){
+  .cmp-row-2{grid-template-columns:1.7fr 1fr 1fr;padding:12px 14px;font-size:12.5px}
+  .cmp-row-2.head{padding:14px 14px}
+}
+
+/* Stacked banner for founding on this page */
+.founding-bar.v2{max-width:980px;margin:32px auto 0;padding:18px 24px}
+
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/avilo_favicon_64.png">
 <link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png">
 <link rel="apple-touch-icon" sizes="512x512" href="brand/avilo_favicon_512.png">
+
 </head>
 <body>
 
@@ -272,200 +325,141 @@ a{color:var(--teal);text-decoration:none}
   <div class="glow glow-bl"></div>
   <div class="hero-inner">
     <span class="pill-eyebrow"><span class="pulse"></span>Simple, per-practice pricing</span>
-    <h1>Pays for itself when Avilo recovers <span class="underline">two appointments a month</span>.</h1>
+    <h1 style="font-size: 57px">Pays for itself in two appointments.</h1>
     <p class="hero-sub">No per-message fees. No per-user fees. No setup fees. Just a flat monthly subscription that scales with your practice size.</p>
   </div>
 </section>
 
+
 <!-- PRICING CARDS -->
 <section class="pricing-section" data-screen-label="02 Pricing">
-  <div class="price-grid">
-    <!-- STARTER -->
+  <!-- Annual / Monthly toggle (visual; affects pricing display) -->
+  <div class="pricing-toggle reveal">
+    <button class="pt-btn active" data-cycle="monthly" onclick="setCycle('monthly')">Monthly</button>
+    <button class="pt-btn" data-cycle="annual" onclick="setCycle('annual')">Annual <span class="savings">Save 15%</span></button>
+  </div>
+
+  <div class="price-grid-2">
+
+    <!-- NOTIFICATIONS ONLY -->
     <div class="price-card reveal">
       <div class="price-tier">Starter</div>
       <div class="price-name">Notifications Only</div>
-      <div class="price-scale">Teams of any size</div>
-      <div class="price-amount">
-        <span class="pa-curr">$</span><span class="pa-num">79</span><span class="pa-period">/month AUD</span>
+      <div class="price-scale">Teams of any size &middot; flat rate</div>
+      <div class="price-amount-block">
+        <div class="price-amount">
+          <span class="pa-curr">$</span><span class="pa-num" id="price-notif-num">79</span><span class="pa-period" id="price-notif-period">/month AUD</span>
+        </div>
+        <span class="price-per-loc" id="price-notif-sub">Same price no matter how many locations or seats.</span>
       </div>
-      <p class="price-tagline">Get Avilo into your practice with zero friction. Notifications and routing today — full handler when you're ready.</p>
+      <p class="price-tagline">Get Avilo into your practice with zero friction. We surface every patient reply to the right person on your team &mdash; you handle the conversation.</p>
       <ul class="price-feats">
         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Instant inbound SMS notifications</li>
         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Slack, Teams, Discord &amp; SMS alerts</li>
         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Per-practitioner message routing</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cliniko integration</li>
-        <li class="muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>AI SMS handler <span class="soon" style="color:var(--slate);background:var(--border-subtle)">Growth</span></li>
-        <li class="muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span style="color: rgb(148, 163, 184)">Reactivation campaigns </span><span class="soon" style="background-color: rgb(241, 245, 249); color: rgb(71, 85, 105)">Growth</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Official Cliniko integration</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited seats &amp; channels</li>
+        <li class="muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>AI SMS handler <span class="soon" style="color:var(--slate);background:var(--border-subtle)">Full Suite</span></li>
+        <li class="muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Reactivation campaigns <span class="soon" style="color:var(--slate);background:var(--border-subtle)">Full Suite</span></li>
       </ul>
-      <button class="btn btn-outline btn-lg price-cta" onclick="openModal()">Join waitlist</button>
-      <p class="price-fine">14-day trial · Cancel anytime · No card required</p>
+      <button class="btn btn-outline btn-lg price-cta" onclick="openModal()">Start with Notifications</button>
+      <p class="price-fine">14-day trial &middot; No card required &middot; Cancel anytime</p>
     </div>
 
-    <!-- GROWTH (featured) -->
+    <!-- FULL SUITE (with locations selector) -->
     <div class="price-card featured reveal" data-delay="80">
       <span class="price-badge">Most popular</span>
-      <div class="price-tier">Growth</div>
+      <div class="price-tier">Full Suite</div>
       <div class="price-name">Smart Communication Handler</div>
-      <div class="price-scale">1-8 practitioners</div>
-      <div class="price-amount">
-        <span class="pa-curr">$</span><span class="pa-num">199</span><span class="pa-period">/month AUD</span>
+      <div class="price-scale">Priced per practice &middot; pick your locations below</div>
+
+      <!-- Locations segmented control -->
+      <div class="loc-control">
+        <div class="lc-head">
+          <span class="lc-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            How many locations?
+          </span>
+          <span class="lc-hint">One subscription, all sites included</span>
+        </div>
+        <div class="loc-segments" role="tablist" aria-label="Number of practice locations">
+          <button class="loc-seg active" data-loc="1" onclick="setLocs(1)">1</button>
+          <button class="loc-seg" data-loc="2" onclick="setLocs(2)">2</button>
+          <button class="loc-seg" data-loc="3" onclick="setLocs(3)">3</button>
+          <button class="loc-seg" data-loc="4" onclick="setLocs(4)">4+</button>
+        </div>
       </div>
+
+      <div class="price-amount-block">
+        <div class="price-amount" id="price-suite-block">
+          <span class="pa-curr">$</span><span class="pa-num" id="price-suite-num">199</span><span class="pa-period" id="price-suite-period">/month AUD</span>
+        </div>
+        <span class="price-per-loc" id="price-suite-sub">All practitioners &middot; unlimited messages &middot; 1 location</span>
+      </div>
+
       <p class="price-tagline">Every patient message, handled. Reschedules, cancellations, and questions resolved by Avilo before anyone on your team sees them.</p>
       <ul class="price-feats">
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><b style="font-weight:700;color:var(--navy)">Everything in Starter</b></li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full AI SMS handler</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reschedule &amp; cancellation conversations</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><b style="font-weight:700;color:var(--navy)">Everything in Notifications</b></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full AI SMS conversation handler</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reschedules &amp; cancellations end-to-end</li>
         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Real-time Cliniko availability &amp; booking</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Configurable escalation behaviour</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Configurable escalation threshold</li>
         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Out-of-hours response configuration</li>
-        <li class="muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span style="color: rgb(148, 163, 184)">AI Reactivation campaigns </span><span class="soon" style="background-color: rgb(241, 245, 249); color: rgb(71, 85, 105)">Scale</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-location support included <span class="soon" style="color:var(--teal);background:var(--teal-wash)">From 2+</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI reactivation campaigns <span class="soon">Soon</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cancellation waitlist auto-fill <span class="soon">Soon</span></li>
       </ul>
-      <button class="btn btn-primary btn-lg price-cta" onclick="openModal()">Join waitlist →</button>
-      <p class="price-fine">14-day trial · Cancel anytime · No card required</p>
+      <button class="btn btn-primary btn-lg price-cta" onclick="openModal()" id="price-suite-cta">Book a demo &rarr;</button>
+      <p class="price-fine">14-day trial &middot; No card required &middot; Cancel anytime</p>
     </div>
 
-    <!-- SCALE -->
-    <div class="price-card reveal" data-delay="160">
-      <div class="price-tier">Scale</div>
-      <div class="price-name">Larger &amp; Multi-site Clinics</div>
-      <div class="price-scale">8–15+ practitioners</div>
-      <div class="price-amount">
-        <span class="pa-curr">$</span><span class="pa-num">299</span><span class="pa-period">/month AUD</span>
-      </div>
-      <p class="price-tagline">For larger practices and multi-location clinics. Everything in Growth, plus the operational depth you need across sites.</p>
-      <ul class="price-feats">
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><b style="font-weight:700;color:var(--navy)">Everything in Growth</b></li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Multi-location support</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Advanced reporting &amp; analytics</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI Reactivation campaigns <span class="soon">Soon</span></li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cancellation waitlist automation <span class="soon">Soon</span></li>
-      </ul>
-      <button class="btn btn-outline btn-lg price-cta" onclick="openModal()">Talk to us</button>
-      <p class="price-fine">Custom onboarding · Dedicated success manager</p>
-    </div>
   </div>
 
-  <!-- founding offer note -->
-  <div class="founding-bar reveal" data-delay="200">
-    <span class="fb-tag">Founding · 5 spots</span>
-    <div class="fb-body">The first 5 practices get foundational pricing locked in for life — <b>$49/mo</b> (notifications) or <b>$99/mo</b> (full Growth handler). In exchange: monthly feedback calls and a 90-day testimonial. <a onclick="openModal()" style="font-weight:600;cursor:pointer">Apply →</a></div>
+  <div class="founding-bar v2 reveal" data-delay="200">
+    <span class="fb-tag">Founding &middot; 5 spots</span>
+    <div class="fb-body">The first 5 practices get foundational pricing locked in for life &mdash; <b>$49/mo</b> (notifications) or <b>$129/mo</b> (Full Suite, single location). In exchange: monthly feedback calls and a 90-day testimonial. <a onclick="openModal('founding')" style="font-weight:600;cursor:pointer">Apply &rarr;</a></div>
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
+
+
+<!-- COMPARE -->
 <section class="section wash" data-screen-label="03 Compare">
   <div class="section-inner">
     <div class="center" style="max-width:760px;margin:0 auto">
       <span class="eyebrow reveal">Compare plans</span>
-      <h2 class="reveal" data-delay="60">Everything that's in every plan, side by side.</h2>
-      <p class="sub reveal mx-auto" data-delay="120" style="max-width:600px;margin-top:16px">All plans include the Cliniko integration, the routing layer, and our escalation SLA. You scale up when you want the AI handler doing the conversations end-to-end.</p>
+      <h2 class="reveal" data-delay="60">Everything in each plan, side by side.</h2>
+      <p class="sub reveal mx-auto" data-delay="120" style="max-width:600px;margin-top:16px">Both plans include the Cliniko integration, the routing layer, and our 60-second escalation SLA. You upgrade to Full Suite when you want Avilo running entire conversations end-to-end.</p>
     </div>
 
-    <div class="cmp-table reveal" data-delay="160">
-      <div class="cmp-row head">
-        <div>What's included</div>
-        <div class="cmp-cell"><span class="cmp-tier">Starter</span><span class="cmp-price">$99/mo</span></div>
-        <div class="cmp-cell"><span class="cmp-tier featured">Growth</span><span class="cmp-price">$199/mo</span></div>
-        <div class="cmp-cell"><span class="cmp-tier">Scale</span><span class="cmp-price">$299/mo</span></div>
+    <div class="cmp-table-2 reveal" data-delay="160" style="max-width:980px;margin-left:auto;margin-right:auto">
+      <div class="cmp-row-2 head">
+        <div>What&rsquo;s included</div>
+        <div class="cmp-cell"><span class="cmp-tier" style="color: rgb(77, 217, 192)">Notifications</span><span class="cmp-price">From $79/mo</span></div>
+        <div class="cmp-cell"><span class="cmp-tier featured">Full Suite</span><span class="cmp-price">From $199/mo</span></div>
       </div>
 
-      <div class="cmp-row section-head"><span>Notifications &amp; routing</span><span></span><span></span><span></span></div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Instant inbound SMS notifications<span class="sub">Patient replies surface in seconds, not hours</span></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Slack · Teams · Discord · SMS<span class="sub">Choose the channels your team already lives in</span></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Per-practitioner message routing<span class="sub">Replies land with the right clinician automatically</span></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">60-second escalation SLA</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
+      <div class="cmp-row-2 section-head"><span>Notifications &amp; routing</span><span></span><span></span></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Instant inbound SMS notifications<span class="sub">Patient replies surface in seconds, not hours</span></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="cmp-row-2"><div class="cmp-feat">Slack &middot; Teams &middot; Discord &middot; SMS<span class="sub">Choose the channels your team already lives in</span></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="cmp-row-2"><div class="cmp-feat">Per-practitioner message routing<span class="sub">Replies land with the right clinician automatically</span></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="cmp-row-2"><div class="cmp-feat">60-second escalation SLA</div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
 
-      <div class="cmp-row section-head"><span>AI SMS handler</span><span></span><span></span><span></span></div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Full AI conversation handling<span class="sub">Avilo runs reschedules &amp; cancellations end-to-end</span></div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Real-time Cliniko availability &amp; booking</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Configurable escalation threshold</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Out-of-hours response configuration</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
+      <div class="cmp-row-2 section-head"><span>AI SMS handler</span><span></span><span></span></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Full AI conversation handling<span class="sub">Avilo runs reschedules &amp; cancellations end-to-end</span></div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="cmp-row-2"><div class="cmp-feat">Real-time Cliniko availability &amp; booking</div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="cmp-row-2"><div class="cmp-feat">Configurable escalation threshold</div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="cmp-row-2"><div class="cmp-feat">Out-of-hours response configuration</div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
 
-      <div class="cmp-row section-head"><span>Operational scale</span><span></span><span></span><span></span></div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Multi-location support<span class="sub">One subscription across multiple clinics</span></div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Priority support<span class="sub">Direct line to the team. Same-business-day SLA.</span></div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Advanced reporting &amp; analytics</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell txt">Standard</div>
-        <div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      </div>
+      <div class="cmp-row-2 section-head"><span>Operational scale</span><span></span><span></span></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Multi-location support<span class="sub">One subscription across multiple clinics</span></div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell txt" style="font-size:13.5px;color:var(--navy);font-weight:500">From 2 locations</div></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Priority support<span class="sub">Direct line to the team. Same-business-day SLA.</span></div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell txt" style="font-size:13.5px;color:var(--navy);font-weight:500">From 3 locations</div></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Advanced reporting &amp; analytics</div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
 
-      <div class="cmp-row section-head"><span>Roadmap · included when live</span><span></span><span></span><span></span></div>
-      <div class="cmp-row">
-        <div class="cmp-feat">AI reactivation campaigns<span class="sub">Auto-build the lapsed-patient list, send personalised SMS, book the replies</span></div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell soon">Soon</div>
-        <div class="cmp-cell soon">Soon</div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Cancellation waitlist automation</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell soon">Soon</div>
-        <div class="cmp-cell soon">Soon</div>
-      </div>
-      <div class="cmp-row">
-        <div class="cmp-feat">Day-of patient updates</div>
-        <div class="cmp-cell n">—</div>
-        <div class="cmp-cell soon">Soon</div>
-        <div class="cmp-cell soon">Soon</div>
-      </div>
+      <div class="cmp-row-2 section-head"><span>Roadmap &middot; included when live</span><span></span><span></span></div>
+      <div class="cmp-row-2"><div class="cmp-feat">AI reactivation campaigns<span class="sub">Auto-build the lapsed-patient list, send personalised SMS, book the replies</span></div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell soon" style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400E">Soon</div></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Cancellation waitlist automation</div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell soon" style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400E">Soon</div></div>
+      <div class="cmp-row-2"><div class="cmp-feat">Day-of patient updates</div><div class="cmp-cell n">&mdash;</div><div class="cmp-cell soon" style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400E">Soon</div></div>
     </div>
 
     <p class="center reveal" style="font-size:13.5px;color:var(--slate);margin-top:20px">Beta customers get every roadmap feature at no extra cost as it ships.</p>
   </div>
 </section>
+
 
 <!-- ROI CALCULATOR -->
 <section class="section" data-screen-label="04 ROI">
@@ -473,10 +467,10 @@ a{color:var(--teal);text-decoration:none}
     <div class="center">
       <span class="eyebrow reveal">Pays for itself</span>
       <h2 class="reveal" data-delay="60">Two appointments a month. That's the bar.</h2>
-      <p class="sub reveal mx-auto" data-delay="120" style="max-width:580px;margin-top:16px">Set your numbers below. Most practices recover the Growth subscription within the first week of the month — everything past that is profit.</p>
+      <p class="sub reveal mx-auto" data-delay="120" style="max-width:580px;margin-top:16px">Set your numbers below. Most practices recover the Full Suite subscription within the first week of the month — everything past that is profit.</p>
     </div>
     <div class="roi-card reveal" data-delay="160">
-      <div class="roi-inputs">
+      <div class="roi-inputs" style="grid-template-columns:repeat(2,1fr)">
         <div class="roi-input">
           <label>Missed/late patient messages per week <span class="val" id="v-m">6</span></label>
           <input type="range" id="i-m" min="1" max="25" value="6" oninput="calc()">
@@ -484,10 +478,6 @@ a{color:var(--teal);text-decoration:none}
         <div class="roi-input">
           <label>Average consult fee <span class="val" id="v-f">$120</span></label>
           <input type="range" id="i-f" min="80" max="250" value="120" step="5" oninput="calc()">
-        </div>
-        <div class="roi-input">
-          <label>% Avilo can recover <span class="val" id="v-r">70%</span></label>
-          <input type="range" id="i-r" min="40" max="90" value="70" oninput="calc()">
         </div>
       </div>
       <div class="roi-results">
@@ -501,11 +491,11 @@ a{color:var(--teal);text-decoration:none}
             <div class="roi-num tl"><span class="arr">↑</span><span id="o-rec">$13,104</span></div>
           </div>
           <div class="roi-stat">
-            <div class="roi-lbl">Net after Growth ($199/mo)</div>
+            <div class="roi-lbl">Net after Full Suite ($199/mo)</div>
             <div class="roi-num"><span id="o-net">$10,716</span></div>
           </div>
         </div>
-        <div class="roi-note">Growth plan ($199/mo) pays for itself when Avilo recovers just <b>2 appointments per month</b>. Beyond that, it's recovered revenue at your consult margin.</div>
+        <div class="roi-note">Based on Avilo recovering <b>65%</b> of missed and late patient messages. The Full Suite plan pays for itself when it recovers just <b>2 appointments per month</b> — everything past that is revenue at your consult margin.</div>
       </div>
     </div>
   </div>
@@ -725,16 +715,15 @@ function submitDemo(e){
 }
 
 function fmt(n){return '$'+Math.round(n).toLocaleString()}
+const RECOVER_RATE = 0.65; // Based on observed recovery of missed/late patient messages
 function calc(){
   const m=+document.getElementById('i-m').value;
   const f=+document.getElementById('i-f').value;
-  const r=+document.getElementById('i-r').value;
   document.getElementById('v-m').textContent=m;
   document.getElementById('v-f').textContent='$'+f;
-  document.getElementById('v-r').textContent=r+'%';
   const missed=m*52;
   const risk=missed*f*0.5;
-  const rec=risk*(r/100);
+  const rec=risk*RECOVER_RATE;
   const net=rec-(199*12);
   document.getElementById('o-risk').textContent=fmt(risk);
   document.getElementById('o-rec').textContent=fmt(rec);
@@ -742,5 +731,87 @@ function calc(){
 }
 window.addEventListener('DOMContentLoaded',calc);
 </script>
+</body>
+</html>
+
+
+<script>
+/* ── Pricing v2 — locations + cycle ────────────────────────────────── */
+// Annual = 15% off the monthly rate, billed yearly.
+// On the annual toggle we still display a monthly-equivalent figure (rounded),
+// because that's the number practice owners compare against.
+const ANNUAL_DISCOUNT = 0.15;
+const annualMonthly = (m) => Math.round(m * (1 - ANNUAL_DISCOUNT));
+const annualYearTotal = (m) => Math.round(m * 12 * (1 - ANNUAL_DISCOUNT));
+
+const PRICE = {
+  notif: { monthly: 79 },
+  suite: {
+    1: { monthly: 199 },
+    2: { monthly: 349 },
+    3: { monthly: 499 },
+    4: { custom: true } // talk-to-us
+  }
+};
+
+let _locs = 1;
+let _cycle = 'monthly';
+
+function setLocs(n){
+  _locs = n;
+  document.querySelectorAll('.loc-seg').forEach(b => b.classList.toggle('active', +b.dataset.loc === n));
+  renderPrices();
+}
+function setCycle(c){
+  _cycle = c;
+  document.querySelectorAll('.pt-btn').forEach(b => b.classList.toggle('active', b.dataset.cycle === c));
+  renderPrices();
+}
+
+function renderPrices(){
+  // Notifications
+  const notifMonthly = PRICE.notif.monthly;
+  const notifDisplay = _cycle === 'annual' ? annualMonthly(notifMonthly) : notifMonthly;
+  const notifNum = document.getElementById('price-notif-num');
+  const notifPer = document.getElementById('price-notif-period');
+  const notifSub = document.getElementById('price-notif-sub');
+  if(notifNum) notifNum.textContent = notifDisplay;
+  if(notifPer) notifPer.textContent = '/month AUD';
+  if(notifSub) notifSub.textContent = _cycle === 'annual'
+    ? '$' + annualYearTotal(notifMonthly).toLocaleString() + ' billed annually · same price across locations & seats.'
+    : 'Same price no matter how many locations or seats.';
+
+  // Suite
+  const suiteBlock = document.getElementById('price-suite-block');
+  const suiteSub = document.getElementById('price-suite-sub');
+  const suiteCta = document.getElementById('price-suite-cta');
+  const suiteCfg = PRICE.suite[_locs];
+  if(suiteCfg.custom){
+    if(suiteBlock){
+      suiteBlock.innerHTML = '<span class="pa-num" style="font-size:38px;letter-spacing:-.025em">Let&rsquo;s talk</span>';
+    }
+    if(suiteSub) suiteSub.textContent = 'For multi-region or 4+ location clinics, we tailor a per-practice rate.';
+    if(suiteCta) suiteCta.innerHTML = 'Talk to us &rarr;';
+  } else {
+    const monthly = suiteCfg.monthly;
+    const displayPrice = _cycle === 'annual' ? annualMonthly(monthly) : monthly;
+    if(suiteBlock){
+      suiteBlock.innerHTML = '<span class="pa-curr">$</span><span class="pa-num" id="price-suite-num">' + displayPrice.toLocaleString() + '</span><span class="pa-period" id="price-suite-period">/month AUD</span>';
+    }
+    if(suiteSub){
+      const locTxt = _locs === 1 ? '1 location' : _locs + ' locations';
+      const billing = _cycle === 'annual'
+        ? ' &middot; $' + annualYearTotal(monthly).toLocaleString() + ' billed annually'
+        : '';
+      suiteSub.innerHTML = 'All practitioners &middot; unlimited messages &middot; ' + locTxt + billing;
+    }
+    if(suiteCta) suiteCta.innerHTML = 'Book a demo &rarr;';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', renderPrices);
+</script>
+
+
 </body>
 </html>

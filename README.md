@@ -29,23 +29,33 @@ Swap that string in `index.html`, `pricing.html`, `features.html`, and `about.ht
 
 ## Deploying
 
-### Vercel (recommended)
+### GitHub → Hostinger (current setup)
 
-1. `vercel` — drop into the project root, it auto-detects static.
-2. The included `vercel.json` enables clean URLs (`/features` instead of `/features.html`) and redirects `/home` → `/`.
-3. Set the production domain to `avilo.com.au`.
+The live site at **avilo.com.au** is hosted on Hostinger and deployed from this GitHub repo. To push changes live:
 
-### Netlify
+1. Commit and push to the deploy branch (`main`):
+   ```
+   git add -A
+   git commit -m "Update site"
+   git push origin main
+   ```
+2. Hostinger picks up the push automatically (hPanel → **Website → Git → Auto Deployment** is enabled). If auto-deploy is off, open hPanel → **Git** and click **Deploy** to pull the latest commit.
+3. Verify at https://avilo.com.au — hard-refresh (Cmd/Ctrl+Shift+R) to bypass cache.
 
-Drag the `site/` folder onto netlify.com, or `netlify deploy --prod --dir=.` from inside it. Clean URLs are on by default.
+> **Note:** Hostinger serves files by their real path, so pages are reached with the `.html` extension (`/pricing.html`, `/features.html`). The `vercel.json` clean-URL config is **not** applied here — links throughout the site already use `.html`, so everything resolves correctly.
 
-### Cloudflare Pages
+### Any other static host
 
-`wrangler pages deploy .` from inside `site/`. No config needed.
+Upload the contents of `site/` to the web root. Pages link with the `.html` extension, so they work with or without clean-URL rewrites.
 
-### Any static host
+## Page versions
 
-Just upload the contents of `site/` to the web root. Pages link with the `.html` extension, so they'll work even without clean-URL rewrites.
+The home and pricing pages were redesigned (v2). The v2 designs are now the published pages:
+
+- `index.html` — current published home (formerly `Avilo Home v2.html`)
+- `pricing.html` — current published pricing (formerly `Avilo Pricing v2.html`)
+
+The previous live versions are archived in `_archive/` (`index-v1.html`, `pricing-v1.html`) in case a rollback is ever needed.
 
 ## What's missing before launch
 
