@@ -1,974 +1,484 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-AU">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Features — Avilo</title>
-<meta name="description" content="Every Avilo feature, between the reminder and the rebook. Notifications, AI reply handling, reactivation, day-of updates, auto-fill cancellations.">
-<meta property="og:title" content="Avilo Features — Between the reminder and the rebook">
-<meta property="og:description" content="Five capabilities working in your practice 24/7, replacing the work nobody on your team has time to do.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://avilo.com.au/features">
-<meta property="og:image" content="brand/avilo_og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="brand/avilo_og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#172030; --navy-mid:#2B3A52; --navy-light:#3D5068;
-  --teal:#0D9488; --teal-dark:#0A7A70; --teal-light:#4DD9C0;
-  --teal-wash:#E8F8F6; --teal-wash-mid:#D1F0EC;
-  --slate:#475569; --slate-light:#94A3B8;
-  --border:#E2E8F0; --border-subtle:#F1F5F9; --white:#fff;
-  --red:#EF4444; --red-light:#FEF2F2; --green:#10B981; --amber:#F59E0B;
-  --shadow-sm:0 1px 3px rgba(23,32,48,.06),0 1px 2px rgba(23,32,48,.04);
-  --shadow-md:0 4px 16px rgba(23,32,48,.08),0 2px 6px rgba(23,32,48,.05);
-  --shadow-lg:0 8px 32px rgba(23,32,48,.10),0 4px 12px rgba(23,32,48,.06);
-  --shadow-xl:0 20px 60px rgba(23,32,48,.12),0 8px 24px rgba(23,32,48,.08);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',-apple-system,system-ui,sans-serif;color:var(--slate);background:#fff;line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-h1,h2,h3,h4,h5{font-weight:800;color:var(--navy-mid);letter-spacing:-.025em;line-height:1.15}
-h1{font-size:clamp(40px,5vw,64px);letter-spacing:-.035em;line-height:1.05}
-h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.025em;line-height:1.12}
-h3{font-size:clamp(20px,2.4vw,28px);font-weight:700;letter-spacing:-.02em}
-img{max-width:100%;display:block}
-button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-a{color:var(--teal);text-decoration:none}
-.eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
-.sub{font-size:17px;line-height:1.78;color:var(--slate)}
-.center{text-align:center}
-.mx-auto{margin-left:auto;margin-right:auto}
-.section{padding:88px 60px;position:relative}
-.section-inner{max-width:1180px;margin:0 auto;position:relative;z-index:2}
-.wash{background:var(--teal-wash)}
-.dark{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
-.dark .sub{color:rgba(255,255,255,.7)}
-.dark .eyebrow{color:var(--teal-light)}
-.dot-grid{position:absolute;inset:0;opacity:.03;pointer-events:none;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px}
-.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(20px)}
-.glow-tr{top:-220px;right:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(13,148,136,.18),transparent 60%)}
-.glow-bl{bottom:-220px;left:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(77,217,192,.10),transparent 60%)}
-.glow-br{bottom:-220px;right:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(13,148,136,.16),transparent 60%)}
-
-/* nav */
-.nav{position:sticky;top:0;height:68px;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1240px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{display:inline-flex;align-items:center;cursor:pointer;line-height:0}
-.logo img{height:30px;width:auto;display:block}
-.dark .logo img,.footer .logo img{height:34px}
-.logo .sq{display:none}/* legacy */
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-link{font-size:14px;font-weight:600;color:var(--slate);cursor:pointer;transition:color .2s}
-.nav-link:hover,.nav-link.active{color:var(--navy)}
-.nav-link.active{color:var(--teal)}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;padding:12px 22px;border-radius:10px;transition:all .25s ease;cursor:pointer;white-space:nowrap;border:1.5px solid transparent;font-family:inherit}
-.btn-primary{background:var(--teal);color:#fff;box-shadow:0 4px 14px rgba(13,148,136,.3)}
-.btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 8px 22px rgba(13,148,136,.4)}
-.btn-ghost-light{background:#fff;color:var(--navy);border-color:var(--border)}
-.btn-ghost-light:hover{border-color:var(--navy)}
-.btn-ghost-dark{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
-.btn-ghost-dark:hover{border-color:#fff;background:rgba(255,255,255,.06)}
-.btn-lg{padding:16px 28px;font-size:16px;border-radius:12px}
-.btn-full{width:100%}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* badges */
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:6px;line-height:1}
-.badge-live{background:var(--teal);color:#fff}
-.badge-live::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;animation:pulseDot 2s infinite}
-.badge-soon{background:#FEF3C7;color:#92400E}
-@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* hero */
-.hero{padding:96px 60px 80px}
-.hero-inner{max-width:920px;margin:0 auto;text-align:center;position:relative;z-index:2}
-.pill-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);font-size:11px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.1em}
-.pulse{width:8px;height:8px;border-radius:50%;background:var(--teal-light);animation:pulse 2s infinite ease-in-out}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.85);opacity:.6}}
-.hero h1{color:#fff;margin:24px 0 22px}
-.hero h1 .underline{position:relative;display:inline-block}
-.hero h1 .underline::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--teal-light);border-radius:2px;transform:translateY(4px)}
-.hero-sub{color:rgba(255,255,255,.7);font-size:18px;line-height:1.7;max-width:680px;margin:0 auto 28px}
-.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-/* capability overview chips */
-.cap-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:64px;max-width:1100px;margin-left:auto;margin-right:auto}
-.cap-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:20px 18px;text-align:left;transition:all .25s ease;cursor:pointer}
-.cap-chip:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
-.cap-chip .cap-ico{width:34px;height:34px;border-radius:8px;background:rgba(77,217,192,.15);color:var(--teal-light);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-.cap-chip h5{color:#fff;font-size:13.5px;font-weight:700;letter-spacing:-.005em;line-height:1.3;margin-bottom:4px}
-.cap-chip p{color:rgba(255,255,255,.55);font-size:11.5px;line-height:1.4;font-weight:500}
-.cap-chip .cap-status{display:inline-block;margin-top:8px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 7px;border-radius:4px}
-.cap-chip .cap-status.live{background:rgba(13,148,136,.25);color:var(--teal-light)}
-.cap-chip .cap-status.soon{background:rgba(245,158,11,.2);color:#FCD34D}
-
-/* feature row */
-.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.feat-row.reverse{direction:rtl}
-.feat-row.reverse > *{direction:ltr}
-.feat-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:var(--teal-wash);color:var(--teal);font-weight:800;font-size:14px;letter-spacing:-.01em;margin-bottom:18px}
-.feat-row h2{margin-bottom:18px;color:var(--navy-mid)}
-.feat-row .feat-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.feat-row .feat-sub{font-size:17px;color:var(--slate);line-height:1.75;margin-bottom:24px}
-.feat-points{list-style:none;display:flex;flex-direction:column;gap:14px}
-.feat-points li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--slate);line-height:1.6}
-.feat-points li svg{flex-shrink:0;margin-top:3px;color:var(--teal)}
-.feat-points li b{color:var(--navy);font-weight:600}
-
-/* visual containers */
-.vis-card{background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);border:1px solid var(--border);overflow:hidden;position:relative}
-.vis-frame-head{padding:14px 18px;border-bottom:1px solid var(--border);background:#FAFBFC;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--slate);font-weight:500}
-.vis-frame-head .dots{display:flex;gap:5px;margin-right:8px}
-.vis-frame-head .dots span{width:8px;height:8px;border-radius:50%}
-.vis-frame-head .dots span:nth-child(1){background:#FF5F57}
-.vis-frame-head .dots span:nth-child(2){background:#FFBD2E}
-.vis-frame-head .dots span:nth-child(3){background:#28C840}
-
-/* Visual 1: before/after wipe slider */
-.split-show{position:relative;background:#fff;overflow:hidden;user-select:none;--wipe:55%;height:520px}
-.split-side{position:absolute;inset:0;display:flex;flex-direction:column;min-width:0}
-.split-side.before{background:#fff;z-index:1}
-.split-side.after{padding:22px;background:#FAFBFC;z-index:2;clip-path:inset(0 0 0 var(--wipe))}
-.wipe-handle{position:absolute;top:0;bottom:0;left:var(--wipe);width:3px;background:var(--teal);z-index:3;cursor:ew-resize;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(255,255,255,.6),0 2px 10px rgba(13,148,136,.35)}
-.wipe-handle::before,.wipe-handle::after{content:"";position:absolute;left:50%;width:1px;height:100%;background:rgba(13,148,136,.18)}
-.wipe-grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid var(--teal);box-shadow:0 6px 18px rgba(13,148,136,.3);display:flex;align-items:center;justify-content:center;gap:3px;color:var(--teal)}
-.wipe-grip svg{display:block}
-.wipe-tag{position:absolute;top:14px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:99px;z-index:4;pointer-events:none;box-shadow:var(--shadow-sm);transition:opacity .35s ease,transform .35s ease}
-.wipe-tag.before-tag{left:14px;background:#fff;color:var(--red);border:1px solid #FECACA}
-.wipe-tag.after-tag{right:14px;background:var(--teal);color:#fff}
-/* When the handle favours one side strongly, fade the chip on the opposite (shrinking) side */
-.split-show.show-before .wipe-tag.after-tag,
-.split-show.show-after  .wipe-tag.before-tag{opacity:0;transform:translateY(-4px)}
-@media (max-width:900px){.split-show{height:auto;display:block}.split-side{position:relative;clip-path:none!important}.split-side.after{padding:22px}.wipe-handle,.wipe-tag{display:none}}
-.split-label{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-light);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.split-label::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.split-side.after .split-label{color:var(--teal)}
-/* PMS-style communications table */
-.comm-tab{padding:14px 16px 0;background:#fff}
-.comm-toolbar{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:10px;align-items:center}
-.comm-search{display:flex;align-items:center;gap:6px;border-bottom:1.5px solid #0F8FB8;padding:4px 0;font-size:11.5px;color:#0F8FB8;font-weight:600}
-.comm-search svg{flex-shrink:0}
-.comm-filter{display:flex;align-items:center;gap:5px;font-size:11.5px;color:#9CA3AF;border-bottom:1px solid #D1D5DB;padding:4px 0;white-space:nowrap}
-.comm-table{margin-top:14px;font-size:11px;color:#374151}
-.comm-thead{display:grid;grid-template-columns:1.05fr 1.5fr 0.95fr 1.1fr;gap:10px;padding:8px 10px;background:#EEF5F8;color:#0F8FB8;font-weight:700;font-size:10px;letter-spacing:.01em;border-radius:3px 3px 0 0}
-.comm-row{display:grid;grid-template-columns:1.05fr 1.5fr 0.95fr 1.1fr;gap:10px;padding:10px 10px 4px;border-bottom:1px dashed #E5E7EB;align-items:start}
-.comm-row.received{background:#FEFBE8}
-.comm-row.received+.comm-msg{background:#FEFBE8;border-bottom:1px solid #F5E9C8}
-.comm-row .c-date{color:#D32E5E;font-weight:600;font-size:11px}
-.comm-row .c-type{display:flex;align-items:center;gap:6px;color:#1F2937;font-size:11px}
-.comm-row .c-type .sms-badge{font-size:9px;font-weight:700;color:#6D28D9;background:#EDE9FE;border:1px solid #DDD6FE;padding:1px 6px;border-radius:3px;letter-spacing:.02em}
-.comm-row .c-dir{color:#1F2937;font-size:11px}
-.comm-row .c-patient{color:#1F2937;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.comm-msg{padding:0 10px 10px 10px;border-bottom:1px solid #E5E7EB;display:flex;gap:6px;font-size:11px;color:#374151}
-.comm-msg .lbl{color:#0F8FB8;font-weight:600;flex-shrink:0}
-.comm-msg .body{color:#374151;line-height:1.45;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
-.act-row{padding:10px 0;border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:10px;font-size:12px}
-.act-row:last-child{border-bottom:0}
-.act-tick{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center}
-.act-tick.warn{background:var(--amber)}
-.act-body{flex:1;color:var(--navy);font-size:12px;line-height:1.4}
-.act-body b{font-weight:700}
-.act-body .light{color:var(--slate);font-weight:400;font-size:11.5px;display:block;margin-top:1px}
-.act-ts{font-size:10.5px;color:var(--slate-light);white-space:nowrap}
-
-/* Visual 2: routing diagram */
-.route-vis{padding:36px 28px;background:#FAFBFC;min-height:380px;display:flex;flex-direction:column;justify-content:center;gap:24px}
-.route-source{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-sm);max-width:340px;margin:0 auto;width:100%}
-.route-source .sms-ico{width:36px;height:36px;border-radius:50%;background:var(--teal-wash);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.route-source .src-body{flex:1}
-.route-source .src-nm{font-size:13px;font-weight:700;color:var(--navy)}
-.route-source .src-msg{font-size:12px;color:var(--slate);line-height:1.4}
-.route-arrows{display:flex;justify-content:center;align-items:center;height:32px;color:var(--slate-light)}
-.route-arrows svg{animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
-.route-channels{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.channel{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 10px;text-align:center;font-size:11px;font-weight:600;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:6px;transition:all .25s ease;cursor:pointer}
-.channel:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--teal-wash-mid)}
-.channel .ch-ico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px}
-.channel.slack .ch-ico{background:#4A154B}
-.channel.teams .ch-ico{background:#5059C9}
-.channel.discord .ch-ico{background:#5865F2}
-.channel.sms .ch-ico{background:var(--teal)}
-.route-note{font-size:11.5px;color:var(--slate-light);text-align:center;margin-top:6px;line-height:1.45}
-.route-note b{color:var(--navy);font-weight:600}
-
-/* Visual 3: recall campaign */
-.recall-vis{padding:24px}
-.recall-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:12px;color:var(--slate)}
-.recall-meta .rstatus{color:var(--teal);font-weight:700;display:inline-flex;align-items:center;gap:5px}
-.recall-meta .rstatus::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulseDot 2s infinite}
-.recall-progress{height:8px;background:var(--border-subtle);border-radius:4px;overflow:hidden;margin-bottom:6px}
-.recall-progress .bar{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-light));width:62%;border-radius:4px;animation:fillBar 2s ease}
-@keyframes fillBar{from{width:0}to{width:62%}}
-.recall-progress-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--slate-light);margin-bottom:18px}
-.recall-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
-.recall-tile{background:var(--teal-wash);border-radius:10px;padding:12px}
-.recall-tile .rnum{font-size:22px;font-weight:800;color:var(--teal);letter-spacing:-.02em;line-height:1}
-.recall-tile .rlbl{font-size:10.5px;color:var(--slate);margin-top:4px;font-weight:500}
-.recall-thread{background:#FAFBFC;border-radius:10px;padding:14px;border:1px solid var(--border)}
-.rthread-title{font-size:11.5px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.rbubble{font-size:12px;line-height:1.5;padding:8px 11px;border-radius:12px;max-width:80%;margin-bottom:6px}
-.rbubble.out{background:var(--teal);color:#fff;border-bottom-right-radius:4px;margin-left:auto}
-.rbubble.in{background:#fff;border:1px solid var(--border);color:var(--navy);border-bottom-left-radius:4px}
-.rbubble.system{background:transparent;color:var(--slate-light);font-size:10.5px;font-style:italic;text-align:center;max-width:100%;padding:4px 0;margin-bottom:0}
-
-/* Visual 4: day-of broadcast */
-.broadcast-vis{padding:24px;background:#FAFBFC}
-.compose{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow-sm)}
-.compose-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-subtle)}
-.compose-title{font-size:13px;font-weight:700;color:var(--navy)}
-.compose-meta{font-size:11px;color:var(--slate-light)}
-.compose-msg{font-size:13px;color:var(--navy);line-height:1.55;background:var(--teal-wash);border-left:3px solid var(--teal);padding:10px 12px;border-radius:6px;margin-bottom:12px;font-style:italic}
-.compose-recipients{display:flex;flex-wrap:wrap;gap:6px}
-.recipient{font-size:11px;background:var(--border-subtle);color:var(--navy);padding:4px 9px;border-radius:99px;display:inline-flex;align-items:center;gap:5px}
-.recipient.skipped{text-decoration:line-through;opacity:.45}
-.recipient .rdot{width:5px;height:5px;border-radius:50%;background:var(--teal)}
-.recipient.skipped .rdot{background:var(--slate-light)}
-.broadcast-result{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--teal-wash-mid);border-radius:10px;padding:12px 14px}
-.broadcast-result .br-ico{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.broadcast-result .br-body{font-size:12px;color:var(--navy);line-height:1.5}
-.broadcast-result .br-body b{font-weight:700}
-
-/* Visual 5: cancellation auto-fill */
-.fill-vis{padding:24px;background:#FAFBFC;min-height:380px}
-.fill-event{display:flex;align-items:center;gap:12px;background:var(--red-light);border:1px solid #FECACA;border-radius:10px;padding:12px 14px;margin-bottom:16px}
-.fill-event .fe-ico{width:30px;height:30px;border-radius:8px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fill-event .fe-body{flex:1;font-size:12.5px;color:#7F1D1D;line-height:1.4}
-.fill-event .fe-body b{color:#7F1D1D;font-weight:700}
-.fill-event .fe-ts{font-size:11px;color:#9F1F1F;font-weight:600}
-.fill-arrow{text-align:center;color:var(--slate-light);margin:6px 0}
-.fill-list{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow-sm)}
-.fill-list-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-bottom:12px}
-.wl-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-subtle);font-size:12.5px}
-.wl-row:last-child{border-bottom:0}
-.wl-row .wl-pos{width:24px;height:24px;border-radius:50%;background:var(--border-subtle);color:var(--slate);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.wl-row.accepted .wl-pos{background:var(--teal);color:#fff}
-.wl-row.declined .wl-pos{background:var(--border);color:var(--slate-light)}
-.wl-row .wl-nm{color:var(--navy);font-weight:600;flex:1}
-.wl-row .wl-status{font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px}
-.wl-row.declined .wl-status{background:var(--border-subtle);color:var(--slate-light)}
-.wl-row.contacted .wl-status{background:#FEF3C7;color:#92400E}
-.wl-row.accepted .wl-status{background:var(--teal-wash);color:var(--teal-dark)}
-
-/* trust principles */
-.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
-.principle{position:relative;background:#fff;border:1px solid var(--border);border-radius:14px;padding:32px;box-shadow:var(--shadow-md);text-align:left;transition:all .25s ease}
-.principle:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--teal-wash-mid)}
-.principle .pn{position:absolute;top:24px;right:28px;font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--teal)}
-.principle .pico{width:48px;height:48px;border-radius:12px;background:var(--teal-wash);color:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.principle h4{font-size:18px;color:var(--navy);font-weight:700;margin-bottom:10px;letter-spacing:-.01em;line-height:1.3}
-.principle p{font-size:14.5px;color:var(--slate);line-height:1.65}
-
-/* integrations row */
-.integrations{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:38px}
-.integ-chip{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 18px;font-size:13.5px;color:var(--navy);font-weight:600;transition:all .2s}
-.integ-chip:hover{border-color:var(--teal);transform:translateY(-2px)}
-.integ-chip .ic{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:11px}
-.integ-chip.cliniko .ic{background:#0d6b73}
-.integ-chip.slack .ic{background:#4A154B}
-.integ-chip.teams .ic{background:#5059C9}
-.integ-chip.discord .ic{background:#5865F2}
-.integ-chip.sms .ic{background:var(--teal)}
-
-/* final cta */
-.final-cta{padding:108px 60px}
-.final-cta-inner{max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:2}
-.final-cta .logo{color:#fff;font-size:28px;display:inline-flex;justify-content:center;margin-bottom:22px}
-.final-cta h2{margin:0 0 18px;letter-spacing:-.03em;line-height:1.1;font-size:clamp(32px,4vw,52px)}
-.final-cta .sub{color:rgba(255,255,255,.6);max-width:520px;margin:0 auto 28px}
-
-/* footer */
-.footer{background:#0F1620;color:rgba(255,255,255,.45);padding:60px 60px 30px}
-.footer-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
-.footer h5{color:rgba(255,255,255,.4);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:16px}
-.footer-tag{color:rgba(255,255,255,.55);font-size:13px;line-height:1.7;margin-top:14px;max-width:340px}
-.footer-cliniko{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:6px 11px;border-radius:7px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-size:12px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{color:rgba(255,255,255,.45);font-size:13.5px;cursor:pointer;transition:color .2s}
-.footer-links a:hover{color:#fff}
-.footer-bottom{max-width:1180px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px;color:rgba(255,255,255,.45)}
-.footer .logo{color:#fff;font-size:22px}
-
-/* modal */
-.modal-bd{position:fixed;inset:0;z-index:100;background:rgba(23,32,48,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
-.modal-bd.open{display:flex}
-.modal{background:#fff;border-radius:20px;padding:40px;width:100%;max-width:480px;box-shadow:var(--shadow-xl);position:relative;animation:modalIn .3s ease}
-@keyframes modalIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
-.modal-x{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;color:var(--slate);display:flex;align-items:center;justify-content:center}
-.modal-x:hover{background:var(--border-subtle);color:var(--navy)}
-.modal h3{font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:6px}
-.modal-sub{font-size:14px;color:var(--slate);margin-bottom:24px;line-height:1.6}
-.field{margin-bottom:14px}
-.field label{display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:6px}
-.field input{width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;color:var(--navy);background:#fff;transition:border-color .2s}
-.field input:focus{outline:none;border-color:var(--teal)}
-.modal-fine{font-size:11.5px;color:var(--slate-light);margin-top:10px;text-align:center}
-.modal-success{text-align:center;padding:14px 0}
-.modal-success .tick{width:56px;height:56px;border-radius:50%;background:var(--teal-wash);color:var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-
-/* responsive */
-@media (max-width:900px){
-  .section,.hero,.final-cta{padding:64px 24px}
-  .nav-inner{padding:0 20px}
-  .nav-links .nav-link{display:none}
-  .feat-row{grid-template-columns:1fr;gap:40px;direction:ltr}
-  .feat-row.reverse{direction:ltr}
-  .cap-grid{grid-template-columns:repeat(2,1fr)}
-  .principles{grid-template-columns:1fr}
-  .footer{padding:48px 24px 24px}
-  .footer-grid{grid-template-columns:1fr;gap:32px}
-  .route-channels{grid-template-columns:repeat(2,1fr)}
-}
-</style>
-<link rel="icon" type="image/png" sizes="32x32" href="brand/avilo_favicon_64.png">
-<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png">
-<link rel="apple-touch-icon" sizes="512x512" href="brand/avilo_favicon_512.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Features — Avilo, your AI front desk</title>
+<meta name="description" content="Everything Avilo handles for your clinic: AI call answering, two-way patient texting, appointment confirmations, recalls & reactivation, waitlist auto-fill, and smart escalation — all writing back to your diary in real time." />
+<link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
+<meta property="og:title" content="Avilo Features — Every call, text and recall, handled" />
+<meta property="og:description" content="The full Avilo feature suite: calls, texts, confirmations, recalls, waitlist and escalation — built for allied health." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://avilo.com.au/features" />
+<meta property="og:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="canonical" href="https://avilo.com.au/features.html" />
+<link rel="stylesheet" href="avilo.css" />
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="logo" href="index.html"><img src="brand/avilo_logo_lowercase_gradient.svg" alt="Avilo"></a>
-    <div class="nav-links">
-      <a class="nav-link active" href="features.html">Features</a>
-      <a class="nav-link" href="pricing.html">Pricing</a>
-      <button class="btn btn-primary" onclick="openModal()">Book a demo</button>
-      <a class="nav-link" href="#login">Log in</a>
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><img src="brand/avilo_mark_gradient.svg" alt="" /><span><b>avilo</b><span class="dot">.</span></span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="features.html" class="active">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="contact.html">Book a demo →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero dark" data-screen-label="01 Hero">
+<!-- HERO (dark) -->
+<section class="hero-dark" style="padding:72px 0 80px">
   <div class="dot-grid"></div>
   <div class="glow glow-tr"></div>
   <div class="glow glow-bl"></div>
-  <div class="hero-inner">
-    <span class="pill-eyebrow"><span class="pulse"></span>Built for Cliniko Practices</span>
-    <h1>Everything Avilo does — between the reminder and the rebook.</h1>
-    <p class="hero-sub">Cliniko sends. Avilo handles what comes back. Five capabilities working in your practice 24/7, replacing the work nobody on your team has time to do.</p>
-    <div class="hero-ctas">
-      <button class="btn btn-primary btn-lg" onclick="openModal()">Book a demo →</button>
-      <a href="#capabilities" class="btn btn-ghost-dark btn-lg">Jump to capabilities</a>
-    </div>
-
-    <div class="cap-grid" id="capabilities">
-      <a href="#f1" class="cap-chip">
-        <div class="cap-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="9" y1="6" x2="15" y2="18"/></svg></div>
-        <h5>Notifications for SMS</h5>
-        <p>Slack · Teams · Discord · SMS</p>
-        <span class="cap-status live">Live</span>
-      </a>
-      <a href="#f2" class="cap-chip">
-        <div class="cap-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <h5>Reply handling</h5>
-        <p>Reschedules, cancellations, questions</p>
-        <span class="cap-status live">Live</span>
-      </a>
-      <a href="#f3" class="cap-chip">
-        <div class="cap-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-        <h5>Reactivation</h5>
-        <p>Lapsed-patient recall campaigns</p>
-        <span class="cap-status soon">Soon</span>
-      </a>
-      <a href="#f4" class="cap-chip">
-        <div class="cap-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-        <h5>Auto-fill cancels</h5>
-        <p>Waitlist takes the gap automatically</p>
-        <span class="cap-status soon">Soon</span>
-      </a>
-      <a href="#f5" class="cap-chip">
-        <div class="cap-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-        <h5>Day-of updates</h5>
-        <p>One message to every patient on your day</p>
-        <span class="cap-status soon">Soon</span>
-      </a>
+  <div class="wrap" style="max-width:840px;text-align:center">
+    <span class="tag"><span class="pulse"></span>The full feature suite</span>
+    <h1 style="font-size:clamp(2rem,4.2vw,2.9rem)">Everything your front desk does.<br />Handled end-to-end.</h1>
+    <p class="hero-lede" style="margin:0 auto">One AI brain across every channel — reading what each patient wants, acting on your real availability, and writing the outcome straight back to your diary. Jump to a feature, or keep scrolling for the whole suite.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="contact.html">Book a demo →</a>
     </div>
   </div>
 </section>
 
-<!-- FEATURE 1: NOTIFICATIONS FOR SMS -->
-<section class="section" id="f1" data-screen-label="02 Notifications for SMS">
-  <div class="section-inner">
-    <div class="feat-row">
-      <div class="reveal">
-        <span class="feat-num">01</span>
-        <div class="feat-meta"><span class="badge badge-live">Live now</span></div>
-        <h2>The reply reaches the right person — wherever they are.</h2>
-        <p class="feat-sub">When Avilo escalates, the message lands in the channel your team actually checks. Routed by practitioner, by appointment type, by patient — whatever rules your practice runs on. No more shared inbox roulette.</p>
-        <ul class="feat-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Per-practitioner routing</b> — Dr. Chen's patients go to Dr. Chen. Reception handles the rest.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Channel-aware</b> — Slack DMs for clinicians, a #front-desk channel for admin, SMS for the on-call.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>One-tap reply</b> — type back in Slack, Avilo continues the SMS conversation with the patient.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Escalation SLA</b> — 100% of escalations reach you within 60 seconds.</div></li>
-        </ul>
-      </div>
-      <div class="reveal" data-delay="120">
-        <div class="vis-card">
-          <div class="vis-frame-head">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span>Avilo · routing layer</span>
-          </div>
-          <div class="route-vis">
-            <div class="route-source">
-              <div class="sms-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-              <div class="src-body">
-                <div class="src-nm">Tom O'Brien · Dr. Chen's patient</div>
-                <div class="src-msg">"Quick Q about last week's invoice"</div>
-              </div>
-            </div>
-            <div class="route-arrows">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="route-channels">
-              <div class="channel slack">
-                <div class="ch-ico">#</div>
-                <span>Slack</span>
-                <span style="font-size:9.5px;font-weight:500;color:var(--slate);background:var(--teal-wash);padding:1px 6px;border-radius:99px">→ reception</span>
-              </div>
-              <div class="channel teams">
-                <div class="ch-ico">T</div>
-                <span>Teams</span>
-                <span style="font-size:9.5px;color:var(--slate-light);font-weight:500">enabled</span>
-              </div>
-              <div class="channel discord">
-                <div class="ch-ico">D</div>
-                <span>Discord</span>
-                <span style="font-size:9.5px;color:var(--slate-light);font-weight:500">enabled</span>
-              </div>
-              <div class="channel sms">
-                <div class="ch-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                <span>SMS</span>
-                <span style="font-size:9.5px;color:var(--slate-light);font-weight:500">fallback</span>
-              </div>
-            </div>
-            <div class="route-note">Tom is Dr. Chen's patient. Dr. Chen is with a patient.<br><b>Routed to reception's Slack DM in 4 seconds.</b></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- FEATURE NAV -->
+<div class="sec-tight" style="padding:36px 0 8px">
+  <div class="wrap">
+    <nav class="feat-nav" aria-label="Jump to a feature">
+      <a href="#messages"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Patient texting</a>
+      <a href="#escalation"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Escalation</a>
+      <a href="#confirmations"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Confirmations</a>
+      <a href="#questions"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Questions</a>
+      <a href="#calls"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>Call answering</a>
+      <a href="#recalls"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></span>Recalls</a>
+      <a href="#waitlist"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>Auto-waitlist</a>
+    </nav>
   </div>
-</section>
-<!-- FEATURE 2: REPLY HANDLING -->
-<section class="section wash" id="f2" data-screen-label="03 Reply handling">
-  <div class="section-inner">
-    <div class="feat-row reverse">
-      <div class="reveal">
-        <span class="feat-num">02</span>
-        <div class="feat-meta"><span class="badge badge-live">Live now</span></div>
-        <h2>Every patient reply, handled end-to-end.</h2>
-        <p class="feat-sub">When a patient texts back, Avilo reads the message, figures out what they actually want, checks your Cliniko diary in real time, runs the entire SMS conversation, and writes the result back — confirmation included.</p>
-        <ul class="feat-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Reschedules</b> — offers genuine availability with the right practitioner, in natural conversation.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Cancellations</b> — confirms, releases the slot, offers a rebook before the patient gets off the thread.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Simple questions</b> — opening hours, location, what to bring, parking. Answered from your practice profile.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Natural language</b> — handles "tmrw arvo", "Friday morning if poss", "next week sometime" without breaking.</div></li>
+</div>
+
+<!-- FEATURE ROWS -->
+<section class="sec-tight" style="padding-top:0">
+  <div class="wrap">
+
+    <!-- MESSAGES -->
+    <div class="feat-row" id="messages">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <span class="eyebrow">Messaging</span>
+        <h3>Two-way patient texting</h3>
+        <p class="lede">Patients reply to reminders, ask questions and change plans by SMS all day. Avilo reads the intent and runs the whole conversation to a real outcome — without your team touching the diary.</p>
+        <ul>
+          <li>Understands natural language — "tmrw arvo", "Friday morning if poss"</li>
+          <li>Cancellations handled your way: reschedule-first, direct cancel, or "please call us"</li>
+          <li>Only offers slots the right practitioner actually has open</li>
+          <li>Diary updated in real time; reminders re-scheduled automatically</li>
         </ul>
+        <div class="feat-note">Every reply is polite, on-brand and consistent with your clinic's tone.</div>
       </div>
-      <div class="reveal" data-delay="120">
-        <div class="vis-card">
-          <div class="vis-frame-head">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span>Cliniko comms tab → Avilo dashboard</span>
-          </div>
-          <div class="split-show" id="compareWipe">
-            <span class="wipe-tag before-tag">Cliniko · before</span>
-            <span class="wipe-tag after-tag">Avilo · after</span>
-            <div class="split-side before">
-              <div class="comm-tab">
-                <div class="comm-toolbar">
-                  <div class="comm-search">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-                    received
-                  </div>
-                  <div class="comm-filter">
-                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
-                    Filter by type
+      <div class="feat-visual">
+        <div class="viz-wash bw-sky">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>9:41</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="phone-header"><div class="ph-contact"><div class="nm">Northside Physiotherapy</div><div class="sub">+61 468 048 291</div></div></div>
+                  <div class="sms-thread">
+                    <div class="sms-bubble sms-reminder-wrap"><div class="sms-label">Sent by Cliniko</div><div class="sms-bubble b-reminder" style="display:block">Hi Marcus, reminder of your appointment Wed 13 Aug at 11:00am with Dr. Patel.</div></div>
+                    <div class="sms-bubble b-patient">Hey unfortunately I need to cancel that one, won't be able to make it</div>
+                    <div class="sms-bubble b-avilo">Before we cancel your appointment on Wednesday, is there a time that works better for you to reschedule to?</div>
+                    <div class="sms-bubble b-patient">Oh good idea — maybe Tuesday or Wednesday morning the week after?</div>
+                    <div class="sms-bubble b-avilo">Got these with Dr. Patel:<br><br>1. Tue 19 Aug · 9:30am<br>2. Wed 20 Aug · 8:00am<br>3. Wed 20 Aug · 10:30am<br><br>Reply 1, 2 or 3 to confirm.</div>
+                    <div class="sms-bubble b-patient">3 works, thanks!</div>
+                    <div class="sms-bubble b-avilo">Done ✓ Moved to Wed 20 Aug at 10:30am. Your Wed 13th slot is freed and a new reminder is on its way.</div>
+                    <div class="typing"><span></span><span></span><span></span></div>
                   </div>
                 </div>
-                <div class="comm-table">
-                  <div class="comm-thead">
-                    <div>Date</div>
-                    <div>Type</div>
-                    <div>Direction</div>
-                    <div>Patient</div>
+              </div>
+              <div class="sms-total">Policy: reschedule-first. <b>Slot recovered, patient kept.</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESCALATION -->
+    <div class="feat-row flip" id="escalation">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <span class="eyebrow">Safety net</span>
+        <h3>Smart triage &amp; escalation</h3>
+        <p class="lede">A patient in more pain who wants in sooner gets an earlier appointment — booked on the spot, with the therapist briefed on what's changed. A purely clinical message — symptoms, treatment questions — is never answered by AI. It goes straight to the therapist.</p>
+        <ul>
+          <li>Urgent reschedules get the patient in sooner — not just flagged</li>
+          <li>Therapist briefed automatically whenever a patient reports worsening symptoms</li>
+          <li>Purely clinical questions are never answered by AI — routed straight to the therapist</li>
+          <li>Alerts land in Slack, Teams, Discord or SMS within 60 seconds, full thread attached</li>
+        </ul>
+        <div class="feat-note">Conservative by default — you set the threshold for your clinic.</div>
+      </div>
+      <div class="feat-visual">
+        <div class="viz-wash bw-rose">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>9:41</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="phone-header"><div class="ph-contact"><div class="nm">Northside Physiotherapy</div><div class="sub">+61 468 048 291</div></div></div>
+                  <div class="sms-thread">
+                    <div class="sms-bubble b-patient">Hey, can I move my Friday session? My back pain's been getting much worse and I think I need to come in sooner if poss</div>
+                    <div class="sms-bubble b-avilo">Sorry to hear it's flared up, Tom. Dr. Chen has tomorrow 9:10am or Thu 2:40pm — want one of those instead of Friday?</div>
+                    <div class="sms-bubble b-patient">Tomorrow 9:10 please</div>
+                    <div class="sms-bubble b-avilo">Done ✓ Moved to tomorrow 9:10am with Dr. Chen. I've let her know things have worsened so she's across it before you arrive.</div>
+                    <div class="sms-bubble sms-reminder-wrap"><div class="sms-label">Avilo · notified Dr. Chen on Slack</div><div class="sms-bubble b-reminder" style="display:block"><b>Tom O'Brien · booked in sooner</b><br>Fri 3:00pm → tomorrow 9:10am. Reports worsening back pain — full thread attached.</div></div>
+                    <div class="typing"><span></span><span></span><span></span></div>
                   </div>
-                  <div class="comm-row received">
-                    <div class="c-date">14 Aug 2025</div>
-                    <div class="c-type">Reply from Patient<span class="sms-badge">SMS</span></div>
-                    <div class="c-dir">Received</div>
-                    <div class="c-patient">Sarah Bennett</div>
-                  </div>
-                  <div class="comm-msg"><span class="lbl">Message:</span><span class="body">Hi, sorry — something's come up Thursday. Any chance I can move my appt…</span></div>
-                  <div class="comm-row received">
-                    <div class="c-date">14 Aug 2025</div>
-                    <div class="c-type">Reply from Patient<span class="sms-badge">SMS</span></div>
-                    <div class="c-dir">Received</div>
-                    <div class="c-patient">Marcus Wong</div>
-                  </div>
-                  <div class="comm-msg"><span class="lbl">Message:</span><span class="body">Need to cancel my Fri 2pm — kids are sick. Sorry for the late notice</span></div>
-                  <div class="comm-row received">
-                    <div class="c-date">14 Aug 2025</div>
-                    <div class="c-type">Reply from Patient<span class="sms-badge">SMS</span></div>
-                    <div class="c-dir">Received</div>
-                    <div class="c-patient">Tom O'Brien</div>
-                  </div>
-                  <div class="comm-msg"><span class="lbl">Message:</span><span class="body">Quick Q about last week's invoice — got charged twice? Can someone…</span></div>
-                  <div class="comm-row received">
-                    <div class="c-date">14 Aug 2025</div>
-                    <div class="c-type">Reply from Patient<span class="sms-badge">SMS</span></div>
-                    <div class="c-dir">Received</div>
-                    <div class="c-patient">Emma Reid</div>
-                  </div>
-                  <div class="comm-msg"><span class="lbl">Message:</span><span class="body">Hi! Are you taking new bookings Monday? Mornings preferred 🙂</span></div>
-                  <div class="comm-row received">
-                    <div class="c-date">13 Aug 2025</div>
-                    <div class="c-type">Reply from Patient<span class="sms-badge">SMS</span></div>
-                    <div class="c-dir">Received</div>
-                    <div class="c-patient">Holly McKenzie</div>
-                  </div>
-                  <div class="comm-msg"><span class="lbl">Message:</span><span class="body">Can we shift Friday's session to Tuesday instead? Same time if poss</span></div>
-                  <div class="comm-row received">
-                    <div class="c-date">13 Aug 2025</div>
-                    <div class="c-type">Reply from Patient<span class="sms-badge">SMS</span></div>
-                    <div class="c-dir">Received</div>
-                    <div class="c-patient">Priya Shah</div>
-                  </div>
-                  <div class="comm-msg"><span class="lbl">Message:</span><span class="body">Yes confirmed thanks 👍</span></div>
                 </div>
               </div>
-            </div>
-            <div class="split-side after">
-              <div class="act-row"><div class="act-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="act-body"><b>Sarah B.</b> rescheduled<span class="light">Thu 21 Aug · 2:00pm</span></div><span class="act-ts">9:15am</span></div>
-              <div class="act-row"><div class="act-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="act-body"><b>Marcus W.</b> cancelled<span class="light">Rebook offered</span></div><span class="act-ts">9:18am</span></div>
-              <div class="act-row"><div class="act-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="act-body"><b>Priya S.</b> confirmed<span class="light">Thu 14 Aug · 3:00pm</span></div><span class="act-ts">9:22am</span></div>
-              <div class="act-row"><div class="act-tick warn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="act-body"><b>Tom O.</b> escalated<span class="light">"invoice question" → reception</span></div><span class="act-ts">9:24am</span></div>
-              <div class="act-row"><div class="act-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="act-body"><b>Emma R.</b> booked<span class="light">Mon 18 Aug · 10:30am</span></div><span class="act-ts">9:31am</span></div>
-              <div class="act-row"><div class="act-tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="act-body"><b>Holly M.</b> rescheduled<span class="light">Tue 19 Aug · 4:00pm</span></div><span class="act-ts">9:34am</span></div>
-            </div>
-            <div class="wipe-handle" id="wipeHandle" role="slider" aria-label="Drag to compare" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55" tabindex="0">
-              <div class="wipe-grip">
-                <svg width="10" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                <svg width="10" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-              </div>
+              <div class="sms-total">Patient in <b>2 days sooner</b> · therapist briefed automatically</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- FEATURE 3: RECALL -->
-<section class="section" id="f3" data-screen-label="04 Reactivation">
-  <div class="section-inner">
-    <div class="feat-row">
-      <div class="reveal">
-        <span class="feat-num">03</span>
-        <div class="feat-meta"><span class="badge badge-soon">Coming soon</span></div>
-        <h2>The recall system Cliniko forgot to build.</h2>
-        <p class="feat-sub">Find every patient without an upcoming appointment. Send a personalised check-in SMS in their practitioner's voice. When they reply, Avilo runs them through the booking flow — same as a reschedule. Replies become bookings.</p>
-        <ul class="feat-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Audience built automatically</b> — filter by practitioner, last-seen window, appointment type, condition tag.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Per-practitioner voice</b> — each message reads like it came from the clinician the patient last saw.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Replies become bookings</b> — Avilo handles the whole conversation. Diary updates, confirmation goes out.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Result-tracked</b> — $8,400 average annual revenue recovered per practice. Real numbers from real beta clinics.</div></li>
+
+    <!-- CONFIRMATIONS -->
+    <div class="feat-row" id="confirmations">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <span class="eyebrow">No-show prevention</span>
+        <h3>Appointment confirmations</h3>
+        <p class="lede">Most clinics send reminders but can't reliably track what comes back — so a silent patient is a gamble. Avilo removes the guesswork and cuts no-shows.</p>
+        <ul>
+          <li>Tracks every reply to your reminders — confirmed vs unconfirmed, reliably</li>
+          <li>Nudges non-responders automatically with a well-timed second message</li>
+          <li>Still silent the day before? Flagged in the diary for a call</li>
+          <li>Confirmation status visible at a glance, per appointment</li>
         </ul>
+        <div class="feat-note">The no-show you'd have missed, caught the day before.</div>
       </div>
-      <div class="reveal" data-delay="120">
-        <div class="vis-card">
-          <div class="vis-frame-head">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span>Recall campaign · Dr. Chen's lapsed patients</span>
-          </div>
-          <div class="recall-vis">
-            <div class="recall-meta">
-              <span>148 patients · 12+ weeks since last visit</span>
-              <span class="rstatus">Live · day 3</span>
-            </div>
-            <div class="recall-progress"><div class="bar"></div></div>
-            <div class="recall-progress-meta">
-              <span>91 of 148 contacted</span>
-              <span>62%</span>
-            </div>
-            <div class="recall-stats">
-              <div class="recall-tile"><div class="rnum">34</div><div class="rlbl">Replied</div></div>
-              <div class="recall-tile"><div class="rnum">21</div><div class="rlbl">Booked</div></div>
-              <div class="recall-tile"><div class="rnum">$2,520</div><div class="rlbl">Recovered</div></div>
-            </div>
-            <div class="recall-thread">
-              <div class="rthread-title">Sample · Sarah B., last seen 14 weeks ago</div>
-              <div class="rbubble out">Hi Sarah, it's Dr. Chen at Northside Physiotherapy. Just checking in — it's been a few months since we saw you for that shoulder. How's it been holding up?</div>
-              <div class="rbubble in">Honestly it's been playing up again last few weeks. Should I come back in?</div>
-              <div class="rbubble out">I'd recommend a check-in. I have Thu 21 Aug at 2pm or Fri 22 Aug at 9am — reply 1 or 2.</div>
-              <div class="rbubble in">2 please</div>
-              <div class="rbubble system">✓ Booked — Fri 22 Aug 9:00am · Cliniko updated</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- FEATURE 5: AUTO-FILL CANCELLATIONS -->
-<section class="section wash" id="f4" data-screen-label="05 Auto-fill cancels">
-  <div class="section-inner">
-    <div class="feat-row reverse">
-      <div class="reveal">
-        <span class="feat-num">04</span>
-        <div class="feat-meta"><span class="badge badge-soon">Coming soon</span></div>
-        <h2>A cancellation walks back through the waitlist.</h2>
-        <p class="feat-sub">Patient cancels. Avilo immediately works through your waitlist — by priority, by appointment type, by who actually wants this slot. First person to accept gets it. Zero involvement from your team.</p>
-        <ul class="feat-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Waitlist-aware</b> — patients you've marked as wanting an earlier slot get offered, in order.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Auto-rotates — if person 1 declines, person 2 gets the offer 60 seconds later.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div>Custom mapping — select the days/times and practitioners suitable for the patient.</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Timely rules</b> — no 9pm offers for early-morning slots. Configurable per practice.</div></li>
-        </ul>
-      </div>
-      <div class="reveal" data-delay="120">
-        <div class="vis-card">
-          <div class="vis-frame-head">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span>Waitlist auto-fill · 11:30am Tuesday</span>
-          </div>
-          <div class="fill-vis">
-            <div class="fill-event">
-              <div class="fe-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
-              <div class="fe-body"><b>Cancellation:</b> Marcus W. — Tue 11:30am with Dr. Chen</div>
-              <span class="fe-ts">10:42a</span>
-            </div>
-            <div class="fill-arrow">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="fill-list">
-              <div class="fill-list-head">Waitlist · Dr. Chen · in priority order</div>
-              <div class="wl-row declined"><div class="wl-pos">1</div><div class="wl-nm">Aisha K.</div><span class="wl-status">Declined</span></div>
-              <div class="wl-row declined"><div class="wl-pos">2</div><div class="wl-nm">Daniel R.</div><span class="wl-status">No reply (15m)</span></div>
-              <div class="wl-row accepted"><div class="wl-pos">3</div><div class="wl-nm">Imogen P.</div><span class="wl-status">✓ Accepted · booked</span></div>
-              <div class="wl-row" style="opacity:.5"><div class="wl-pos">4</div><div class="wl-nm">Owen J.</div><span class="wl-status" style="background:var(--border-subtle);color:var(--slate-light)">Slot filled</span></div>
-              <div class="wl-row" style="opacity:.4"><div class="wl-pos">5</div><div class="wl-nm">Hannah V.</div><span class="wl-status" style="background:var(--border-subtle);color:var(--slate-light)">Slot filled</span></div>
-            </div>
-            <div style="font-size:11.5px;color:var(--slate);text-align:center;margin-top:14px;line-height:1.5">
-              <b style="color:var(--navy)">Slot filled in 23 minutes</b> · no reception involvement · Cliniko updated automatically
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- FEATURE 4: DAY-OF UPDATES -->
-<section class="section" id="f5" data-screen-label="06 Day-of updates">
-  <div class="section-inner">
-    <div class="feat-row">
-      <div class="reveal">
-        <span class="feat-num">05</span>
-        <div class="feat-meta"><span class="badge badge-soon">Coming soon</span></div>
-        <h2>Day-of patient updates, personally — to everyone at once.</h2>
-        <p class="feat-sub">Running 15 minutes late? Going home sick? Or need to send any message to your entire list? Open Avilo, type the update once, toggle any patients out, hit send. Avilo delivers it personally to every patient on your day. </p>
-        <ul class="feat-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Personalised individually</b> — each message addresses the patient by name and references their slot time.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Reply-aware</b> — patients who text back to reschedule get the normal Avilo flow. No double-handling.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Toggle anyone out</b> — exclude the patient you've already called, the new client, anyone you'd rather not.</div></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><b>Five minutes faster than calling reception</b> — and they don't have to call eight people in a row.</div></li>
-        </ul>
-      </div>
-      <div class="reveal" data-delay="120">
-        <div class="vis-card">
-          <div class="vis-frame-head">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span>Day-of update · Dr. Chen · Tuesday</span>
-          </div>
-          <div class="broadcast-vis">
-            <div class="compose">
-              <div class="compose-head">
-                <div class="compose-title">Update Dr. Chen's patients today</div>
-                <div class="compose-meta">8 of 9 selected</div>
+      <div class="feat-visual">
+        <div class="viz-wash bw-sand">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>9:41</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="phone-header"><div class="ph-contact"><div class="nm">Northside Physiotherapy</div><div class="sub">+61 468 048 291</div></div></div>
+                  <div class="sms-thread">
+                    <div class="sms-bubble sms-reminder-wrap"><div class="sms-label">Sent by Cliniko</div><div class="sms-bubble b-reminder" style="display:block">Hi Marcus, reminder of your appointment Wed 13 Aug at 2:00pm with Dr. Patel. Reply YES to confirm.</div></div>
+                    <div class="sms-bubble sms-reminder-wrap"><div class="sms-label">No reply · 6 hours later</div><div class="sms-bubble b-avilo" style="display:block">Hi Marcus, just making sure we'll see you tomorrow at 2:00pm with Dr. Patel? Reply YES to confirm, or let us know if you need to move it.</div></div>
+                    <div class="sms-bubble b-patient">Yes all good, see you then</div>
+                    <div class="sms-bubble sms-reminder-wrap"><div class="sms-label">Avilo → Cliniko · no reply needed</div><div class="ck-card"><span class="ck-tick">✓</span><div><b>Appointment marked Confirmed</b><span>Wed 13 Aug · 2:00pm · Dr. Patel — updated in the diary automatically</span></div></div></div>
+                    <div class="typing"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
               </div>
-              <div class="compose-msg">"Running about 15 mins behind today, so sorry. We'll text you again when we're close. Thanks for bearing with us."</div>
-              <div class="compose-recipients">
-                <span class="recipient"><span class="rdot"></span>Sarah B · 10:00am</span>
-                <span class="recipient"><span class="rdot"></span>Marcus W · 10:30am</span>
-                <span class="recipient"><span class="rdot"></span>Priya S · 11:00am</span>
-                <span class="recipient"><span class="rdot"></span>Tom O · 11:30am</span>
-                <span class="recipient skipped"><span class="rdot"></span>Emma R · 12:00pm</span>
-                <span class="recipient"><span class="rdot"></span>James O · 2:00pm</span>
-                <span class="recipient"><span class="rdot"></span>Liam N · 2:30pm</span>
-                <span class="recipient"><span class="rdot"></span>Ashleigh W · 3:00pm</span>
-                <span class="recipient"><span class="rdot"></span>David P · 3:30pm</span>
-              </div>
-            </div>
-            <div class="broadcast-result">
-              <div class="br-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <div class="br-body"><b>Sent in 4 seconds.</b> Each patient got a personalised message addressed by name. 2 replied to reschedule — Avilo's handling those.</div>
+              <div class="sms-total">Anyone still silent by 5pm the day before is <b>flagged for a call</b>.</div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- QUESTIONS -->
+    <div class="feat-row flip" id="questions">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <span class="eyebrow">Knowledge base</span>
+        <h3>Practice questions, answered</h3>
+        <p class="lede">Parking, billing, what to bring, appointment lengths — the questions that interrupt reception forty times a day. Avilo answers them from your knowledge base, in your tone.</p>
+        <ul>
+          <li>Trained on your practice info, FAQs and policies — not the open internet</li>
+          <li>We scan your website at setup and confirm every answer with you</li>
+          <li>Conservative by default: when in doubt, it asks for help</li>
+          <li>Recurring questions get surfaced so your knowledge base grows over time</li>
+        </ul>
+        <div class="feat-note">It never bluffs. If it doesn't know, a human does.</div>
+      </div>
+      <div class="feat-visual">
+        <div class="viz-wash bw-slate">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>9:41</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="phone-header"><div class="ph-contact"><div class="nm">Northside Physiotherapy</div><div class="sub">+61 468 048 291</div></div></div>
+                  <div class="sms-thread">
+                    <div class="sms-bubble b-patient">Hi, do you bulk bill? And do I need to bring anything to my first appt?</div>
+                    <div class="sms-bubble b-avilo">Hi Priya! We don't bulk bill, but you can claim on the spot with your private health card. For first visits bring photo ID and any imaging you have. We'll send a short intake form once you're booked.</div>
+                    <div class="sms-bubble b-patient">Great. Is there parking?</div>
+                    <div class="sms-bubble b-avilo">Yes — 2hr free street parking on Hassall St, or paid parking under the building (entry off Mary St). First appointments run about 45 minutes.</div>
+                    <div class="sms-bubble b-patient">Perfect, thanks!</div>
+                    <div class="typing"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sms-total">Answered from your knowledge base. <b>No reception time used.</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALLS -->
+    <div class="feat-row" id="calls">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <span class="eyebrow">Voice</span>
+        <h3>AI call answering <span class="chip chip-soon">Coming soon</span></h3>
+        <p class="lede">Answers the calls reception can't — after hours, on overflow, and on sick days — in a natural voice that books, reschedules and cancels live in your diary, mid-call.</p>
+        <ul>
+          <li>You choose when it answers: after-hours, ring-out overflow, busy periods, or custom rules</li>
+          <li>Books against real practitioner availability — never double-books</li>
+          <li>Higher trust bar on voice: hands to a human the moment it's unsure</li>
+          <li>Every call transcribed and logged, with a summary for your team</li>
+        </ul>
+        <div class="feat-note">Your patients just hear a friendly receptionist who gets them booked — no hold music, no voicemail, no "call back tomorrow".</div>
+      </div>
+      <div class="feat-visual">
+        <div class="viz-wash bw-teal">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>7:42</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="call-screen">
+                    <div class="call-banner">
+                      <div class="call-av">☎</div>
+                      <div><b>Northside Physiotherapy</b><span>Incoming call · after hours</span></div>
+                      <div class="call-live">Live</div>
+                    </div>
+                    <div class="call-turns">
+                      <div class="turn them"><span class="lbl">Caller</span><p>Hi, I need to move my appointment on Thursday, is anyone there?</p></div>
+                      <div class="turn ai"><span class="lbl">Avilo</span><p>Of course — you're booked with Dr. Chen Thursday at 3. What time would suit you better?</p></div>
+                      <div class="turn them"><span class="lbl">Caller</span><p>Friday morning if you've got anything?</p></div>
+                      <div class="turn ai"><span class="lbl">Avilo</span><p>I've got Friday 8:30 or 10:15 with Dr. Chen. Which works?</p></div>
+                      <div class="turn them"><span class="lbl">Caller</span><p>8:30's great.</p></div>
+                      <div class="turn ai"><span class="lbl">Avilo</span><p>Booked — Friday 8:30am with Dr. Chen. You'll get a text confirmation now. Anything else?</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sms-total in">Booked mid-call · <b>confirmation sent by SMS</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECALLS -->
+    <div class="feat-row flip" id="recalls">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div>
+        <span class="eyebrow">Revenue recovery</span>
+        <h3>Recalls &amp; reactivation <span class="chip chip-soon">Coming soon</span></h3>
+        <p class="lede">The follow-up work that's important but never urgent — so it never gets done. Avilo checks in on lapsed patients personally and books them straight back in.</p>
+        <ul>
+          <li>Finds patients with no upcoming appointment, by last-seen window</li>
+          <li>Personalised check-ins from diary fields — never clinical notes</li>
+          <li>Every reply runs through the same booking flow, straight to the diary</li>
+          <li>You review and approve every campaign before it sends</li>
+        </ul>
+        <div class="feat-note">The engine behind "recover the revenue you're already losing."</div>
+      </div>
+      <div class="feat-visual">
+        <div class="viz-wash bw-teal">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>9:41</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="phone-header"><div class="ph-contact"><div class="nm">Northside Physiotherapy</div><div class="sub">+61 468 048 291</div></div></div>
+                  <div class="sms-thread">
+                    <div class="sms-bubble b-avilo">Hi Dan, it's Northside Physio — it's been about 5 months since we saw you for that knee. How's it holding up? Happy to get you booked in for a check if you'd like.</div>
+                    <div class="sms-bubble b-patient">Oh hey, yeah it's been a bit stiff again lately actually</div>
+                    <div class="sms-bubble b-avilo">Let's take a look then. I've got Wed 4:15pm or Fri 9:00am with Alex — either suit?</div>
+                    <div class="sms-bubble b-patient">Friday works</div>
+                    <div class="sms-bubble b-avilo">Booked ✓ Fri 9:00am with Alex. Confirmation on its way. Good to hear from you Dan!</div>
+                    <div class="typing"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sms-total">Lapsed patient recovered · <b>reply to booking</b>, no staff time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WAITLIST -->
+    <div class="feat-row" id="waitlist">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <span class="eyebrow">Fill the gaps</span>
+        <h3>Waitlist auto-fill <span class="chip chip-soon">Coming soon</span></h3>
+        <p class="lede">A same-day cancellation used to mean a dead slot and lost revenue. Avilo offers it to the right waitlisted patients the moment it opens — and fills it before it goes cold.</p>
+        <ul>
+          <li>Matches the open slot to waitlisted patients by practitioner and preference</li>
+          <li>First to accept gets it; everyone else is told it's gone, politely</li>
+          <li>Diary updated and confirmations sent, automatically</li>
+          <li>Works hand-in-hand with cancellation handling — cancel and refill in one motion</li>
+        </ul>
+        <div class="feat-note">The gap never reaches your revenue line.</div>
+      </div>
+      <div class="feat-visual">
+        <div class="viz-wash bw-sky">
+          <div class="phone-wrap">
+            <div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="phone-status"><span>9:41</span><span class="ps-right"><svg width="14" height="10" viewBox="0 0 18 12" fill="currentColor"><rect x="1" y="7" width="3" height="4" rx="0.5"/><rect x="5" y="5" width="3" height="6" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13" y="1" width="3" height="10" rx="0.5"/></svg> 100%</span></div>
+                  <div class="phone-header"><div class="ph-contact"><div class="nm">Northside Physiotherapy</div><div class="sub">+61 468 048 291</div></div></div>
+                  <div class="sms-thread">
+                    <div class="sms-bubble sms-reminder-wrap"><div class="sms-label">Slot opened · 2:15pm today with Alex</div><div class="sms-bubble b-avilo" style="display:block">Hi Jess! A spot just opened with Alex today at 2:15pm — you mentioned you were keen for something sooner. Want it? Reply YES and it's yours.</div></div>
+                    <div class="sms-bubble b-patient">YES please!</div>
+                    <div class="sms-bubble b-avilo">Done ✓ You're in today at 2:15pm with Alex. See you soon!</div>
+                    <div class="typing"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sms-total">Cancelled slot refilled in <b>4 minutes</b> · zero staff time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- SAFETY / TRUST -->
-<section class="section" data-screen-label="07 Safety">
-  <div class="section-inner center" style="max-width:920px">
-    <span class="eyebrow reveal">Where Avilo stops</span>
-    <h2 class="reveal" data-delay="60">Three guardrails that run on every conversation.</h2>
-    <p class="sub mx-auto reveal" data-delay="120" style="max-width:640px;margin-top:18px">Every feature on this page runs inside the same safety frame. If Avilo isn't sure, it doesn't guess. It escalates.</p>
-    <div class="principles">
-      <div class="principle reveal" data-delay="160">
-        <span class="pn">01</span>
-        <div class="pico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h4>Confidence threshold per practice.</h4>
-        <p>Set how cautious Avilo should be. Conservative by default — it escalates early, not late.</p>
-      </div>
-      <div class="principle reveal" data-delay="240">
-        <span class="pn">02</span>
-        <div class="pico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
-        <h4>Clinical questions never get an answer.</h4>
-        <p>Pain levels, symptoms, treatment specifics — Avilo stops and alerts the clinician.</p>
-      </div>
-      <div class="principle reveal" data-delay="320">
-        <span class="pn">03</span>
-        <div class="pico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h4>Every conversation is logged.</h4>
-        <p>You can read what Avilo said, when, and why at any time. Full transparency, always.</p>
-      </div>
+<!-- COMPARISON -->
+<section class="sec soft" id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The gap Avilo fills</span>
+      <h2>Cliniko sends.<br />Avilo handles what comes back.</h2>
+      <p class="lede">Practice management tools were built for outbound: reminders and recalls going out. Everything inbound, and every real conversation, is left to manual handling. Here's what Avilo adds on top of Cliniko.</p>
     </div>
+    <table class="ctable">
+      <thead><tr><th>What you need</th><th>Cliniko native</th><th>With Avilo</th></tr></thead>
+      <tbody>
+        <tr><td>Send appointment reminders</td><td class="yes">Yes</td><td class="yes">Uses Cliniko's reminders</td></tr>
+        <tr><td>Track who's confirmed vs unconfirmed</td><td class="no">Sends only</td><td class="yes">Tracked reliably, non-responders nudged</td></tr>
+        <tr><td>Flag likely no-shows for a call</td><td class="no">—</td><td class="yes">Auto-flagged the day before</td></tr>
+        <tr><td>Notify staff when a patient replies</td><td class="no">—</td><td class="yes">Slack / Teams / Discord / SMS</td></tr>
+        <tr><td>Route replies to the right practitioner</td><td class="no">—</td><td class="yes">Automatic routing</td></tr>
+        <tr><td>Handle reschedule &amp; cancel conversations</td><td class="no">—</td><td class="yes">Full conversation by SMS</td></tr>
+        <tr><td>Update the diary automatically</td><td class="no">—</td><td class="yes">Real-time write-back</td></tr>
+        <tr><td>Answer inbound calls after hours / on overflow</td><td class="no">—</td><td class="yes">Answered live, booked mid-call</td></tr>
+        <tr><td>Run recalls &amp; reactivation to a booking</td><td class="no">Sends only</td><td class="yes">Run end-to-end to a booking</td></tr>
+        <tr><td>Fill cancellations from the waitlist</td><td class="no">—</td><td class="yes">Filled automatically, first yes wins</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:22px;font-weight:600;color:var(--navy-mid)">Avilo doesn't replace your practice software. It does the work it was never built to do.</p>
   </div>
 </section>
 
-<!-- INTEGRATIONS -->
-<section class="section wash" data-screen-label="08 Integrations">
-  <div class="section-inner center" style="max-width:840px">
-    <span class="eyebrow reveal">Plays well with your stack</span>
-    <h2 class="reveal" data-delay="60">Cliniko is the centre. We meet your team where they already are.</h2>
-    <p class="sub mx-auto reveal" data-delay="120" style="max-width:580px;margin-top:18px">Officially integrated with Cliniko. Optional integrations with the channels your practice already runs on.</p>
-    <div class="integrations reveal" data-delay="180">
-      <div class="integ-chip cliniko"><div class="ic">C</div>Cliniko · live</div>
-      <div class="integ-chip slack"><div class="ic">#</div>Slack · live</div>
-      <div class="integ-chip teams"><div class="ic">T</div>Microsoft Teams · live</div>
-      <div class="integ-chip discord"><div class="ic">D</div>Discord · live</div>
-      <div class="integ-chip sms"><div class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>SMS notify · live</div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="dark final-cta" data-screen-label="09 CTA">
-  <div class="dot-grid"></div>
-  <div class="glow glow-br"></div>
-  <div class="glow glow-bl"></div>
-  <div class="final-cta-inner">
-    <a class="logo reveal"><img src="brand/avilo_logo_on_navy.svg" alt="Avilo"></a>
-    <h2 class="reveal" data-delay="60">See it running in your Cliniko in 15 minutes.</h2>
-    <p class="sub reveal mx-auto" data-delay="120">A walk-through in a real Cliniko sandbox. No commitment, no credit card.</p>
-    <div class="reveal" data-delay="160" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <button class="btn btn-primary btn-lg" onclick="openModal()" style="padding:18px 32px;font-size:17px">Book a demo →</button>
-      <a href="pricing.html" class="btn btn-ghost-dark btn-lg" style="padding:18px 32px;font-size:17px">See pricing</a>
-    </div>
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Pick the features your clinic needs. We'll price it around you.</h2>
+    <p>Every clinic runs differently, so Avilo isn't one-size-fits-all — tell us what you want handled and we'll shape the package (and the price) to fit. Start with a 30-minute demo.</p>
+    <a class="btn btn-primary btn-lg" href="contact.html">Book a demo →</a>
+    <p class="fine">No commitment · No credit card · Built in Sydney for allied health</p>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-grid">
-    <div>
-      <a class="logo" href="index.html"><img src="brand/avilo_logo_on_navy.svg" alt="Avilo"></a>
-      <p class="footer-tag">Cliniko's missing automation layer. Built in Sydney for allied health.</p>
-      <div class="footer-cliniko">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Officially integrated with Cliniko
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="brand/avilo_mark_white_on_navy.svg" alt="" /><span>avilo<span class="dot">.</span></span></div>
+        <p style="max-width:26em">Somewhere between the missed calls, the unanswered texts and tomorrow's no-shows, your clinic is losing hours every week. <a href="contact.html" style="color:#4DD9C0">See what a week with Avilo hands back →</a></p>
+        <p style="font-size:.8rem">Officially integrated with Cliniko · Built in Sydney for allied health.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="cliniko-integration.html">Avilo + Cliniko</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
+        </ul>
       </div>
     </div>
-    <div>
-      <h5>Product</h5>
-      <ul class="footer-links">
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a onclick="openModal()">Book a demo</a></li>
-        <li><a href="#login">Log in</a></li>
-      </ul>
+    <div class="foot-bottom">
+      <span>© 2026 Avilo Pty Ltd. All rights reserved.</span>
+      <span>Made in Sydney 🇦🇺</span>
     </div>
-    <div>
-      <h5>Company</h5>
-      <ul class="footer-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="#" onclick="openModal('contact');return false">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Avilo Pty Ltd. All rights reserved.</span>
-    <span>Made in Sydney 🇦🇺</span>
   </div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-bd" id="modal" onclick="if(event.target.id==='modal')closeModal()">
-  <div class="modal">
-    <button class="modal-x" onclick="closeModal()" aria-label="Close">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <div id="modal-form">
-      <h3>Book a 15-minute demo</h3>
-      <p class="modal-sub">We'll walk you through Avilo running in a real Cliniko environment. No sales pitch.</p>
-      <form onsubmit="return submitDemo(event)" action="https://formspree.io/f/maqvraqz" method="POST">
-        <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Dr. Jane Smith"></div>
-        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@practice.com.au"></div>
-        <div class="field"><label>Practice name</label><input type="text" name="practice" required placeholder="Bondi Physio"></div>
-        <div class="field"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="+61 4xx xxx xxx"></div>
-        <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:8px">Book my demo</button>
-        <p class="modal-fine">We'll only use your details to confirm the demo. Promise.</p>
-      </form>
-    </div>
-    <div id="modal-success" class="modal-success" style="display:none">
-      <div class="tick"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <h3>Thanks — we'll be in touch.</h3>
-      <p class="modal-sub" style="margin-top:10px;margin-bottom:0">Within 24 hours. In the meantime, you'll receive a confirmation email.</p>
-      <button class="btn btn-ghost-light" style="margin-top:22px" onclick="closeModal()">Close</button>
-    </div>
-  </div>
-</div>
-
 <script>
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const d=+(e.target.dataset.delay||0);
-      setTimeout(()=>e.target.classList.add('in'),d);
-      io.unobserve(e.target);
-    }
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
   });
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// Before/after wipe slider
-(function(){
-  const wipe=document.getElementById('compareWipe');
-  const handle=document.getElementById('wipeHandle');
-  if(!wipe||!handle) return;
-  let dragging=false;
-  function setPct(p){
-    p=Math.max(4,Math.min(96,p));
-    wipe.style.setProperty('--wipe',p+'%');
-    handle.setAttribute('aria-valuenow',Math.round(p));
-    // p is the clip inset on the "after" panel from the left:
-    // low p  → after panel covers most of the card (Avilo dominant)
-    // high p → before panel shows mostly (Cliniko dominant)
-    wipe.classList.toggle('show-before', p > 62);
-    wipe.classList.toggle('show-after',  p < 38);
-  }
-  function fromEvent(e){
-    const r=wipe.getBoundingClientRect();
-    const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
-    setPct((x/r.width)*100);
-  }
-  function start(e){dragging=true;wipe.classList.add('dragging');wipe.style.cursor='ew-resize';fromEvent(e);e.preventDefault();}
-  function move(e){if(!dragging) return;fromEvent(e);}
-  function end(){dragging=false;wipe.classList.remove('dragging');wipe.style.cursor='';}
-  handle.addEventListener('mousedown',start);
-  wipe.addEventListener('mousedown',start);
-  window.addEventListener('mousemove',move);
-  window.addEventListener('mouseup',end);
-  handle.addEventListener('touchstart',start,{passive:false});
-  window.addEventListener('touchmove',move,{passive:false});
-  window.addEventListener('touchend',end);
-  handle.addEventListener('keydown',e=>{
-    const cur=parseFloat(getComputedStyle(wipe).getPropertyValue('--wipe'))||55;
-    if(e.key==='ArrowLeft'){setPct(cur-4);e.preventDefault();}
-    if(e.key==='ArrowRight'){setPct(cur+4);e.preventDefault();}
-  });
-  // Intro nudge on first reveal — keep both chips visible at rest; they only
-  // fade when the user actively swipes far toward one side.
-  const card=wipe.closest('.reveal');
-  if(card){
-    const once=new IntersectionObserver((es)=>{
-      es.forEach(en=>{
-        if(en.isIntersecting){
-          once.disconnect();
-          setTimeout(()=>{
-            let p=55,dir=-1,steps=0;
-            const id=setInterval(()=>{
-              p+=dir*2.2;steps++;
-              if(p<=30){dir=1}
-              if(steps>28){clearInterval(id);setPct(55);return;}
-              setPct(p);
-            },22);
-          },600);
-        }
-      });
-    },{threshold:0.4});
-    once.observe(card);
-  }
-})();
-
-function openModal(intent){
-  const m=document.getElementById('modal');
-  m.classList.add('open');
-  document.getElementById('modal-form').style.display='block';
-  document.getElementById('modal-success').style.display='none';
-  document.body.style.overflow='hidden';
-  const h=document.querySelector('#modal-form h3');
-  const sub=document.querySelector('#modal-form .modal-sub');
-  const btn=document.querySelector('#modal-form button[type=submit]');
-  m.dataset.intent=intent||'demo';
-  if(intent==='contact'){
-    if(h) h.textContent='Get in touch';
-    if(sub) sub.textContent="Drop us a line — we'll get back to you within a business day.";
-    if(btn) btn.textContent='Send message';
-  } else if(intent==='founding'){
-    if(h) h.textContent='Apply for founding access';
-    if(sub) sub.textContent='Tell us about your practice. We'+String.fromCharCode(39)+'ll only fill 5 founding spots.';
-    if(btn) btn.textContent='Apply for founding access';
-  } else {
-    if(h) h.textContent='Book a 15-minute demo';
-    if(sub) sub.textContent="We'll walk you through Avilo running in a real Cliniko environment. No sales pitch.";
-    if(btn) btn.textContent='Book my demo';
-  }
-}
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
-function submitDemo(e){
-  e.preventDefault();
-  const form=e.target;
-  const btn=form.querySelector('button[type=submit]');
-  const orig=btn.textContent;
-  btn.disabled=true; btn.textContent='Sending…';
-  const data=new FormData(form);
-  const intent=(document.getElementById('modal')||{}).dataset?.intent||'demo';
-  const subj=intent==='contact'?'New Avilo contact form':intent==='founding'?'New Avilo founding application':'New Avilo demo request';
-  data.append('_subject',subj);
-  data.append('intent',intent);
-  data.append('source',(document.title||'Avilo')+' · '+location.pathname);
-  fetch('https://formspree.io/f/maqvraqz',{method:'POST',body:data,headers:{'Accept':'application/json'}})
-    .then(r=>{
-      if(r.ok){
-        document.getElementById('modal-form').style.display='none';
-        document.getElementById('modal-success').style.display='block';
-      } else {
-        btn.disabled=false; btn.textContent=orig;
-        alert('Sorry — something went wrong. Please email hello@avilo.com.au and we\'ll get straight back to you.');
+  // sms conversation animator (plays when a phone scrolls into view)
+  function runSmsAnim(container){
+    if(container.dataset.played)return;
+    container.dataset.played='1';
+    var bubbles=Array.prototype.slice.call(container.querySelectorAll(':scope > .sms-bubble'));
+    var holder=container.closest('.phone').parentElement;
+    var finalLabel=holder?holder.querySelector('.sms-total'):null;
+    bubbles.forEach(function(b){b.style.display='none';});
+    var typing=container.querySelector('.typing');
+    var i=0;
+    function next(){
+      if(i>=bubbles.length){if(finalLabel)finalLabel.classList.add('in');return;}
+      var b=bubbles[i];
+      var isAvilo=b.classList.contains('b-avilo')&&!b.classList.contains('sms-reminder-wrap');
+      if(isAvilo&&typing){
+        typing.style.display='flex';
+        container.scrollTop=container.scrollHeight;
+        setTimeout(function(){
+          typing.style.display='none';
+          b.style.display=b.classList.contains('sms-reminder-wrap')?'flex':'block';
+          b.classList.add('pop');
+          container.scrollTop=container.scrollHeight;
+          i++;setTimeout(next,750);
+        },1300);
+      }else{
+        b.style.display=b.classList.contains('sms-reminder-wrap')?'flex':'block';
+        b.classList.add('pop');
+        container.scrollTop=container.scrollHeight;
+        i++;setTimeout(next,800);
       }
-    })
-    .catch(()=>{
-      btn.disabled=false; btn.textContent=orig;
-      alert('Network error. Please try again, or email hello@avilo.com.au directly.');
+    }
+    setTimeout(next,500);
+  }
+  var smsIO=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){runSmsAnim(e.target);smsIO.unobserve(e.target);}
     });
-  return false;
-}
+  },{threshold:0.35});
+  document.querySelectorAll('.sms-thread').forEach(function(t){smsIO.observe(t);});
 </script>
 </body>
 </html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Avilo + Cliniko — the AI front desk built on your Cliniko diary</title>
+<meta name="description" content="Avilo integrates with Cliniko via the official API — reading live availability and writing bookings, reschedules and confirmations back to your diary in real time. The missing piece of Cliniko's patient comms." />
+<link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
+<meta property="og:title" content="Avilo + Cliniko — Cliniko sends. Avilo handles what comes back." />
+<meta property="og:description" content="Official Cliniko API integration: real-time diary read/write, two-way patient SMS, confirmations and call answering for allied health." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://avilo.com.au/cliniko-integration.html" />
+<meta property="og:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<link rel="canonical" href="https://avilo.com.au/cliniko-integration.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="avilo.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Does Avilo use the official Cliniko API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Avilo connects through Cliniko's official API — reading availability and writing appointments without moving patient data outside the Cliniko / Avilo perimeter."}},
+    {"@type": "Question", "name": "Does Avilo replace Cliniko's reminders?", "acceptedAnswer": {"@type": "Answer", "text": "No — Avilo works with them. Cliniko keeps sending reminders exactly as it does today; Avilo handles everything that comes back: replies, reschedules, cancellations, confirmations and questions."}},
+    {"@type": "Question", "name": "How long does it take to connect Avilo to Cliniko?", "acceptedAnswer": {"@type": "Answer", "text": "About 15 minutes. Practitioners, appointment types and booking rules import automatically via the API — no engineering, no data migration, no downtime."}},
+    {"@type": "Question", "name": "What if my clinic isn't on Cliniko?", "acceptedAnswer": {"@type": "Answer", "text": "Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap — get in touch and tell us what you use."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><img src="brand/avilo_mark_gradient.svg" alt="" /><span><b>avilo</b><span class="dot">.</span></span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="features.html">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="contact.html">Book a demo →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO (dark) -->
+<section class="hero-dark" style="padding:72px 0 84px">
+  <div class="dot-grid"></div>
+  <div class="glow glow-tr"></div>
+  <div class="glow glow-bl"></div>
+  <div class="wrap" style="max-width:840px;text-align:center">
+    <span class="tag"><span class="pulse"></span>Official Cliniko API integration</span>
+    <h1 style="font-size:clamp(2rem,4vw,2.9rem)">Cliniko sends.<br />Avilo handles what comes back.</h1>
+    <p class="hero-lede" style="margin:0 auto">Cliniko's reminders and diary are excellent — but when a patient replies, calls, or goes quiet, everything falls back on your team. Avilo sits on top of your Cliniko diary and handles the conversations, live.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="contact.html">Book a demo →</a>
+      <a class="btn btn-ghost-light btn-lg" href="features.html">See the features</a>
+    </div>
+    <p class="hero-foot">Read &amp; write in real time · No data migration · Set up in ~15 minutes</p>
+  </div>
+</section>
+
+<!-- HOW THE INTEGRATION WORKS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How the integration works</span>
+      <h2>Your Cliniko diary stays the single source of truth.</h2>
+      <p class="lede">Avilo never asks you to run a second system. It connects through Cliniko's official API and works directly on the diary your team already lives in.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <h4>Reads live availability</h4>
+        <p>Practitioners, appointment types, booking rules and open slots import automatically — so Avilo only ever offers times that are genuinely free.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <h4>Writes back in real time</h4>
+        <p>Bookings, reschedules, cancellations and confirmation statuses land in the diary the moment a conversation resolves — reminders re-scheduled automatically.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h4>Data stays in the perimeter</h4>
+        <p>Patient data never leaves the Cliniko / Avilo perimeter, stays on Australian-hosted infrastructure, and is never used to train models.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The gap Avilo fills</span>
+      <h2>What Avilo adds on top of Cliniko.</h2>
+      <p class="lede">Cliniko was built for outbound — reminders and recalls going out. Everything inbound, and every real conversation, is left to manual handling. Here's the difference, feature by feature.</p>
+    </div>
+    <table class="ctable">
+      <thead><tr><th>What you need</th><th>Cliniko native</th><th>With Avilo</th></tr></thead>
+      <tbody>
+        <tr><td>Send appointment reminders</td><td class="yes">Yes</td><td class="yes">Uses Cliniko's reminders</td></tr>
+        <tr><td>Track who's confirmed vs unconfirmed</td><td class="no">Sends only</td><td class="yes">Tracked reliably, non-responders nudged</td></tr>
+        <tr><td>Flag likely no-shows for a call</td><td class="no">—</td><td class="yes">Auto-flagged the day before</td></tr>
+        <tr><td>Handle reschedule &amp; cancel conversations</td><td class="no">—</td><td class="yes">Full conversation by SMS</td></tr>
+        <tr><td>Route replies to the right practitioner</td><td class="no">—</td><td class="yes">Automatic routing + Slack/Teams/SMS alerts</td></tr>
+        <tr><td>Update the diary automatically</td><td class="no">—</td><td class="yes">Real-time write-back</td></tr>
+        <tr><td>Answer inbound calls after hours / on overflow</td><td class="no">—</td><td class="yes">Coming soon</td></tr>
+        <tr><td>Run recalls &amp; reactivation to a booking</td><td class="no">Sends only</td><td class="yes">Coming soon</td></tr>
+        <tr><td>Fill cancellations from the waitlist</td><td class="no">—</td><td class="yes">Coming soon</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:22px;font-weight:600;color:var(--navy-mid)">Avilo doesn't replace Cliniko. It does the work Cliniko was never built to do.</p>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Getting connected</span>
+      <h2>Live on your Cliniko diary in about 15 minutes.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Connect via the official API</h4>
+        <p>One API key from your Cliniko settings. Practitioners, appointment types and booking rules import automatically.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Confirm your clinic's rules</h4>
+        <p>We scan your website for FAQs and policies, confirm every answer with you, and set your escalation rules and routing.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>Handle your first reply the same day</h4>
+        <p>No engineering, no data migration, no downtime — most practices run their first real patient conversation the same morning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec soft" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Cliniko questions</span>
+      <h2>What Cliniko practices ask us.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>Does Avilo use the official Cliniko API?</summary>
+        <div class="faq-body">
+          <p>Yes. Avilo connects through Cliniko's official API — reading availability and writing appointments without moving patient data outside the Cliniko / Avilo perimeter. <b>Your diary stays the single source of truth.</b></p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does Avilo replace Cliniko's reminders?</summary>
+        <div class="faq-body">
+          <p>No — it works with them. Cliniko keeps sending reminders exactly as it does today. Avilo handles everything that comes back: replies, reschedules, cancellations, confirmations and questions, writing every outcome back to the diary.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Will my team need to learn new software?</summary>
+        <div class="faq-body">
+          <p>Barely. Your team keeps working in Cliniko as normal — Avilo's work simply shows up there. Escalations arrive wherever your team already is: Slack, Teams, Discord or SMS.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does it take to connect?</summary>
+        <div class="faq-body">
+          <p><b>About 15 minutes.</b> One API key, automatic import, a short call to confirm your policies — most practices handle their first real conversation the same day.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>We're not on Cliniko — can we still use Avilo?</summary>
+        <div class="faq-body">
+          <p>Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap — <a href="contact.html">tell us what you use</a>; demand directly shapes what we build next.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>See Avilo running on a real Cliniko diary.</h2>
+    <p>A 30-minute walkthrough on a live Cliniko environment — reschedules, confirmations and escalations, handled end-to-end in front of you.</p>
+    <a class="btn btn-primary btn-lg" href="contact.html">Book a demo →</a>
+    <p class="fine">No commitment · No credit card · Built in Sydney for allied health</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="brand/avilo_mark_white_on_navy.svg" alt="" /><span>avilo<span class="dot">.</span></span></div>
+        <p style="max-width:26em">Somewhere between the missed calls, the unanswered texts and tomorrow's no-shows, your clinic is losing hours every week. <a href="contact.html" style="color:#4DD9C0">See what a week with Avilo hands back →</a></p>
+        <p style="font-size:.8rem">Officially integrated with Cliniko · Built in Sydney for allied health.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="cliniko-integration.html">Avilo + Cliniko</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="contact.html">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Avilo Health Pty Ltd. All rights reserved.</span>
+      <span>Made in Sydney 🇦🇺</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# macOS junk
+.DS_Store
+
+# Claude Code local config (not for the public site)
+.claude/
+
+# Internal notes — not deployed
+DEPLOY_INSTRUCTIONS.md
+
+# Leftover / unused draft files
+avilo-v3.css
+brand/Enhance Image Quality*.jpg

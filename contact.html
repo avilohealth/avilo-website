@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Avilo</title>
+<meta name="description" content="Book a demo of Avilo, the AI front desk for allied health, or send us an enquiry. Pricing is tailored to the features your clinic needs — we'll shape it around you on a short call." />
+<link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
+<meta property="og:title" content="Contact Avilo — Book a demo" />
+<meta property="og:description" content="See Avilo running on a real clinic diary in 30 minutes. No commitment, no credit card." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://avilo.com.au/contact" />
+<meta property="og:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="canonical" href="https://avilo.com.au/contact.html" />
+<link rel="stylesheet" href="avilo.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><img src="brand/avilo_mark_gradient.svg" alt="" /><span><b>avilo</b><span class="dot">.</span></span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="features.html">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#book">Book a demo →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding:64px 0 56px">
+  <div class="wrap" style="max-width:780px;text-align:center">
+    <span class="tag">Contact us</span>
+    <h1 style="font-size:clamp(2rem,4.2vw,2.8rem)">Let's talk about your clinic.</h1>
+    <p class="hero-lede" style="margin:0 auto">Pricing is tailored to the features your clinic needs — so rather than a one-size-fits-all table, we'll shape a package around you. Book a demo below, or send us a message and we'll get back to you within one business day.</p>
+  </div>
+</section>
+
+<!-- CONTACT GRID -->
+<section class="sec-tight" id="book" style="padding-top:24px">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- Calendly -->
+      <div class="cal-card">
+        <div class="cal-head">
+          <h3>Book a 30-minute demo</h3>
+          <p>Pick a time that suits — we'll show you Avilo running on a real clinic diary and answer everything on the spot.</p>
+        </div>
+        <iframe class="cal-frame" src="https://calendly.com/avilohealth/30min?hide_gdpr_banner=1&primary_color=0d9488" title="Book a demo with Avilo" loading="lazy"></iframe>
+      </div>
+
+      <!-- Form -->
+      <div>
+        <div class="form-card">
+          <h3>Or send us an enquiry</h3>
+          <p style="font-size:.92rem">Not ready to book? Tell us a little about your clinic and what you'd like handled — we'll come back with answers, not a sales script.</p>
+          <form action="https://formspree.io/f/maqvraqz" method="POST" onsubmit="return submitEnquiry(event)">
+            <input type="hidden" name="_subject" value="New Avilo enquiry (website contact form)" />
+            <div class="field-row">
+              <div class="field">
+                <label for="f-name">Your name *</label>
+                <input id="f-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="f-clinic">Clinic name</label>
+                <input id="f-clinic" name="clinic" type="text" autocomplete="organization" />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-email">Email *</label>
+                <input id="f-email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone</label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-interest">What are you most interested in?</label>
+              <select id="f-interest" name="interest">
+                <option value="Everything — the full front desk">Everything — the full front desk</option>
+                <option value="AI call answering">AI call answering</option>
+                <option value="Patient texting & confirmations">Patient texting &amp; confirmations</option>
+                <option value="Recalls & reactivation">Recalls &amp; reactivation</option>
+                <option value="Waitlist auto-fill">Waitlist auto-fill</option>
+                <option value="Something else / not sure yet">Something else / not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-msg">Message</label>
+              <textarea id="f-msg" name="message" placeholder="Tell us about your clinic — size, practice software, what's eating your front desk's time…"></textarea>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit" style="width:100%">Send enquiry →</button>
+            <div class="form-ok" id="formOk">Thanks — we've got your message and we'll be in touch within one business day.</div>
+          </form>
+        </div>
+
+        <div class="contact-direct">
+          <div class="direct-card">
+            <b>Email us</b>
+            <a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a>
+          </div>
+          <div class="direct-card">
+            <b>Based in</b>
+            Sydney, Australia 🇦🇺
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec soft" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Before you book</span>
+      <h2>Quick answers to the usual questions.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>How much does Avilo cost?</summary>
+        <div class="faq-body">
+          <p>Pricing depends on which features you want — calls, texting, confirmations, recalls, waitlist — plus your patient volume and number of locations. On the demo we'll work out what your clinic actually needs and quote a package around that.</p>
+          <p><b>No lock-in surprises</b> — you'll know the number before you commit to anything.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens on the demo call?</summary>
+        <div class="faq-body">
+          <p>Thirty minutes, no sales script. We'll look at how your front desk runs today, show you Avilo handling real scenarios on a live clinic diary — reschedules, confirmations, escalations, calls — and answer everything on the spot.</p>
+          <p>If it's not a fit, <b>we'll tell you that too.</b></p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does it take to go live?</summary>
+        <div class="faq-body">
+          <p><b>About 15 minutes.</b> We connect to Cliniko via the official API, import your practitioners and booking rules, confirm your FAQs and policies with you, and configure routing. Most practices handle their first real conversation the same day.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>We're not on Cliniko — can we still use Avilo?</summary>
+        <div class="faq-body">
+          <p>Avilo integrates deeply with Cliniko today, and support for other allied health practice management systems is on the roadmap. Send us an enquiry and tell us what you use — demand directly shapes what we build next, and we'll let you know as soon as your system is supported.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is patient data safe?</summary>
+        <div class="faq-body">
+          <p>Yes. Patient data stays on Australian-hosted infrastructure, encrypted in transit and at rest. We <b>never train models on your patient data</b>, and you can export or delete everything in one click.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="brand/avilo_mark_white_on_navy.svg" alt="" /><span>avilo<span class="dot">.</span></span></div>
+        <p style="max-width:26em">Somewhere between the missed calls, the unanswered texts and tomorrow's no-shows, your clinic is losing hours every week. <a href="contact.html" style="color:#4DD9C0">See what a week with Avilo hands back →</a></p>
+        <p style="font-size:.8rem">Officially integrated with Cliniko · Built in Sydney for allied health.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="cliniko-integration.html">Avilo + Cliniko</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Avilo Health Pty Ltd. All rights reserved.</span>
+      <span>Made in Sydney 🇦🇺</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  function submitEnquiry(e){
+    e.preventDefault();
+    var form=e.target, btn=form.querySelector('button[type=submit]');
+    btn.disabled=true;btn.textContent='Sending…';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){form.reset();document.getElementById('formOk').style.display='block';btn.textContent='Sent ✓';}
+        else{btn.disabled=false;btn.textContent='Send enquiry →';alert('Something went wrong — please email hello@avilo.com.au instead.');}
+      })
+      .catch(function(){btn.disabled=false;btn.textContent='Send enquiry →';alert('Something went wrong — please email hello@avilo.com.au instead.');});
+    return false;
+  }
+</script>
+</body>
+</html>
