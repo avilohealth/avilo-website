@@ -15,9 +15,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
 <link rel="canonical" href="https://avilo.com.au/cliniko-integration.html" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="fonts.css" />
 <link rel="stylesheet" href="avilo.css" />
 <script type="application/ld+json">
 {
@@ -26,7 +24,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "Does Avilo use the official Cliniko API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Avilo connects through Cliniko's official API, reading availability and writing appointments without moving patient data outside the Cliniko / Avilo perimeter."}},
     {"@type": "Question", "name": "Does Avilo replace Cliniko's reminders?", "acceptedAnswer": {"@type": "Answer", "text": "No, Avilo works with them. Cliniko keeps sending reminders exactly as it does today; Avilo handles everything that comes back: replies, reschedules, cancellations, confirmations and questions."}},
-    {"@type": "Question", "name": "How long does it take to connect Avilo to Cliniko?", "acceptedAnswer": {"@type": "Answer", "text": "About 15 minutes. Practitioners, appointment types and booking rules import automatically via the API. No engineering, no data migration, no downtime."}},
+    {"@type": "Question", "name": "How long does it take to connect Avilo to Cliniko?", "acceptedAnswer": {"@type": "Answer", "text": "One API key from your Cliniko settings. Practitioners, appointment types and booking rules import automatically via the API. No engineering, no data migration, no downtime."}},
     {"@type": "Question", "name": "What if my clinic isn't on Cliniko?", "acceptedAnswer": {"@type": "Answer", "text": "Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap. Get in touch and tell us what you use."}}
   ]
 }
@@ -58,14 +56,14 @@
   <div class="glow glow-tr"></div>
   <div class="glow glow-bl"></div>
   <div class="wrap" style="max-width:840px;text-align:center">
-    <span class="tag"><span class="pulse"></span>Official Cliniko API integration</span>
+    <span class="tag">Official Cliniko API integration</span>
     <h1 style="font-size:clamp(2rem,4vw,2.9rem)">Cliniko sends.<br />Avilo handles what comes back.</h1>
     <p class="hero-lede" style="margin:0 auto">Cliniko's reminders and diary are excellent, but when a patient replies, calls, or goes quiet, everything falls back on your team. Avilo sits on top of your Cliniko diary and handles the conversations, live.</p>
     <div class="hero-actions" style="justify-content:center">
       <a class="btn btn-primary btn-lg" href="contact.html">Book a demo →</a>
       <a class="btn btn-ghost-light btn-lg" href="features.html">See the features</a>
     </div>
-    <p class="hero-foot">Read &amp; write in real time · No data migration · Set up in ~15 minutes</p>
+    <p class="hero-foot">Read &amp; write in real time · No data migration · No downtime</p>
   </div>
 </section>
 
@@ -128,7 +126,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Getting connected</span>
-      <h2>Live on your Cliniko diary in about 15 minutes.</h2>
+      <h2>Live on your Cliniko diary in three steps.</h2>
     </div>
     <div class="steps">
       <div class="step">
@@ -179,7 +177,7 @@
       <details class="faq-item">
         <summary>How long does it take to connect?</summary>
         <div class="faq-body">
-          <p><b>About 15 minutes.</b> One API key, automatic import, a short call to confirm your policies. Most practices handle their first real conversation the same day.</p>
+          <p>One API key, automatic import, and a short call to confirm your policies. <b>Most practices handle their first real conversation the same day.</b></p>
         </div>
       </details>
       <details class="faq-item">
@@ -232,6 +230,10 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Avilo Health Pty Ltd. All rights reserved.</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </nav>
       <span>Made in Sydney 🇦🇺</span>
     </div>
   </div>

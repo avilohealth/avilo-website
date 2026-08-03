@@ -16,10 +16,8 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="canonical" href="https://avilo.com.au/" />
+<link rel="stylesheet" href="fonts.css" />
 <link rel="stylesheet" href="avilo.css" />
 <script type="application/ld+json">
 {
@@ -51,7 +49,7 @@
         {"@type": "Question", "name": "How much does Avilo cost?", "acceptedAnswer": {"@type": "Answer", "text": "Pricing is tailored to your clinic. It depends on which features you want (calls, texting, recalls, waitlist and so on), your patient volume and the number of locations. We shape a package around your clinic on a short demo call."}},
         {"@type": "Question", "name": "What does Avilo actually handle?", "acceptedAnswer": {"@type": "Answer", "text": "Two-way patient texting for reschedules, cancellations, confirmations and practice questions, with smart routing and escalation to your team. Inbound call answering, recalls & reactivation and waitlist auto-fill are rolling out soon. Everything writes back to your Cliniko diary in real time."}},
         {"@type": "Question", "name": "What happens when Avilo isn't sure how to respond?", "acceptedAnswer": {"@type": "Answer", "text": "Avilo only takes action on conversations where it's confident. Anything ambiguous, clinical or emotional is handed to the right person on your team within 60 seconds, with the full conversation attached. Conservative by default."}},
-        {"@type": "Question", "name": "How long does setup take?", "acceptedAnswer": {"@type": "Answer", "text": "About 15 minutes. Avilo connects to Cliniko via the official API, auto-imports practitioners, appointment types and booking rules, and configures your routing. No engineering, no data migration, no downtime."}},
+        {"@type": "Question", "name": "How long does setup take?", "acceptedAnswer": {"@type": "Answer", "text": "Avilo connects to Cliniko via the official API, auto-imports practitioners, appointment types and booking rules, and configures your routing. No engineering, no data migration, no downtime."}},
         {"@type": "Question", "name": "Is my clinic's data safe with Avilo?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Patient data stays on Australian-hosted infrastructure, encrypted in transit and at rest. Models are never trained on your patient data, and you can export or delete everything in one click."}},
         {"@type": "Question", "name": "Does Avilo work with my practice management software?", "acceptedAnswer": {"@type": "Answer", "text": "Avilo is built on Cliniko today, with deep real-time integration via the official API. Support for other allied health practice management systems is on the roadmap."}}
       ]
@@ -87,7 +85,7 @@
   <div class="glow glow-bl"></div>
   <div class="wrap wrap-wide hero-grid">
     <div>
-      <span class="tag"><span class="pulse"></span>Built for allied health · Integrates with Cliniko</span>
+      <span class="tag">Built for allied health · Integrates with Cliniko</span>
       <h1>The <span class="underline">front desk</span> that never misses a message. <span class="nowrap"><span class="rw-wrap"><em class="rw" id="rw">Calls</em></span>, handled.</span></h1>
       <p class="hero-lede">Avilo answers overflow and after-hours calls, replies to patient messages, confirms appointments and revives lapsed patients, so your team can focus on the people in the room.</p>
       <div class="hero-actions">
@@ -101,16 +99,55 @@
       <div class="mock">
         <div class="mock-bar"><span class="mock-dots"><span></span><span></span><span></span></span><span class="mock-url"><span>app.avilo.com.au</span></span></div>
         <div class="mock-body">
-          <div class="mock-hello">Good morning<strong>Here's what Avilo handled overnight</strong></div>
-          <div class="mock-stats">
-            <div class="mock-stat"><b>31</b><span>conversations handled</span></div>
-            <div class="mock-stat"><b>9</b><span>appts recovered</span></div>
-            <div class="mock-stat alert"><b>2</b><span>need your attention</span></div>
+          <div class="mock-head">
+            <div><b>Dashboard</b><span>Monday 3 August</span></div>
+            <span class="mock-range">7 days</span>
           </div>
-          <div class="mock-row"><div><div class="who">Sarah Bennett</div><div class="what">SMS · rescheduled to Thu 14 Aug</div></div><span class="pill pill-ok">Handled</span></div>
-          <div class="mock-row"><div><div class="who">Marcus Webb</div><div class="what">Missed call · rebooked after hours</div></div><span class="pill pill-ch">Call</span></div>
-          <div class="mock-row"><div><div class="who">Jess Nguyen</div><div class="what">Waitlist · filled a cancelled slot</div></div><span class="pill pill-ok">Handled</span></div>
-          <div class="mock-row"><div><div class="who">Tom O'Brien</div><div class="what">SMS · "back pain worsening"</div></div><span class="pill pill-esc">Escalated</span></div>
+
+          <div class="mock-kpis">
+            <div class="mk mk-amber">
+              <div class="mk-top"><span class="mk-ic">⚠</span>Needs reply</div>
+              <div class="mk-bot"><b>6</b><span>waiting on the clinic</span></div>
+            </div>
+            <div class="mk mk-teal">
+              <div class="mk-top"><span class="mk-ic">✓</span>Handled by Avilo</div>
+              <div class="mk-bot"><b>68%</b><span>97 of 142 conversations</span></div>
+            </div>
+            <div class="mk mk-teal">
+              <div class="mk-top"><span class="mk-ic">▦</span>Slots freed up</div>
+              <div class="mk-bot"><b>51</b><span>reschedules and cancellations</span></div>
+            </div>
+          </div>
+
+          <div class="mock-conv">
+            <div class="mc-n"><b>142</b><span>conversations handled</span></div>
+            <svg class="mock-spark" viewBox="0 0 150 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,21 25,19 50,23 75,20 100,6 125,18 150,22"
+                        fill="none" stroke="#0D9488" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <div class="mock-rev">
+            <div class="mock-rev-top">
+              <div>
+                <b>$11,240</b>
+                <span>Revenue captured · 7 days</span>
+              </div>
+              <span class="mock-est">Estimate</span>
+            </div>
+            <div class="mock-line">
+              <div class="ml-top"><span>New bookings</span><b>$7,090</b></div>
+              <div class="mock-track"><i style="width:100%"></i></div>
+            </div>
+            <div class="mock-line">
+              <div class="ml-top"><span>Reschedules</span><b>$4,010</b></div>
+              <div class="mock-track t2"><i style="width:57%"></i></div>
+            </div>
+            <div class="mock-line">
+              <div class="ml-top"><span>Recovered appointments</span><b>$140</b></div>
+              <div class="mock-track t3"><i style="width:3%"></i></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="float-chip chip-bl"><span class="fc-ic" style="background:#E0E7FF;color:#3730A3">☎</span><span>Missed call → rebooked<small>7:42pm · after hours</small></span></div>
@@ -124,7 +161,6 @@
     <span>✓&nbsp; Integrated with Cliniko</span>
     <span>✓&nbsp; Patient data hosted in Australia</span>
     <span>✓&nbsp; Escalates to a human when it matters</span>
-    <span>✓&nbsp; Set up in about 15 minutes</span>
   </div>
 </div>
 
@@ -546,7 +582,7 @@
       <details class="faq-item">
         <summary>How long does setup take?</summary>
         <div class="faq-body">
-          <p><b>About 15 minutes.</b> We connect Avilo to Cliniko via the official API, auto-import your practitioners, appointment types and booking rules, scan your website for FAQs and policies to confirm with you, and configure your routing. No engineering, no data migration, no downtime.</p>
+          <p>We connect Avilo to Cliniko via the official API, auto-import your practitioners, appointment types and booking rules, scan your website for FAQs and policies to confirm with you, and configure your routing. <b>No engineering, no data migration, no downtime.</b></p>
           <p>Most practices are running their first real patient conversation through Avilo by the end of the same morning.</p>
         </div>
       </details>
@@ -616,6 +652,10 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Avilo Health Pty Ltd. All rights reserved.</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </nav>
       <span>Made in Sydney 🇦🇺</span>
     </div>
   </div>

@@ -7,4 +7,6 @@
   <url><loc>https://avilo.com.au/about.html</loc><priority>0.6</priority></url>
   <url><loc>https://avilo.com.au/blog/</loc><priority>0.7</priority></url>
   <url><loc>https://avilo.com.au/blog/reduce-no-shows-allied-health.html</loc><priority>0.7</priority></url>
+  <url><loc>https://avilo.com.au/privacy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://avilo.com.au/terms.html</loc><priority>0.3</priority></url>
 </urlset>
