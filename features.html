@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Features | Avilo, your AI front desk</title>
-<meta name="description" content="Everything Avilo handles for your clinic: AI call answering, two-way patient texting, appointment confirmations, recalls & reactivation, waitlist auto-fill, and smart escalation, all writing back to your diary in real time." />
+<meta name="description" content="Everything Avilo handles for your clinic: AI call answering, two-way patient texting, appointment confirmations, recalls & reactivation, waitlist auto-fill, smart escalation, and a dashboard that reports what each conversation recovered, all writing back to your diary in real time." />
 <link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
 <meta property="og:title" content="Avilo Features: every call, text and recall, handled" />
-<meta property="og:description" content="The full Avilo feature suite: calls, texts, confirmations, recalls, waitlist and escalation, built for allied health." />
+<meta property="og:description" content="The full Avilo feature suite: calls, texts, confirmations, recalls, waitlist, escalation and reporting, built for allied health." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://avilo.com.au/features" />
 <meta property="og:image" content="https://avilo.com.au/brand/avilo_og.png" />
@@ -17,6 +17,7 @@
 <link rel="canonical" href="https://avilo.com.au/features.html" />
 <link rel="stylesheet" href="fonts.css" />
 <link rel="stylesheet" href="avilo.css" />
+<link rel="stylesheet" href="avilo-app.css" />
 </head>
 <body>
 
@@ -53,17 +54,34 @@
   </div>
 </section>
 
-<!-- FEATURE NAV -->
-<div class="sec-tight" style="padding:36px 0 8px">
+<!-- CAPABILITY GRID -->
+<div class="sec-tight" style="padding:44px 0 8px">
   <div class="wrap">
-    <nav class="feat-nav" aria-label="Jump to a feature">
-      <a href="#messages"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Patient texting</a>
-      <a href="#escalation"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Escalation</a>
-      <a href="#confirmations"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Confirmations</a>
-      <a href="#questions"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>Questions</a>
-      <a href="#calls"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>Call answering</a>
-      <a href="#recalls"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></span>Recalls</a>
-      <a href="#waitlist"><span class="tab-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>Auto-waitlist</a>
+    <nav class="cap-grid" aria-label="Everything Avilo handles">
+      <div class="cap-col">
+        <h4>Conversations</h4>
+        <ul>
+          <li><a href="#messages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Two-way patient texting</a></li>
+          <li><a href="#questions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Practice questions answered</a></li>
+          <li><a href="#calls"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>AI call answering <span class="chip chip-soon">Soon</span></a></li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <h4>Keeping the diary full</h4>
+        <ul>
+          <li><a href="#confirmations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Appointment confirmations</a></li>
+          <li><a href="#waitlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Waitlist auto-fill <span class="chip chip-soon">Soon</span></a></li>
+          <li><a href="#recalls"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Recalls &amp; reactivation <span class="chip chip-soon">Soon</span></a></li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <h4>Oversight &amp; control</h4>
+        <ul>
+          <li><a href="#escalation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Smart triage &amp; escalation</a></li>
+          <li><a href="#dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Dashboard &amp; reporting</a></li>
+          <li><a href="cliniko-integration.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Real-time Cliniko write-back</a></li>
+        </ul>
+      </div>
     </nav>
   </div>
 </div>
@@ -360,8 +378,247 @@
   </div>
 </section>
 
+<!-- DASHBOARD -->
+<section class="sec soft" id="dashboard">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Oversight</span>
+      <h2>Every conversation, and what it<br />brought back, on one screen.</h2>
+      <p class="lede">Handing the front desk to software is only comfortable if you can see exactly what it did. Avilo's dashboard shows you what was handled, what's waiting on a person, and what it added to the diary, in dollars you can check.</p>
+    </div>
+
+    <!-- dashboard mockup -->
+    <div class="appshot" id="appshot">
+      <div class="as-head">
+        <div>
+          <div class="as-title">Dashboard</div>
+          <div class="as-date">Tuesday 4 August</div>
+        </div>
+        <div class="as-controls">
+          <span class="as-ctl">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Date <b>30 days</b>
+          </span>
+          <span class="as-ctl">Owner view <svg class="as-caret" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+      </div>
+
+      <div class="as-tiles">
+        <div class="as-tile t-amber">
+          <div class="as-tile-hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Needs reply</div>
+          <div class="as-tile-bd">
+            <div class="as-num" data-to="5">5</div>
+            <div class="as-sub">waiting on the clinic</div>
+          </div>
+        </div>
+        <div class="as-tile t-green">
+          <div class="as-tile-hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Handled by Avilo</div>
+          <div class="as-tile-bd">
+            <div class="as-num" data-to="65" data-suffix="%">65%</div>
+            <div class="as-sub">15 of 23 conversations · 30 days</div>
+          </div>
+        </div>
+        <div class="as-tile t-teal">
+          <div class="as-tile-hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>Slots freed up</div>
+          <div class="as-tile-bd">
+            <div class="as-num" data-to="6">6</div>
+            <div class="as-sub">reschedules and cancellations handled</div>
+          </div>
+        </div>
+        <div class="as-tile t-peri">
+          <div class="as-tile-hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Median response</div>
+          <div class="as-tile-bd">
+            <div class="as-num" data-to="12" data-suffix="m">12m</div>
+            <div class="as-sub">across every patient message</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="as-row split">
+        <div class="as-panel">
+          <div class="as-panel-hd">
+            <div>
+              <div class="as-lbl">Conversations handled</div>
+              <div class="as-num" data-to="23">23</div>
+            </div>
+            <div class="r">
+              <div class="as-lbl">Avg response</div>
+              <div class="as-num" data-to="22" data-suffix="m">22m</div>
+            </div>
+          </div>
+          <div class="as-chart-meta">
+            <span class="as-pill">Texts</span>
+            <span class="as-range">30 days</span>
+          </div>
+          <svg class="as-chart" viewBox="0 0 600 150" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="asFade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#157A5F" stop-opacity=".16"/>
+                <stop offset="100%" stop-color="#157A5F" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="46" x2="600" y2="46" stroke="#EDF0EE" stroke-width="1"/>
+            <line x1="0" y1="96" x2="600" y2="96" stroke="#EDF0EE" stroke-width="1"/>
+            <path class="as-area" d="M18,112 L60,126 L100,112 L142,126 L184,112 L226,126 L268,112 L310,126 L350,112 L385,112 L405,74 L445,68 L472,68 L500,22 L518,116 L560,116 L582,116 L582,150 L18,150 Z"/>
+            <polyline class="as-line" points="18,112 60,126 100,112 142,126 184,112 226,126 268,112 310,126 350,112 385,112 405,74 445,68 472,68 500,22 518,116 560,116 582,116"/>
+          </svg>
+          <div class="as-chart-x"><span>5 July</span><span>Today</span></div>
+        </div>
+
+        <div class="as-panel">
+          <div class="as-rev-top">
+            <div class="as-num" data-to="3240" data-prefix="$">$3,240</div>
+            <span class="as-tagpill">Estimate · booked basis</span>
+          </div>
+          <div class="as-lbl" style="margin-top:8px">Revenue captured · 30 days</div>
+          <div class="as-fee">at <u>$135</u> average consult fee — click to adjust</div>
+          <div class="as-bars">
+            <div class="as-bar-row">
+              <div class="as-bar-top"><span>New bookings</span><b>$1,485</b></div>
+              <div class="as-track"><div class="as-fill" style="--w:100%"></div></div>
+            </div>
+            <div class="as-bar-row">
+              <div class="as-bar-top"><span>Reschedules</span><b>$1,080</b></div>
+              <div class="as-track"><div class="as-fill f2" style="--w:72.7%"></div></div>
+            </div>
+            <div class="as-bar-row">
+              <div class="as-bar-top"><span>Recovered appointments</span><b>$675</b></div>
+              <div class="as-track"><div class="as-fill f3" style="--w:45.5%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="as-row split">
+        <div class="as-panel">
+          <div class="as-lbl">Appointments booked · 30 days</div>
+          <div class="as-num" data-to="24" style="margin-top:5px">24</div>
+          <div class="as-list">
+            <div class="as-list-row"><span>New bookings</span><b>11</b><div class="as-track"><div class="as-fill" style="--w:100%"></div></div></div>
+            <div class="as-list-row"><span>Reschedules</span><b>8</b><div class="as-track"><div class="as-fill" style="--w:72.7%"></div></div></div>
+            <div class="as-list-row"><span>Recovered appointments</span><b>5</b><div class="as-track"><div class="as-fill" style="--w:45.5%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="as-panel">
+          <div class="as-lbl">Conversation intent · 30 days</div>
+          <div class="as-intent">
+            <div>
+              <div class="as-donut">
+                <svg viewBox="0 0 132 132" aria-hidden="true" focusable="false">
+                  <g transform="rotate(135 66 66)" fill="none" stroke-width="15" stroke-linecap="butt">
+                    <circle cx="66" cy="66" r="52" stroke="#F1F4F2" stroke-dasharray="245.04 326.73"/>
+                    <circle class="as-donut-seg" cx="66" cy="66" r="52" stroke="#0F6B52"  stroke-dasharray="106.54 326.73" stroke-dashoffset="0"/>
+                    <circle class="as-donut-seg" cx="66" cy="66" r="52" stroke="#1F2E4D"  stroke-dasharray="42.62 326.73"  stroke-dashoffset="-106.54"/>
+                    <circle class="as-donut-seg" cx="66" cy="66" r="52" stroke="#6E82BE"  stroke-dasharray="31.96 326.73"  stroke-dashoffset="-149.16"/>
+                    <circle class="as-donut-seg" cx="66" cy="66" r="52" stroke="#A9B6D8"  stroke-dasharray="31.96 326.73"  stroke-dashoffset="-181.12"/>
+                    <circle class="as-donut-seg" cx="66" cy="66" r="52" stroke="#CBD5E6"  stroke-dasharray="21.31 326.73"  stroke-dashoffset="-213.08"/>
+                    <circle class="as-donut-seg" cx="66" cy="66" r="52" stroke="#E3E8F0"  stroke-dasharray="10.65 326.73"  stroke-dashoffset="-234.39"/>
+                  </g>
+                </svg>
+                <div class="as-donut-c"><b>23</b><span>Conversations</span></div>
+              </div>
+              <span class="as-link">See handled conversations ›</span>
+            </div>
+            <ul class="as-legend">
+              <li><i style="background:#0F6B52"></i><span class="nm">General enquiries</span><span class="ct">10</span><span class="pc">43%</span></li>
+              <li><i style="background:#1F2E4D"></i><span class="nm">Reschedules</span><span class="ct">4</span><span class="pc">17%</span></li>
+              <li><i style="background:#6E82BE"></i><span class="nm">New bookings</span><span class="ct">3</span><span class="pc">13%</span></li>
+              <li><i style="background:#A9B6D8"></i><span class="nm">Handovers</span><span class="ct">3</span><span class="pc">13%</span></li>
+              <li><i style="background:#CBD5E6"></i><span class="nm">Cancellations</span><span class="ct">2</span><span class="pc">9%</span></li>
+              <li><i style="background:#E3E8F0"></i><span class="nm">Other</span><span class="ct">1</span><span class="pc">4%</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="as-stamp">Example clinic · illustrative figures</div>
+    </div>
+
+    <p class="lede" style="max-width:44em;margin:34px auto 0;text-align:center">
+      In that month, <b>65% of conversations finished without anyone at the clinic touching them</b>, patients waited a median of <b>12 minutes</b> for a reply, and <b>6 slots</b> that would have sat empty went back into the diary.
+    </p>
+  </div>
+</section>
+
+<!-- NEEDS YOU -->
+<section class="sec-tight" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="feat-row" id="needsyou" style="border-bottom:none">
+      <div class="feat-copy">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H3v2h6z"/><path d="M21 6H9"/><path d="M21 12H13"/><path d="M21 18H9"/><path d="M5 5.5L3.5 7 2 5.5"/><path d="M5 17.5L3.5 19 2 17.5"/></svg></div>
+        <span class="eyebrow">Stay in control</span>
+        <h3>Avilo hands over rather than guess</h3>
+        <p class="lede">Most of the day Avilo just gets on with it. When it isn't confident, or the message clearly needs a person, it stops and puts the conversation in front of your team instead of inventing an answer.</p>
+        <ul>
+          <li>Nothing happens invisibly: every conversation is readable in full, handled or handed over</li>
+          <li>Reply in any thread and Avilo pauses there straight away</li>
+          <li>When it's ready to pick that thread back up, it checks with you before sending</li>
+          <li>Each practitioner can switch to a view showing only their own patients</li>
+        </ul>
+        <div class="feat-note">Urgent requests, billing complaints and anything clinical go to a person every time.</div>
+      </div>
+      <div class="feat-visual">
+        <div class="appshot appshot-ny">
+          <div class="ny-hd">
+            <h4>Conversations waiting on a person</h4>
+            <p>Avilo handed each of these over rather than guess. Most urgent first.</p>
+          </div>
+          <div class="ny-rows">
+            <div class="ny-row urgent first">
+              <div class="ny-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div>
+                <div class="ny-nm">Margaret Chen <span class="ny-urgent">Urgent</span></div>
+                <div class="ny-why">Urgent same-day request</div>
+                <div class="ny-meta">Waiting 6 min</div>
+              </div>
+              <span class="ny-open">Open</span>
+            </div>
+            <div class="ny-row urgent">
+              <div class="ny-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div>
+                <div class="ny-nm">Raj Mehta <span class="ny-urgent">Urgent</span></div>
+                <div class="ny-why">Billing complaint</div>
+                <div class="ny-meta">Waiting 24 min · Avilo is paused here</div>
+              </div>
+              <span class="ny-open">Open</span>
+            </div>
+            <div class="ny-row urgent">
+              <div class="ny-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div>
+                <div class="ny-nm">Ella Thompson <span class="ny-urgent">Urgent</span></div>
+                <div class="ny-why">Clinical question (swelling/strapping)</div>
+                <div class="ny-meta">Waiting 41 min</div>
+              </div>
+              <span class="ny-open">Open</span>
+            </div>
+            <div class="ny-row">
+              <div class="ny-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div>
+                <div class="ny-nm">Daniel Okafor</div>
+                <div class="ny-why">Not confident enough to answer</div>
+                <div class="ny-meta">Waiting 1 hr</div>
+              </div>
+              <span class="ny-open">Open</span>
+            </div>
+            <div class="ny-row">
+              <div class="ny-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div>
+                <div class="ny-nm">Grace Kim</div>
+                <div class="ny-why">Patient asked for a human</div>
+                <div class="ny-meta">Waiting 2 hr · Avilo is paused here</div>
+              </div>
+              <span class="ny-open">Open</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMPARISON -->
-<section class="sec soft" id="compare">
+<section class="sec" id="compare">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">The gap Avilo fills</span>
@@ -481,6 +738,40 @@
     });
   },{threshold:0.35});
   document.querySelectorAll('.sms-thread').forEach(function(t){smsIO.observe(t);});
+
+  // dashboard mockup: reveal bars/chart and count the headline numbers up once
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function countUp(el){
+    var to=parseFloat(el.dataset.to);
+    if(isNaN(to))return;
+    var prefix=el.dataset.prefix||'',suffix=el.dataset.suffix||'';
+    var done=false;
+    function render(v){el.textContent=prefix+Math.round(v).toLocaleString('en-AU')+suffix;}
+    function finish(){if(done)return;done=true;render(to);}
+    if(reduceMotion||document.hidden){finish();return;}
+    var start=null,dur=650;
+    function step(ts){
+      if(done)return;
+      if(start===null)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      if(p>=1){finish();return;}
+      render(to*(1-Math.pow(1-p,3)));
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    // rAF is paused while the tab is backgrounded, which would strand the
+    // number mid-count. Snap to the real figure if that happens.
+    setTimeout(finish,dur+500);
+  }
+  var shotIO=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.as-num[data-to]').forEach(countUp);
+      shotIO.unobserve(e.target);
+    });
+  },{threshold:0.2});
+  document.querySelectorAll('.appshot').forEach(function(s){shotIO.observe(s);});
 </script>
 </body>
 </html>
