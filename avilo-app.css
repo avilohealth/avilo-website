@@ -147,34 +147,6 @@
   margin-top:16px;text-align:center;font-size:11.5px;color:var(--a-mute);
 }
 
-/* ---------- needs you card ---------- */
-.appshot-ny{padding:0;background:var(--a-card);border-radius:18px;overflow:hidden;}
-.ny-hd{padding:22px 24px 4px;}
-.ny-hd h4{font-size:17px;font-weight:700;color:var(--a-ink);margin:0 0 6px;letter-spacing:-.015em;}
-.ny-hd p{font-size:13.5px;color:var(--a-mute);margin:0;}
-.ny-rows{padding:14px 24px 22px;}
-.ny-row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--a-line);}
-.ny-row:last-child{border-bottom:none;}
-.ny-ico{
-  width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-  background:var(--a-amber-soft);color:var(--a-amber);
-}
-.ny-ico svg{width:16px;height:16px;}
-.ny-row.urgent .ny-ico{background:var(--a-red-soft);color:var(--a-red);}
-.ny-nm{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:14.5px;font-weight:700;color:var(--a-ink);line-height:1.3;}
-.ny-urgent{
-  display:inline-flex;align-items:center;gap:5px;background:var(--a-red-soft);color:var(--a-red);
-  border-radius:20px;padding:2px 9px;font-size:11px;font-weight:700;
-}
-.ny-urgent:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;}
-.ny-why{font-size:13.5px;color:var(--a-ink-2);margin-top:3px;}
-.ny-meta{font-size:12px;color:var(--a-mute);margin-top:3px;}
-.ny-open{
-  border:1px solid var(--a-line-2);border-radius:10px;padding:8px 20px;
-  font-size:13px;font-weight:600;color:var(--a-ink);background:var(--a-card);white-space:nowrap;
-}
-.ny-row.first .ny-open{background:var(--a-green);border-color:var(--a-green);color:#fff;}
-
 /* ---------- responsive ---------- */
 @container (max-width:820px){
   .as-tiles{grid-template-columns:repeat(2,1fr);}
@@ -207,12 +179,6 @@
 @media(max-width:620px){
   .appshot{padding:15px;border-radius:15px;}
   .as-panel{padding:16px;}
-  .ny-hd{padding:18px 18px 4px;}
-  .ny-rows{padding:10px 18px 18px;}
-  .ny-row{grid-template-columns:30px 1fr;}
-  .ny-ico{width:30px;height:30px;}
-  /* the Open button is decorative here and costs a lot of height on a phone */
-  .ny-open{display:none;}
 }
 
 @media (prefers-reduced-motion:reduce){

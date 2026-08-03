@@ -148,6 +148,12 @@ Three, as running copy beneath the mockup:
 
 ### Needs you row
 
+**Removed 2026-08-04, after implementation, at the user's request.** The section
+below is kept as a record of what was built. The control story it carried is no
+longer told on the features page; the escalation feature row is the only place
+that touches it. If it is ever revived, the mockup styles were `.appshot-ny` and
+`.ny-*` in `avilo-app.css` and can be recovered from commit `0bcc0a3`.
+
 A standard `.feat-row`. Mockup on one side, copy on the other.
 
 Mockup reproduces the "Conversations waiting on a person" card only, including its
