@@ -7,6 +7,13 @@
 # Internal notes — not deployed
 DEPLOY_INSTRUCTIONS.md
 
+# Node tooling — never deployed, never committed
+node_modules/
+
+# Old page versions. Kept locally as a convenience only; git history is the
+# real rollback (see commit 50810ff). Excluded so Hostinger doesn't serve them.
+_archive/
+
 # Leftover / unused draft files
 avilo-v3.css
 brand/Enhance Image Quality*.jpg
