@@ -2,12 +2,293 @@
 <html lang="en-AU">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="refresh" content="0; url=contact.html" />
-<link rel="canonical" href="https://avilo.com.au/contact.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pricing | Avilo</title>
-<meta name="robots" content="noindex" />
+<meta name="description" content="Simple pricing for Avilo, the AI receptionist for allied health. Plans from $79/month ex GST, month-to-month, no setup fee. All prices AUD." />
+<link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
+<link rel="canonical" href="https://avilo.com.au/pricing.html" />
+<link rel="stylesheet" href="fonts.css" />
+<link rel="stylesheet" href="avilo.css" />
+<link rel="stylesheet" href="aether-blend.css" />
+<style>
+/* ---------- pricing ---------- */
+.hero-pr{padding:140px 0 190px;text-align:center;}
+.hero-pr h1{color:#fff;font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.12;margin-bottom:18px;}
+.hero-pr .hero-lede{max-width:36em;margin:0 auto;}
+.plans{padding:0 24px 26px;margin-top:-130px;position:relative;z-index:3;}
+.plans-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;}
+.pcard{
+  position:relative;background:rgba(255,255,255,.95);border:1px solid var(--hairline);
+  border-radius:var(--r-card);padding:26px 24px;display:flex;flex-direction:column;
+  box-shadow:var(--bevel), var(--float);
+}
+.pcard.feat{
+  border:1.5px solid rgba(13,148,136,.45);
+  box-shadow:var(--bevel), var(--float-lg);
+}
+.pbadge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--teal);color:#fff;font-size:.68rem;font-weight:700;
+  padding:5px 15px;border-radius:9999px;white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 8px 18px -8px rgba(13,148,136,.6);
+}
+.pname{font-size:1.18rem;font-weight:800;color:var(--navy);letter-spacing:-.015em;}
+.pwho{font-size:.8rem;color:var(--slate-light);margin:3px 0 14px;min-height:2.6em;line-height:1.45;}
+.pprice{display:flex;align-items:baseline;gap:5px;}
+.pprice .amt{font-size:2.1rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
+.pprice .per{font-size:.82rem;color:var(--slate-light);}
+.pincl{
+  background:var(--teal-wash-2);color:var(--teal-active);border:1px solid rgba(13,148,136,.14);
+  border-radius:10px;padding:9px 13px;font-size:.8rem;font-weight:700;margin:13px 0 14px;
+}
+.pincl b{font-variant-numeric:tabular-nums;}
+.pcard ul{list-style:none;margin:0 0 16px;padding:0;}
+.pcard li{font-size:.84rem;color:var(--slate);padding:5px 0 5px 23px;position:relative;line-height:1.5;}
+.pcard li:before{
+  content:"";position:absolute;left:1px;top:11px;width:12px;height:7px;
+  border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg);
+}
+.pcard li b{color:var(--navy);}
+.pfoot{font-size:.72rem;color:var(--slate-light);border-top:1px solid var(--hairline);padding-top:12px;margin:auto 0 16px;line-height:1.5;}
+.pcard .btn{justify-content:center;}
+.pcard.feat .btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55);}
+.plans-note{text-align:center;font-size:.84rem;color:var(--slate-light);margin-top:22px;}
+
+/* included band */
+.incl-band{
+  max-width:1092px;margin:40px auto 0;background:var(--glass);border:1px solid var(--hairline);
+  border-radius:var(--r-card);padding:30px 34px;box-shadow:var(--bevel), var(--float);
+}
+.incl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 30px;list-style:none;margin:0;padding:0;}
+.incl-grid li{font-size:.88rem;color:var(--slate);padding:6px 0 6px 25px;position:relative;line-height:1.5;}
+.incl-grid li:before{
+  content:"";position:absolute;left:1px;top:13px;width:13px;height:7px;
+  border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg);
+}
+
+/* usage table */
+.usage-wrap{max-width:760px;margin:0 auto;}
+.usage-wrap .ctable{border-radius:20px;box-shadow:var(--bevel), var(--float);margin-top:32px;}
+.usage-wrap .ctable td:last-child,.usage-wrap .ctable th:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy);}
+.usage-note{text-align:center;font-size:.82rem;color:var(--slate-light);margin-top:20px;}
+
+@media(max-width:1100px){.plans-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:960px){
+  .hero-pr{padding:56px 0 170px;}
+  .incl-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .plans-grid{grid-template-columns:1fr;}
+  .incl-grid{grid-template-columns:1fr;}
+  .incl-band{padding:24px 22px;}
+  .pwho{min-height:0;}
+}
+</style>
 </head>
 <body>
-<p>Pricing is tailored to your clinic. Redirecting you to <a href="contact.html">book a demo</a>…</p>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><img src="brand/avilo_mark_gradient.svg" alt="" /><span><b>avilo</b><span class="dot">.</span></span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="features.html">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="blog/index.html">Learn</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="contact.html">Book a demo <span class="go">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-dark hero-pr">
+  <div class="glow glow-tr"></div>
+  <div class="glow glow-bl"></div>
+  <div class="wrap">
+    <h1>One receptionist for your<br />phone and your texts.</h1>
+    <p class="hero-lede">Avilo answers calls and texts, books and reschedules in Cliniko, fills cancellations from your waitlist, and hands the tricky ones to your team. All prices AUD, ex GST.</p>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans">
+  <div class="plans-grid">
+
+    <div class="pcard">
+      <div class="pname">Reminders</div>
+      <div class="pwho">Just want reminders &amp; confirmations handled.</div>
+      <div class="pprice"><span class="amt">$79</span><span class="per">/month</span></div>
+      <div class="pincl">Full dashboard &amp; communication hub included</div>
+      <ul>
+        <li>Automated SMS reminders &amp; nudges</li>
+        <li>Confirmation status synced to Cliniko</li>
+        <li>Unconfirmed list pushed to your team</li>
+        <li>Reads replies and flags what needs you</li>
+      </ul>
+      <div class="pfoot">+ 10c per reminder SMS. One-way. Does not book, reschedule, or take calls.</div>
+      <a class="btn btn-ghost" href="contact.html">Book a demo</a>
+    </div>
+
+    <div class="pcard">
+      <div class="pname">Starter</div>
+      <div class="pwho">Solo &amp; small clinics getting started with an AI front desk.</div>
+      <div class="pprice"><span class="amt">$149</span><span class="per">/month</span></div>
+      <div class="pincl"><b>40</b> calls + <b>150</b> SMS / month</div>
+      <ul>
+        <li>The full receptionist, both channels</li>
+        <li>Two-way SMS <b>and</b> voice</li>
+        <li>Books, reschedules &amp; cancels</li>
+      </ul>
+      <div class="pfoot">Then $2.50/call, 10c/SMS. + 10c per reminder.</div>
+      <a class="btn btn-ghost" href="contact.html">Book a demo</a>
+    </div>
+
+    <div class="pcard feat">
+      <span class="pbadge">Most popular</span>
+      <div class="pname">Growth</div>
+      <div class="pwho">Busy multi-practitioner clinics.</div>
+      <div class="pprice"><span class="amt">$349</span><span class="per">/month</span></div>
+      <div class="pincl"><b>120</b> calls + <b>400</b> SMS / month</div>
+      <ul>
+        <li>Everything in Starter</li>
+        <li>Waitlist auto-fill on cancellations</li>
+        <li>Multi-practitioner routing</li>
+      </ul>
+      <div class="pfoot">Then $2.50/call, 10c/SMS. + 10c per reminder.</div>
+      <a class="btn btn-primary" href="contact.html">Book a demo <span class="go">→</span></a>
+    </div>
+
+    <div class="pcard">
+      <div class="pname">Scale</div>
+      <div class="pwho">Multi-location groups &amp; high call volume.</div>
+      <div class="pprice"><span class="amt">$799</span><span class="per">/month</span></div>
+      <div class="pincl"><b>300</b> calls + <b>1,000</b> SMS / month</div>
+      <ul>
+        <li>Everything in Growth</li>
+        <li>Multi-location booking &amp; routing</li>
+        <li>Priority support</li>
+      </ul>
+      <div class="pfoot">Then $2.50/call, 10c/SMS. + 10c per reminder.</div>
+      <a class="btn btn-ghost" href="contact.html">Book a demo</a>
+    </div>
+
+  </div>
+  <p class="plans-note">All prices in AUD and exclusive of GST · Month-to-month, cancel anytime · No setup fee · Requires an active Cliniko account</p>
+</section>
+
+<!-- INCLUDED -->
+<section class="sec" style="padding-top:64px">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">What's inside</span>
+      <h2>Every Starter, Growth &amp; Scale plan includes</h2>
+      <p class="lede" style="max-width:34em;margin-left:auto;margin-right:auto">The full AI receptionist, on both channels, wired straight into your diary.</p>
+    </div>
+    <div class="incl-band">
+      <ul class="incl-grid">
+        <li>Answers calls &amp; texts 24/7</li>
+        <li>Books, reschedules &amp; cancels in Cliniko</li>
+        <li>Fills cancellations from your waitlist</li>
+        <li>Appointment reminders &amp; confirmations</li>
+        <li>Answers clinic FAQs you set</li>
+        <li>Escalates anything clinical or tricky to your team</li>
+        <li>Owner dashboard &amp; message inbox</li>
+        <li>Knowledge base you control</li>
+        <li>Works with your existing Cliniko account</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- USAGE -->
+<section class="sec soft" style="padding-top:72px">
+  <div class="wrap usage-wrap">
+    <div class="sec-head center" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Usage &amp; add-ons</span>
+      <h2>Only pay for what you use beyond your plan.</h2>
+      <p class="lede" style="max-width:34em;margin-left:auto;margin-right:auto">You'll never pay more in usage than the next plan up. We move you across automatically.</p>
+    </div>
+    <table class="ctable">
+      <tr><th>Item</th><th>Rate</th></tr>
+      <tr><td>Additional voice call</td><td>$2.50 each</td></tr>
+      <tr><td>Additional SMS</td><td>10c each</td></tr>
+      <tr><td>Appointment reminder (all plans)</td><td>10c each</td></tr>
+      <tr><td>Extra dedicated number</td><td>$18 / month</td></tr>
+      <tr><td>Setup fee</td><td>$0</td></tr>
+    </table>
+    <p class="usage-note">One SMS = one outbound message segment (~160 characters) Avilo sends.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Not sure which plan fits?</h2>
+    <p>Book a 30-minute demo and we'll size it from your real call and message volume, and show you exactly what Avilo would have handled last week.</p>
+    <a class="btn btn-primary btn-lg" href="contact.html">Book a demo <span class="go">→</span></a>
+    <p class="fine">No commitment · No credit card · Built in Sydney for allied health</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="brand/avilo_mark_white_on_navy.svg" alt="" /><span>avilo<span class="dot">.</span></span></div>
+        <p style="max-width:26em">Somewhere between the missed calls, the unanswered texts and tomorrow's no-shows, your clinic is losing hours every week. <a href="contact.html" style="color:#4DD9C0">See what a week with Avilo hands back →</a></p>
+        <p style="font-size:.8rem">Integrated with Cliniko · Built in Sydney for allied health.</p>
+        <a class="foot-grant" href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
+          <img src="brand/elevenlabs-grants-white.webp" width="180" height="16" alt="Supported by an ElevenLabs Grant" loading="lazy" />
+        </a>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="cliniko-integration.html">Avilo + Cliniko</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog/index.html">Learn</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Avilo Health Pty Ltd · ABN 19 698 695 019</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>
+      </nav>
+      <span>Made in Sydney 🇦🇺</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  (function(){
+    var hdr=document.querySelector('header.nav');
+    function onScroll(){hdr.classList.toggle('at-top',window.scrollY<30);}
+    onScroll();
+    window.addEventListener('scroll',onScroll,{passive:true});
+  })();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

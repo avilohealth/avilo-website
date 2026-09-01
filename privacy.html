@@ -17,6 +17,7 @@
 <link rel="canonical" href="https://avilo.com.au/privacy.html" />
 <link rel="stylesheet" href="fonts.css" />
 <link rel="stylesheet" href="avilo.css" />
+<link rel="stylesheet" href="aether-blend.css" />
 </head>
 <body>
 
@@ -27,12 +28,12 @@
     <nav class="nav-links" id="navlinks">
       <a href="features.html">Features</a>
       <a href="index.html#how">How it works</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="pricing.html">Pricing</a>
       <a href="blog/index.html">Learn</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="contact.html">Book a demo →</a>
+      <a class="btn btn-primary" href="contact.html">Book a demo <span class="go">→</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -110,7 +111,7 @@
       <p>Some of the providers listed in <a href="#b5">B5</a>, including our billing, email, demo-booking and enquiry-form providers, handle this information overseas. B5 explains where our providers are located and how we manage overseas disclosure.</p>
 
       <h3 id="a3">A3. Cookies and third-party content</h3>
-      <p>Essential functionality only. This website does not run analytics, advertising or tracking cookies, and does not load fonts, scripts or images from third parties. Our web fonts are served from our own domain, so simply browsing the site sends nothing to anyone but us. If we introduce analytics in future, we will update this policy before doing so.</p>
+      <p>This website uses privacy-friendly, cookieless analytics (Vercel Web Analytics) to count aggregate page views. It does not use cookies, does not identify you, and does not track you across other sites. Beyond that, the site does not run advertising or tracking cookies, and does not load fonts, scripts or images from third parties. Our web fonts are served from our own domain.</p>
       <p><b>The booking calendar is the one exception, and it is opt-in.</b> Our demo booking calendar is provided by Calendly. It does not load unless you click to load it. If you do, your browser connects to Calendly and Calendly may set its own cookies at that point. You can book by <a href="contact.html#enquiry">sending us an enquiry</a> instead if you would rather not load it.</p>
       <p>You can disable cookies in your browser; parts of the site may not work.</p>
 
@@ -240,7 +241,8 @@
       <h2 id="changes">Changes</h2>
       <p>Material changes are notified to Clinics by email at least 30 days before taking effect. The current version is always at avilo.com.au/privacy.</p>
 
-      <p class="legal-updated">Avilo Health Pty Ltd (ACN 698 695 019) · Effective August 2026 · Last updated 2 August 2026. See also our <a href="terms.html">Terms of Service</a>.</p>
+      <p class="legal-updated">Avilo Health Pty Ltd (ACN 698 695 019) · Effective August 2026 · Last updated 2 August 2026. See also our <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>.</p>
 
     </div>
   </div>
@@ -279,10 +281,11 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Avilo Health Pty Ltd. All rights reserved.</span>
+      <span>© 2026 Avilo Health Pty Ltd · ABN 19 698 695 019</span>
       <nav class="foot-legal" aria-label="Legal">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>
       </nav>
       <span>Made in Sydney 🇦🇺</span>
     </div>
@@ -294,5 +297,6 @@
     document.getElementById('navlinks').classList.toggle('open');
   });
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -28,6 +28,7 @@
 <link rel="canonical" href="https://avilo.com.au/blog/{{SLUG}}.html" />
 <link rel="stylesheet" href="../fonts.css" />
 <link rel="stylesheet" href="../avilo.css" />
+<link rel="stylesheet" href="../aether-blend.css" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -50,12 +51,12 @@
     <nav class="nav-links" id="navlinks">
       <a href="../features.html">Features</a>
       <a href="../index.html#how">How it works</a>
-      <a href="../index.html#faq">FAQ</a>
+      <a href="../pricing.html">Pricing</a>
       <a href="index.html" class="active">Learn</a>
       <a href="../contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="../contact.html">Book a demo →</a>
+      <a class="btn btn-primary" href="../contact.html">Book a demo <span class="go">→</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -98,7 +99,7 @@
       <div class="article-cta">
         <b>{{CTA HEADING: tie it to the article topic}}</b>
         <p>{{ONE SENTENCE ON WHAT THE DEMO SHOWS}}</p>
-        <a class="btn btn-primary" href="../contact.html">Book a demo →</a>
+        <a class="btn btn-primary" href="../contact.html">Book a demo <span class="go">→</span></a>
       </div>
 
       <p style="font-size:.9rem;color:var(--slate-light)">Keegan Brady is a practising physiotherapist in Sydney and the founder of Avilo, the AI front desk for allied health clinics.</p>
@@ -138,10 +139,11 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Avilo Health Pty Ltd. All rights reserved.</span>
+      <span>© 2026 Avilo Health Pty Ltd · ABN 19 698 695 019</span>
       <nav class="foot-legal" aria-label="Legal">
         <a href="../privacy.html">Privacy Policy</a>
         <a href="../terms.html">Terms of Service</a>
+        <a href="../security.html">Security</a>
       </nav>
       <span>Made in Sydney 🇦🇺</span>
     </div>
@@ -153,5 +155,6 @@
     document.getElementById('navlinks').classList.toggle('open');
   });
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

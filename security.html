@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security | Avilo</title>
+<meta name="description" content="How Avilo protects your clinic's data: Australian-hosted infrastructure, encryption in transit and at rest, the official Cliniko API, and models that are never trained on patient data." />
+<link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
+<link rel="canonical" href="https://avilo.com.au/security.html" />
+<link rel="stylesheet" href="fonts.css" />
+<link rel="stylesheet" href="avilo.css" />
+<link rel="stylesheet" href="aether-blend.css" />
+<style>
+.hero-sec{padding:130px 0 90px;text-align:center;}
+.hero-sec h1{color:#fff;font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.15;margin-bottom:16px;}
+.hero-sec .hero-lede{max-width:36em;margin:0 auto;}
+.sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto;}
+.sec-card{
+  background:var(--glass);border:1px solid var(--hairline);border-radius:var(--r-card);
+  padding:28px;box-shadow:var(--bevel), var(--float);
+}
+.sec-card .icon{
+  width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--hairline);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--teal-active);
+  box-shadow:var(--bevel);
+}
+.sec-card h3{font-size:1.12rem;margin-bottom:10px;}
+.sec-card p{font-size:.9rem;margin:0 0 10px;}
+.sec-card ul{list-style:none;margin:0;padding:0;}
+.sec-card li{font-size:.86rem;color:var(--slate);padding:5px 0 5px 24px;position:relative;line-height:1.5;}
+.sec-card li:before{
+  content:"";position:absolute;left:1px;top:11px;width:12px;height:7px;
+  border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg);
+}
+.sec-contact{max-width:980px;margin:22px auto 0;text-align:center;font-size:.92rem;color:var(--slate);}
+@media(max-width:800px){.sec-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html"><img src="brand/avilo_mark_gradient.svg" alt="" /><span><b>avilo</b><span class="dot">.</span></span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="features.html">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog/index.html">Learn</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="contact.html">Book a demo <span class="go">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero-dark hero-sec">
+  <div class="glow glow-tr"></div>
+  <div class="glow glow-bl"></div>
+  <div class="wrap">
+    <h1>Your patients' data, treated like it matters.</h1>
+    <p class="hero-lede">Avilo touches sensitive information every day. Here's exactly how it's protected, in plain language.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-grid">
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Where your data lives</h3>
+        <p>Patient data stays on Australian-hosted infrastructure.</p>
+        <ul>
+          <li>Encrypted in transit and at rest</li>
+          <li>Hosted in Australia, not offshore</li>
+          <li>Access limited to what the product needs to run</li>
+        </ul>
+      </div>
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <h3>The Cliniko connection</h3>
+        <p>Avilo integrates with Cliniko through the official API.</p>
+        <ul>
+          <li>Reads availability, writes appointments</li>
+          <li>Data stays inside the Cliniko and Avilo perimeter</li>
+          <li>No copying your patient database anywhere else</li>
+        </ul>
+      </div>
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <h3>AI, kept on a short leash</h3>
+        <p>The AI is useful because it is constrained, not in spite of it.</p>
+        <ul>
+          <li>Models are never trained on your patient data</li>
+          <li>Clinical questions are never answered by AI</li>
+          <li>Anything ambiguous goes to a human within 60 seconds</li>
+          <li>Replying in a thread pauses Avilo on that conversation</li>
+        </ul>
+      </div>
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <h3>Your controls</h3>
+        <p>It's your clinic's data, and it behaves that way.</p>
+        <ul>
+          <li>Export or delete everything in one click</li>
+          <li>Every conversation logged and reviewable</li>
+          <li>You approve outbound campaigns before they send</li>
+          <li>You set the escalation threshold for your clinic</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="sec-contact">Questions about security, privacy or data handling? Email <a href="mailto:hello@avilo.com.au"><b>hello@avilo.com.au</b></a> and you'll hear back from the founder, not a ticket queue. See also our <a href="privacy.html"><b>Privacy Policy</b></a>.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>See it handle a real diary, safely.</h2>
+    <p>A 30-minute walkthrough covering exactly what Avilo can see, what it can do, and where the lines are drawn.</p>
+    <a class="btn btn-primary btn-lg" href="contact.html">Book a demo <span class="go">→</span></a>
+    <p class="fine">No commitment · No credit card · Built in Sydney for allied health</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="brand/avilo_mark_white_on_navy.svg" alt="" /><span>avilo<span class="dot">.</span></span></div>
+        <p style="max-width:26em">Somewhere between the missed calls, the unanswered texts and tomorrow's no-shows, your clinic is losing hours every week. <a href="contact.html" style="color:#4DD9C0">See what a week with Avilo hands back →</a></p>
+        <p style="font-size:.8rem">Integrated with Cliniko · Built in Sydney for allied health.</p>
+        <a class="foot-grant" href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
+          <img src="brand/elevenlabs-grants-white.webp" width="180" height="16" alt="Supported by an ElevenLabs Grant" loading="lazy" />
+        </a>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="cliniko-integration.html">Avilo + Cliniko</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog/index.html">Learn</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Avilo Health Pty Ltd · ABN 19 698 695 019</span>
+      <nav class="foot-legal" aria-label="Legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="security.html">Security</a>
+      </nav>
+      <span>Made in Sydney 🇦🇺</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  (function(){
+    var hdr=document.querySelector('header.nav');
+    function onScroll(){hdr.classList.toggle('at-top',window.scrollY<30);}
+    onScroll();
+    window.addEventListener('scroll',onScroll,{passive:true});
+  })();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

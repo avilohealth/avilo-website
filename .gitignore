@@ -17,3 +17,8 @@ _archive/
 # Leftover / unused draft files
 avilo-v3.css
 brand/Enhance Image Quality*.jpg
+
+# Claude Code / MCP tooling — not part of the site
+.mcp.json
+.agents/
+skills-lock.json
