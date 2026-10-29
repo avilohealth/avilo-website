@@ -1,0 +1,104 @@
+<!--meta
+title: Security | How Avilo protects your clinic's patient data
+description: Australian-hosted infrastructure, encryption in transit and at rest, the official Cliniko API, no training on patient data, a human for anything clinical.
+path: /security
+-->
+<!--head
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},
+ {"@type":"ListItem","position":2,"name":"Security","item":"https://avilo.com.au/security"}]}
+</script>
+<style>
+.hero-sec{padding:120px 0 90px;text-align:center;}
+.hero-sec .hero-lede{max-width:36em;margin:0 auto;}
+.sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto;}
+.sec-card{background:var(--glass);border:1px solid var(--hairline);border-radius:var(--r-card);padding:28px;box-shadow:var(--bevel),var(--float);}
+.sec-card .icon{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--teal-active);box-shadow:var(--bevel);}
+.sec-card h3{font-size:1.12rem;margin-bottom:10px;}
+.sec-card p{font-size:.9rem;margin:0 0 10px;}
+.sec-card ul{list-style:none;margin:0;padding:0;}
+.sec-card li{font-size:.86rem;color:var(--slate);padding:5px 0 5px 24px;position:relative;line-height:1.5;}
+.sec-card li:before{content:"";position:absolute;left:1px;top:11px;width:12px;height:7px;border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg);}
+.sec-contact{max-width:980px;margin:22px auto 0;text-align:center;font-size:.92rem;color:var(--slate);}
+@media(max-width:800px){.sec-grid{grid-template-columns:1fr;}.hero-sec{padding:64px 0 56px;}}
+</style>
+-->
+
+<section class="hero-dark hero-sec">
+  <div class="glow glow-tr"></div>
+  <div class="glow glow-bl"></div>
+  <div class="wrap">
+    <h1>Your patients' data, treated like it matters.</h1>
+    <p class="hero-lede">Avilo touches sensitive information every day. Here's exactly how it's protected, in plain language.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-grid">
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Where your data lives</h3>
+        <p>Patient data stays on Australian-hosted infrastructure.</p>
+        <ul>
+          <li>Encrypted in transit and at rest</li>
+          <li>Database and application hosted in Sydney</li>
+          <li>Access limited to what the product needs to run</li>
+          <li>Every provider we use is listed in our <a href="/privacy#sub-processors">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <h3>The Cliniko connection</h3>
+        <p>Avilo integrates with Cliniko through the official API, with a key you control.</p>
+        <ul>
+          <li>Reads replies and availability, writes notes and appointment changes</li>
+          <li>Nothing installed in your browser or on your computers</li>
+          <li>Revoke the key from Cliniko at any time</li>
+          <li>No copying your patient database anywhere else</li>
+        </ul>
+      </div>
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <h3>AI, kept on a short leash</h3>
+        <p>On Confirmations, most of the work is plain rules. Where AI is used, it is constrained.</p>
+        <ul>
+          <li>Models are never trained on your patient data</li>
+          <li>Clinical questions are never answered by AI</li>
+          <li>Anything unclear goes to a person</li>
+          <li>Replying in a thread pauses the Assistant on that conversation</li>
+        </ul>
+      </div>
+
+      <div class="sec-card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <h3>Your controls</h3>
+        <p>It's your clinic's data, and it behaves that way.</p>
+        <ul>
+          <li>Export or delete everything</li>
+          <li>Every conversation logged and reviewable</li>
+          <li>You approve outbound campaigns before they send</li>
+          <li>You set the rules: cancel on no, who gets alerts, escalation thresholds</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="sec-contact">This website sets no tracking cookies and sends HSTS, content-type and referrer-policy headers. Questions about security, privacy or data handling? Email <a href="mailto:hello@avilo.com.au"><b>hello@avilo.com.au</b></a> and you'll hear back from the founder, not a ticket queue. See also our <a href="/privacy"><b>Privacy Policy</b></a>.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>See it handle a real diary, safely.</h2>
+    <p>Start the Confirmations trial with one API key, or book a walkthrough covering exactly what Avilo can see, what it can do, and where the lines are drawn.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+      <a class="btn btn-ghost-light btn-lg" href="/contact">Book a demo</a>
+    </div>
+    <p class="fine">No credit card · No commitment · Built in Sydney for allied health</p>
+  </div>
+</section>

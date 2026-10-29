@@ -1,0 +1,419 @@
+<!--meta
+title: Avilo | Appointment confirmations for Cliniko clinics
+description: Avilo reads every reply to your Cliniko reminders and shows your team who's confirmed, who's cancelled and who to call. One API key, 14-day free trial.
+path: /
+-->
+<!--head
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://avilo.com.au/#org",
+      "name": "Avilo",
+      "legalName": "Avilo Health Pty Ltd",
+      "url": "https://avilo.com.au/",
+      "logo": "https://avilo.com.au/brand/avilo_favicon_512.png",
+      "email": "hello@avilo.com.au",
+      "identifier": {"@type": "PropertyValue", "propertyID": "ABN", "value": "19 698 695 019"},
+      "sameAs": ["https://www.linkedin.com/in/keegan-brady-2b71421a3/"],
+      "founder": {"@type": "Person", "@id": "https://avilo.com.au/about#keegan", "name": "Keegan Brady", "jobTitle": "Founder and Physiotherapist", "sameAs": ["https://www.linkedin.com/in/keegan-brady-2b71421a3/"]},
+      "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU"},
+      "description": "Avilo takes the repetitive patient admin off the front desk of Cliniko clinics. Confirmations first. Smart Reminders and the Avilo Assistant when you need more."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://avilo.com.au/#app",
+      "name": "Avilo Confirmations",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://avilo.com.au/confirmations",
+      "publisher": {"@id": "https://avilo.com.au/#org"},
+      "description": "Reads every patient reply to a clinic's Cliniko appointment reminders, shows who has confirmed, cancelled or not replied, frees cancelled slots and lists who to call. 14-day free trial, no credit card."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Does anything change for my patients?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your reminders keep going out from Cliniko exactly as they do now, from the same number. Avilo reads the replies that come back. Patients never see a new number or a new message on this layer."}},
+        {"@type": "Question", "name": "Do I have to stop using Cliniko's reminders?", "acceptedAnswer": {"@type": "Answer", "text": "No. Avilo Confirmations works with Cliniko's reminders, not instead of them. If you later move up to Smart Reminders, Avilo sends the reminders and follow-ups for you, but that is a choice, not a requirement."}},
+        {"@type": "Question", "name": "What happens to a reply Avilo can't read?", "acceptedAnswer": {"@type": "Answer", "text": "It goes to a person. Most replies are clear and handled by plain rules. When one isn't, a small AI step reads it, and if it still isn't sure, the message is marked as needing a person and lands at the top of your inbox."}},
+        {"@type": "Question", "name": "Can I reply to patients from Avilo?", "acceptedAnswer": {"@type": "Answer", "text": "On Confirmations, Avilo shows you each patient's message history in one readable thread and gives you a one-click link to their Cliniko profile to reply, because Cliniko's API lets us read SMS but not send it. Smart Reminders adds sending from your clinic's Avilo number."}},
+        {"@type": "Question", "name": "What does the free trial include?", "acceptedAnswer": {"@type": "Answer", "text": "Everything in Avilo Confirmations for 14 days: the colour-coded diary, the morning call list, instant cancel on a no, the patient inbox, waitlist alerts and the Monday cancelled-without-rebook list. No credit card needed."}},
+        {"@type": "Question", "name": "What happens after 14 days?", "acceptedAnswer": {"@type": "Answer", "text": "We email you on day 12. If you want to keep going, you add a payment method and nothing else changes. If you don't, the trial simply ends and your Cliniko account is untouched."}}
+      ]
+    }
+  ]
+}
+</script>
+-->
+
+<!-- 1 · HERO -->
+<section class="hero-dark hero-conf">
+  <div class="glow glow-tr"></div>
+  <div class="glow glow-bl"></div>
+  <div class="wrap wrap-wide hero-grid">
+    <div>
+      <h1>Stop sorting reminder replies by hand.</h1>
+      <p class="hero-lede">Avilo reads every reply to your Cliniko reminders, shows your team who's confirmed, who's cancelled and who's at risk of not showing up, and frees the slot the moment someone says no. Ten minutes to set up. Nothing changes for your patients.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+        <a class="btn btn-ghost-light btn-lg" href="#how">See it work</a>
+      </div>
+      <p class="trust">14-day free trial · No credit card · Works with Cliniko</p>
+    </div>
+    <div class="mock-wrap">
+      <div class="hero-viz" aria-label="Example of the Avilo diary and the morning call list">
+        <div class="diary">
+          <div class="dy-head">Tomorrow, Thursday <span>Dr. Chen · 6 of 9 confirmed</span></div>
+          <div class="dy-row ok"><span class="dy-time">8:00</span><span class="dy-name">Sarah K.<small>"Yes see you then"</small></span><span class="dy-state">Confirmed</span></div>
+          <div class="dy-row ok"><span class="dy-time">8:45</span><span class="dy-name">Priya N.<small>"Yep"</small></span><span class="dy-state">Confirmed</span></div>
+          <div class="dy-row flag"><span class="dy-time">9:30</span><span class="dy-name">Tom O.<small>"Can't make it sorry, back's worse"</small></span><span class="dy-state">Needs a person</span></div>
+          <div class="dy-row quiet"><span class="dy-time">10:15</span><span class="dy-name">Marcus W.<small>no reply yet</small></span><span class="dy-state">On the call list</span></div>
+          <div class="dy-row ok"><span class="dy-time">11:00</span><span class="dy-name">Jess A.<small>"Confirmed thanks"</small></span><span class="dy-state">Confirmed</span></div>
+        </div>
+        <div class="calllist">
+          <b>Who to call this morning</b>
+          <small>3 patients, 2 minutes each</small>
+          <ul>
+            <li>Marcus W. <span>10:15 tomorrow</span></li>
+            <li>Dan R. <span>2:00 tomorrow</span></li>
+            <li>Lena P. <span>4:30 tomorrow</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · OUTCOMES -->
+<section class="out3">
+  <div class="wrap">
+    <div class="out3-grid">
+      <div class="out"><b>Know who's coming before you open</b><span>Every reply read overnight. The diary tells you at a glance.</span></div>
+      <div class="out"><b>Free the slot the moment someone says no</b><span>A cancellation becomes an open appointment in seconds, not the next morning.</span></div>
+      <div class="out"><b>A short list of who to call, not 80 texts to read</b><span>The quiet ones, sorted and waiting for you at 8am.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · HOW IT WORKS -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">How it works</span>
+      <h2>Your reminders go out as they always have. Avilo handles what comes back.</h2>
+    </div>
+    <div class="hiw">
+      <div class="hiw-step"><span class="hiw-n">1</span><b>Cliniko sends your reminder</b><span>Same reminder, same number, same time. Nothing to change.</span></div>
+      <div class="hiw-step"><span class="hiw-n">2</span><b>The patient replies</b><span>"Yes", "can't make it", "is there parking?", or nothing at all.</span></div>
+      <div class="hiw-step av"><span class="hiw-n">3</span><b>Avilo reads it within minutes</b><span>Confirmed, cancelled, needs a person, or no reply yet.</span></div>
+      <div class="hiw-step av"><span class="hiw-n">4</span><b>The diary and the note update</b><span>Colour in the Avilo diary, status written to the Cliniko appointment note.</span></div>
+      <div class="hiw-step"><span class="hiw-n">5</span><b>Your team sees the list</b><span>Who to call, what needs a reply, and what's already handled.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · WHAT THE COLOURS MEAN -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">What the colours mean</span>
+      <h2>Three states. One glance.</h2>
+    </div>
+    <div class="legend">
+      <div class="lg">
+        <div class="lg-sw ok">8:00 · Sarah K. · Confirmed</div>
+        <h3>They're coming</h3>
+        <p>The reply was a yes. Avilo marks the appointment confirmed and writes it to the Cliniko note. Nothing for you to do.</p>
+      </div>
+      <div class="lg">
+        <div class="lg-sw flag">9:30 · Tom O. · Needs a person</div>
+        <h3>Needs a person</h3>
+        <p>A no, a reschedule, a question, or something Avilo isn't sure about. If you've chosen it, a plain no frees the slot straight away. Everything else waits at the top of your inbox.</p>
+      </div>
+      <div class="lg">
+        <div class="lg-sw quiet">10:15 · Marcus W. · No reply yet</div>
+        <h3>No reply yet</h3>
+        <p>Silence is a risk. These patients go on the morning call list so someone can check before the day fills up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · EVERYTHING IN CONFIRMATIONS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Everything in Avilo Confirmations</span>
+      <h2>The confirmation work your team does by hand today, done before they arrive.</h2>
+    </div>
+    <div class="f6">
+      <div class="card">
+        <h3>Colour-coded diary</h3>
+        <p>Your Cliniko appointments, coloured by what each patient actually said.</p>
+        <div class="mini">
+          <div class="mini-row"><span class="mini-ic mi-teal">✓</span><div><b>Sarah K. · 8:00</b><span>confirmed</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-red">!</span><div><b>Tom O. · 9:30</b><span>needs a person</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-slate">·</span><div><b>Marcus W. · 10:15</b><span>no reply yet</span></div></div>
+        </div>
+        <a class="card-link" href="/confirmations#diary">How the diary works</a>
+      </div>
+      <div class="card">
+        <h3>Morning call list</h3>
+        <p>Everyone who hasn't replied, in one list, ready at 8am in the app and in your inbox.</p>
+        <div class="mini">
+          <div class="mini-row"><span class="mini-ic mi-slate">1</span><div><b>Marcus W.</b><span>10:15 tomorrow · no reply</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-slate">2</span><div><b>Dan R.</b><span>2:00 tomorrow · no reply</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-slate">3</span><div><b>Lena P.</b><span>4:30 tomorrow · no reply</span></div></div>
+        </div>
+        <a class="card-link" href="/confirmations#call-list">About the call list</a>
+      </div>
+      <div class="card">
+        <h3>Instant cancel on a no</h3>
+        <p>A clear no frees the slot in seconds, if you want it to. Or Avilo just flags it. Your rule.</p>
+        <div class="mini">
+          <div class="mini-row"><span class="mini-ic mi-amber">✕</span><div><b>Jess A. · "No sorry"</b><span>8:45 cancelled · slot open</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-teal">✓</span><div><b>Cliniko updated</b><span>appointment note written</span></div></div>
+        </div>
+        <a class="card-link" href="/confirmations#cancel">Setting your cancel rule</a>
+      </div>
+      <div class="card">
+        <h3>Patient inbox</h3>
+        <p>Every patient's message history as one readable thread, sorted by urgency or recency.</p>
+        <div class="mini">
+          <div class="mini-row"><span class="mini-ic mi-red">!</span><div><b>Tom O.</b><span>"back's worse, can I come sooner?"</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-amber">?</span><div><b>Priya N.</b><span>"do you have parking?"</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-teal">✓</span><div><b>Sarah K.</b><span>handled</span></div></div>
+        </div>
+        <a class="card-link" href="/confirmations#inbox">Inside the inbox</a>
+      </div>
+      <div class="card">
+        <h3>Waitlist alerts</h3>
+        <p>Add patients who want in sooner. When a matching slot opens, your team is told straight away.</p>
+        <div class="mini">
+          <div class="mini-row"><span class="mini-ic mi-amber">▦</span><div><b>Slot opened · Thu 9:30 · Dr. Chen</b><span>just now</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-teal">↑</span><div><b>2 waiting patients match</b><span>Dan R., Lena P.</span></div></div>
+        </div>
+        <a class="card-link" href="/confirmations#waitlist">How waitlist alerts work</a>
+      </div>
+      <div class="card">
+        <h3>Monday cancelled-without-rebook list</h3>
+        <p>Patients who cancelled last week and have nothing booked, sorted by location, practitioner or however you like.</p>
+        <div class="mini">
+          <div class="mini-row"><span class="mini-ic mi-slate">↩</span><div><b>Hannah L. · Dr. Patel</b><span>cancelled Tue · nothing booked</span></div></div>
+          <div class="mini-row"><span class="mini-ic mi-slate">↩</span><div><b>Owen F. · Dr. Chen</b><span>cancelled Thu · nothing booked</span></div></div>
+        </div>
+        <a class="card-link" href="/confirmations#rebook">About the Monday list</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · HONEST PARAGRAPH -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="honest">
+      <h3>Where the rules end and the AI begins</h3>
+      <p>Most of Confirmations is plain rules. A yes is a yes. A no is a no. When a reply isn't clear, a small AI step reads it, and if it still isn't sure, it goes to your inbox for a person.</p>
+      <p>Nothing clinical is ever answered by software, on any layer. <a href="/security">How we handle patient data</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · VIDEO SLOT (holds the Tuesday split until the clinic video is live) -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Give your team their mornings back</span>
+      <h2>The same Tuesday, with and without Avilo.</h2>
+    </div>
+    <!-- VIDEO: replace this comment and the ba-grid below with the video card once the clinic testimonial is live.
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID}}" title="A Sydney clinic on using Avilo Confirmations" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="video-cap">{{CLINIC NAME}}, Sydney, on what changed after switching on Avilo Confirmations.</p>
+    </div>
+    -->
+    <div class="ba-grid">
+      <div class="ba-col ba-without">
+        <div class="ba-head"><span class="ba-tag">Without Avilo</span><span class="ba-sub">how Tuesday usually goes</span></div>
+        <div class="ba-row">
+          <span class="ba-time">8:05am</span>
+          <div class="ba-body"><b>Reading last night's replies</b><span>Eighty texts in the Cliniko comms tab. Which ones were a yes? Which ones need someone? Nobody knows until they've read all of them.</span></div>
+          <span class="ba-mark miss">✕</span>
+        </div>
+        <div class="ba-row">
+          <span class="ba-time">2:30pm</span>
+          <div class="ba-body"><b>Tomorrow's 2:00pm still unconfirmed</b><span>Marcus hasn't replied in three days. Everyone can feel the no-show coming; nobody has time to chase it.</span></div>
+          <span class="ba-mark miss">✕</span>
+        </div>
+        <div class="ba-row">
+          <span class="ba-time">4:10pm</span>
+          <div class="ba-body"><b>"No sorry" sent at 7am, found at 4pm</b><span>The 9:30 slot sat empty all day. Two waitlisted patients would have taken it.</span></div>
+          <span class="ba-mark miss">✕</span>
+        </div>
+        <div class="ba-foot"><span>One ordinary Tuesday: <b>an hour of reading, one empty slot</b></span></div>
+      </div>
+      <div class="ba-col ba-with">
+        <div class="ba-head"><span class="ba-tag teal">With Avilo</span><span class="ba-sub">the same day, sorted</span></div>
+        <div class="ba-row">
+          <span class="ba-time">8:00am</span>
+          <div class="ba-body"><b>The diary is already coloured</b><span>Six confirmed, one needs a person, three on the call list. Two minutes to read.</span><span class="ba-chip">Morning back</span></div>
+          <span class="ba-mark win">✓</span>
+        </div>
+        <div class="ba-row">
+          <span class="ba-time">8:10am</span>
+          <div class="ba-body"><b>Three calls, done</b><span>Marcus picks up, confirms, and the diary updates. No sorting, no guessing who to ring.</span><span class="ba-chip">No-show caught</span></div>
+          <span class="ba-mark win">✓</span>
+        </div>
+        <div class="ba-row">
+          <span class="ba-time">7:02am</span>
+          <div class="ba-body"><b>"No sorry" freed the slot at 7:02</b><span>The waitlist alert went out before the clinic opened. Dan took the 9:30.</span><span class="ba-chip">Slot refilled</span></div>
+          <span class="ba-mark win">✓</span>
+        </div>
+        <div class="ba-foot"><span>The same Tuesday: <b>two minutes of reading, every slot full</b></span><span class="ba-est">Example day</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · WHEN YOU NEED MORE -->
+<section class="sec" id="layers">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">When you need more</span>
+      <h2>Every repetitive job has an owner. You choose how many are Avilo's.</h2>
+      <p class="lede" style="max-width:36em">Start with Confirmations. Move up to <a href="/smart-reminders">Smart Reminders</a> or the <a href="/assistant">Avilo Assistant</a> when you're ready. Same account, same Cliniko connection, no re-setup.</p>
+    </div>
+    <div class="ledger-wrap">
+    <table class="ctable ledger">
+      <thead>
+        <tr>
+          <th>The job</th>
+          <th><span class="v">Confirmations</span><span class="d">Reads what comes back</span></th>
+          <th><span class="v">Smart Reminders</span><span class="d">Avilo sends, your team talks</span></th>
+          <th><span class="v">Avilo Assistant</span><span class="d">Routine conversations run themselves</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="grp" colspan="4">Reminders and confirmations</td></tr>
+        <tr><td>Send the reminder</td><td><span class="who ck"><i></i>Cliniko</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Read every reply, colour the diary</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Write status to the Cliniko note</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Free the slot on a no</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Build the morning call list</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Follow up the quiet ones by text</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Chase the day before</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td class="grp" colspan="4">Conversations</td></tr>
+        <tr><td>Patient inbox, sorted by urgency</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Reply to patients by text</td><td><span class="who tm"><i></i>Your team, in Cliniko</span></td><td><span class="who tm"><i></i>Your team, in Avilo</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>A separate inbox for each practitioner</td><td class="dash">·</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Answer practice questions (parking, billing)</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Reschedule against the live diary</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Push back on a cancellation with a new time</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Alert the team when a waitlist patient matches a slot</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Offer the slot to the waitlist automatically</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Recalls and reactivation</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Answer the phone after hours</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who soon"><i></i>Add-on, rolling out</span></td></tr>
+        <tr><td>Email and web enquiries in the same inbox</td><td class="dash">·</td><td class="dash">·</td><td><span class="who soon"><i></i>Rolling out</span></td></tr>
+        <tr><td class="grp" colspan="4">Always a human</td></tr>
+        <tr><td>Clinical, emotional or unclear messages</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td></tr>
+        <tr><td>Taking over any conversation</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="ledger-note">Start with Confirmations. Move up when you're ready, no re-setup.</p>
+  </div>
+</section>
+
+<!-- 9 · SETUP -->
+<section class="sec soft" id="setup">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Set up in ten minutes</span>
+      <h2>One API key. No installs, no migration, no training day.</h2>
+    </div>
+    <div class="steps" style="margin-top:44px">
+      <div class="step">
+        <span class="n">1</span>
+        <h4>Paste your Cliniko API key</h4>
+        <p>From Cliniko's settings, under an admin user. Your practitioners, appointment types and locations import on their own.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h4>Choose your rules</h4>
+        <p>Cancel on a clear no, or just flag it. Who gets the morning list. When the Monday list arrives.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h4>Watch tomorrow's diary light up</h4>
+        <p>The next batch of replies is read as it lands. Most clinics see their first coloured diary the same day.</p>
+      </div>
+    </div>
+    <div class="setup-note">In Sydney? We'll come to your clinic and set it up with your team in person.</div>
+  </div>
+</section>
+
+<!-- 10 · FOUNDER -->
+<section class="sec founder">
+  <div class="wrap f-grid">
+    <div class="f-card">
+      <img src="/brand/founder-keegan.jpg" alt="Keegan Brady, physiotherapist and founder of Avilo" width="480" height="480" loading="lazy" />
+      <b>Keegan Brady</b>
+      <span>Founder and Physiotherapist</span>
+    </div>
+    <div>
+      <span class="eyebrow">Why Avilo exists</span>
+      <h2>Built by a physio, <em>for allied health.</em></h2>
+      <p>Avilo started in a working clinic, with a physio who got tired of finding patient replies hours after they were sent, by which point the slot was empty and the patient was annoyed. Nobody was ignoring them. Everyone was with patients, back to back, all day.</p>
+      <p>Confirmations is the piece of that problem every clinic has, so it's the piece we made easy to start with.</p>
+      <a class="btn btn-ghost" href="/about">Read the full story</a>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · FAQ -->
+<section class="sec soft" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Common questions</span>
+      <h2>What clinics ask before they start the trial.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>Does anything change for my patients?</summary>
+        <div class="faq-body"><p>No. Your reminders keep going out from Cliniko exactly as they do now, from the same number. Avilo reads the replies that come back. Patients never see a new number or a new message on this layer.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I have to stop using Cliniko's reminders?</summary>
+        <div class="faq-body"><p>No. Avilo Confirmations works with Cliniko's reminders, not instead of them. If you later move up to <a href="/smart-reminders">Smart Reminders</a>, Avilo sends the reminders and follow-ups for you, but that is a choice, not a requirement.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens to a reply Avilo can't read?</summary>
+        <div class="faq-body"><p>It goes to a person. Most replies are clear and handled by plain rules. When one isn't, a small AI step reads it, and if it still isn't sure, the message is marked as needing a person and lands at the top of your inbox.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I reply to patients from Avilo?</summary>
+        <div class="faq-body"><p>On Confirmations, Avilo shows you each patient's message history in one readable thread and gives you a one-click link to their Cliniko profile to reply, because Cliniko's API lets us read SMS but not send it. <a href="/smart-reminders">Smart Reminders</a> adds sending from your clinic's Avilo number.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What does the free trial include?</summary>
+        <div class="faq-body"><p>Everything in Avilo Confirmations for 14 days: the colour-coded diary, the morning call list, instant cancel on a no, the patient inbox, waitlist alerts and the Monday cancelled-without-rebook list. No credit card needed.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens after 14 days?</summary>
+        <div class="faq-body"><p>We email you on day 12. If you want to keep going, you add a payment method and nothing else changes. If you don't, the trial simply ends and your Cliniko account is untouched.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>See tomorrow's diary sorted before you open.</h2>
+    <p>Fourteen days of Avilo Confirmations on your real Cliniko diary. One API key to start, nothing to install, nothing for your patients to notice.</p>
+    <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+    <p class="fine">No credit card · Cancel anytime · Built in Sydney for allied health</p>
+  </div>
+</section>

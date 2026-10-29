@@ -1,0 +1,29 @@
+# Avilo
+
+> Avilo is software for allied health clinics in Australia that use Cliniko. Avilo Confirmations reads every patient reply to a clinic's Cliniko appointment reminders, shows the team who has confirmed, who has cancelled and who has not replied, frees cancelled slots, and gives the team a daily list of who to call. Clinics that need more can move up to Smart Reminders (Avilo sends the reminders and follow-ups, with a shared communication hub) or the Avilo Assistant (AI that replies, reschedules, fills the waitlist and runs recalls, with anything clinical or unclear handed to a person).
+
+## Products
+
+- Avilo Confirmations: colour-coded diary of confirmed, cancelled and unanswered appointments; morning list of non-responders to call; instant cancellation of "No" replies (optional); patient inbox sorted by urgency; waitlist alerts when a slot and a waiting patient match; weekly list of patients who cancelled without rebooking; confirmation status written to the Cliniko appointment note. 14-day free trial, no credit card, set up with one Cliniko API key.
+- Smart Reminders: everything in Confirmations, plus Avilo sends the reminders and follow-up nudges from the clinic's Avilo number, a communication hub for every patient message, and a separate inbox for each practitioner. The clinic's team writes every reply.
+- Avilo Assistant: everything in Smart Reminders, plus AI that replies to routine messages, reschedules against the live Cliniko diary, offers cancelled slots to the waitlist, pushes back on cancellations with a reschedule, and runs recalls. Clinical, emotional or unclear messages always go to a person. After-hours voice answering and a unified inbox across channels are rolling out.
+
+## Integration
+
+- Works with Cliniko via the official Cliniko API. Reads reminder replies and availability; writes confirmation status to appointment notes and, on higher layers, appointment changes. Avilo is an independent product and is not endorsed by Cliniko.
+- Requirements for Confirmations: a Cliniko account with SMS reminders enabled and an API key from an admin user. Nothing to install.
+
+## Data and privacy
+
+- Patient data is hosted in Australia (Sydney), encrypted in transit and at rest.
+- Patient data is never used to train AI models. No call audio is retained; calls are transcribed only.
+- Clinical questions are never answered by AI. Privacy policy: https://avilo.com.au/privacy. Security: https://avilo.com.au/security.
+
+## Company
+
+- Avilo Health Pty Ltd, ABN 19 698 695 019, Sydney, Australia. Founder: Keegan Brady, physiotherapist. Contact: hello@avilo.com.au.
+- Pricing is per clinic (up to three locations) and is shared on request: https://avilo.com.au/contact
+
+## Pages
+
+{{pages}}

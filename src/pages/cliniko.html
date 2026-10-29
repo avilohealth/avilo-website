@@ -1,0 +1,150 @@
+<!--meta
+title: Avilo and Cliniko | Confirmations and AI receptionist
+description: Avilo integrates with Cliniko via the official API: reads reminder replies, writes confirmations to appointment notes, and books and reschedules in your diary.
+path: /cliniko
+-->
+<!--head
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},
+      {"@type":"ListItem","position":2,"name":"Avilo and Cliniko","item":"https://avilo.com.au/cliniko"}]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Does Avilo use the official Cliniko API?","acceptedAnswer":{"@type":"Answer","text":"Yes. Avilo connects through Cliniko's official API with a key you create under an admin user. Nothing is installed in your browser or on your computers, and you can revoke the key at any time from Cliniko."}},
+      {"@type":"Question","name":"Does Avilo replace Cliniko's reminders?","acceptedAnswer":{"@type":"Answer","text":"Not on Confirmations. Cliniko keeps sending reminders exactly as it does today and Avilo reads the replies. If you move up to Smart Reminders, Avilo sends the reminders and follow-ups instead, so patients only ever get one set."}},
+      {"@type":"Question","name":"What does Avilo write into Cliniko?","acceptedAnswer":{"@type":"Answer","text":"On Confirmations, the reply status goes into the appointment note, and a clear no can cancel the appointment if you choose. On Smart Reminders and the Assistant, confirmed reschedules, cancellations and new bookings are written to the diary as they happen."}},
+      {"@type":"Question","name":"Can Avilo reply to SMS through Cliniko?","acceptedAnswer":{"@type":"Answer","text":"No. Cliniko's API allows SMS to be read but not sent, so on Confirmations your team replies from the patient's Cliniko profile, one click from the Avilo inbox. Smart Reminders and the Assistant send from your clinic's own Avilo number."}},
+      {"@type":"Question","name":"Does Avilo use Cliniko's waitlist?","acceptedAnswer":{"@type":"Answer","text":"No. Cliniko's waitlist is not exposed through its API, so Avilo keeps its own. Your team adds patients who want in sooner and Avilo alerts the team, or on the Assistant offers the slot, when a match opens."}},
+      {"@type":"Question","name":"What if my clinic isn't on Cliniko?","acceptedAnswer":{"@type":"Answer","text":"Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap. Tell us what you use and we will let you know when it is supported."}}
+    ]}
+  ]
+}
+</script>
+-->
+
+<section class="hero-dark hero-sub">
+  <div class="dot-grid"></div>
+  <div class="glow glow-tr"></div>
+  <div class="wrap" style="max-width:840px;text-align:center">
+    <span class="tag">Built on the official Cliniko API</span>
+    <h1 style="font-size:clamp(2rem,4vw,2.9rem)">Cliniko sends. Avilo handles what comes back.</h1>
+    <p class="hero-lede" style="margin:0 auto">Cliniko's reminders and diary are excellent. What they can't do is read the replies, chase the silence, or free a slot when a patient says no. Avilo sits on top of your Cliniko diary and does exactly that, starting with one API key.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+      <a class="btn btn-ghost-light btn-lg" href="/confirmations">See Confirmations</a>
+    </div>
+    <p class="trust">Read and write in real time · No data migration · No downtime</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How the integration works</span>
+      <h2>Your Cliniko diary stays the single source of truth.</h2>
+      <p class="lede">Avilo never asks you to run a second system. It connects through Cliniko's official API and works on the diary your team already lives in.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <h4>Reads replies and availability</h4>
+        <p>Reminder replies, practitioners, appointment types, locations and open slots come in through the API. Avilo only ever works with what's genuinely in your diary.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <h4>Writes back where your team looks</h4>
+        <p>Confirmation status goes into the appointment note. On higher layers, reschedules, cancellations and bookings land in the diary the moment a conversation resolves.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h4>Data stays in the perimeter</h4>
+        <p>Patient data stays on Australian-hosted infrastructure, is never used to train models, and your API key can be revoked from Cliniko at any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The gap Avilo fills</span>
+      <h2>What Avilo adds on top of Cliniko.</h2>
+      <p class="lede">Cliniko was built for sending: reminders and recalls going out. Everything that comes back is left to your team. Here's the difference, job by job, and which Avilo layer covers it.</p>
+    </div>
+    <table class="ctable">
+      <thead><tr><th>What you need</th><th>Cliniko on its own</th><th>With Avilo</th></tr></thead>
+      <tbody>
+        <tr><td>Send appointment reminders</td><td class="yes">Yes</td><td class="yes">Cliniko's, or Avilo's on Smart Reminders</td></tr>
+        <tr><td>Read every reply and show who's confirmed</td><td class="no">A list to read by hand</td><td class="yes">Confirmations: coloured diary, status in the note</td></tr>
+        <tr><td>List who hasn't replied, each morning</td><td class="no">No</td><td class="yes">Confirmations: the morning call list</td></tr>
+        <tr><td>Free the slot when a patient says no</td><td class="no">Someone finds it later</td><td class="yes">Confirmations: instant, if you choose</td></tr>
+        <tr><td>Alert the team when a waitlist patient matches an opening</td><td class="no">No</td><td class="yes">Confirmations: waitlist alerts</td></tr>
+        <tr><td>List last week's cancellations with nothing rebooked</td><td class="no">No</td><td class="yes">Confirmations: every Monday</td></tr>
+        <tr><td>Chase the quiet ones by text</td><td class="no">No</td><td class="yes">Smart Reminders: automatic nudges</td></tr>
+        <tr><td>A separate inbox for each practitioner</td><td class="no">No</td><td class="yes">Smart Reminders</td></tr>
+        <tr><td>Reply to routine messages and reschedule in the diary</td><td class="no">No</td><td class="yes">Avilo Assistant</td></tr>
+        <tr><td>Offer open slots to the waitlist automatically</td><td class="no">No</td><td class="yes">Avilo Assistant</td></tr>
+        <tr><td>Run recalls through to a booking</td><td class="no">Sends only</td><td class="yes">Avilo Assistant</td></tr>
+        <tr><td>Answer the phone after hours</td><td class="no">No</td><td class="yes">Avilo Assistant add-on <span class="tag-rolling">Rolling out</span></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:22px;font-weight:600;color:var(--navy-mid)">Avilo doesn't replace Cliniko. It does the work Cliniko was never built to do.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Getting connected</span>
+      <h2>Live on your Cliniko diary in three steps.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Create an API key in Cliniko</h4>
+        <p>Under an admin user, in Cliniko's settings. Paste it into Avilo. Practitioners, appointment types and locations import on their own.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Choose your rules</h4>
+        <p>Cancel on a clear no, or flag it. Who gets the morning list. On higher layers, your FAQs, policies and who gets escalations.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>See the next replies sorted</h4>
+        <p>Avilo reads the next batch of reminder replies as it lands. Most clinics see their first coloured diary the same day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec soft" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Cliniko questions</span>
+      <h2>What Cliniko practices ask us.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item"><summary>Does Avilo use the official Cliniko API?</summary><div class="faq-body"><p>Yes. Avilo connects through Cliniko's official API with a key you create under an admin user. Nothing is installed in your browser or on your computers, and you can revoke the key at any time from Cliniko.</p></div></details>
+      <details class="faq-item"><summary>Does Avilo replace Cliniko's reminders?</summary><div class="faq-body"><p>Not on Confirmations. Cliniko keeps sending reminders exactly as it does today and Avilo reads the replies. If you move up to <a href="/smart-reminders">Smart Reminders</a>, Avilo sends the reminders and follow-ups instead, so patients only ever get one set.</p></div></details>
+      <details class="faq-item"><summary>What does Avilo write into Cliniko?</summary><div class="faq-body"><p>On Confirmations, the reply status goes into the appointment note, and a clear no can cancel the appointment if you choose. On Smart Reminders and the Assistant, confirmed reschedules, cancellations and new bookings are written to the diary as they happen.</p></div></details>
+      <details class="faq-item"><summary>Can Avilo reply to SMS through Cliniko?</summary><div class="faq-body"><p>No. Cliniko's API allows SMS to be read but not sent, so on Confirmations your team replies from the patient's Cliniko profile, one click from the Avilo inbox. Smart Reminders and the Assistant send from your clinic's own Avilo number.</p></div></details>
+      <details class="faq-item"><summary>Does Avilo use Cliniko's waitlist?</summary><div class="faq-body"><p>No. Cliniko's waitlist isn't exposed through its API, so Avilo keeps its own. Your team adds patients who want in sooner and Avilo alerts the team, or on the Assistant offers the slot, when a match opens.</p></div></details>
+      <details class="faq-item"><summary>What if my clinic isn't on Cliniko?</summary><div class="faq-body"><p>Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap. <a href="/contact">Tell us what you use</a> and we'll let you know when it's supported.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>See it on your own Cliniko diary.</h2>
+    <p>Fourteen days of Confirmations with one API key, or a 30-minute walkthrough of the full stack on a live Cliniko environment.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+      <a class="btn btn-ghost-light btn-lg" href="/contact">Book a demo</a>
+    </div>
+    <p class="fine">Cliniko is a trademark of Red Guava Pty Ltd. Avilo is an independent product and is not endorsed by Cliniko.</p>
+  </div>
+</section>

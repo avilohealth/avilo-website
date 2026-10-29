@@ -1,0 +1,156 @@
+<!--meta
+title: Contact Avilo | Book a demo or send an enquiry
+description: Book a 30-minute demo of Avilo on a real Cliniko diary, or send us an enquiry and hear back within one business day. Based in Sydney.
+path: /contact
+-->
+<!--head
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},
+ {"@type":"ListItem","position":2,"name":"Contact","item":"https://avilo.com.au/contact"}]}
+</script>
+-->
+
+<section class="hero" style="padding:64px 0 56px">
+  <div class="wrap" style="max-width:780px;text-align:center">
+    <span class="tag">Contact us</span>
+    <h1 style="font-size:clamp(2rem,4.2vw,2.8rem)">Let's talk about your clinic.</h1>
+    <p class="hero-lede" style="margin:0 auto">Want to see Smart Reminders or the Avilo Assistant on a real Cliniko diary? Book a demo below. Just want Confirmations? You don't need a call: <a href="/start" style="color:#4DD9C0">start the free trial</a>. Anything else, send us a message and we'll reply within one business day.</p>
+  </div>
+</section>
+
+<section class="sec-tight" id="book" style="padding-top:24px">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="cal-card">
+        <div class="cal-head">
+          <h3>Book a 30-minute demo</h3>
+          <p>Pick a time that suits. We'll show you Avilo on a live clinic diary and answer everything on the spot.</p>
+        </div>
+        <div class="cal-gate" id="calGate">
+          <div class="cal-gate-inner">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <b>Load the booking calendar</b>
+            <p>The calendar is provided by Calendly. Loading it connects your browser to Calendly, which may set its own cookies. Nothing is sent to them until you choose to load it.</p>
+            <button type="button" class="btn btn-primary" id="calLoad">Show booking calendar</button>
+            <span class="cal-gate-alt">Prefer not to? <a href="#enquiry">Send an enquiry instead</a> and we'll come back to you within one business day.</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-card" id="enquiry">
+          <h3>Or send us an enquiry</h3>
+          <p style="font-size:.92rem">Tell us a little about your clinic and what you'd like handled. We'll come back with answers, not a sales script.</p>
+          <form action="https://formspree.io/f/maqvraqz" method="POST" onsubmit="return submitEnquiry(event)">
+            <input type="hidden" name="_subject" value="New Avilo enquiry (website contact form)" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="field-row">
+              <div class="field">
+                <label for="f-name">Your name *</label>
+                <input id="f-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="f-clinic">Clinic name</label>
+                <input id="f-clinic" name="clinic" type="text" autocomplete="organization" />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-email">Email *</label>
+                <input id="f-email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone</label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-interest">What are you most interested in?</label>
+              <select id="f-interest" name="interest">
+                <option value="Avilo Confirmations">Avilo Confirmations</option>
+                <option value="Smart Reminders">Smart Reminders</option>
+                <option value="Avilo Assistant">Avilo Assistant</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-msg">Message</label>
+              <textarea id="f-msg" name="message" placeholder="Tell us about your clinic: size, practice software, what's eating your front desk's time…"></textarea>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit" style="width:100%">Send enquiry <span class="go">→</span></button>
+            <p class="notice">We use these details only to reply to you. See our <a href="/privacy">Privacy Policy</a>.</p>
+            <div class="form-ok" id="formOk">Thanks! We've got your message and we'll be in touch within one business day.</div>
+          </form>
+        </div>
+
+        <div class="contact-direct">
+          <div class="direct-card">
+            <b>Email us</b>
+            <a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a>
+          </div>
+          <div class="direct-card">
+            <b>Based in</b>
+            Sydney, Australia
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec soft" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Before you book</span>
+      <h2>Quick answers to the usual questions.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item">
+        <summary>Do I need a demo to start Confirmations?</summary>
+        <div class="faq-body"><p>No. Confirmations is a 14-day free trial you can start from <a href="/start">the trial page</a>. We'll have you set up within one business day and you can book a setup call if you'd like a hand.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens on the demo call?</summary>
+        <div class="faq-body"><p>Thirty minutes, no sales script. We look at how your front desk runs today, show you Avilo handling real scenarios on a live clinic diary, and answer everything on the spot. If it's not a fit, we'll tell you that too.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does it take to go live?</summary>
+        <div class="faq-body"><p>Confirmations: ten minutes with a Cliniko API key. Smart Reminders and the Assistant: a short setup together to confirm your FAQs, policies and routing. Most practices handle their first real conversation the same day.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>We're not on Cliniko. Can we still use Avilo?</summary>
+        <div class="faq-body"><p>Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap. Send an enquiry and tell us what you use; demand shapes what we build next.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Is patient data safe?</summary>
+        <div class="faq-body"><p>Yes. Patient data stays on Australian-hosted infrastructure, encrypted in transit and at rest. We never train models on your patient data, and you can export or delete everything. <a href="/security">More on security</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('calLoad').addEventListener('click',function(){
+    var gate=document.getElementById('calGate');
+    var f=document.createElement('iframe');
+    f.className='cal-frame';
+    f.title='Book a demo with Avilo';
+    f.src='https://calendly.com/avilohealth/30min?primary_color=0d9488';
+    gate.parentNode.replaceChild(f,gate);
+  });
+  function submitEnquiry(e){
+    e.preventDefault();
+    var form=e.target, btn=form.querySelector('button[type=submit]');
+    btn.disabled=true;btn.textContent='Sending…';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){form.reset();document.getElementById('formOk').style.display='block';btn.textContent='Sent ✓';}
+        else{btn.disabled=false;btn.innerHTML='Send enquiry <span class="go">→</span>';alert('Something went wrong. Please email hello@avilo.com.au instead.');}
+      })
+      .catch(function(){btn.disabled=false;btn.innerHTML='Send enquiry <span class="go">→</span>';alert('Something went wrong. Please email hello@avilo.com.au instead.');});
+    return false;
+  }
+</script>

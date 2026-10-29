@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://avilo.com.au/</loc><priority>1.0</priority></url>
-  <url><loc>https://avilo.com.au/features.html</loc><priority>0.9</priority></url>
-  <url><loc>https://avilo.com.au/pricing.html</loc><priority>0.9</priority></url>
-  <url><loc>https://avilo.com.au/security.html</loc><priority>0.5</priority></url>
-  <url><loc>https://avilo.com.au/cliniko-integration.html</loc><priority>0.9</priority></url>
-  <url><loc>https://avilo.com.au/contact.html</loc><priority>0.8</priority></url>
-  <url><loc>https://avilo.com.au/about.html</loc><priority>0.6</priority></url>
-  <url><loc>https://avilo.com.au/blog/</loc><priority>0.7</priority></url>
-  <url><loc>https://avilo.com.au/blog/reduce-no-shows-allied-health.html</loc><priority>0.7</priority></url>
-  <url><loc>https://avilo.com.au/privacy.html</loc><priority>0.3</priority></url>
-  <url><loc>https://avilo.com.au/terms.html</loc><priority>0.3</priority></url>
-  <url><loc>https://avilo.com.au/blog/what-a-missed-call-costs.html</loc><priority>0.6</priority></url>
-  <url><loc>https://avilo.com.au/blog/reminders-are-not-enough.html</loc><priority>0.6</priority></url>
+  <url><loc>https://avilo.com.au/about</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/assistant</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/blog/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/blog/reduce-no-shows-allied-health</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/blog/reminders-are-not-enough</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/blog/what-a-missed-call-costs</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/cliniko</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/compare/ai-receptionist-vs-answering-service</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/compare/ai-receptionist-vs-hiring-front-desk-staff</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/confirmations</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/contact</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/for/chiropractic</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/for/osteopathy</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/for/physiotherapy</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/for/podiatry</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/privacy</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/security</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/smart-reminders</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/start</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://avilo.com.au/terms</loc><lastmod>2026-10-29</lastmod></url>
 </urlset>

@@ -1,72 +1,80 @@
-# Avilo — Marketing Site
+# Avilo marketing site
 
-Static multi-page site for **avilo.com.au**. No build step, no framework. Just HTML, CSS, and a sprinkle of vanilla JS (plus React + Babel loaded from CDN for the Tweaks panel on the home page).
+Static site for **avilo.com.au**, deployed from this repo to Hostinger. No framework. One small build script assembles the pages.
+
+## How the site is built
+
+```
+src/partials/   head.html, nav.html, footer.html   shared on every page
+src/pages/      one file per page: a <!--meta--> block, an optional <!--head--> block, then the page body
+src/llms.txt    template for /llms.txt (page list is generated)
+build.js        assembles src/pages + partials into finished HTML at the repo root, writes sitemap.xml and llms.txt
+```
+
+Run the build after any change under `src/`:
+
+```bash
+npm run build
+```
+
+The finished HTML at the root is committed. Hostinger deploys the root exactly as before, so nothing changes on the server.
+
+### Page meta block
+
+```
+<!--meta
+title: Under 60 characters | Avilo
+description: Under 160 characters.
+path: /clean-url
+robots: noindex,nofollow     (optional)
+og_type: article             (optional, default website)
+nav: none                    (optional, 404 page only)
+-->
+```
+
+Everything inside an optional `<!--head ... -->` block (schema JSON-LD, page styles) is injected into `<head>`.
+
+### Build guard
+
+The build fails, and writes nothing, if any page: contains an em or en dash; links internally to a `.html` address; is missing a title, description or path; has a title over 60 or a description over 160 characters; has more or fewer than one `<h1>`; or uses a retired phrase (see `RETIRED` in `build.js`: competitor names, "AI front desk", "Coming soon" and so on).
+
+## URLs and redirects
+
+Pages are served at clean URLs (`/confirmations`, not `/confirmations.html`). `.htaccess` rewrites `/page` to `page.html` internally, 301s any `.html` request to the clean address, 301s `www` to the apex, maps the retired `features` and `cliniko-integration` pages, wires the 404 page, and sets the security headers.
+
+Files starting with `_` under `src/pages` are templates and are skipped by the build.
 
 ## Pages
 
-| Path | File | Purpose |
-|---|---|---|
-| `/` | `index.html` | Home — hero, problem, how-it-works, ROI, features, founder, CTA |
-| `/features` | `features.html` | Deep dive on each capability |
-| `/pricing` | `pricing.html` | Pricing tiers + comparison + ROI calc + FAQ |
-| `/about` | `about.html` | Founder story + beliefs + contact |
-| `/app` | `app.html` | Mockup of the in-product dashboard (not yet wired to a backend) |
-
-## Assets
-
-- `brand/` — logos, favicons, OG image (`avilo_og.png`), founder photo
-- `tweaks-panel.jsx` — design-time tweaks panel; only loaded by the home page, harmless if absent
+| URL | Role |
+|---|---|
+| `/` | Home: Avilo Confirmations hero, how it works, colour legend, features, the three layers, setup, FAQ |
+| `/confirmations`, `/smart-reminders`, `/assistant` | One page per product layer |
+| `/pricing` | Built but hidden: `noindex`, unlinked, not in the sitemap. Prices are `{{PLACEHOLDER}}`s |
+| `/cliniko` | Integration page |
+| `/for/physiotherapy`, `/for/chiropractic`, `/for/osteopathy`, `/for/podiatry` | Profession pages |
+| `/compare/...` | Two category comparison pages |
+| `/start`, `/start/thanks` | Trial request form (Formspree) and confirmation |
+| `/contact`, `/about`, `/security`, `/privacy`, `/terms`, `/blog/` | As named |
 
 ## Forms
 
-Demo / waitlist / contact submissions all POST to a Formspree endpoint:
+The trial request, contact and newsletter forms all POST to Formspree endpoint `https://formspree.io/f/maqvraqz` with a hidden `form` field to tell them apart and a `_gotcha` honeypot. Swap the endpoint in `src/pages/start.html` and `src/pages/contact.html` if it changes.
 
-```
-https://formspree.io/f/maqvraqz
-```
+## Placeholders waiting on Keegan
 
-Swap that string in `index.html`, `pricing.html`, `features.html`, and `about.html` if the endpoint changes.
+Search the `src/` tree for `{{` to find them: price figures on `/pricing`, the YouTube `{{VIDEO_ID}}` block on the home page, and app screenshots marked `{{SCREENSHOT}}`.
+
+## Blog posts
+
+Copy `src/pages/blog/_post-template.html`, fill the placeholders, add a card and a `blogPost` entry to `src/pages/blog/index.html`, run the build. The sitemap and `llms.txt` update on their own.
 
 ## Deploying
 
-### GitHub → Hostinger (current setup)
+Commit the built output and push `main`. Hostinger auto-deploys on push (hPanel → Website → Git → Auto Deployment). Manual fallback: hPanel → Git → Deploy. Verify with a hard refresh. After a deploy that touches `.htaccess`, check `/features.html` (expect 301 to `/confirmations`), `www.avilo.com.au` (expect 301), `/pricing` (expect 200 with `noindex`) and a missing path (expect the 404 page).
 
-The live site at **avilo.com.au** is hosted on Hostinger and deployed from this GitHub repo. To push changes live:
+## Obligations to keep
 
-1. Commit and push to the deploy branch (`main`):
-   ```
-   git add -A
-   git commit -m "Update site"
-   git push origin main
-   ```
-2. Hostinger picks up the push automatically (hPanel → **Website → Git → Auto Deployment** is enabled). If auto-deploy is off, open hPanel → **Git** and click **Deploy** to pull the latest commit.
-3. Verify at https://avilo.com.au — hard-refresh (Cmd/Ctrl+Shift+R) to bypass cache.
-
-> **Note:** Hostinger serves files by their real path, so pages are reached with the `.html` extension (`/pricing.html`, `/features.html`). The `vercel.json` clean-URL config is **not** applied here — links throughout the site already use `.html`, so everything resolves correctly.
-
-### Any other static host
-
-Upload the contents of `site/` to the web root. Pages link with the `.html` extension, so they work with or without clean-URL rewrites.
-
-## Page versions
-
-The home and pricing pages were redesigned (v2). The v2 designs are now the published pages:
-
-- `index.html` — current published home (formerly `Avilo Home v2.html`)
-- `pricing.html` — current published pricing (formerly `Avilo Pricing v2.html`)
-
-The previous live versions are archived in `_archive/` (`index-v1.html`, `pricing-v1.html`) in case a rollback is ever needed.
-
-## What's missing before launch
-
-The site asserts a few things that need to be in place before the first paid customer signs up. Reminder list:
-
-- **Privacy Policy, Terms of Service, Data Processing Agreement** — handling patient data in AU, must be published before sign-up.
-- **Security / Trust page** — Australian Privacy Principles, AU data residency, encryption, sub-processors, breach process. The home page's "trust" section makes claims that need a real page to back them up.
-- **Working `/login` and `/signup` routes** — currently `#login` is an empty anchor.
-- **Real contact details** — ABN, registered office, `hello@avilo.com.au` mailbox, support hours.
-- **"Officially integrated with Cliniko" badge** — make sure the wording matches what Cliniko's partner team has approved.
-
-## Tweaks panel
-
-The home page (`index.html`) includes a hidden Tweaks panel that lets you cycle the brand palette, headline voice, and page pace at runtime. It's harmless in production — the toggle only appears when the host editor is running. The defaults are committed in the page (`palette: 'teal'`, `voice: 'calm'`, `pace: 'tight'`).
+- The ElevenLabs Grants logo and link in the footer partial are a grant condition. Keep them.
+- The site loads nothing from third parties except the YouTube embed on the home page (privacy-enhanced mode) and Calendly, which only loads on click. The privacy policy says so; keep them in step.
+- No em dashes anywhere. No competitor names anywhere.

@@ -1,1 +1,37 @@
 ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# www -> apex, always https
+RewriteCond %{HTTP_HOST} ^www\.avilo\.com\.au$ [NC]
+RewriteRule ^(.*)$ https://avilo.com.au/$1 [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://avilo.com.au/$1 [R=301,L]
+
+# retired pages
+RewriteRule ^features(\.html)?$ /confirmations [R=301,L]
+RewriteRule ^cliniko-integration(\.html)?$ /cliniko [R=301,L]
+RewriteRule ^app\.html$ - [R=404,L]
+
+# /page.html -> /page  (external 301), /index.html -> /
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+blog/index\.html[\s?] [NC]
+RewriteRule ^blog/index\.html$ /blog/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# /page -> page.html (internal)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+Header always set Content-Security-Policy "frame-ancestors 'self'"
+</IfModule>

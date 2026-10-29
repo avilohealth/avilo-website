@@ -3,265 +3,256 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pricing | Avilo</title>
-<meta name="description" content="Simple pricing for Avilo, the AI receptionist for allied health. Plans from $79/month ex GST, month-to-month, no setup fee. All prices AUD." />
-<link rel="icon" type="image/png" sizes="64x64" href="brand/avilo_favicon_64.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="brand/avilo_favicon_16.png" />
-<link rel="canonical" href="https://avilo.com.au/pricing.html" />
-<link rel="stylesheet" href="fonts.css" />
-<link rel="stylesheet" href="avilo.css" />
-<link rel="stylesheet" href="aether-blend.css" />
-<style>
-/* ---------- pricing ---------- */
-.hero-pr{padding:140px 0 190px;text-align:center;}
-.hero-pr h1{color:#fff;font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.12;margin-bottom:18px;}
-.hero-pr .hero-lede{max-width:36em;margin:0 auto;}
-.plans{padding:0 24px 26px;margin-top:-130px;position:relative;z-index:3;}
-.plans-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;}
-.pcard{
-  position:relative;background:rgba(255,255,255,.95);border:1px solid var(--hairline);
-  border-radius:var(--r-card);padding:26px 24px;display:flex;flex-direction:column;
-  box-shadow:var(--bevel), var(--float);
-}
-.pcard.feat{
-  border:1.5px solid rgba(13,148,136,.45);
-  box-shadow:var(--bevel), var(--float-lg);
-}
-.pbadge{
-  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-  background:var(--teal);color:#fff;font-size:.68rem;font-weight:700;
-  padding:5px 15px;border-radius:9999px;white-space:nowrap;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 8px 18px -8px rgba(13,148,136,.6);
-}
-.pname{font-size:1.18rem;font-weight:800;color:var(--navy);letter-spacing:-.015em;}
-.pwho{font-size:.8rem;color:var(--slate-light);margin:3px 0 14px;min-height:2.6em;line-height:1.45;}
-.pprice{display:flex;align-items:baseline;gap:5px;}
-.pprice .amt{font-size:2.1rem;font-weight:800;color:var(--ink);letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
-.pprice .per{font-size:.82rem;color:var(--slate-light);}
-.pincl{
-  background:var(--teal-wash-2);color:var(--teal-active);border:1px solid rgba(13,148,136,.14);
-  border-radius:10px;padding:9px 13px;font-size:.8rem;font-weight:700;margin:13px 0 14px;
-}
-.pincl b{font-variant-numeric:tabular-nums;}
-.pcard ul{list-style:none;margin:0 0 16px;padding:0;}
-.pcard li{font-size:.84rem;color:var(--slate);padding:5px 0 5px 23px;position:relative;line-height:1.5;}
-.pcard li:before{
-  content:"";position:absolute;left:1px;top:11px;width:12px;height:7px;
-  border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg);
-}
-.pcard li b{color:var(--navy);}
-.pfoot{font-size:.72rem;color:var(--slate-light);border-top:1px solid var(--hairline);padding-top:12px;margin:auto 0 16px;line-height:1.5;}
-.pcard .btn{justify-content:center;}
-.pcard.feat .btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55);}
-.plans-note{text-align:center;font-size:.84rem;color:var(--slate-light);margin-top:22px;}
-
-/* included band */
-.incl-band{
-  max-width:1092px;margin:40px auto 0;background:var(--glass);border:1px solid var(--hairline);
-  border-radius:var(--r-card);padding:30px 34px;box-shadow:var(--bevel), var(--float);
-}
-.incl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 30px;list-style:none;margin:0;padding:0;}
-.incl-grid li{font-size:.88rem;color:var(--slate);padding:6px 0 6px 25px;position:relative;line-height:1.5;}
-.incl-grid li:before{
-  content:"";position:absolute;left:1px;top:13px;width:13px;height:7px;
-  border-left:2.5px solid var(--teal);border-bottom:2.5px solid var(--teal);transform:rotate(-45deg);
-}
-
-/* usage table */
-.usage-wrap{max-width:760px;margin:0 auto;}
-.usage-wrap .ctable{border-radius:20px;box-shadow:var(--bevel), var(--float);margin-top:32px;}
-.usage-wrap .ctable td:last-child,.usage-wrap .ctable th:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy);}
-.usage-note{text-align:center;font-size:.82rem;color:var(--slate-light);margin-top:20px;}
-
-@media(max-width:1100px){.plans-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:960px){
-  .hero-pr{padding:56px 0 170px;}
-  .incl-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-  .plans-grid{grid-template-columns:1fr;}
-  .incl-grid{grid-template-columns:1fr;}
-  .incl-band{padding:24px 22px;}
-  .pwho{min-height:0;}
-}
-</style>
+<title>Pricing | Avilo for Cliniko clinics</title>
+<meta name="description" content="Avilo Confirmations and Smart Reminders at a flat price per clinic, the Avilo Assistant sized to your volume. All prices AUD including GST." />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="canonical" href="https://avilo.com.au/pricing" />
+<link rel="icon" type="image/png" sizes="64x64" href="/brand/avilo_favicon_64.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/avilo_favicon_16.png" />
+<meta property="og:site_name" content="Avilo" />
+<meta property="og:title" content="Pricing | Avilo for Cliniko clinics" />
+<meta property="og:description" content="Avilo Confirmations and Smart Reminders at a flat price per clinic, the Avilo Assistant sized to your volume. All prices AUD including GST." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://avilo.com.au/pricing" />
+<meta property="og:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Pricing | Avilo for Cliniko clinics" />
+<meta name="twitter:description" content="Avilo Confirmations and Smart Reminders at a flat price per clinic, the Avilo Assistant sized to your volume. All prices AUD including GST." />
+<meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
+<link rel="preload" href="/fonts/plus-jakarta-sans-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/fonts.css" />
+<link rel="stylesheet" href="/avilo.css" />
+<link rel="stylesheet" href="/aether-blend.css" />
+<link rel="stylesheet" href="/components.css" />
+<!-- HIDDEN PAGE: not linked from the nav, footer or sitemap while pricing is private. Remove the robots line in the meta block and add nav/footer links to publish. Figures below are placeholders. -->
 </head>
 <body>
-
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="top">
   <div class="wrap nav-inner">
-    <a class="logo" href="index.html"><img src="brand/avilo_mark_gradient.svg" alt="" /><span><b>avilo</b><span class="dot">.</span></span></a>
-    <nav class="nav-links" id="navlinks">
-      <a href="features.html">Features</a>
-      <a href="index.html#how">How it works</a>
-      <a href="pricing.html" class="active">Pricing</a>
-      <a href="blog/index.html">Learn</a>
-      <a href="contact.html">Contact</a>
+    <a class="logo" href="/" aria-label="Avilo home"><img src="/brand/avilo_mark_gradient.svg" alt="" width="30" height="30" /><span><b>avilo</b><span class="dot">.</span></span></a>
+    <nav class="nav-links" id="navlinks" aria-label="Main">
+      <a href="/confirmations">Confirmations</a>
+      <a href="/smart-reminders">Smart Reminders</a>
+      <a href="/assistant">Assistant</a>
+      <a href="/blog/">Learn</a>
+      <a class="nav-login" href="https://app.avilo.com.au">Log in</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="contact.html">Book a demo <span class="go">→</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a class="btn btn-primary" href="/start">Start free trial <span class="go">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
-
-<!-- HERO -->
+<main id="main">
 <section class="hero-dark hero-pr">
   <div class="glow glow-tr"></div>
   <div class="glow glow-bl"></div>
   <div class="wrap">
-    <h1>One receptionist for your<br />phone and your texts.</h1>
-    <p class="hero-lede">Avilo answers calls and texts, books and reschedules in Cliniko, fills cancellations from your waitlist, and hands the tricky ones to your team. All prices AUD, ex GST.</p>
+    <h1 style="color:#fff;font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.12;margin-bottom:18px">Start small. Move up when you're ready.</h1>
+    <p class="hero-lede">Confirmations and Smart Reminders are a flat price per clinic, up to three locations. The Avilo Assistant is sized to your message and call volume. All prices AUD, including GST.</p>
   </div>
 </section>
 
-<!-- PLANS -->
 <section class="plans">
   <div class="plans-grid">
 
     <div class="pcard">
-      <div class="pname">Reminders</div>
-      <div class="pwho">Just want reminders &amp; confirmations handled.</div>
-      <div class="pprice"><span class="amt">$79</span><span class="per">/month</span></div>
-      <div class="pincl">Full dashboard &amp; communication hub included</div>
+      <div class="pname">Avilo Confirmations</div>
+      <div class="pwho">Reads every reply to your Cliniko reminders. Nothing changes for patients.</div>
+      <div class="pday"><span class="amt">${{PRICE_CONF_DAY}}</span><span class="per">a day</span></div>
+      <div class="pmonth">${{PRICE_CONF_MONTH}} a month <small>inc GST, per clinic</small></div>
       <ul>
-        <li>Automated SMS reminders &amp; nudges</li>
-        <li>Confirmation status synced to Cliniko</li>
-        <li>Unconfirmed list pushed to your team</li>
-        <li>Reads replies and flags what needs you</li>
+        <li>Colour-coded diary</li>
+        <li>Morning call list</li>
+        <li>Instant cancel on a no</li>
+        <li>Patient inbox sorted by urgency</li>
+        <li>Waitlist alerts</li>
+        <li>Monday cancelled-without-rebook list</li>
       </ul>
-      <div class="pfoot">+ 10c per reminder SMS. One-way. Does not book, reschedule, or take calls.</div>
-      <a class="btn btn-ghost" href="contact.html">Book a demo</a>
-    </div>
-
-    <div class="pcard">
-      <div class="pname">Starter</div>
-      <div class="pwho">Solo &amp; small clinics getting started with an AI front desk.</div>
-      <div class="pprice"><span class="amt">$149</span><span class="per">/month</span></div>
-      <div class="pincl"><b>40</b> calls + <b>150</b> SMS / month</div>
-      <ul>
-        <li>The full receptionist, both channels</li>
-        <li>Two-way SMS <b>and</b> voice</li>
-        <li>Books, reschedules &amp; cancels</li>
-      </ul>
-      <div class="pfoot">Then $2.50/call, 10c/SMS. + 10c per reminder.</div>
-      <a class="btn btn-ghost" href="contact.html">Book a demo</a>
+      <div class="pfoot">14-day free trial, no credit card. Up to 3 locations. Reading only; sends nothing.</div>
+      <a class="btn btn-primary" href="/start">Start your free trial <span class="go">→</span></a>
     </div>
 
     <div class="pcard feat">
-      <span class="pbadge">Most popular</span>
-      <div class="pname">Growth</div>
-      <div class="pwho">Busy multi-practitioner clinics.</div>
-      <div class="pprice"><span class="amt">$349</span><span class="per">/month</span></div>
-      <div class="pincl"><b>120</b> calls + <b>400</b> SMS / month</div>
+      <div class="pname">Smart Reminders</div>
+      <div class="pwho">Avilo sends the reminders and follow-ups. Your team talks, from one inbox.</div>
+      <div class="pday"><span class="amt">${{PRICE_SR_DAY}}</span><span class="per">a day</span></div>
+      <div class="pmonth">${{PRICE_SR_MONTH}} a month <small>inc GST, per clinic</small></div>
       <ul>
-        <li>Everything in Starter</li>
-        <li>Waitlist auto-fill on cancellations</li>
-        <li>Multi-practitioner routing</li>
+        <li>Everything in Confirmations</li>
+        <li>Reminders, nudges and day-before chases sent by Avilo</li>
+        <li>Communication hub for every patient message</li>
+        <li>A separate inbox for each practitioner</li>
+        <li>Your clinic's own Avilo number</li>
       </ul>
-      <div class="pfoot">Then $2.50/call, 10c/SMS. + 10c per reminder.</div>
-      <a class="btn btn-primary" href="contact.html">Book a demo <span class="go">→</span></a>
+      <div class="pfoot">+ {{PRICE_SMS}}c per outbound SMS segment. Inbound messages are never charged. Up to 3 locations.</div>
+      <a class="btn btn-primary" href="/contact">Book a demo <span class="go">→</span></a>
     </div>
 
     <div class="pcard">
-      <div class="pname">Scale</div>
-      <div class="pwho">Multi-location groups &amp; high call volume.</div>
-      <div class="pprice"><span class="amt">$799</span><span class="per">/month</span></div>
-      <div class="pincl"><b>300</b> calls + <b>1,000</b> SMS / month</div>
+      <div class="pname">Avilo Assistant</div>
+      <div class="pwho">Routine conversations run themselves. Your team sees only what needs a human.</div>
+      <div class="pday"><span class="amt">from ${{PRICE_AS_DAY}}</span><span class="per">a day</span></div>
+      <div class="pmonth">from ${{PRICE_AS_MONTH}} a month <small>inc GST, sized to your volume</small></div>
       <ul>
-        <li>Everything in Growth</li>
-        <li>Multi-location booking &amp; routing</li>
-        <li>Priority support</li>
+        <li>Everything in Smart Reminders</li>
+        <li>AI replies, reschedules and cancellation pushback</li>
+        <li>Automatic waitlist offers</li>
+        <li>Recalls and reactivation</li>
+        <li>After-hours voice <span class="tag-rolling">Add-on, rolling out</span></li>
       </ul>
-      <div class="pfoot">Then $2.50/call, 10c/SMS. + 10c per reminder.</div>
-      <a class="btn btn-ghost" href="contact.html">Book a demo</a>
+      <div class="pfoot">Tiers within the Assistant are sized on the demo from your real message and call volume.</div>
+      <a class="btn btn-ghost" href="/contact">Talk to us</a>
     </div>
 
   </div>
-  <p class="plans-note">All prices in AUD and exclusive of GST · Month-to-month, cancel anytime · No setup fee · Requires an active Cliniko account</p>
+  <p class="plans-note">All prices AUD, including GST · Month to month, cancel anytime · No setup fee · Extra locations beyond three at {{PRICE_LOCATION}} a month each · Requires an active Cliniko account</p>
 </section>
 
-<!-- INCLUDED -->
 <section class="sec" style="padding-top:64px">
   <div class="wrap">
-    <div class="sec-head center" style="margin-left:auto;margin-right:auto;text-align:center">
-      <span class="eyebrow">What's inside</span>
-      <h2>Every Starter, Growth &amp; Scale plan includes</h2>
-      <p class="lede" style="max-width:34em;margin-left:auto;margin-right:auto">The full AI receptionist, on both channels, wired straight into your diary.</p>
+    <div class="sec-head center">
+      <span class="eyebrow">Who does what</span>
+      <h2>Every repetitive job has an owner.</h2>
     </div>
-    <div class="incl-band">
-      <ul class="incl-grid">
-        <li>Answers calls &amp; texts 24/7</li>
-        <li>Books, reschedules &amp; cancels in Cliniko</li>
-        <li>Fills cancellations from your waitlist</li>
-        <li>Appointment reminders &amp; confirmations</li>
-        <li>Answers clinic FAQs you set</li>
-        <li>Escalates anything clinical or tricky to your team</li>
-        <li>Owner dashboard &amp; message inbox</li>
-        <li>Knowledge base you control</li>
-        <li>Works with your existing Cliniko account</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- USAGE -->
-<section class="sec soft" style="padding-top:72px">
-  <div class="wrap usage-wrap">
-    <div class="sec-head center" style="margin-left:auto;margin-right:auto;text-align:center">
-      <span class="eyebrow">Usage &amp; add-ons</span>
-      <h2>Only pay for what you use beyond your plan.</h2>
-      <p class="lede" style="max-width:34em;margin-left:auto;margin-right:auto">You'll never pay more in usage than the next plan up. We move you across automatically.</p>
-    </div>
-    <table class="ctable">
-      <tr><th>Item</th><th>Rate</th></tr>
-      <tr><td>Additional voice call</td><td>$2.50 each</td></tr>
-      <tr><td>Additional SMS</td><td>10c each</td></tr>
-      <tr><td>Appointment reminder (all plans)</td><td>10c each</td></tr>
-      <tr><td>Extra dedicated number</td><td>$18 / month</td></tr>
-      <tr><td>Setup fee</td><td>$0</td></tr>
+    <div class="ledger-wrap">
+    <table class="ctable ledger">
+      <thead>
+        <tr>
+          <th>The job</th>
+          <th><span class="v">Confirmations</span><span class="p">${{PRICE_CONF_DAY}} a day</span></th>
+          <th><span class="v">Smart Reminders</span><span class="p">${{PRICE_SR_DAY}} a day</span></th>
+          <th><span class="v">Avilo Assistant</span><span class="p">from ${{PRICE_AS_DAY}} a day</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Send the reminder</td><td><span class="who ck"><i></i>Cliniko</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Read every reply, colour the diary</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Free the slot on a no</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Build the morning call list</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Follow up the quiet ones by text</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
+        <tr><td>Reply to patients by text</td><td><span class="who tm"><i></i>Your team, in Cliniko</span></td><td><span class="who tm"><i></i>Your team, in Avilo</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Reschedule against the live diary</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Offer the slot to the waitlist automatically</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Recalls and reactivation</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
+        <tr><td>Clinical, emotional or unclear messages</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td></tr>
+      </tbody>
     </table>
-    <p class="usage-note">One SMS = one outbound message segment (~160 characters) Avilo sends.</p>
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Calculate your savings</span>
+      <h2>What does reading replies by hand cost you?</h2>
+      <p class="lede" style="max-width:34em">Five quick answers. Nothing is sent anywhere; it's worked out in your browser.</p>
+    </div>
+    <div class="roi">
+      <div>
+        <div class="field"><label for="r-prac">Practitioners</label><input id="r-prac" type="number" min="1" value="3" /></div>
+        <div class="field"><label for="r-appts">Appointments per week</label><input id="r-appts" type="number" min="1" value="150" /></div>
+        <div class="field"><label for="r-mins">Minutes a day spent reading and sorting replies</label><input id="r-mins" type="number" min="0" value="45" /></div>
+        <div class="field"><label for="r-noshow">No-shows per week</label><input id="r-noshow" type="number" min="0" value="4" /></div>
+        <div class="field"><label for="r-fee">Average appointment fee ($)</label><input id="r-fee" type="number" min="0" value="110" /></div>
+      </div>
+      <div class="roi-out">
+        <b id="r-hours">0 hrs</b><span>of front desk time a month spent sorting replies</span>
+        <b id="r-dollars">$0</b><span>a month in no-shows that an earlier call or a freed slot could recover, if one in four is caught</span>
+        <small>Estimate only. Your results depend on your reply rate and how your team uses the call list.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap faq-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Pricing questions</span>
+      <h2>The usual ones.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item"><summary>Is there a setup fee?</summary><div class="faq-body"><p>No. Confirmations is set up by you with an API key. Smart Reminders and the Assistant are set up with us, and that's included.</p></div></details>
+      <details class="faq-item"><summary>Can I cancel anytime?</summary><div class="faq-body"><p>Yes. Everything is month to month. Cancel in the app or by email and it ends at the close of the current billing cycle.</p></div></details>
+      <details class="faq-item"><summary>Do you offer refunds?</summary><div class="faq-body"><p>Fees are not refunded for partial months, except where the Australian Consumer Law requires it. Start with the free trial so you're sure before you pay.</p></div></details>
+      <details class="faq-item"><summary>What if I have multiple clinics?</summary><div class="faq-body"><p>One subscription covers up to three locations under one Cliniko account. Beyond that, each extra location is {{PRICE_LOCATION}} a month. Separate Cliniko accounts are separate subscriptions.</p></div></details>
+      <details class="faq-item"><summary>Why is the Assistant priced "from"?</summary><div class="faq-body"><p>Because it does more for a clinic sending 2,000 messages a month than one sending 200. We size it on the demo from your real volume, and you'll have a number before you commit.</p></div></details>
+    </div>
+  </div>
+</section>
+
 <section class="cta">
   <div class="wrap">
-    <h2>Not sure which plan fits?</h2>
-    <p>Book a 30-minute demo and we'll size it from your real call and message volume, and show you exactly what Avilo would have handled last week.</p>
-    <a class="btn btn-primary btn-lg" href="contact.html">Book a demo <span class="go">→</span></a>
-    <p class="fine">No commitment · No credit card · Built in Sydney for allied health</p>
+    <h2>Start with Confirmations. Free for 14 days.</h2>
+    <p>One API key, ten minutes, your real Cliniko diary.</p>
+    <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+    <p class="fine">No credit card · Cancel anytime · Built in Sydney for allied health</p>
   </div>
 </section>
 
+<script>
+(function(){
+  var ids=['r-prac','r-appts','r-mins','r-noshow','r-fee'];
+  function calc(){
+    var mins=+document.getElementById('r-mins').value||0;
+    var ns=+document.getElementById('r-noshow').value||0;
+    var fee=+document.getElementById('r-fee').value||0;
+    var hours=Math.round(mins*22/60);
+    var dollars=Math.round(ns*4.33*fee*0.25);
+    document.getElementById('r-hours').textContent=hours+' hrs';
+    document.getElementById('r-dollars').textContent='$'+dollars.toLocaleString('en-AU');
+  }
+  ids.forEach(function(i){document.getElementById(i).addEventListener('input',calc);});
+  calc();
+})();
+</script>
+</main>
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
+    <div class="foot-grid foot-grid-4">
       <div>
-        <div class="foot-logo"><img src="brand/avilo_mark_white_on_navy.svg" alt="" /><span>avilo<span class="dot">.</span></span></div>
-        <p style="max-width:26em">Somewhere between the missed calls, the unanswered texts and tomorrow's no-shows, your clinic is losing hours every week. <a href="contact.html" style="color:#4DD9C0">See what a week with Avilo hands back →</a></p>
-        <p style="font-size:.8rem">Integrated with Cliniko · Built in Sydney for allied health.</p>
+        <div class="foot-logo"><img src="/brand/avilo_mark_white_on_navy.svg" alt="" width="28" height="28" /><span>avilo<span class="dot">.</span></span></div>
+        <p style="max-width:26em">Avilo takes the repetitive patient admin off the front desk of Cliniko clinics. Confirmations first. Smart Reminders and the Avilo Assistant when you need more.</p>
+        <p style="font-size:.8rem">Integrates with Cliniko via the official API · Built in Sydney for allied health.</p>
         <a class="foot-grant" href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
-          <img src="brand/elevenlabs-grants-white.webp" width="180" height="16" alt="Supported by an ElevenLabs Grant" loading="lazy" />
+          <img src="/brand/elevenlabs-grants-white.webp" width="180" height="16" alt="Supported by an ElevenLabs Grant" loading="lazy" />
         </a>
       </div>
       <div>
         <h5>Product</h5>
         <ul>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="cliniko-integration.html">Avilo + Cliniko</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
-          <li><a href="contact.html">Book a demo</a></li>
+          <li><a href="/confirmations">Avilo Confirmations</a></li>
+          <li><a href="/smart-reminders">Smart Reminders</a></li>
+          <li><a href="/assistant">Avilo Assistant</a></li>
+          <li><a href="/cliniko">Avilo and Cliniko</a></li>
+          <li><a href="/security">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>For your clinic</h5>
+        <ul>
+          <li><a href="/for/physiotherapy">Physiotherapy</a></li>
+          <li><a href="/for/chiropractic">Chiropractic</a></li>
+          <li><a href="/for/osteopathy">Osteopathy</a></li>
+          <li><a href="/for/podiatry">Podiatry</a></li>
+        </ul>
+        <h5 style="margin-top:18px">Compare</h5>
+        <ul>
+          <li><a href="/compare/ai-receptionist-vs-answering-service">AI receptionist vs answering service</a></li>
+          <li><a href="/compare/ai-receptionist-vs-hiring-front-desk-staff">AI receptionist vs hiring front desk staff</a></li>
         </ul>
       </div>
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog/index.html">Learn</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog/">Learn</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/start">Start a free trial</a></li>
           <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
         </ul>
       </div>
@@ -269,25 +260,22 @@
     <div class="foot-bottom">
       <span>© 2026 Avilo Health Pty Ltd · ABN 19 698 695 019</span>
       <nav class="foot-legal" aria-label="Legal">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="security.html">Security</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
       </nav>
-      <span>Made in Sydney 🇦🇺</span>
+      <span>Made in Sydney, Australia</span>
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('navToggle').addEventListener('click',function(){
-    document.getElementById('navlinks').classList.toggle('open');
-  });
-  (function(){
-    var hdr=document.querySelector('header.nav');
-    function onScroll(){hdr.classList.toggle('at-top',window.scrollY<30);}
-    onScroll();
-    window.addEventListener('scroll',onScroll,{passive:true});
-  })();
+(function(){
+  var t=document.getElementById('navToggle'),l=document.getElementById('navlinks');
+  if(t&&l){t.addEventListener('click',function(){var open=l.classList.toggle('open');t.setAttribute('aria-expanded',open?'true':'false');});}
+  var hdr=document.querySelector('header.nav');
+  if(hdr){function onScroll(){hdr.classList.toggle('at-top',window.scrollY<30);}onScroll();window.addEventListener('scroll',onScroll,{passive:true});}
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!--
+  AVILO BLOG POST TEMPLATE
+  ========================
+  Files starting with "_" are skipped by the build.
+  To publish a new post:
+  1. Copy this file to src/pages/blog/<keyword-rich-slug>.html
+  2. Replace every {{PLACEHOLDER}} (search for "{{")
+  3. Add a post card to src/pages/blog/index.html and an entry in its Blog schema "blogPost" list
+  4. Run `npm run build`; the sitemap and llms.txt update on their own
+  Rules: Australian spelling, no em dashes, no competitor names, no "Coming soon", title under 60 chars, description under 160.
+-->
+<!--meta
+title: {{POST TITLE}} | Avilo
+description: {{150-160 CHARACTER SUMMARY WITH TARGET KEYWORD}}
+path: /blog/{{SLUG}}
+og_type: article
+-->
+<!--head
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://avilo.com.au/blog/{{SLUG}}",
+  "mainEntityOfPage": "https://avilo.com.au/blog/{{SLUG}}",
+  "headline": "{{POST TITLE}}",
+  "description": "{{SUMMARY, SAME AS META DESCRIPTION}}",
+  "image": "https://avilo.com.au/brand/avilo_og.png",
+  "author": {"@type": "Person", "@id": "https://avilo.com.au/about#keegan", "name": "Keegan Brady", "jobTitle": "Physiotherapist and founder of Avilo"},
+  "publisher": {"@type": "Organization", "@id": "https://avilo.com.au/#org", "name": "Avilo"},
+  "datePublished": "{{YYYY-MM-DD}}",
+  "dateModified": "{{YYYY-MM-DD}}"
+}
+</script>
+-->
+
+<section class="sec-tight" style="padding-bottom:0">
+  <div class="wrap article-head">
+    <span class="eyebrow">{{CATEGORY}}</span>
+    <h1>{{POST TITLE}}</h1>
+    <div class="article-meta">
+      <img class="am-av" src="/brand/founder-keegan.jpg" alt="Keegan Brady" width="40" height="40" />
+      <span><b>Keegan Brady</b> · Physiotherapist and founder of Avilo</span>
+      <span>·</span>
+      <span>{{D MONTH YYYY}} · {{N}} min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="article">
+      <a class="back-link" href="/blog/">← All articles</a>
+
+      <p>{{OPENING PARAGRAPH}}</p>
+
+      <h2>{{FIRST H2}}</h2>
+      <p>{{BODY}}</p>
+
+      <div class="article-cta">
+        <b>Start with the replies you already get.</b>
+        <p>Avilo Confirmations reads every reply to your Cliniko reminders and tells your team who to call. Fourteen days free, one API key.</p>
+        <a class="btn btn-primary" href="/start">Start your free trial <span class="go">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
