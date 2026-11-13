@@ -7,7 +7,8 @@
   Writes <root>/<path>.html      finished pages (committed; Hostinger deploys the root as-is)
          sitemap.xml, llms.txt   generated from the page list
 
-  Page meta keys: title, description, path, robots (optional), og_image (optional), og_type (optional), nav (optional: "none")
+  Page meta keys: title, description, path, robots (optional), og_image (optional), og_type (optional),
+                  nav (optional: "none"), footer (optional: "none"), main (optional: "none": the page supplies its own <main>), legacy (optional: "yes" loads the pre-v4 stylesheets)
 */
 'use strict';
 const fs = require('fs');
@@ -22,7 +23,7 @@ const SITE = 'https://avilo.com.au';
 
 const RETIRED = [
   'AI front desk', 'Your AI front desk', 'front desk handled', 'Officially integrated',
-  'Real clinics, real numbers', 'Coming soon', 'Notifications plan', 'Abby', 'Lyngo', 'Aeva', 'BookedSolid', 'Cliniq',
+  'Real clinics, real numbers', 'Notifications plan', 'Abby', 'Lyngo', 'Aeva', 'BookedSolid', 'Cliniq',
 ];
 
 function read(p) { return fs.readFileSync(p, 'utf8'); }
@@ -72,6 +73,7 @@ const partials = {
   head: read(path.join(PARTIALS, 'head.html')),
   nav: read(path.join(PARTIALS, 'nav.html')),
   footer: read(path.join(PARTIALS, 'footer.html')),
+  tail: read(path.join(PARTIALS, 'tail.html')),
 };
 
 const pages = [];
@@ -97,14 +99,21 @@ for (const file of walk(PAGES)) {
     robots: meta.robots ? `<meta name="robots" content="${meta.robots}" />` : '',
     og_image: meta.og_image || `${SITE}/brand/avilo_og.png`,
     og_type: meta.og_type || 'website',
+    legacy_css: meta.legacy === 'yes'
+      ? '<link rel="stylesheet" href="/avilo.css" />\n<link rel="stylesheet" href="/aether-blend.css" />\n<link rel="stylesheet" href="/components.css" />'
+      : '',
     head_extra: h.text || '',
     year: String(new Date().getFullYear()),
   };
   const nav = meta.nav === 'none' ? '' : render(partials.nav, vars);
-  const html = render(partials.head, vars) + nav + '<main id="main">\n' + src.trim() + '\n</main>\n' + render(partials.footer, vars);
+  const footer = meta.footer === 'none' ? '' : render(partials.footer, vars);
+  const body = meta.main === 'none' ? src.trim() + '\n' : '<main id="main">\n' + src.trim() + '\n</main>\n';
+  const html = render(partials.head, vars) + nav + body + footer + render(partials.tail, vars);
 
   // guards on output
-  if (/[—–]/.test(html)) errors.push(`${rel}: contains an em or en dash`);
+  if (html.includes('\u2014')) errors.push(`${rel}: contains an em dash`);
+  // an en dash is fine between digits ("20\u201330%"), not in prose
+  if (/(^|[^0-9])\u2013|\u2013([^0-9]|$)/.test(html)) errors.push(`${rel}: contains an en dash outside a number range`);
   const badHref = html.match(/href="(?!https?:)[^"]*\.html"/g);
   if (badHref) errors.push(`${rel}: internal .html link(s): ${badHref.slice(0, 3).join(', ')}`);
   for (const phrase of RETIRED) if (html.includes(phrase)) errors.push(`${rel}: retired phrase "${phrase}"`);

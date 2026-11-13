@@ -1,150 +1,94 @@
 <!--meta
-title: Avilo and Cliniko | Confirmations and AI receptionist
-description: Avilo integrates with Cliniko via the official API: reads reminder replies, writes confirmations to appointment notes, and books and reschedules in your diary.
+title: Avilo and Cliniko | Reads the replies your reminders get
+description: Cliniko sends the reminder. Avilo reads what comes back, shows who is confirmed, chases the quiet ones and writes the outcome to your diary. Official API.
 path: /cliniko
 -->
 <!--head
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {"@type":"BreadcrumbList","itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},
-      {"@type":"ListItem","position":2,"name":"Avilo and Cliniko","item":"https://avilo.com.au/cliniko"}]},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"Does Avilo use the official Cliniko API?","acceptedAnswer":{"@type":"Answer","text":"Yes. Avilo connects through Cliniko's official API with a key you create under an admin user. Nothing is installed in your browser or on your computers, and you can revoke the key at any time from Cliniko."}},
-      {"@type":"Question","name":"Does Avilo replace Cliniko's reminders?","acceptedAnswer":{"@type":"Answer","text":"Not on Confirmations. Cliniko keeps sending reminders exactly as it does today and Avilo reads the replies. If you move up to Smart Reminders, Avilo sends the reminders and follow-ups instead, so patients only ever get one set."}},
-      {"@type":"Question","name":"What does Avilo write into Cliniko?","acceptedAnswer":{"@type":"Answer","text":"On Confirmations, the reply status goes into the appointment note, and a clear no can cancel the appointment if you choose. On Smart Reminders and the Assistant, confirmed reschedules, cancellations and new bookings are written to the diary as they happen."}},
-      {"@type":"Question","name":"Can Avilo reply to SMS through Cliniko?","acceptedAnswer":{"@type":"Answer","text":"No. Cliniko's API allows SMS to be read but not sent, so on Confirmations your team replies from the patient's Cliniko profile, one click from the Avilo inbox. Smart Reminders and the Assistant send from your clinic's own Avilo number."}},
-      {"@type":"Question","name":"Does Avilo use Cliniko's waitlist?","acceptedAnswer":{"@type":"Answer","text":"No. Cliniko's waitlist is not exposed through its API, so Avilo keeps its own. Your team adds patients who want in sooner and Avilo alerts the team, or on the Assistant offers the slot, when a match opens."}},
-      {"@type":"Question","name":"What if my clinic isn't on Cliniko?","acceptedAnswer":{"@type":"Answer","text":"Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap. Tell us what you use and we will let you know when it is supported."}}
-    ]}
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Avilo use the official Cliniko API?","acceptedAnswer":{"@type":"Answer","text":"Yes. Avilo connects through Cliniko's official API with a key you create under an admin user. Nothing is installed in your browser or on your computers, and you can revoke the key at any time from Cliniko. Avilo is an independent product and isn't endorsed by Cliniko."}},{"@type":"Question","name":"Does Avilo replace Cliniko's reminders?","acceptedAnswer":{"@type":"Answer","text":"No. Cliniko keeps sending reminders exactly as it does today. Avilo reads the replies, shows who's confirmed, and chases the quiet ones."}},{"@type":"Question","name":"What does Avilo write into Cliniko?","acceptedAnswer":{"@type":"Answer","text":"On Confirm, confirmation status goes into the appointment. Once Avilo AI is on, confirmed reschedules, cancellations and new bookings are written to the diary as they happen."}},{"@type":"Question","name":"Does Avilo use Cliniko's waitlist?","acceptedAnswer":{"@type":"Answer","text":"No. Cliniko's waitlist isn't available through its API, so Avilo keeps its own. Your team adds patients who want in sooner, and Avilo offers them freed slots once Avilo AI is on."}},{"@type":"Question","name":"What if my clinic isn't on Cliniko?","acceptedAnswer":{"@type":"Answer","text":"Avilo works with Cliniko today. Tell us what you use in the form above and we'll let you know if that changes."}}]}</script>
 -->
-
-<section class="hero-dark hero-sub">
-  <div class="dot-grid"></div>
-  <div class="glow glow-tr"></div>
-  <div class="wrap" style="max-width:840px;text-align:center">
-    <span class="tag">Built on the official Cliniko API</span>
-    <h1 style="font-size:clamp(2rem,4vw,2.9rem)">Cliniko sends. Avilo handles what comes back.</h1>
-    <p class="hero-lede" style="margin:0 auto">Cliniko's reminders and diary are excellent. What they can't do is read the replies, chase the silence, or free a slot when a patient says no. Avilo sits on top of your Cliniko diary and does exactly that, starting with one API key.</p>
-    <div class="hero-actions" style="justify-content:center">
-      <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
-      <a class="btn btn-ghost-light btn-lg" href="/confirmations">See Confirmations</a>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:148px 24px 88px">
+  <div aria-hidden="true" style="position:absolute;bottom:-260px;left:-200px;width:700px;height:700px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.09),transparent 62%)"></div>
+  <div class="" style="position:relative;max-width:1180px;margin:0 auto;">
+    <div style="max-width:760px;">
+      <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4DD9C0;margin-bottom:20px">Built on the official Cliniko API</p>
+      <h1 data-reveal="" style="color:#fff;font-size:clamp(36px,4.6vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:20px;text-wrap:balance">Cliniko sends the reminder. Who's reading the replies?</h1>
+      <p data-reveal="" style="font-size:1.1rem;line-height:1.7;color:#CBD5E1;text-wrap:pretty;max-width:36em">A patient texts back asking to move to Friday, and it sits in the comms tab until someone spots it. Avilo reads those replies, chases the patients who go quiet, and writes the answer back into your diary. You keep using Cliniko exactly as you do now.</p>
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px;"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a><a class="hovr-69dc36" href="#api-key" style="display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 22px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;transition:background .2s">Where do I find my API key?</a></div>
+      <div style="margin-top:22px;"><ul data-reveal="" style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:500;color:#E2E8F0"><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Reads and writes in real time</li><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>No data migration</li><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Nothing gets replaced</li></ul></div>
     </div>
-    <p class="trust">Read and write in real time · No data migration · No downtime</p>
+    
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">How the integration works</span>
-      <h2>Your Cliniko diary stays the single source of truth.</h2>
-      <p class="lede">Avilo never asks you to run a second system. It connects through Cliniko's official API and works on the diary your team already lives in.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-        <h4>Reads replies and availability</h4>
-        <p>Reminder replies, practitioners, appointment types, locations and open slots come in through the API. Avilo only ever works with what's genuinely in your diary.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <h4>Writes back where your team looks</h4>
-        <p>Confirmation status goes into the appointment note. On higher layers, reschedules, cancellations and bookings land in the diary the moment a conversation resolves.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <h4>Data stays in the perimeter</h4>
-        <p>Patient data stays on Australian-hosted infrastructure, is never used to train models, and your API key can be revoked from Cliniko at any time.</p>
-      </div>
-    </div>
+<section data-screen-label="What Avilo adds" style="position:relative;background:#ECF2F1;padding:96px 24px;border-top:1px solid #E2E8F0;">
+  
+  <div style="position:relative;max-width:1000px;margin:0 auto">
+<div style="text-align:center;margin:0 auto;max-width:760px;margin-bottom:48px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">The gap Avilo fills</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance;">What Avilo adds on top of Cliniko.</h2>
+  <p data-reveal="" style="margin-top:16px;font-size:1.06rem;text-wrap:pretty;max-width:40em;margin-left:auto;margin-right:auto">Cliniko was built for sending. Everything that comes back is left to your team. Here's the difference, job by job.</p>
+</div><div data-reveal="" style="overflow-x:auto;border:1px solid #E2E8F0;border-radius:18px;background:#fff">
+<table class="tbl" style="width:100%;border-collapse:collapse;font-size:14.5px;min-width:600px">
+<thead><tr style="background:#F8FAFC"><th scope="col" style="text-align:left;padding:14px 18px;font-weight:700;color:#2B3A52;border-bottom:1px solid #E2E8F0;width:40%">What you need</th><th scope="col" style="text-align:left;padding:14px 18px;font-weight:700;color:#2B3A52;border-bottom:1px solid #E2E8F0;">Cliniko on its own</th><th scope="col" style="text-align:left;padding:14px 18px;font-weight:700;color:#2B3A52;border-bottom:1px solid #E2E8F0;">With Avilo</th></tr></thead>
+<tbody><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Send appointment reminders</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span>Yes</span></span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">Cliniko keeps sending them</span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Show who's confirmed, who hasn't and who needs a chase</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">A list to read by hand</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Confirm:</b> one list, status written back</span></span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Chase the quiet ones by text</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">No</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Confirm:</b> automatic nudges</span></span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Flag a "can't make it" the moment it arrives</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">Sits in the inbox</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Confirm:</b> read and flagged</span></span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Reply to reschedules and move the booking</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">No</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Avilo AI</b></span></span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Offer freed slots to the waitlist</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">No</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Avilo AI</b></span></span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Run recalls through to a booking</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">Sends only</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Avilo AI</b></span></span></td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:500;color:#2B3A52">Answer the phone after hours</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="color:#475569">No</span></td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;"><span style="display:inline-flex;align-items:start;gap:6px;color:#2B3A52"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:3px;flex:0 0 auto"><path d="M20 6 9 17l-5-5"></path></svg><span><b style="font-weight:600">Avilo AI</b></span></span></td></tr></tbody>
+</table></div>
+<p data-reveal="" style="text-align:center;margin-top:20px;font-size:1.05rem;color:#2B3A52;font-weight:500">Avilo doesn't replace Cliniko. It does the work Cliniko was never built to do.</p>
+  </div>
+</section>
+<section data-screen-label="How it works" style="position:relative;background:#fff;padding:96px 24px;">
+  
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+<div style="text-align:center;margin:0 auto;max-width:760px;margin-bottom:48px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">How the integration works</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance;">Your Cliniko diary stays the single source of truth.</h2>
+  <p data-reveal="" style="margin-top:16px;font-size:1.06rem;text-wrap:pretty;max-width:40em;margin-left:auto;margin-right:auto">Avilo never asks you to run a second system. Your team keeps working the way they do now.</p>
+</div><div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px"><div data-reveal="" data-spot="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px;"><span data-ic="" style="width:40px;height:40px;border-radius:12px;flex:0 0 auto;background:#E8F8F6;color:#0B7A70;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><h3 style="font-size:1.08rem;margin:16px 0 6px;">Reads replies and availability</h3><p style="font-size:14.5px;line-height:1.6;">Reminder replies, practitioners, appointment types, locations and open slots come in through the API. Avilo only works with what's genuinely in your diary.</p></div><div data-reveal="" data-spot="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px;"><span data-ic="" style="width:40px;height:40px;border-radius:12px;flex:0 0 auto;background:#E8F8F6;color:#0B7A70;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"></path></svg></span><h3 style="font-size:1.08rem;margin:16px 0 6px;">Writes back where your team looks</h3><p style="font-size:14.5px;line-height:1.6;">Confirmation status goes into the appointment. Once Avilo AI is on, reschedules, cancellations and bookings land in the diary the moment a conversation resolves.</p></div><div data-reveal="" data-spot="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px;"><span data-ic="" style="width:40px;height:40px;border-radius:12px;flex:0 0 auto;background:#E8F8F6;color:#0B7A70;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg></span><h3 style="font-size:1.08rem;margin:16px 0 6px;">Data stays in Australia</h3><p style="font-size:14.5px;line-height:1.6;">Patient data stays on Australian-hosted infrastructure, is never used to train models, and your API key can be revoked from Cliniko at any time.</p></div></div>
   </div>
 </section>
 
-<section class="sec soft">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">The gap Avilo fills</span>
-      <h2>What Avilo adds on top of Cliniko.</h2>
-      <p class="lede">Cliniko was built for sending: reminders and recalls going out. Everything that comes back is left to your team. Here's the difference, job by job, and which Avilo layer covers it.</p>
-    </div>
-    <table class="ctable">
-      <thead><tr><th>What you need</th><th>Cliniko on its own</th><th>With Avilo</th></tr></thead>
-      <tbody>
-        <tr><td>Send appointment reminders</td><td class="yes">Yes</td><td class="yes">Cliniko's, or Avilo's on Smart Reminders</td></tr>
-        <tr><td>Read every reply and show who's confirmed</td><td class="no">A list to read by hand</td><td class="yes">Confirmations: coloured diary, status in the note</td></tr>
-        <tr><td>List who hasn't replied, each morning</td><td class="no">No</td><td class="yes">Confirmations: the morning call list</td></tr>
-        <tr><td>Free the slot when a patient says no</td><td class="no">Someone finds it later</td><td class="yes">Confirmations: instant, if you choose</td></tr>
-        <tr><td>Alert the team when a waitlist patient matches an opening</td><td class="no">No</td><td class="yes">Confirmations: waitlist alerts</td></tr>
-        <tr><td>List last week's cancellations with nothing rebooked</td><td class="no">No</td><td class="yes">Confirmations: every Monday</td></tr>
-        <tr><td>Chase the quiet ones by text</td><td class="no">No</td><td class="yes">Smart Reminders: automatic nudges</td></tr>
-        <tr><td>A separate inbox for each practitioner</td><td class="no">No</td><td class="yes">Smart Reminders</td></tr>
-        <tr><td>Reply to routine messages and reschedule in the diary</td><td class="no">No</td><td class="yes">Avilo Assistant</td></tr>
-        <tr><td>Offer open slots to the waitlist automatically</td><td class="no">No</td><td class="yes">Avilo Assistant</td></tr>
-        <tr><td>Run recalls through to a booking</td><td class="no">Sends only</td><td class="yes">Avilo Assistant</td></tr>
-        <tr><td>Answer the phone after hours</td><td class="no">No</td><td class="yes">Avilo Assistant add-on <span class="tag-rolling">Rolling out</span></td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:22px;font-weight:600;color:var(--navy-mid)">Avilo doesn't replace Cliniko. It does the work Cliniko was never built to do.</p>
+<section id="faq" data-screen-label="Cliniko FAQ" style="position:relative;background:#ECF2F1;padding:96px 24px;">
+  
+  <div style="position:relative;max-width:780px;margin:0 auto">
+<div style="text-align:center;margin:0 auto;max-width:760px;margin-bottom:36px">
+  <h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance;">What Cliniko practices ask us.</h2>
+  
+</div><div style="border-top:1px solid #E2E8F0"><details open="" style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Does Avilo use the official Cliniko API?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Yes. Avilo connects through Cliniko's official API with a key you create under an admin user. Nothing is installed in your browser or on your computers, and you can revoke the key at any time from Cliniko. Avilo is an independent product and isn't endorsed by Cliniko.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Does Avilo replace Cliniko's reminders?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>No. Cliniko keeps sending reminders exactly as it does today. Avilo reads the replies, shows who's confirmed, and chases the quiet ones.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">What does Avilo write into Cliniko?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>On Confirm, confirmation status goes into the appointment. Once Avilo AI is on, confirmed reschedules, cancellations and new bookings are written to the diary as they happen.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Does Avilo use Cliniko's waitlist?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>No. Cliniko's waitlist isn't available through its API, so Avilo keeps its own. Your team adds patients who want in sooner, and Avilo offers them freed slots once Avilo AI is on.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">What if my clinic isn't on Cliniko?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Avilo works with Cliniko today. Tell us what you use in the form above and we'll let you know if that changes.</p></div></details></div>
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Getting connected</span>
-      <h2>Live on your Cliniko diary in three steps.</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="n">1</div>
-        <h4>Create an API key in Cliniko</h4>
-        <p>Under an admin user, in Cliniko's settings. Paste it into Avilo. Practitioners, appointment types and locations import on their own.</p>
-      </div>
-      <div class="step">
-        <div class="n">2</div>
-        <h4>Choose your rules</h4>
-        <p>Cancel on a clear no, or flag it. Who gets the morning list. On higher layers, your FAQs, policies and who gets escalations.</p>
-      </div>
-      <div class="step">
-        <div class="n">3</div>
-        <h4>See the next replies sorted</h4>
-        <p>Avilo reads the next batch of reminder replies as it lands. Most clinics see their first coloured diary the same day.</p>
-      </div>
-    </div>
+<section id="api-key" data-screen-label="API key how-to" style="position:relative;background:#fff;padding:96px 24px;">
+  
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+<div style="text-align:center;margin:0 auto;max-width:760px;margin-bottom:48px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Getting connected</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance;">Where do I find my API key?</h2>
+  <p data-reveal="" style="margin-top:16px;font-size:1.06rem;text-wrap:pretty;max-width:40em;margin-left:auto;margin-right:auto">Three steps, about two minutes. You'll need to be logged in to Cliniko as an admin user.</p>
+</div><div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px"><div data-reveal="" style="display:grid;gap:14px;align-content:start"><div style="aspect-ratio:4/3;border:1.5px dashed #CBD5E1;border-radius:16px;background:#F8FAFC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#64748B;font-size:13.5px;text-align:center;padding:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><path d="M14 2v6h6"></path></svg><span>Screenshot 1: My Info → Manage API keys</span></div><div style="display:grid;grid-template-columns:36px 1fr;gap:12px"><span style="width:32px;height:32px;border-radius:50%;background:#0D9488;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><div><h3 style="font-size:1.06rem;margin-bottom:4px">Open your API keys in Cliniko</h3><p style="font-size:14.5px">Log in as an admin user. Click your name (bottom left) to open My Info, then choose Manage API keys.</p></div></div></div><div data-reveal="" style="display:grid;gap:14px;align-content:start"><div style="aspect-ratio:4/3;border:1.5px dashed #CBD5E1;border-radius:16px;background:#F8FAFC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#64748B;font-size:13.5px;text-align:center;padding:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><path d="M14 2v6h6"></path></svg><span>Screenshot 2: naming and copying the key</span></div><div style="display:grid;grid-template-columns:36px 1fr;gap:12px"><span style="width:32px;height:32px;border-radius:50%;background:#0D9488;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><div><h3 style="font-size:1.06rem;margin-bottom:4px">Add a key and copy it</h3><p style="font-size:14.5px">Click Add an API key, name it "Avilo", and copy the key Cliniko shows you. It's only shown once.</p></div></div></div><div data-reveal="" style="display:grid;gap:14px;align-content:start"><div style="aspect-ratio:4/3;border:1.5px dashed #CBD5E1;border-radius:16px;background:#F8FAFC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#64748B;font-size:13.5px;text-align:center;padding:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><path d="M14 2v6h6"></path></svg><span>Screenshot 3: pasting the key into Avilo</span></div><div style="display:grid;grid-template-columns:36px 1fr;gap:12px"><span style="width:32px;height:32px;border-radius:50%;background:#0D9488;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><div><h3 style="font-size:1.06rem;margin-bottom:4px">Paste it into Avilo</h3><p style="font-size:14.5px">Paste the key into Avilo on your setup call. Practitioners, appointment types and locations import on their own.</p></div></div></div></div>
+<p data-reveal="" style="margin-top:28px;text-align:center;font-size:14.5px">You can revoke the key from Cliniko at any time, and Avilo stops reading straight away. <a href="/security" style="font-weight:600">How we protect your data →</a></p>
+  </div>
+</section>
+<section data-screen-label="Not on Cliniko" style="position:relative;background:#ECF2F1;padding:72px 24px;">
+  
+  <div style="position:relative;max-width:1080px;margin:0 auto">
+<div data-reveal="" class="col2" style="margin-top:8px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:28px;align-items:center;background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:26px">
+  <div><b style="display:block;color:#2B3A52;font-size:1.1rem">Not on Cliniko?</b><p style="font-size:14.5px;margin-top:4px">Avilo works with Cliniko today. Tell us which system you use; demand shapes what we build next.</p></div>
+  <div>
+  <div data-form-wrap=""><form data-form="pms" method="POST" action="https://formspree.io/f/maqvraqz" class="fgrid" style="display:grid;grid-template-columns:1fr 1fr auto;gap:10px"><input type="hidden" name="_subject" value="Avilo: clinic not on Cliniko (practice software enquiry)" />
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><label style="display:grid;gap:4px;font-size:12.5px;font-weight:600;color:#2B3A52">Work email<input type="email" name="email" required="" placeholder="you@clinic.com.au" style="min-height:46px;border:1px solid #CBD5E1;border-radius:10px;padding:0 12px;font-size:15px;color:#172030;background:#fff;width:100%"></label><label style="display:grid;gap:4px;font-size:12.5px;font-weight:600;color:#2B3A52">System you use<input type="text" name="pms" required="" placeholder="e.g. Nookal" style="min-height:46px;border:1px solid #CBD5E1;border-radius:10px;padding:0 12px;font-size:15px;color:#172030;background:#fff;width:100%"></label><button type="submit" style="align-self:end;min-height:46px;padding:0 18px;border:0;border-radius:10px;background:#2B3A52;color:#fff;font-weight:600;cursor:pointer">Tell us</button><p data-form-err style="display:none;margin-top:4px;font-size:13px;color:#B91C1C">That did not send. Please email <a href="mailto:hello@avilo.com.au" style="color:#B91C1C;text-decoration:underline">hello@avilo.com.au</a> instead.</p></form><div style="margin-top:10px"><p style="font-size:13px;color:#475569">We use these details only to tell you if Avilo comes to your system. See our <a href="/privacy" style="font-weight:600">Privacy Policy</a>.</p></div></div>
+  <div data-form-ok="" role="status" style="display:none"><p role="status" style="display:flex;align-items:center;gap:10px;color:#166534;font-weight:600;padding:16px;border-radius:12px;background:#F0FDF4"><span style="width:28px;height:28px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex:0 0 auto"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Thanks. We'll be in touch.</p></div>
+  </div>
+</div><p data-reveal="" style="text-align:center;margin-top:24px;display:flex;justify-content:center;align-items:center;gap:8px;color:#2B3A52;font-weight:500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>In Sydney? We'll come to your clinic and set it up with your team.</p>
+  </div>
+</section>
+<section data-screen-label="Final CTA" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:104px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div aria-hidden="true" style="position:absolute;bottom:-300px;left:50%;transform:translateX(-50%);width:900px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(13,148,136,.2),transparent 62%)"></div>
+  <div data-reveal="" style="position:relative;max-width:720px;margin:0 auto">
+    <h2 style="color:#fff;font-size:clamp(30px,4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.1;text-wrap:balance">See it on your own Cliniko diary.</h2>
+    <p style="margin:18px auto 0;max-width:34em;font-size:1.08rem;line-height:1.7;text-wrap:pretty">A 30-minute walkthrough: who's confirmed, who needs a chase, and what Avilo would have handled last week.</p>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a></div>
+    <p style="margin-top:20px;font-size:14px;color:#E2E8F0">No commitment · No credit card · Built in Sydney for allied health</p>
   </div>
 </section>
 
-<section class="sec soft" id="faq">
-  <div class="wrap faq-inner">
-    <div class="faq-head">
-      <span class="eyebrow">Cliniko questions</span>
-      <h2>What Cliniko practices ask us.</h2>
-    </div>
-    <div class="faq-grid">
-      <details class="faq-item"><summary>Does Avilo use the official Cliniko API?</summary><div class="faq-body"><p>Yes. Avilo connects through Cliniko's official API with a key you create under an admin user. Nothing is installed in your browser or on your computers, and you can revoke the key at any time from Cliniko.</p></div></details>
-      <details class="faq-item"><summary>Does Avilo replace Cliniko's reminders?</summary><div class="faq-body"><p>Not on Confirmations. Cliniko keeps sending reminders exactly as it does today and Avilo reads the replies. If you move up to <a href="/smart-reminders">Smart Reminders</a>, Avilo sends the reminders and follow-ups instead, so patients only ever get one set.</p></div></details>
-      <details class="faq-item"><summary>What does Avilo write into Cliniko?</summary><div class="faq-body"><p>On Confirmations, the reply status goes into the appointment note, and a clear no can cancel the appointment if you choose. On Smart Reminders and the Assistant, confirmed reschedules, cancellations and new bookings are written to the diary as they happen.</p></div></details>
-      <details class="faq-item"><summary>Can Avilo reply to SMS through Cliniko?</summary><div class="faq-body"><p>No. Cliniko's API allows SMS to be read but not sent, so on Confirmations your team replies from the patient's Cliniko profile, one click from the Avilo inbox. Smart Reminders and the Assistant send from your clinic's own Avilo number.</p></div></details>
-      <details class="faq-item"><summary>Does Avilo use Cliniko's waitlist?</summary><div class="faq-body"><p>No. Cliniko's waitlist isn't exposed through its API, so Avilo keeps its own. Your team adds patients who want in sooner and Avilo alerts the team, or on the Assistant offers the slot, when a match opens.</p></div></details>
-      <details class="faq-item"><summary>What if my clinic isn't on Cliniko?</summary><div class="faq-body"><p>Avilo is built on Cliniko today. Support for other allied health practice management systems is on the roadmap. <a href="/contact">Tell us what you use</a> and we'll let you know when it's supported.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="wrap">
-    <h2>See it on your own Cliniko diary.</h2>
-    <p>Fourteen days of Confirmations with one API key, or a 30-minute walkthrough of the full stack on a live Cliniko environment.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
-      <a class="btn btn-ghost-light btn-lg" href="/contact">Book a demo</a>
-    </div>
-    <p class="fine">Cliniko is a trademark of Red Guava Pty Ltd. Avilo is an independent product and is not endorsed by Cliniko.</p>
-  </div>
-</section>
+<p style="background:#172030;color:#CBD5E1;text-align:center;font-size:13px;padding:0 24px 28px;margin:0">Cliniko is a trademark of Red Guava Pty Ltd. Avilo is an independent product and is not endorsed by Cliniko.</p>

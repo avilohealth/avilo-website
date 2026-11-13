@@ -1,173 +1,123 @@
 <!--meta
-title: Pricing | Avilo for Cliniko clinics
-description: Avilo Confirmations and Smart Reminders at a flat price per clinic, the Avilo Assistant sized to your volume. All prices AUD including GST.
+title: Pricing | Avilo
+description: Avilo plans from $49 a month. Texts only, or texts and calls answered 24/7. Unlimited practitioners, month to month, no setup fee. AUD, ex GST.
 path: /pricing
-robots: noindex,nofollow
 -->
 <!--head
-<!-- HIDDEN PAGE: not linked from the nav, footer or sitemap while pricing is private. Remove the robots line in the meta block and add nav/footer links to publish. Figures below are placeholders. -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there a free trial?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every plan comes with 14 days free, no credit card. We set it up with you on one 30-minute call, and if you don't keep going, the trial ends and your Cliniko account is untouched."}},{"@type":"Question","name":"What counts as a reminder text?","acceptedAnswer":{"@type":"Answer","text":"Each text Avilo sends to nudge or chase a patient about an upcoming appointment, counted per SMS segment. Replies from patients are never charged."}},{"@type":"Question","name":"What if we go over our Avilo AI allowance?","acceptedAnswer":{"@type":"Answer","text":"Extra calls are $2.50 each and extra texts are 7.5c. You'll never pay more in usage than the next plan up: if you would, we move you across automatically."}},{"@type":"Question","name":"Can we switch plans later?","acceptedAnswer":{"@type":"Answer","text":"Yes, anytime. Moving between plans, or adding calls, needs no new setup; your rules and history carry over. You can move back down too."}},{"@type":"Question","name":"Is there a contract?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is month-to-month. Cancel anytime and it ends at the close of the current billing cycle."}},{"@type":"Question","name":"Is there a setup fee?","acceptedAnswer":{"@type":"Answer","text":"No. Setup is one 30-minute call with us, and it's included."}},{"@type":"Question","name":"What if we have more than one location?","acceptedAnswer":{"@type":"Answer","text":"Every plan has unlimited practitioners. For texts only, Multi-site covers several sites with a dashboard for each. With calls, Scale suits groups and high call volume. Tell us your setup on the demo and we'll size it with you."}}]}</script>
 -->
-
-<section class="hero-dark hero-pr">
-  <div class="glow glow-tr"></div>
-  <div class="glow glow-bl"></div>
-  <div class="wrap">
-    <h1 style="color:#fff;font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.12;margin-bottom:18px">Start small. Move up when you're ready.</h1>
-    <p class="hero-lede">Confirmations and Smart Reminders are a flat price per clinic, up to three locations. The Avilo Assistant is sized to your message and call volume. All prices AUD, including GST.</p>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:148px 24px 72px">
+  <div aria-hidden="true" style="position:absolute;bottom:-260px;left:-200px;width:700px;height:700px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.09),transparent 62%)"></div>
+  <div class="" style="position:relative;max-width:1180px;margin:0 auto;">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4DD9C0;margin-bottom:20px">Pricing</p>
+      <h1 data-reveal="" style="color:#fff;font-size:clamp(36px,4.6vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:20px;text-wrap:balance">Your 24/7 receptionist from $3.3 per day</h1>
+      <p data-reveal="" style="font-size:1.1rem;line-height:1.7;color:#CBD5E1;text-wrap:pretty;margin:0 auto;max-width:36em">Avilo answers your texts, and your calls if you want it to, and books straight into Cliniko. Only need reminders handled? Confirm starts at $49. Month to month, no setup fee.</p>
+      
+      
+    </div>
+    
   </div>
 </section>
 
-<section class="plans">
-  <div class="plans-grid">
-
-    <div class="pcard">
-      <div class="pname">Avilo Confirmations</div>
-      <div class="pwho">Reads every reply to your Cliniko reminders. Nothing changes for patients.</div>
-      <div class="pday"><span class="amt">${{PRICE_CONF_DAY}}</span><span class="per">a day</span></div>
-      <div class="pmonth">${{PRICE_CONF_MONTH}} a month <small>inc GST, per clinic</small></div>
-      <ul>
-        <li>Colour-coded diary</li>
-        <li>Morning call list</li>
-        <li>Instant cancel on a no</li>
-        <li>Patient inbox sorted by urgency</li>
-        <li>Waitlist alerts</li>
-        <li>Monday cancelled-without-rebook list</li>
-      </ul>
-      <div class="pfoot">14-day free trial, no credit card. Up to 3 locations. Reading only; sends nothing.</div>
-      <a class="btn btn-primary" href="/start">Start your free trial <span class="go">→</span></a>
-    </div>
-
-    <div class="pcard feat">
-      <div class="pname">Smart Reminders</div>
-      <div class="pwho">Avilo sends the reminders and follow-ups. Your team talks, from one inbox.</div>
-      <div class="pday"><span class="amt">${{PRICE_SR_DAY}}</span><span class="per">a day</span></div>
-      <div class="pmonth">${{PRICE_SR_MONTH}} a month <small>inc GST, per clinic</small></div>
-      <ul>
-        <li>Everything in Confirmations</li>
-        <li>Reminders, nudges and day-before chases sent by Avilo</li>
-        <li>Communication hub for every patient message</li>
-        <li>A separate inbox for each practitioner</li>
-        <li>Your clinic's own Avilo number</li>
-      </ul>
-      <div class="pfoot">+ {{PRICE_SMS}}c per outbound SMS segment. Inbound messages are never charged. Up to 3 locations.</div>
-      <a class="btn btn-primary" href="/contact">Book a demo <span class="go">→</span></a>
-    </div>
-
-    <div class="pcard">
-      <div class="pname">Avilo Assistant</div>
-      <div class="pwho">Routine conversations run themselves. Your team sees only what needs a human.</div>
-      <div class="pday"><span class="amt">from ${{PRICE_AS_DAY}}</span><span class="per">a day</span></div>
-      <div class="pmonth">from ${{PRICE_AS_MONTH}} a month <small>inc GST, sized to your volume</small></div>
-      <ul>
-        <li>Everything in Smart Reminders</li>
-        <li>AI replies, reschedules and cancellation pushback</li>
-        <li>Automatic waitlist offers</li>
-        <li>Recalls and reactivation</li>
-        <li>After-hours voice <span class="tag-rolling">Add-on, rolling out</span></li>
-      </ul>
-      <div class="pfoot">Tiers within the Assistant are sized on the demo from your real message and call volume.</div>
-      <a class="btn btn-ghost" href="/contact">Talk to us</a>
-    </div>
-
+<section data-screen-label="Plans" style="position:relative;background:#fff;padding:72px 24px 96px;">
+  
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+<div data-reveal="" style="display:grid;justify-items:center;gap:12px;margin-bottom:40px;text-align:center">
+  <h2 style="font-size:clamp(28px,3.2vw,40px);letter-spacing:-.03em;line-height:1.1">Pick how patients reach you</h2>
+  <p style="max-width:36em;text-wrap:pretty">Want Avilo answering the phone as well as texts? Choose Texts + Calls. Only need texts handled? Choose Texts only.</p>
+  <div role="group" aria-label="Channels" style="display:flex;gap:4px;padding:4px;margin-top:10px;border-radius:999px;background:#ECF2F1;border:1px solid rgba(23,32,48,.06)"><button type="button" data-mode="voice" aria-pressed="true" style="min-height:44px;padding:0 20px;border-radius:999px;border:0;font:inherit;font-weight:600;font-size:14.5px;cursor:pointer;background:#fff;color:#172030;box-shadow:0 2px 8px -2px rgba(23,32,48,.18);transition:background .2s,box-shadow .2s">Texts + Calls</button><button type="button" data-mode="text" aria-pressed="false" style="min-height:44px;padding:0 20px;border-radius:999px;border:0;font:inherit;font-weight:600;font-size:14.5px;cursor:pointer;background:transparent;color:#475569;box-shadow:none;transition:background .2s,box-shadow .2s">Texts only</button></div>
+  <p data-mode-note="" style="font-size:13.5px;color:#475569;min-height:1.4em">Most clinics want both. Calls are where after-hours bookings come from.</p>
+</div>
+<div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch">
+<div data-reveal="" data-spot="" style="position:relative;border-radius:26px;padding:6px;display:flex;flex-direction:column;background:#ECF2F1;border:1px solid rgba(23,32,48,.06)">
+  <div style="padding:18px 18px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+    <div><b style="display:block;font-size:1.15rem;font-weight:700;color:#172030"><span data-p="1-name">Starter</span></b><span style="font-size:14px;color:#475569"><span data-p="1-tag">For quieter clinics</span></span></div>
+    
+  </div><div style="flex:1;background:#fff;border-radius:20px;padding:24px 22px 22px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(23,32,48,.06);color:#475569">
+    <p style="display:flex;align-items:baseline;gap:6px"><span style="font-size:2.8rem;font-weight:800;letter-spacing:-.035em;color:#172030;line-height:1"><span data-p="1-price">$139</span></span><span style="font-size:15px">/month</span></p>
+    <p style="font-size:13.5px;margin-top:8px"><span data-p="1-over">Then $2.50 a call, 7.5c a text</span></p>
+    <ul data-rows="1" style="list-style:none;padding:0;margin:22px 0 24px;display:grid;gap:12px;font-size:14.5px"><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>40 calls a month</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>150 texts a month</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>24/7 phone cover</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Calls and texts in one inbox</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Unlimited web chat</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Unlimited practitioners</span></li>
+    </ul>
+    <div style="margin-top:auto"><a class="hovr-c0e5e6" href="/demo" style="display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:14px;background:#fff;border:1px solid #E2E8F0;color:#172030;font-weight:600;font-size:15px;transition:border-color .2s">Book a demo</a></div>
   </div>
-  <p class="plans-note">All prices AUD, including GST · Month to month, cancel anytime · No setup fee · Extra locations beyond three at {{PRICE_LOCATION}} a month each · Requires an active Cliniko account</p>
-</section>
-
-<section class="sec" style="padding-top:64px">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Who does what</span>
-      <h2>Every repetitive job has an owner.</h2>
-    </div>
-    <div class="ledger-wrap">
-    <table class="ctable ledger">
-      <thead>
-        <tr>
-          <th>The job</th>
-          <th><span class="v">Confirmations</span><span class="p">${{PRICE_CONF_DAY}} a day</span></th>
-          <th><span class="v">Smart Reminders</span><span class="p">${{PRICE_SR_DAY}} a day</span></th>
-          <th><span class="v">Avilo Assistant</span><span class="p">from ${{PRICE_AS_DAY}} a day</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Send the reminder</td><td><span class="who ck"><i></i>Cliniko</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
-        <tr><td>Read every reply, colour the diary</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
-        <tr><td>Free the slot on a no</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
-        <tr><td>Build the morning call list</td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
-        <tr><td>Follow up the quiet ones by text</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who av"><i></i>Avilo</span></td><td><span class="who av"><i></i>Avilo</span></td></tr>
-        <tr><td>Reply to patients by text</td><td><span class="who tm"><i></i>Your team, in Cliniko</span></td><td><span class="who tm"><i></i>Your team, in Avilo</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
-        <tr><td>Reschedule against the live diary</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
-        <tr><td>Offer the slot to the waitlist automatically</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
-        <tr><td>Recalls and reactivation</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who ai"><i></i>Avilo AI</span></td></tr>
-        <tr><td>Clinical, emotional or unclear messages</td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td><td><span class="who tm"><i></i>Your team</span></td></tr>
-      </tbody>
-    </table>
-    </div>
+  
+</div>
+<div data-reveal="" data-spot="dark" style="position:relative;border-radius:26px;padding:6px;display:flex;flex-direction:column;background:#172030;border:1px solid #172030;box-shadow:0 30px 60px -30px rgba(23,32,48,.55)">
+  <div style="padding:18px 18px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+    <div><b style="display:block;font-size:1.15rem;font-weight:700;color:#fff"><span data-p="2-name">Growth</span></b><span style="font-size:14px;color:#CBD5E1"><span data-p="2-tag">For busy clinics</span></span></div>
+    <span style="font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(77,217,192,.14);color:#4DD9C0;white-space:nowrap">Most popular</span>
+  </div>
+  <div style="flex:1;background:#fff;border-radius:20px;padding:24px 22px 22px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(23,32,48,.06);color:#475569">
+    <p style="display:flex;align-items:baseline;gap:6px"><span style="font-size:2.8rem;font-weight:800;letter-spacing:-.035em;color:#172030;line-height:1"><span data-p="2-price">$299</span></span><span style="font-size:15px">/month</span></p>
+    <p style="font-size:13.5px;margin-top:8px"><span data-p="2-over">Then $2.50 a call, 7.5c a text</span></p>
+    <ul data-rows="2" style="list-style:none;padding:0;margin:22px 0 24px;display:grid;gap:12px;font-size:14.5px"><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>120 calls a month</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>400 texts a month</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>24/7 phone cover</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Calls and texts in one inbox</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Unlimited web chat</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Unlimited practitioners</span></li>
+    </ul>
+    <div style="margin-top:auto"><a class="hovr-bcb2ff" href="/demo" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:14px;background:#0D9488;color:#fff;font-weight:600;font-size:15px;box-shadow:var(--shadow-cta-pill);transition:background .2s">Book a demo<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div>
+  </div>
+</div>
+<div data-reveal="" data-spot="" style="position:relative;border-radius:26px;padding:6px;display:flex;flex-direction:column;background:#ECF2F1;border:1px solid rgba(23,32,48,.06)">
+  <div style="padding:18px 18px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+    <div><b style="display:block;font-size:1.15rem;font-weight:700;color:#172030"><span data-p="3-name">Scale</span></b><span style="font-size:14px;color:#475569"><span data-p="3-tag">For high volume and groups</span></span></div>
+    
+  </div>
+  <div style="flex:1;background:#fff;border-radius:20px;padding:24px 22px 22px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(23,32,48,.06);color:#475569">
+    <p style="display:flex;align-items:baseline;gap:6px"><span style="font-size:2.8rem;font-weight:800;letter-spacing:-.035em;color:#172030;line-height:1"><span data-p="3-price">$649</span></span><span style="font-size:15px">/month</span></p>
+    <p style="font-size:13.5px;margin-top:8px"><span data-p="3-over">Then $2.50 a call, 7.5c a text</span></p>
+    <ul data-rows="3" style="list-style:none;padding:0;margin:22px 0 24px;display:grid;gap:12px;font-size:14.5px"><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>300 calls a month</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>1,000 texts a month</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Everything in Starter</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Priority support</span></li><li style="display:flex;gap:10px;line-height:1.45;color:#2B3A52"><span style="width:18px;height:18px;border-radius:50%;background:#172030;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:2px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Unlimited practitioners</span></li>
+    </ul>
+    <div style="margin-top:auto"><a class="hovr-c0e5e6" href="/demo" style="display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:14px;background:#fff;border:1px solid #E2E8F0;color:#172030;font-weight:600;font-size:15px;transition:border-color .2s">Book a demo</a></div>
+  </div>
+</div>
+</div>
+<div data-voice-only=""><div data-reveal="" style="margin-top:44px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:22px;padding:30px">
+  <p style="font-weight:700;color:#172030;margin-bottom:16px">Every Texts + Calls plan includes</p>
+  <ul class="inc" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:12px;color:#2B3A52">
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Reminders and confirmations, with quiet patients nudged</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Answers calls in a natural voice, 24/7</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Replies to texts, and books, moves and cancels in Cliniko</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Freed slots offered to your waitlist</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Recalls: patients who've drifted get a nudge to rebook</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Calls, texts and web chat in one inbox</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Answers common questions from your knowledge base</span></li>
+    <li style="display:grid;grid-template-columns:22px 1fr;gap:10px;line-height:1.5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Anything clinical or unclear goes straight to your team</span></li>
+  </ul>
+</div></div>
+<div data-reveal="" style="margin-top:28px;display:grid;gap:10px;justify-items:center;text-align:center">
+  <p style="display:flex;align-items:center;gap:8px;color:#2B3A52;font-weight:600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"></path></svg>Change plans anytime, including adding calls. No new setup.</p>
+  <p style="max-width:40em">You'll never pay more in usage than the next plan up. We move you across automatically.</p>
+  <p style="font-size:13.5px;color:#475569">AUD, ex GST · 14 days free on every plan · Month-to-month · No setup fee · Unlimited practitioners on every plan · Requires a Cliniko account</p>
+  <a class="hovr-c0e5e6" href="mailto:?subject=Avilo%20for%20our%20front%20desk&amp;body=Hi%2C%0A%0AHave%20a%20look%20at%20Avilo%20for%20the%20front%20desk.%20It%20works%20alongside%20Cliniko.%0A%0ATexts%20%2B%20Calls%20%28from%20%24139/month%29%3A%20an%20AI%20receptionist%20that%20answers%20calls%2024/7%2C%20replies%20to%20texts%2C%20books%2C%20moves%20and%20cancels%20in%20Cliniko%2C%20fills%20freed%20slots%20from%20the%20waitlist%20and%20runs%20recalls.%0A%0ATexts%20only%20%28from%20%2449/month%29%3A%20Confirm%20handles%20reminders%20and%20confirmations%3B%20Automate%20%28%2499%29%20adds%20AI%20replies%2C%20rescheduling%20and%20waitlist.%0A%0AUnlimited%20practitioners%20on%20every%20plan.%20Month-to-month%2C%20no%20setup%20fee%2C%20set%20up%20in%20one%2030-minute%20call.%20Patient%20data%20hosted%20in%20Australia.%0A%0APricing%3A%20https%3A//avilo.com.au/pricing" style="margin-top:6px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid #CBD5E1;color:#2B3A52;font-weight:600;font-size:14.5px;background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>Send this to your owner</a>
+  <p style="font-size:12.5px;color:#475569;margin-top:10px;max-width:46em">At about $95 a consult,<sup>1</sup> Confirm pays for itself if it saves one no-show a month.<br><sup>1</sup> A typical allied health consult fee in Australia.</p>
+</div>
   </div>
 </section>
 
-<section class="sec soft">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Calculate your savings</span>
-      <h2>What does reading replies by hand cost you?</h2>
-      <p class="lede" style="max-width:34em">Five quick answers. Nothing is sent anywhere; it's worked out in your browser.</p>
-    </div>
-    <div class="roi">
-      <div>
-        <div class="field"><label for="r-prac">Practitioners</label><input id="r-prac" type="number" min="1" value="3" /></div>
-        <div class="field"><label for="r-appts">Appointments per week</label><input id="r-appts" type="number" min="1" value="150" /></div>
-        <div class="field"><label for="r-mins">Minutes a day spent reading and sorting replies</label><input id="r-mins" type="number" min="0" value="45" /></div>
-        <div class="field"><label for="r-noshow">No-shows per week</label><input id="r-noshow" type="number" min="0" value="4" /></div>
-        <div class="field"><label for="r-fee">Average appointment fee ($)</label><input id="r-fee" type="number" min="0" value="110" /></div>
-      </div>
-      <div class="roi-out">
-        <b id="r-hours">0 hrs</b><span>of front desk time a month spent sorting replies</span>
-        <b id="r-dollars">$0</b><span>a month in no-shows that an earlier call or a freed slot could recover, if one in four is caught</span>
-        <small>Estimate only. Your results depend on your reply rate and how your team uses the call list.</small>
-      </div>
-    </div>
+<section id="faq" data-screen-label="Pricing FAQ" style="position:relative;background:#ECF2F1;padding:96px 24px;">
+  
+  <div style="position:relative;max-width:780px;margin:0 auto">
+<div style="text-align:center;margin:0 auto;max-width:760px;margin-bottom:36px">
+  <h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance;">Pricing questions.</h2>
+  
+</div><div style="border-top:1px solid #E2E8F0"><details open="" style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Is there a free trial?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Yes! 14 days free, no credit card. We set it up with you on one 30-minute call, and if you don't keep going, the trial ends and your Cliniko account is untouched.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">What counts as a reminder text?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Each text Avilo sends to nudge or chase a patient about an upcoming appointment, counted per SMS segment. Replies from patients are never charged.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">What if we go over our Avilo AI allowance?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Extra calls are $2.50 each and extra texts are 7.5c. You'll never pay more in usage than the next plan up: if you would, we move you across automatically.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Can we switch plans later?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Yes, anytime. Moving between plans, or adding calls, needs no new setup; your rules and history carry over. You can move back down too.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Is there a contract?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>No. Everything is month-to-month. Cancel anytime and it ends at the close of the current billing cycle.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Is there a setup fee?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>No. Setup is one 30-minute call with us, and it's included.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">What if we have more than one location?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em;display:grid;gap:10px"><p>Every plan has unlimited practitioners. For texts only, Multi-site covers several sites with a dashboard for each. With calls, Scale suits groups and high call volume. Tell us your setup on the demo and we'll size it with you.</p></div></details></div>
   </div>
 </section>
 
-<section class="sec" id="faq">
-  <div class="wrap faq-inner">
-    <div class="faq-head">
-      <span class="eyebrow">Pricing questions</span>
-      <h2>The usual ones.</h2>
-    </div>
-    <div class="faq-grid">
-      <details class="faq-item"><summary>Is there a setup fee?</summary><div class="faq-body"><p>No. Confirmations is set up by you with an API key. Smart Reminders and the Assistant are set up with us, and that's included.</p></div></details>
-      <details class="faq-item"><summary>Can I cancel anytime?</summary><div class="faq-body"><p>Yes. Everything is month to month. Cancel in the app or by email and it ends at the close of the current billing cycle.</p></div></details>
-      <details class="faq-item"><summary>Do you offer refunds?</summary><div class="faq-body"><p>Fees are not refunded for partial months, except where the Australian Consumer Law requires it. Start with the free trial so you're sure before you pay.</p></div></details>
-      <details class="faq-item"><summary>What if I have multiple clinics?</summary><div class="faq-body"><p>One subscription covers up to three locations under one Cliniko account. Beyond that, each extra location is {{PRICE_LOCATION}} a month. Separate Cliniko accounts are separate subscriptions.</p></div></details>
-      <details class="faq-item"><summary>Why is the Assistant priced "from"?</summary><div class="faq-body"><p>Because it does more for a clinic sending 2,000 messages a month than one sending 200. We size it on the demo from your real volume, and you'll have a number before you commit.</p></div></details>
-    </div>
+<section data-screen-label="Final CTA" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:104px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div aria-hidden="true" style="position:absolute;bottom:-300px;left:50%;transform:translateX(-50%);width:900px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(13,148,136,.2),transparent 62%)"></div>
+  <div data-reveal="" style="position:relative;max-width:720px;margin:0 auto">
+    <h2 style="color:#fff;font-size:clamp(30px,4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.1;text-wrap:balance">Try it free for 14 days.</h2>
+    <p style="margin:18px auto 0;max-width:34em;font-size:1.08rem;line-height:1.7;text-wrap:pretty">We set it up with you on one 30-minute call. If it's not for you, it switches off and your Cliniko stays exactly as it was.</p>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a><a class="hovr-69dc36" href="/demo#trial" style="display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 22px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;transition:background .2s">Start 14 days free</a></div>
+    <p style="margin-top:20px;font-size:14px;color:#E2E8F0">No commitment · No credit card · Built in Sydney for allied health</p>
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap">
-    <h2>Start with Confirmations. Free for 14 days.</h2>
-    <p>One API key, ten minutes, your real Cliniko diary.</p>
-    <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
-    <p class="fine">No credit card · Cancel anytime · Built in Sydney for allied health</p>
-  </div>
-</section>
-
-<script>
-(function(){
-  var ids=['r-prac','r-appts','r-mins','r-noshow','r-fee'];
-  function calc(){
-    var mins=+document.getElementById('r-mins').value||0;
-    var ns=+document.getElementById('r-noshow').value||0;
-    var fee=+document.getElementById('r-fee').value||0;
-    var hours=Math.round(mins*22/60);
-    var dollars=Math.round(ns*4.33*fee*0.25);
-    document.getElementById('r-hours').textContent=hours+' hrs';
-    document.getElementById('r-dollars').textContent='$'+dollars.toLocaleString('en-AU');
-  }
-  ids.forEach(function(i){document.getElementById(i).addEventListener('input',calc);});
-  calc();
-})();
-</script>
+<script id="pricing-data" type="application/json">{"voice": [{"name": "Starter", "tag": "For quieter clinics", "price": "$139", "over": "Then $2.50 a call, 7.5c a text", "rows": [{"t": "40 calls a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "150 texts a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "24/7 phone cover", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Calls and texts in one inbox", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited web chat", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited practitioners", "fg": "#2B3A52", "dot": "#172030"}]}, {"name": "Growth", "tag": "For busy clinics", "price": "$299", "over": "Then $2.50 a call, 7.5c a text", "rows": [{"t": "120 calls a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "400 texts a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "24/7 phone cover", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Calls and texts in one inbox", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited web chat", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited practitioners", "fg": "#2B3A52", "dot": "#172030"}]}, {"name": "Scale", "tag": "For high volume and groups", "price": "$649", "over": "Then $2.50 a call, 7.5c a text", "rows": [{"t": "300 calls a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "1,000 texts a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Everything in Starter", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Priority support", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited practitioners", "fg": "#2B3A52", "dot": "#172030"}]}], "text": [{"name": "Confirm", "tag": "Know who is coming", "price": "$49", "over": "7.5c per text sent", "rows": [{"t": "Reminders and confirmations", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Quiet patients nudged, at-risk flagged", "fg": "#2B3A52", "dot": "#172030"}, {"t": "2-way messaging platform", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited practitioners", "fg": "#2B3A52", "dot": "#172030"}, {"t": "AI replies, rescheduling and waitlist", "fg": "#94A3B8", "dot": "#CBD5E1"}]}, {"name": "Automate", "tag": "Texts handled for you", "price": "$99", "over": "Then 7.5c a text", "rows": [{"t": "100 texts a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Reminders and confirmations", "fg": "#2B3A52", "dot": "#172030"}, {"t": "AI replies, rescheduling and waitlist", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Several sites", "fg": "#94A3B8", "dot": "#CBD5E1"}, {"t": "Unlimited practitioners", "fg": "#2B3A52", "dot": "#172030"}]}, {"name": "Multi-site", "tag": "For clinics with several sites", "price": "$179", "over": "Then 7.5c a text", "rows": [{"t": "250 texts a month", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Reminders and confirmations", "fg": "#2B3A52", "dot": "#172030"}, {"t": "AI replies, rescheduling and waitlist", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Several sites, with a dashboard per site", "fg": "#2B3A52", "dot": "#172030"}, {"t": "Unlimited practitioners", "fg": "#2B3A52", "dot": "#172030"}]}], "note": {"voice": "Most clinics want both. Calls are where after-hours bookings come from.", "text": "No phone line needed. You can add calls anytime."}}</script>
+<script src="/pricing-v4.js" defer></script>

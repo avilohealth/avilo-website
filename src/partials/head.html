@@ -23,9 +23,42 @@
 <meta name="twitter:image" content="{{og_image}}" />
 <link rel="preload" href="/fonts/plus-jakarta-sans-700-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/fonts.css" />
-<link rel="stylesheet" href="/avilo.css" />
-<link rel="stylesheet" href="/aether-blend.css" />
-<link rel="stylesheet" href="/components.css" />
+<link rel="stylesheet" href="/avilo-v4.css" />
+<script>
+/* ---------------------------------------------------------------
+   Tracking config. Nothing here loads until the visitor consents
+   in the cookie banner; site-v4.js reads these and only then
+   injects the scripts. Leave a value unset and that tracker is
+   simply never loaded.
+
+   1. Meta Pixel. Events Manager -> Data sources -> your pixel ->
+      copy the numeric Pixel ID.
+         window.AVILO_META_PIXEL_ID = '1234567890123456';
+
+   2. Analytics. Set the script URL, plus whatever attribute your
+      provider needs. Examples:
+         Plausible:
+           window.AVILO_ANALYTICS_SRC = 'https://plausible.io/js/script.js';
+           window.AVILO_ANALYTICS_ATTRS = { 'data-domain': 'avilo.com.au' };
+         Fathom:
+           window.AVILO_ANALYTICS_SRC = 'https://cdn.usefathom.com/script.js';
+           window.AVILO_ANALYTICS_ATTRS = { 'data-site': 'ABCDEFGH' };
+         Umami:
+           window.AVILO_ANALYTICS_SRC = 'https://cloud.umami.is/script.js';
+           window.AVILO_ANALYTICS_ATTRS = { 'data-website-id': 'your-id' };
+
+      Google Analytics 4 does NOT fit this single-script hook: it
+      needs a gtag bootstrap. Ask before wiring GA4 in.
+
+   If you turn analytics on, name the provider in the Privacy
+   Policy cookie table, which currently says "Our analytics
+   provider" (src/pages/privacy.html).
+   --------------------------------------------------------------- */
+// window.AVILO_META_PIXEL_ID = '';
+// window.AVILO_ANALYTICS_SRC = '';
+// window.AVILO_ANALYTICS_ATTRS = {};
+</script>
+{{legacy_css}}
 {{head_extra}}
 </head>
 <body>

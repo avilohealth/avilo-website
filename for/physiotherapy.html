@@ -23,6 +23,41 @@
 <meta name="twitter:image" content="https://avilo.com.au/brand/avilo_og.png" />
 <link rel="preload" href="/fonts/plus-jakarta-sans-700-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/fonts.css" />
+<link rel="stylesheet" href="/avilo-v4.css" />
+<script>
+/* ---------------------------------------------------------------
+   Tracking config. Nothing here loads until the visitor consents
+   in the cookie banner; site-v4.js reads these and only then
+   injects the scripts. Leave a value unset and that tracker is
+   simply never loaded.
+
+   1. Meta Pixel. Events Manager -> Data sources -> your pixel ->
+      copy the numeric Pixel ID.
+         window.AVILO_META_PIXEL_ID = '1234567890123456';
+
+   2. Analytics. Set the script URL, plus whatever attribute your
+      provider needs. Examples:
+         Plausible:
+           window.AVILO_ANALYTICS_SRC = 'https://plausible.io/js/script.js';
+           window.AVILO_ANALYTICS_ATTRS = { 'data-domain': 'avilo.com.au' };
+         Fathom:
+           window.AVILO_ANALYTICS_SRC = 'https://cdn.usefathom.com/script.js';
+           window.AVILO_ANALYTICS_ATTRS = { 'data-site': 'ABCDEFGH' };
+         Umami:
+           window.AVILO_ANALYTICS_SRC = 'https://cloud.umami.is/script.js';
+           window.AVILO_ANALYTICS_ATTRS = { 'data-website-id': 'your-id' };
+
+      Google Analytics 4 does NOT fit this single-script hook: it
+      needs a gtag bootstrap. Ask before wiring GA4 in.
+
+   If you turn analytics on, name the provider in the Privacy
+   Policy cookie table, which currently says "Our analytics
+   provider" (src/pages/privacy.html).
+   --------------------------------------------------------------- */
+// window.AVILO_META_PIXEL_ID = '';
+// window.AVILO_ANALYTICS_SRC = '';
+// window.AVILO_ANALYTICS_ATTRS = {};
+</script>
 <link rel="stylesheet" href="/avilo.css" />
 <link rel="stylesheet" href="/aether-blend.css" />
 <link rel="stylesheet" href="/components.css" />
@@ -45,22 +80,29 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="nav" id="top">
-  <div class="wrap nav-inner">
-    <a class="logo" href="/" aria-label="Avilo home"><img src="/brand/avilo_mark_gradient.svg" alt="" width="30" height="30" /><span><b>avilo</b><span class="dot">.</span></span></a>
-    <nav class="nav-links" id="navlinks" aria-label="Main">
-      <a href="/confirmations">Confirmations</a>
-      <a href="/smart-reminders">Smart Reminders</a>
-      <a href="/assistant">Assistant</a>
-      <a href="/blog/">Learn</a>
-      <a class="nav-login" href="https://app.avilo.com.au">Log in</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn btn-primary" href="/start">Start free trial <span class="go">→</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+<header class="nv" id="top">
+  <nav class="nv-bar" aria-label="Main">
+    <a class="nv-logo" href="/" aria-label="Avilo home"><img src="/brand/avilo_mark_gradient.svg" alt="" width="24" height="24" style="display:block" /><span>avilo<span style="color:#0D9488;margin-left:-.1em">.</span></span></a>
+    <div class="nv-links">
+      <a href="/solutions">Solutions</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/learn">Learn</a>
+      <a href="/contact">Contact</a>
     </div>
-  </div>
+    <div class="nv-right">
+      <button type="button" class="nv-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nv-menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      <a class="nv-login nv-links" href="https://avilo-app-web.vercel.app/">Log in</a>
+      <a class="nv-cta" href="/demo">Book a demo<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+    </div>
+  </nav>
 </header>
+<div class="nv-menu" id="nv-menu">
+  <a href="/solutions">Solutions</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/learn">Learn</a>
+  <a href="/contact">Contact</a>
+  <a href="https://avilo-app-web.vercel.app/">Log in</a>
+</div>
 <main id="main">
 <section class="hero-dark hero-sub">
   <div class="glow glow-tr"></div>
@@ -69,7 +111,7 @@
     <h1 style="font-size:clamp(2rem,4vw,2.9rem)">Reminder replies sorted for every session in the plan.</h1>
     <p class="hero-lede" style="margin:0 auto">Physio diaries are mostly follow-ups. Avilo reads every reply to your Cliniko reminders, shows the team who is coming, frees the slot when someone pulls out of session four, and lists who to call before the first patient arrives.</p>
     <div class="hero-actions" style="justify-content:center">
-      <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+      <a class="btn btn-primary btn-lg" href="/demo">Start your free trial <span class="go">→</span></a>
       <a class="btn btn-ghost-light btn-lg" href="/contact">Book a demo</a>
     </div>
     <p class="trust">14-day free trial · No credit card · Works with Cliniko</p>
@@ -141,7 +183,7 @@
   <div class="wrap">
     <div class="honest">
       <h3>Where physio clinics usually start</h3>
-      <p>Most physiotherapy clinics start on Avilo Confirmations. Cliniko's reminders already go out for every session in the plan; the work is in reading what comes back, and that is what Confirmations does. <a href="/smart-reminders">Smart Reminders</a> becomes worth it when long treatment plans need a day-before nudge or when each physio wants their own inbox. The <a href="/assistant">Avilo Assistant</a> becomes worth it when moving follow-up sessions is a daily chore and you want cancelled slots offered to the waitlist without the desk picking up the phone.</p>
+      <p>Most physiotherapy clinics start on Avilo Confirmations. Cliniko's reminders already go out for every session in the plan; the work is in reading what comes back, and that is what Confirmations does. <a href="/solutions#no-reply">Smart Reminders</a> becomes worth it when long treatment plans need a day-before nudge or when each physio wants their own inbox. The <a href="/solutions">Avilo Assistant</a> becomes worth it when moving follow-up sessions is a daily chore and you want cancelled slots offered to the waitlist without the desk picking up the phone.</p>
     </div>
   </div>
 </section>
@@ -165,76 +207,90 @@
   <div class="wrap">
     <h2>See tomorrow's follow-ups confirmed before you open.</h2>
     <p>Fourteen days on your real Cliniko diary. Nothing changes for your patients.</p>
-    <a class="btn btn-primary btn-lg" href="/start">Start your free trial <span class="go">→</span></a>
+    <a class="btn btn-primary btn-lg" href="/demo">Start your free trial <span class="go">→</span></a>
     <p class="fine">No credit card · Cancel anytime · Built in Sydney for allied health</p>
   </div>
 </section>
 </main>
-<footer>
-  <div class="wrap">
-    <div class="foot-grid foot-grid-4">
-      <div>
-        <div class="foot-logo"><img src="/brand/avilo_mark_white_on_navy.svg" alt="" width="28" height="28" /><span>avilo<span class="dot">.</span></span></div>
-        <p style="max-width:26em">Avilo takes the repetitive patient admin off the front desk of Cliniko clinics. Confirmations first. Smart Reminders and the Avilo Assistant when you need more.</p>
-        <p style="font-size:.8rem">Integrates with Cliniko via the official API · Built in Sydney for allied health.</p>
-        <a class="foot-grant" href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
-          <img src="/brand/elevenlabs-grants-white.webp" width="180" height="16" alt="Supported by an ElevenLabs Grant" loading="lazy" />
-        </a>
+<footer class="ft">
+  <div class="ft-wrap">
+    <div class="ft-cols">
+      <div class="ft-brand">
+        <div class="ft-mark"><img src="/brand/avilo_mark_white_on_navy.svg" alt="" width="28" height="28" /><span>avilo<span style="color:#4DD9C0;margin-left:-.1em">.</span></span></div>
+        <p style="margin:14px 0 0;color:#fff;font-weight:500">An AI receptionist that keeps your diary full.</p>
+        <p style="margin:8px 0 0;font-size:13.5px">Works alongside Cliniko · Built in Sydney for allied health.</p>
+        <a href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px"><img src="/brand/elevenlabs-grants-white.webp" width="180" height="16" alt="Supported by an ElevenLabs Grant" loading="lazy" /></a>
       </div>
       <div>
-        <h5>Product</h5>
+        <h2>Product</h2>
         <ul>
-          <li><a href="/confirmations">Avilo Confirmations</a></li>
-          <li><a href="/smart-reminders">Smart Reminders</a></li>
-          <li><a href="/assistant">Avilo Assistant</a></li>
+          <li><a href="/solutions">Solutions</a></li>
+          <li><a href="/pricing">Pricing</a></li>
           <li><a href="/cliniko">Avilo and Cliniko</a></li>
           <li><a href="/security">Security</a></li>
         </ul>
       </div>
       <div>
-        <h5>For your clinic</h5>
+        <h2>Company</h2>
         <ul>
-          <li><a href="/for/physiotherapy">Physiotherapy</a></li>
-          <li><a href="/for/chiropractic">Chiropractic</a></li>
-          <li><a href="/for/osteopathy">Osteopathy</a></li>
-          <li><a href="/for/podiatry">Podiatry</a></li>
-        </ul>
-        <h5 style="margin-top:18px">Compare</h5>
-        <ul>
-          <li><a href="/compare/ai-receptionist-vs-answering-service">AI receptionist vs answering service</a></li>
-          <li><a href="/compare/ai-receptionist-vs-hiring-front-desk-staff">AI receptionist vs hiring front desk staff</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/learn">Learn</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/demo">Book a demo</a></li>
         </ul>
       </div>
       <div>
-        <h5>Company</h5>
+        <h2>Get in touch</h2>
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/blog/">Learn</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/start">Start a free trial</a></li>
           <li><a href="mailto:hello@avilo.com.au">hello@avilo.com.au</a></li>
+          <li><a href="https://avilo-app-web.vercel.app/">Log in</a></li>
         </ul>
       </div>
     </div>
-    <div class="foot-bottom">
+    <div class="ft-legal">
       <span>© 2026 Avilo Health Pty Ltd · ABN 19 698 695 019</span>
-      <nav class="foot-legal" aria-label="Legal">
+      <nav aria-label="Legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
+        <a href="#cookies">Cookie settings</a>
       </nav>
       <span>Made in Sydney, Australia</span>
     </div>
   </div>
 </footer>
+<div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ck-title">
+  <div class="ck-hd">
+    <span class="ck-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01M11 17v.01M7 14v.01"></path></svg></span>
+    <h2 id="ck-title">Cookies on this site</h2>
+  </div>
+  <p>We use essential cookies to run the site. With your OK, we also load the Calendly booking calendar and measure our ads and site use. See our <a href="/privacy#cookie-policy" style="color:#0A7A70;text-decoration:underline">Privacy Policy</a>.</p>
+  <div class="ck-cats">
+    <div class="ck-row">
+      <b>Essential</b><span class="ck-always">Always on</span>
+      <span class="ck-desc">Keeps the site working and remembers your cookie choice.</span>
+    </div>
+    <label class="ck-row">
+      <b>Calendly booking</b><input type="checkbox" data-cat="calendly" checked />
+      <span class="ck-desc">Loads the booking calendar on the page. Calendly sets its own cookies.</span>
+    </label>
+    <label class="ck-row">
+      <b>Ad measurement</b><input type="checkbox" data-cat="ads" checked />
+      <span class="ck-desc">Meta Pixel, so we can see which ads bring clinics to the site.</span>
+    </label>
+    <label class="ck-row">
+      <b>Analytics</b><input type="checkbox" data-cat="analytics" checked />
+      <span class="ck-desc">Anonymous counts of which pages get read, so we can improve them.</span>
+    </label>
+  </div>
+  <button type="button" class="ck-btn ck-save" data-ck="save">Save my choices</button>
+  <div class="ck-actions">
+    <button type="button" class="ck-btn" data-ck="accept">Accept all</button>
+    <button type="button" class="ck-btn2" data-ck="essential">Essential only</button>
+    <button type="button" class="ck-btn3" data-ck="manage">Manage</button>
+  </div>
+</div>
 
-<script>
-(function(){
-  var t=document.getElementById('navToggle'),l=document.getElementById('navlinks');
-  if(t&&l){t.addEventListener('click',function(){var open=l.classList.toggle('open');t.setAttribute('aria-expanded',open?'true':'false');});}
-  var hdr=document.querySelector('header.nav');
-  if(hdr){function onScroll(){hdr.classList.toggle('at-top',window.scrollY<30);}onScroll();window.addEventListener('scroll',onScroll,{passive:true});}
-})();
-</script>
+<script src="/site-v4.js" defer></script>
 </body>
 </html>

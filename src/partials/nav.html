@@ -1,16 +1,23 @@
-<header class="nav" id="top">
-  <div class="wrap nav-inner">
-    <a class="logo" href="/" aria-label="Avilo home"><img src="/brand/avilo_mark_gradient.svg" alt="" width="30" height="30" /><span><b>avilo</b><span class="dot">.</span></span></a>
-    <nav class="nav-links" id="navlinks" aria-label="Main">
-      <a href="/confirmations"{{active:/confirmations}}>Confirmations</a>
-      <a href="/smart-reminders"{{active:/smart-reminders}}>Smart Reminders</a>
-      <a href="/assistant"{{active:/assistant}}>Assistant</a>
-      <a href="/blog/"{{active:/blog}}>Learn</a>
-      <a class="nav-login" href="https://app.avilo.com.au">Log in</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="btn btn-primary" href="/start">Start free trial <span class="go">→</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+<header class="nv" id="top">
+  <nav class="nv-bar" aria-label="Main">
+    <a class="nv-logo" href="/" aria-label="Avilo home"><img src="/brand/avilo_mark_gradient.svg" alt="" width="24" height="24" style="display:block" /><span>avilo<span style="color:#0D9488;margin-left:-.1em">.</span></span></a>
+    <div class="nv-links">
+      <a href="/solutions"{{active:/solutions}}>Solutions</a>
+      <a href="/pricing"{{active:/pricing}}>Pricing</a>
+      <a href="/learn"{{active:/learn}}>Learn</a>
+      <a href="/contact"{{active:/contact}}>Contact</a>
     </div>
-  </div>
+    <div class="nv-right">
+      <button type="button" class="nv-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nv-menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      <a class="nv-login nv-links" href="https://avilo-app-web.vercel.app/">Log in</a>
+      <a class="nv-cta" href="/demo">Book a demo<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+    </div>
+  </nav>
 </header>
+<div class="nv-menu" id="nv-menu">
+  <a href="/solutions">Solutions</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/learn">Learn</a>
+  <a href="/contact">Contact</a>
+  <a href="https://avilo-app-web.vercel.app/">Log in</a>
+</div>
