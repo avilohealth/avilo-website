@@ -26,6 +26,21 @@ const RETIRED = [
   'Real clinics, real numbers', 'Notifications plan', 'Abby', 'Lyngo', 'Aeva', 'BookedSolid', 'Cliniq',
 ];
 
+// BreadcrumbList, generated from meta.path. Skipped when the page already
+// supplies its own, and on the home page (a one-item trail says nothing).
+function breadcrumbFor(meta, headExtra) {
+  if (headExtra && headExtra.includes('BreadcrumbList')) return '';
+  const path = meta.path;
+  if (!path || path === '/') return '';
+  const items = [{ name: 'Home', item: SITE + '/' }];
+  if (path.startsWith('/blog/')) items.push({ name: 'Learn', item: SITE + '/learn' });
+  const slug = path.replace(/\/$/, '').split('/').pop();
+  const name = meta.crumb || slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  items.push({ name, item: SITE + path });
+  const list = items.map((it, i) => `{"@type":"ListItem","position":${i + 1},"name":${JSON.stringify(it.name)},"item":${JSON.stringify(it.item)}}`).join(',');
+  return `<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[${list}]}</script>`;
+}
+
 function read(p) { return fs.readFileSync(p, 'utf8'); }
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -102,6 +117,7 @@ for (const file of walk(PAGES)) {
     legacy_css: meta.legacy === 'yes'
       ? '<link rel="stylesheet" href="/avilo.css" />\n<link rel="stylesheet" href="/aether-blend.css" />\n<link rel="stylesheet" href="/components.css" />'
       : '',
+    breadcrumb: breadcrumbFor(meta, h.text || ''),
     head_extra: h.text || '',
     year: String(new Date().getFullYear()),
   };
