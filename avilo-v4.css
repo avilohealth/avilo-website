@@ -324,3 +324,10 @@ label.ck-row{cursor:pointer}
   --wgOp:0;
   --wgTf:translateY(4px);
 }
+
+/* --- brought across with the /for, /compare and /blog pages ---------------- */
+.hovr-4eb23a:hover{color:#fff}
+.hovr-98cb3f:hover{background:rgba(255,255,255,.14)}
+@media (hover:none){[data-spot]:hover{transform:none !important}}
+@media (max-width:720px){.wk{grid-template-columns:1fr !important}.res{grid-template-columns:1fr !important}.art h2{font-size:25px !important}.art{font-size:17px !important}.pq{font-size:22px !important}.sms{padding:18px !important}}
+@media print{header,footer,nav,.np,[aria-labelledby="ck-title"]{display:none !important}html,body{background:#fff !important}main > section{padding:16px 0 !important;background:#fff !important}.ws{box-shadow:none !important;border:1px solid #CBD5E1 !important}.ws-res{position:static !important;box-shadow:none !important}}

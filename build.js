@@ -133,6 +133,11 @@ for (const file of walk(PAGES)) {
   const badHref = html.match(/href="(?!https?:)[^"]*\.html"/g);
   if (badHref) errors.push(`${rel}: internal .html link(s): ${badHref.slice(0, 3).join(', ')}`);
   for (const phrase of RETIRED) if (html.includes(phrase)) errors.push(`${rel}: retired phrase "${phrase}"`);
+  // Relative asset paths break on any page below the root. The design handoff
+  // relies on <base href="/">, which the build does not emit.
+  for (const m of html.matchAll(/(?:src|href)="(?!https?:|mailto:|tel:|data:|#|\/)([^"]+)"/g)) {
+    errors.push(`${rel}: relative path "${m[1]}" (use a root-relative /path)`);
+  }
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) errors.push(`${rel}: must have exactly one <h1>`);
 
   pages.push({ rel, file, meta, html, out: outPathFor(meta.path) });

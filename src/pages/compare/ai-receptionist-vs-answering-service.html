@@ -2,182 +2,82 @@
 title: AI receptionist vs answering service for clinics | Avilo
 description: A fair comparison of a human answering service and an AI receptionist for Cliniko clinics: cost, hours, what each can book, and when each is the right call.
 path: /compare/ai-receptionist-vs-answering-service
-legacy: yes
 -->
 <!--head
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {"@type":"BreadcrumbList","itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},
-      {"@type":"ListItem","position": 2,"name":"AI receptionist vs answering service","item":"https://avilo.com.au/compare/ai-receptionist-vs-answering-service"}]},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"Can an answering service book into Cliniko?","acceptedAnswer":{"@type":"Answer","text":"Most cannot. Operators generally do not have access to your diary, so they take a message for your team to action the next morning. A few will log in to a booking system if you hand over access, which is a decision about who sees patient data. The Avilo Assistant books directly against the live diary through the official Cliniko API."}},
-      {"@type":"Question","name":"Does the Avilo Assistant answer phone calls?","acceptedAnswer":{"@type":"Answer","text":"After-hours and overflow voice answering is an add-on that is rolling out to Assistant clinics now. Texts, reminder replies, rescheduling, the waitlist and recalls are live today. Ask on the demo and we will tell you exactly where voice is up to."}},
-      {"@type":"Question","name":"What happens when the Assistant is not sure what a patient means?","acceptedAnswer":{"@type":"Answer","text":"It stops. The message and the full thread go to your inbox, and whoever you nominate is alerted within a minute. It never guesses and never gives clinical advice. A staff reply pauses the Assistant on that conversation."}},
-      {"@type":"Question","name":"Can I use an answering service and Avilo together?","acceptedAnswer":{"@type":"Answer","text":"Yes, and some clinics do. The service covers the phone while Avilo covers texts, reminder replies and the diary. If the service logs a message asking to move an appointment, your team actions it in Cliniko and Avilo picks up the change from there."}}
-    ]}
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can an answering service book into Cliniko?","acceptedAnswer":{"@type":"Answer","text":"Most cannot. Operators generally do not have access to your diary, so they take a message for your team to action the next morning. A few will log in to a booking system if you hand over access, which is a decision about who sees patient data. Avilo books directly against the live diary through the Cliniko API."}},{"@type":"Question","name":"Does Avilo answer phone calls?","acceptedAnswer":{"@type":"Answer","text":"Yes, on the texts and calls plans. Avilo answers 24/7, books, reschedules and cancels in Cliniko during the call, and passes anything clinical to a person. Call audio is not kept."}},{"@type":"Question","name":"What happens when Avilo is not sure what a patient means?","acceptedAnswer":{"@type":"Answer","text":"It stops. The message and the full thread go to your inbox, and whoever you nominate is alerted within a minute. It never guesses and never gives clinical advice."}},{"@type":"Question","name":"Can my team step in on a conversation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Reply in a thread and Avilo AI pauses there. It checks with the clinic before it picks the thread back up, so a patient never gets two answers."}},{"@type":"Question","name":"Can I use an answering service and Avilo together?","acceptedAnswer":{"@type":"Answer","text":"Yes, and some clinics do. The service covers the phone while Avilo covers texts, reminder replies and the diary. If the service logs a message asking to move an appointment, your team actions it in Cliniko and Avilo picks up the change from there."}},{"@type":"Question","name":"Where is patient data kept?","acceptedAnswer":{"@type":"Answer","text":"In Sydney, encrypted in transit and at rest. It is never used to train AI models, and no call audio is kept."}}]}</script>
 -->
-
-<section class="hero-dark hero-sub">
-  <div class="glow glow-tr"></div>
-  <div class="glow glow-bl"></div>
-  <div class="wrap" style="max-width:840px;text-align:center">
-    <span class="tag">Compare</span>
-    <h1 style="font-size:clamp(2rem,4vw,2.9rem)">AI receptionist or answering service: which one suits your clinic?</h1>
-    <p class="hero-lede" style="margin:0 auto">One is a person reading from a script. The other is software reading your live Cliniko diary. Here is what each does well, what each cannot do, and when the other is the better choice.</p>
-    <div class="hero-actions" style="justify-content:center">
-      <a class="btn btn-primary btn-lg" href="/contact">Book a demo <span class="go">→</span></a>
-      <a class="btn btn-ghost-light btn-lg" href="/solutions#no-reply">Start with Confirmations</a>
-    </div>
-    <p class="trust">Set up with you · Month to month · Works with Cliniko</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">The two options</span>
-      <h2>They sound similar. They do different jobs.</h2>
-      <p class="lede">An answering service puts a person on the phone when your team cannot be. An AI receptionist works mostly in text, against your Cliniko diary.</p>
-    </div>
-    <div class="cmp-grid">
-      <div class="cmp">
-        <h3>A human answering service</h3>
-        <p>A team of operators, local or offshore, answers your clinic's number under your name, from a script you supply, and passes messages back to you.</p>
-        <p><b>Does well</b></p>
-        <ul>
-          <li>Picks up every call within your contracted hours, with a human voice</li>
-          <li>Handles a flustered or upset caller with real patience</li>
-          <li>Takes a clear message and sends it on by email or text</li>
-          <li>Follows a script for the common questions: hours, parking, what to bring</li>
-        </ul>
-        <p><b>Cannot do</b></p>
-        <ul>
-          <li>Book, move or cancel an appointment in Cliniko. Most services only take a message</li>
-          <li>See your reminder replies, missed texts or waitlist</li>
-          <li>Know a patient's history or which practitioner they usually see</li>
-          <li>Cover texts at all. Patients who reply to a reminder are still your job</li>
-        </ul>
-      </div>
-      <div class="cmp">
-        <h3>An AI receptionist (the Avilo Assistant)</h3>
-        <p>Software connected to your Cliniko account that reads and answers patient messages and books against the live diary. Voice answering is rolling out as an add-on.</p>
-        <p><b>Does well</b></p>
-        <ul>
-          <li>Answers texts in under a minute, day or night, in your clinic's tone</li>
-          <li>Reschedules into real gaps and writes the change back to Cliniko</li>
-          <li>Reads every reminder reply, colours the diary and frees the slot on a no</li>
-          <li>Offers a cancelled slot to the waitlist and runs the recalls you approve</li>
-        </ul>
-        <p><b>Cannot do</b></p>
-        <ul>
-          <li>Answer a clinical question. Ever. Those go to a practitioner</li>
-          <li>Read tone the way a person can. An unclear message goes to your inbox</li>
-          <li>Take every call today. Voice is rolling out to Assistant clinics now</li>
-          <li>Work outside your knowledge base. If the answer is not there, a person gets it</li>
-        </ul>
-      </div>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:148px 24px 88px">
+  <div aria-hidden="true" style="position:absolute;bottom:-260px;left:-200px;width:700px;height:700px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.09),transparent 62%)"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+    <div style="max-width:780px">
+      <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4DD9C0;margin-bottom:20px">Compare</p>
+      <h1 data-reveal="" style="color:#fff;font-size:clamp(36px,4.6vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:20px;text-wrap:balance">AI receptionist or answering service: which one suits your clinic?</h1>
+      <p data-reveal="" style="font-size:1.1rem;line-height:1.7;color:#CBD5E1;text-wrap:pretty;max-width:38em">One is a person reading from a script. The other is software reading your live Cliniko diary. Here is what each does well, what each cannot do, and when the other is the better choice.</p>
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a><a class="hovr-69dc36" href="#plans" style="display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 22px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;transition:background .2s">Which plan fits?</a></div>
+      <ul data-reveal="" style="list-style:none;padding:0;margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:500;color:#E2E8F0"><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Set up with you</li><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Month to month</li><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Works with Cliniko</li></ul>
     </div>
   </div>
 </section>
-
-<section class="sec soft">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Side by side</span>
-      <h2>The same ten questions, asked of both.</h2>
-    </div>
-    <table class="ctable">
-      <thead>
-        <tr>
-          <th>What you are comparing</th>
-          <th>Human answering service</th>
-          <th>Avilo Assistant</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Cost</td><td>Per call or per minute, usually with a monthly minimum. Grows with call volume.</td><td>Per clinic, monthly, sized to your volume. Does not rise with each message.</td></tr>
-        <tr><td>Hours covered</td><td>The hours in your contract. After-hours cover costs more.</td><td>Texts: all day, every day. Voice: after hours and overflow, rolling out.</td></tr>
-        <tr><td>Answers the phone</td><td><span class="yes">Yes</span>, within contracted hours</td><td>Rolling out as an add-on</td></tr>
-        <tr><td>Handles texts</td><td>No</td><td><span class="yes">Yes</span>, within a minute</td></tr>
-        <tr><td>Reads reminder replies</td><td>No</td><td><span class="yes">Yes</span>, every one</td></tr>
-        <tr><td>Books into Cliniko</td><td>Usually not. Takes a message for your team to action</td><td><span class="yes">Yes</span>, against the live diary</td></tr>
-        <tr><td>Knows your patients' history</td><td>No. The operator sees what is on the script</td><td>Name, practitioner, last visit and upcoming bookings. Never clinical notes</td></tr>
-        <tr><td>Handles clinical questions</td><td>Should not, and takes a message</td><td>Never. Routed to a practitioner with the thread attached</td></tr>
-        <tr><td>Time to set up</td><td>Days to weeks: script, call forwarding, operator training</td><td>A short setup call with us. Connected to Cliniko the same day</td></tr>
-        <tr><td>When it is unsure</td><td>The operator improvises or takes a message</td><td>Stops and hands the thread to a person within a minute</td></tr>
-      </tbody>
-    </table>
+<section data-screen-label="The two options" style="position:relative;background:#ECF2F1;padding:96px 24px">
+  <div style="position:relative;max-width:1080px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">The two options</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">They sound similar. They do different jobs.</h2>
+  <p data-reveal="" style="margin-top:16px;font-size:1.06rem;text-wrap:pretty;max-width:40em;margin-left:auto;margin-right:auto">An answering service puts a person on the phone when your team cannot be. An AI receptionist answers calls and texts against your live Cliniko diary.</p>
+</div><div class="col2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px"><div data-reveal="" style="display:flex;flex-direction:column;gap:18px;background:#fff;color:#475569;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:30px">
+  <div><h3 style="font-size:1.3rem;">A human answering service</h3><p style="margin-top:8px;font-size:15px;line-height:1.6">A team of operators, local or offshore, answers your clinic's number under your name, from a script you supply, and passes messages back to you.</p></div>
+  <div><p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0B7A70;margin-bottom:10px">Does well</p><ul style="list-style:none;padding:0;display:grid;gap:9px;font-size:14.5px"><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Picks up every call within your contracted hours, with a human voice</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Handles a flustered or upset caller with real patience</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Takes a clear message and sends it on by email or text</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Follows a script for the common questions: hours, parking, what to bring</li></ul></div>
+  <div><p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#64748B;margin-bottom:10px">Cannot do</p><ul style="list-style:none;padding:0;display:grid;gap:9px;font-size:14.5px"><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Book, move or cancel an appointment in Cliniko. Most services only take a message</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>See your reminder replies, missed texts or waitlist</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Know a patient's history or which practitioner they usually see</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Cover texts at all. Patients who reply to a reminder are still your job</li></ul></div>
+</div><div data-reveal="" style="display:flex;flex-direction:column;gap:18px;background:var(--hero-bg,#172030);color:#CBD5E1;border:1px solid rgba(255,255,255,.08);border-radius:24px;box-shadow:var(--float);padding:30px">
+  <div><h3 style="font-size:1.3rem;color:#fff">An AI receptionist (Avilo)</h3><p style="margin-top:8px;font-size:15px;line-height:1.6">Software connected to your Cliniko account that answers calls and texts and books against the live diary.</p></div>
+  <div><p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4DD9C0;margin-bottom:10px">Does well</p><ul style="list-style:none;padding:0;display:grid;gap:9px;font-size:14.5px"><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Answers calls and texts 24/7, in your clinic's tone</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Reschedules into real gaps and writes the change back to Cliniko</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Reads every reminder reply and frees the slot on a no</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Offers a cancelled slot to the waitlist</li></ul></div>
+  <div><p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px">Cannot do</p><ul style="list-style:none;padding:0;display:grid;gap:9px;font-size:14.5px"><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Answer a clinical question. Ever. Those go to a practitioner</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Read tone the way a person can. An unclear message goes to your inbox</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Work outside your knowledge base. If the answer is not there, a person gets it</li><li style="display:grid;grid-template-columns:20px 1fr;gap:8px;line-height:1.5"><span aria-hidden="true" style="margin-top:3px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Book into any system other than Cliniko</li></ul></div>
+</div></div>
   </div>
 </section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Being fair</span>
-      <h2>When a human answering service is the better choice.</h2>
-      <p class="lede">We would rather you pick the right tool than pick us.</p>
-    </div>
-    <ul class="facts">
-      <li><b>Your phone is the problem, today</b>If most of your missed admin is unanswered calls and you cannot wait for voice to roll out, a human service fills that gap now.</li>
-      <li><b>Your callers need a lot of nuance</b>Some clinics see a high share of distressed, elderly or non-English-speaking callers. A patient operator handles that better than any script or bot.</li>
-      <li><b>You do not use Cliniko</b>Avilo is built for Cliniko clinics. If your diary lives somewhere else, the Assistant cannot book into it.</li>
-      <li><b>You want a person's name on the phone</b>For some practices the human voice is part of the brand, and no automation should take that away.</li>
-    </ul>
+<section data-screen-label="Side by side" style="position:relative;background:#fff;padding:96px 24px">
+  <div style="position:relative;max-width:1000px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Side by side</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">The same ten questions, asked of both.</h2>
+  
+</div><div data-reveal="" style="overflow-x:auto;border:1px solid #E2E8F0;border-radius:18px;background:#fff"><table class="tbl" style="width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px"><thead><tr style="background:#F8FAFC"><th scope="col" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:700;color:#2B3A52;width:26%">What you are comparing</th><th scope="col" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:700;color:#2B3A52">Human answering service</th><th scope="col" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:700;color:#0B7A70">Avilo, texts and calls</th></tr></thead><tbody><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Cost</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">Per call or per minute, usually with a monthly minimum. Grows with call volume.</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Per clinic, monthly. From $139 with 40 calls and 150 texts included, then $2.50 a call and 7.5c a text.</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Hours covered</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">The hours in your contract. After-hours cover costs more.</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">24/7, calls and texts.</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Answers the phone</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">Yes, within contracted hours</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Yes, 24/7</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Handles texts</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">No</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Yes, within a minute</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Reads reminder replies</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">No</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Yes, every one</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Books into Cliniko</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">Usually not. Takes a message for your team to action</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Yes, against the live diary</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Knows your patients' history</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">No. The operator sees what is on the script</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Name, practitioner, last visit and upcoming bookings. Never clinical notes</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Handles clinical questions</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">Should not, and takes a message</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Never. Routed to a practitioner with the thread attached</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">Time to set up</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">Days to weeks for the script, call forwarding and operator training</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">One 30-minute call and a Cliniko API key</td></tr><tr><th scope="row" style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;font-weight:600;color:#2B3A52">When it is unsure</th><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top">The operator improvises or takes a message</td><td style="text-align:left;padding:14px 18px;border-bottom:1px solid #EEF2F6;vertical-align:top;color:#2B3A52">Stops and hands the thread to a person within a minute</td></tr></tbody></table></div>
   </div>
 </section>
-
-<section class="sec soft">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Where this fits in Avilo</span>
-      <h2>What you were probably shopping for, and the Avilo layer that matches.</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <h4>"Just tell me who to call"</h4>
-        <p>Avilo Confirmations reads every reminder reply, colours the diary and lists the people who have not answered. No AI talks to your patients. The first step for most clinics.</p>
-        <a class="card-link" href="/solutions#no-reply">Avilo Confirmations <span class="go">→</span></a>
-      </div>
-      <div class="card">
-        <h4>"Messages, in one place"</h4>
-        <p>Smart Reminders sends the reminders and follow-ups, with a shared inbox so no clinic phone gets passed around. Your team writes every reply.</p>
-        <a class="card-link" href="/solutions#no-reply">Smart Reminders <span class="go">→</span></a>
-      </div>
-      <div class="card">
-        <h4>"Someone to answer for us"</h4>
-        <p>The Avilo Assistant is the closest match to an answering service. It replies, reschedules, fills the waitlist and hands anything clinical or unclear to a person. Voice is rolling out.</p>
-        <a class="card-link" href="/solutions">Avilo Assistant <span class="go">→</span></a>
-      </div>
-    </div>
+<section data-screen-label="Being fair" style="position:relative;background:#ECF2F1;padding:96px 24px">
+  <div style="position:relative;max-width:1080px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Being fair</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">When a human answering service is the better choice.</h2>
+  <p data-reveal="" style="margin-top:16px;font-size:1.06rem;text-wrap:pretty;max-width:40em;margin-left:auto;margin-right:auto">We would rather you pick the right tool than pick us.</p>
+</div><div class="col2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px"><div data-reveal="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><h3 style="font-size:1.08rem;margin-bottom:6px">Your callers need a lot of nuance</h3><p style="font-size:14.5px;line-height:1.6">Some clinics see a high share of distressed, elderly or non-English-speaking callers. A patient operator handles that better than any script or software.</p></div><div data-reveal="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><h3 style="font-size:1.08rem;margin-bottom:6px">Your calls are conversations, not bookings</h3><p style="font-size:14.5px;line-height:1.6">If most calls are insurer queries, care coordination or families working through a plan, a trained person on the line will serve them better than software built around the diary.</p></div><div data-reveal="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><h3 style="font-size:1.08rem;margin-bottom:6px">You do not use Cliniko</h3><p style="font-size:14.5px;line-height:1.6">Avilo is built for Cliniko clinics. If your diary lives somewhere else, Avilo cannot book into it.</p></div><div data-reveal="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><h3 style="font-size:1.08rem;margin-bottom:6px">You want a person's name on the phone</h3><p style="font-size:14.5px;line-height:1.6">For some practices the human voice is part of the brand, and no automation should take that away.</p></div></div>
   </div>
 </section>
-
-<section class="sec" id="faq">
-  <div class="wrap faq-inner">
-    <div class="faq-head">
-      <span class="eyebrow">Questions</span>
-      <h2>What clinics ask when weighing the two.</h2>
-    </div>
-    <div class="faq-grid">
-      <details class="faq-item"><summary>Can an answering service book into Cliniko?</summary><div class="faq-body"><p>Most cannot. Operators generally do not have access to your diary, so they take a message for your team to action the next morning. A few will log in to a booking system if you hand over access, which is a decision about who sees patient data. The Avilo Assistant books directly against the live diary through the official Cliniko API.</p></div></details>
-      <details class="faq-item"><summary>Does the Avilo Assistant answer phone calls?</summary><div class="faq-body"><p>After-hours and overflow voice answering is an add-on that is rolling out to Assistant clinics now. Texts, reminder replies, rescheduling, the waitlist and recalls are live today. Ask on the demo and we will tell you exactly where voice is up to.</p></div></details>
-      <details class="faq-item"><summary>What happens when the Assistant is not sure what a patient means?</summary><div class="faq-body"><p>It stops. The message and the full thread go to your inbox, and whoever you nominate is alerted within a minute. It never guesses and never gives clinical advice. A staff reply pauses the Assistant on that conversation.</p></div></details>
-      <details class="faq-item"><summary>Can I use an answering service and Avilo together?</summary><div class="faq-body"><p>Yes, and some clinics do. The service covers the phone while Avilo covers texts, reminder replies and the diary. If the service logs a message asking to move an appointment, your team actions it in Cliniko and Avilo picks up the change from there.</p></div></details>
-    </div>
+<section id="plans" data-screen-label="Where this fits" style="position:relative;background:#fff;padding:96px 24px">
+  <div style="position:relative;max-width:1080px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Where this fits in Avilo</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">What you were probably shopping for, and the Avilo plan that matches.</h2>
+  
+</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px"><div data-reveal="" style="display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:26px"><h3 style="font-size:1.15rem">"Just tell me who to call"</h3><p style="font-weight:700;color:#0B7A70;font-size:14.5px">Confirm · $49 a month</p><p style="font-size:14.5px;line-height:1.6">Reads every reminder reply, nudges the quiet patients, flags the appointments at risk, and gives your team two-way messaging. Avilo AI is not included. The first step for clinics whose problem is texts, not calls.</p><a href="/pricing" style="margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px">See the plan →</a></div><div data-reveal="" style="display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:26px"><h3 style="font-size:1.15rem">"Answer our texts, not our phone"</h3><p style="font-weight:700;color:#0B7A70;font-size:14.5px">Automate · $99 a month</p><p style="font-size:14.5px;line-height:1.6">Avilo AI: replies, rescheduling and waitlist, on texts alone. Patients get an answer at 9pm without a calls plan. No phone cover.</p><a href="/pricing" style="margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px">See the plan →</a></div><div data-reveal="" style="display:flex;flex-direction:column;gap:10px;background:#fff;border:1.5px solid rgba(13,148,136,.45);border-radius:24px;box-shadow:var(--float-lg);padding:26px"><h3 style="font-size:1.15rem">"Someone to answer for us"</h3><p style="font-weight:700;color:#0B7A70;font-size:14.5px">Starter $139 · Growth $299</p><p style="font-size:14.5px;line-height:1.6">The closest match to an answering service. Avilo answers calls and texts 24/7, books and moves appointments in Cliniko, and hands anything clinical or unclear to a person. Avilo AI: replies, rescheduling and waitlist included. Starter covers 40 calls a month, Growth 120.</p><a href="/pricing" style="margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px">See the plan →</a></div><div data-reveal="" style="display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:26px"><h3 style="font-size:1.15rem">"Cover for a busy group"</h3><p style="font-weight:700;color:#0B7A70;font-size:14.5px">Scale · $649 a month</p><p style="font-size:14.5px;line-height:1.6">300 calls and 1,000 texts a month for high-volume or multi-location groups, with priority support.</p><a href="/pricing" style="margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px">See the plan →</a></div></div><p data-reveal="" style="text-align:center;margin-top:22px;font-size:14px">AUD, ex GST · 14-day free trial · No credit card · Month to month · No setup fee</p>
   </div>
 </section>
-
-<section class="cta">
-  <div class="wrap">
-    <h2>See both sides on your own diary.</h2>
-    <p>A 30-minute demo on a real Cliniko account: a reschedule handled by text, a clinical message routed untouched, and a straight answer on where voice is up to.</p>
-    <a class="btn btn-primary btn-lg" href="/contact">Book a demo <span class="go">→</span></a>
-    <p class="fine">No commitment · Month to month · Built in Sydney for allied health</p>
+<section id="faq" data-screen-label="FAQ" style="position:relative;background:#ECF2F1;padding:96px 24px">
+  <div style="position:relative;max-width:780px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Questions</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">What clinics ask when weighing the two.</h2>
+  
+</div><div style="border-top:1px solid #E2E8F0"><details open="" style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Can an answering service book into Cliniko?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Most cannot. Operators generally do not have access to your diary, so they take a message for your team to action the next morning. A few will log in to a booking system if you hand over access, which is a decision about who sees patient data. Avilo books directly against the live diary through the Cliniko API.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Does Avilo answer phone calls?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Yes, on the texts and calls plans. Avilo answers 24/7, books, reschedules and cancels in Cliniko during the call, and passes anything clinical to a person. Call audio is not kept.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">What happens when Avilo is not sure what a patient means?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>It stops. The message and the full thread go to your inbox, and whoever you nominate is alerted within a minute. It never guesses and never gives clinical advice.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Can my team step in on a conversation?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Yes. Reply in a thread and Avilo AI pauses there. It checks with the clinic before it picks the thread back up, so a patient never gets two answers.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Can I use an answering service and Avilo together?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Yes, and some clinics do. The service covers the phone while Avilo covers texts, reminder replies and the diary. If the service logs a message asking to move an appointment, your team actions it in Cliniko and Avilo picks up the change from there.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Where is patient data kept?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>In Sydney, encrypted in transit and at rest. It is never used to train AI models, and no call audio is kept.</p></div></details></div>
   </div>
 </section>
+<section data-screen-label="Final CTA" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:104px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div aria-hidden="true" style="position:absolute;bottom:-300px;left:50%;transform:translateX(-50%);width:900px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(13,148,136,.2),transparent 62%)"></div>
+  <div data-reveal="" style="position:relative;max-width:720px;margin:0 auto">
+    <h2 style="color:#fff;font-size:clamp(30px,4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.1;text-wrap:balance">See both sides on your own diary.</h2>
+    <p style="margin:18px auto 0;max-width:34em;font-size:1.08rem;line-height:1.7;text-wrap:pretty">A 30-minute demo on a real Cliniko account: a call answered and booked, a reschedule handled by text, and a clinical message routed to a person untouched.</p>
+    <div style="margin-top:32px;display:flex;justify-content:center"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a></div>
+    <p style="margin-top:20px;font-size:14px;color:#E2E8F0">No commitment · Month to month · Built in Sydney for allied health</p>
+  </div>
+</section>
+<p style="background:#172030;color:#CBD5E1;text-align:center;font-size:13px;padding:0 24px 28px;margin:0">Cliniko is a trademark of Red Guava Pty Ltd. Avilo is an independent product and is not endorsed by or affiliated with Cliniko.</p>

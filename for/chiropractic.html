@@ -54,7 +54,7 @@
    Policy cookie table, which currently says "Our analytics
    provider" (src/pages/privacy.html).
    --------------------------------------------------------------- */
-// window.AVILO_META_PIXEL_ID = '';
+window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visitor accepts ad cookies
 // window.AVILO_ANALYTICS_SRC = '';
 // window.AVILO_ANALYTICS_ATTRS = {};
 </script>
@@ -65,26 +65,9 @@
 {"@type":"WebSite","@id":"https://avilo.com.au/#website","url":"https://avilo.com.au/","name":"Avilo","inLanguage":"en-AU","publisher":{"@id":"https://avilo.com.au/#organization"}}
 ]}
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},{"@type":"ListItem","position":2,"name":"Chiropractic","item":"https://avilo.com.au/for/chiropractic"}]}</script>
 
-<link rel="stylesheet" href="/avilo.css" />
-<link rel="stylesheet" href="/aether-blend.css" />
-<link rel="stylesheet" href="/components.css" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {"@type":"BreadcrumbList","itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://avilo.com.au/"},
-      {"@type":"ListItem","position": 2,"name":"Chiropractic","item":"https://avilo.com.au/for/chiropractic"}]},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"Our patients come in two or three times a week. Will they get extra messages?","acceptedAnswer":{"@type":"Answer","text":"No. Confirmations sends nothing. Cliniko's reminders go out exactly as they do now and Avilo only reads the replies. If you move to Smart Reminders later, you choose which appointment types get a follow-up nudge, so a patient on a frequent care plan is not nudged before every visit."}},
-      {"@type":"Question","name":"A patient replies asking to come at a different time today. Does Avilo move the appointment?","acceptedAnswer":{"@type":"Answer","text":"Not on Confirmations. Avilo recognises the reply as a reschedule, flags the appointment as needing a person and puts it at the top of the inbox. Your team moves it in Cliniko. Moving appointments automatically against the live diary is what the Avilo Assistant does."}},
-      {"@type":"Question","name":"Can Avilo cancel the slot the moment someone says no, so we can fill it the same day?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you choose that rule. A plain no cancels the appointment in Cliniko within minutes, the status is written to the appointment note, and if anyone on your Avilo waitlist matches the slot the team is alerted. A no with a question attached is always flagged rather than cancelled."}},
-      {"@type":"Question","name":"We have several chiropractors sharing one front desk. Can the lists be split?","acceptedAnswer":{"@type":"Answer","text":"Yes. The diary, the inbox and the morning call list all filter by practitioner, and the Monday cancelled-without-rebook list can be sorted by practitioner too. The desk can work from one combined list, or each chiropractor can check their own."}}
-    ]}
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Our patients come in two or three times a week. Will they get extra messages?","acceptedAnswer":{"@type":"Answer","text":"Only if they go quiet. Cliniko's reminders go out exactly as they do now, and Avilo nudges only a patient who has not replied. Someone on a frequent care plan who confirms each visit hears nothing extra."}},{"@type":"Question","name":"A patient replies asking to come at a different time today. Does Avilo move the appointment?","acceptedAnswer":{"@type":"Answer","text":"On Confirm, no. Avilo recognises the reply as a reschedule, flags it and puts it at the top of the inbox, and your team moves it in Cliniko. On Automate, Avilo AI offers the patient open times against the live diary and moves the appointment itself."}},{"@type":"Question","name":"Can Avilo cancel the slot the moment someone says no, so we can fill it the same day?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you choose that rule. A plain no cancels the appointment in Cliniko within minutes and the status is written to the appointment note. On Automate, the slot is offered to matching patients on your waitlist. A no with a question attached is always flagged rather than cancelled."}},{"@type":"Question","name":"We have several chiropractors sharing one front desk. Can the lists be split?","acceptedAnswer":{"@type":"Answer","text":"Yes. The diary, the inbox and the morning call list all filter by practitioner, and the Monday cancelled-without-rebook list can be sorted by practitioner too. The desk can work from one combined list, or each chiropractor can check their own."}},{"@type":"Question","name":"If someone on the desk replies to a patient, does Avilo talk over them?","acceptedAnswer":{"@type":"Answer","text":"No. Reply in a thread and Avilo pauses on that conversation. It checks with the clinic before it picks the thread back up, so a patient never gets two answers."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -110,114 +93,91 @@
   <a href="/contact">Contact</a>
 </div>
 <main id="main">
-<section class="hero-dark hero-sub">
-  <div class="glow glow-tr"></div>
-  <div class="wrap" style="max-width:840px;text-align:center">
-    <span class="tag">For chiropractic clinics</span>
-    <h1 style="font-size:clamp(2rem,4vw,2.9rem)">A full column of short visits, sorted before the first adjustment.</h1>
-    <p class="hero-lede" style="margin:0 auto">Chiropractic runs on brief, frequent appointments and a diary that moves all day. Avilo reads every reply to your Cliniko reminders, colours the diary, lifts reschedule requests to the top, and frees a slot the moment a patient says no.</p>
-    <div class="hero-actions" style="justify-content:center">
-      <a class="btn btn-primary btn-lg" href="/demo">Start your free trial <span class="go">→</span></a>
-      <a class="btn btn-ghost-light btn-lg" href="/contact">Book a demo</a>
-    </div>
-    <p class="trust">14-day free trial · No credit card · Works with Cliniko</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="pf">
-      <div class="pf-copy">
-        <span class="eyebrow">How a chiro front desk runs</span>
-        <h2>Short adjustments, a packed column, and a diary that never sits still.</h2>
-        <p>A chiropractic clinic sees a lot of people in a day. Adjustments are brief, patients on a care plan come in two or three times a week in the early phase, and a single practitioner's column can hold more appointments before lunch than some clinics see all day. Every one of those appointments sends a reminder and most get a reply. The desk reads them between greeting patients and taking payments, usually with someone waiting at the counter.</p>
-        <p>The other thing about chiro is movement. Patients on a care plan treat the visit as a standing commitment and would rather move it than miss it, so same-day reschedules are constant: running late, can I come at four, can I swap to tomorrow. A reschedule buried in a list of yeses is a slot that stays blocked until someone finds it. In a day built from short slots, one unnoticed message can leave two gaps.</p>
-      </div>
-      <div class="pf-vis">
-        <div class="mini">
-          <div class="mini-row"><span class="mini-ic mi-teal">✓</span><div><b>Jordan M. · 7:45 · Dr Lee</b><span>"Yes"</span></div></div>
-          <div class="mini-row"><span class="mini-ic mi-amber">↔</span><div><b>Aisha R. · 8:00 · Dr Lee</b><span>"Yes but running late from drop off, could I do 8:30?"</span></div><span class="mini-tag mt-amber">Reschedule</span></div>
-          <div class="mini-row"><span class="mini-ic mi-teal">✓</span><div><b>Ben T. · 8:15 · Dr Lee</b><span>"Y"</span></div></div>
-          <div class="mini-row"><span class="mini-ic mi-red">!</span><div><b>Chloe D. · 8:30 · Dr Lee</b><span>"Can't today, both kids are home sick"</span></div><span class="mini-tag mt-red">Needs a person</span></div>
-          <div class="mini-row"><span class="mini-ic mi-slate">·</span><div><b>Noah P. · 8:45 · Dr Lee</b><span>no reply yet · on the call list</span></div></div>
-        </div>
-      </div>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:148px 24px 88px">
+  <div aria-hidden="true" style="position:absolute;bottom:-260px;left:-200px;width:700px;height:700px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.09),transparent 62%)"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+    <div style="max-width:780px">
+      <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4DD9C0;margin-bottom:20px">For chiropractic clinics</p>
+      <h1 data-reveal="" style="color:#fff;font-size:clamp(36px,4.6vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:20px;text-wrap:balance">A full column of short visits, sorted before the first adjustment.</h1>
+      <p data-reveal="" style="font-size:1.1rem;line-height:1.7;color:#CBD5E1;text-wrap:pretty;max-width:38em">Chiropractic runs on brief, frequent appointments and a diary that moves all day. Avilo reads every reply to your Cliniko reminders, colours the diary, lifts reschedule requests to the top, and frees a slot the moment a patient says no.</p>
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a><a class="hovr-69dc36" href="#plans" style="display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 22px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;transition:background .2s">Which plan fits?</a></div>
+      <ul data-reveal="" style="list-style:none;padding:0;margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:500;color:#E2E8F0"><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>14-day free trial</li><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>No credit card</li><li style="display:flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4DD9C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Works with Cliniko</li></ul>
     </div>
   </div>
 </section>
-
-<section class="sec soft">
-  <div class="wrap">
-    <div class="pf flip">
-      <div class="pf-copy">
-        <span class="eyebrow">A typical chiro reply</span>
-        <h2>They are coming, just not at the time in the diary.</h2>
-        <p>Avilo reads this as a reschedule, not a yes. The appointment is marked as needing a person, Aisha moves to the top of the inbox, and the desk shifts her in Cliniko with one click through to her profile. The eight o'clock is then free to offer to whoever is waiting.</p>
-        <ul>
-          <li>A yes with a time change attached is never counted as a plain confirmation.</li>
-          <li>Reschedules sit above confirmations in the inbox so they are dealt with first.</li>
-          <li>On Confirmations your team moves the appointment. The Avilo Assistant can move it for you.</li>
-        </ul>
-      </div>
-      <div class="pf-vis">
-        <div class="thread">
-          <span class="thread-label">Cliniko reminder · Mon 5:00pm</span>
-          <div class="sms-bubble b-reminder">Hi Aisha, reminder of your adjustment with Dr Lee at Eastside Chiropractic on Tue 8:00am. Reply YES to confirm.</div>
-          <span class="thread-label r">Patient · Tue 7:21am</span>
-          <div class="sms-bubble b-patient">Yes but running late from drop off, could I do 8:30?</div>
-        </div>
-        <div class="ck-card" style="max-width:100%;margin-top:12px"><span class="ck-tick">↔</span><div><b>Reschedule · top of the inbox · Tue 7:21am</b><span>Appointment kept until a person moves it · note written</span></div></div>
-      </div>
-    </div>
+<section data-screen-label="How a chiro front desk runs" style="position:relative;background:#ECF2F1;padding:96px 24px">
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+<div class="col2" style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center"><div><div style="margin-bottom:28px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">How a chiro front desk runs</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">Short adjustments, a packed column, and a diary that never sits still.</h2>
+  
+</div><p data-reveal="" style="font-size:1.04rem;line-height:1.75;text-wrap:pretty;">A chiropractic clinic sees a lot of people in a day. Adjustments are brief, patients on a care plan come in two or three times a week in the early phase, and a single practitioner's column can hold more appointments before lunch than some clinics see all day. Every one of those appointments sends a reminder and most get a reply. The desk reads them between greeting patients and taking payments, usually with someone waiting at the counter.</p><p data-reveal="" style="font-size:1.04rem;line-height:1.75;text-wrap:pretty;margin-top:18px">The other thing about chiro is movement. Patients on a care plan treat the visit as a standing commitment and would rather move it than miss it, so same-day reschedules are constant: running late, can I come at four, can I swap to tomorrow. A reschedule buried in a list of yeses is a slot that stays blocked until someone finds it. In a day built from short slots, one unnoticed message can leave two gaps.</p></div><div data-reveal="" style="background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);overflow:hidden">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #EEF2F6;font-size:13px;font-weight:700;color:#2B3A52"><span>Dr Lee's Tuesday, by reply</span><span style="display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#64748B"><span style="width:7px;height:7px;border-radius:50%;background:#10B981"></span>Live from Cliniko</span></div>
+  <ul style="list-style:none;padding:0;margin:0"><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:14px 20px;border-bottom:1px solid #F1F5F9;align-items:start"><span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;background:#DCFCE7;color:#166534;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center">✓</span><div style="min-width:0"><p style="font-size:13px;color:#64748B"><b style="color:#2B3A52;font-weight:700">Jordan M.</b> · 7:45 · Dr Lee</p><p style="font-size:14.5px;color:#2B3A52;margin-top:2px;">"Yes"</p></div></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:14px 20px;border-bottom:1px solid #F1F5F9;align-items:start"><span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;background:#E8F8F6;color:#0B7A70;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center">↔</span><div style="min-width:0"><p style="font-size:13px;color:#64748B"><b style="color:#2B3A52;font-weight:700">Aisha R.</b> · 8:00 · Dr Lee</p><p style="font-size:14.5px;color:#2B3A52;margin-top:2px;">"Yes but running late from drop off, could I do 8:30?"</p><span style="display:inline-block;margin-top:6px;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:#E8F8F6;color:#0B7A70">Reschedule</span></div></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:14px 20px;border-bottom:1px solid #F1F5F9;align-items:start"><span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;background:#DCFCE7;color:#166534;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center">✓</span><div style="min-width:0"><p style="font-size:13px;color:#64748B"><b style="color:#2B3A52;font-weight:700">Ben T.</b> · 8:15 · Dr Lee</p><p style="font-size:14.5px;color:#2B3A52;margin-top:2px;">"Y"</p></div></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:14px 20px;border-bottom:1px solid #F1F5F9;align-items:start"><span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;background:#FEF3E2;color:#B45309;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center">!</span><div style="min-width:0"><p style="font-size:13px;color:#64748B"><b style="color:#2B3A52;font-weight:700">Chloe D.</b> · 8:30 · Dr Lee</p><p style="font-size:14.5px;color:#2B3A52;margin-top:2px;">"Can't today, both kids are home sick"</p><span style="display:inline-block;margin-top:6px;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:#FEF3E2;color:#B45309">Needs a person</span></div></li><li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:14px 20px;border-bottom:1px solid #F1F5F9;align-items:start"><span aria-hidden="true" style="width:30px;height:30px;border-radius:50%;background:#F1F5F9;color:#64748B;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center">·</span><div style="min-width:0"><p style="font-size:13px;color:#64748B"><b style="color:#2B3A52;font-weight:700">Noah P.</b> · 8:45 · Dr Lee</p><p style="font-size:14.5px;color:#2B3A52;margin-top:2px;color:#64748B;font-style:italic">No reply yet · on the call list</p></div></li></ul>
+</div></div>
   </div>
 </section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">What matters most in chiro</span>
-      <h2>Three features that pay off in a high-volume diary.</h2>
-    </div>
-    <ul class="facts">
-      <li><b>Colour-coded diary</b>A chiro column with dozens of short slots cannot be checked against a message list. Coloured by reply, the practitioner and the desk see which slots are solid and which are shaky before the day starts.</li>
-      <li><b>Patient inbox</b>Reschedule requests are the everyday reply in chiro and the easiest to miss in a flat list. The inbox puts them at the top, one thread per patient, with the Cliniko profile one click away so the move takes seconds.</li>
-      <li><b>Morning call list</b>With this many appointments, even a small share of non-responders is a long list. Avilo sends the desk one list at 8am, sorted by appointment time, so the first calls go to the first slots.</li>
-    </ul>
+<section data-screen-label="A typical reply" style="position:relative;background:#fff;padding:96px 24px">
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+<div class="col2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center"><div data-reveal="" class="sms" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--bevel);padding:26px;display:grid;gap:14px">
+  <div style="max-width:86%"><p style="font-size:12px;font-weight:600;color:#64748B;margin-bottom:5px">Cliniko reminder · Mon 5:00pm</p><p style="background:#E9ECEF;color:#2B3A52;padding:12px 14px;border-radius:18px 18px 18px 5px;font-size:14.5px;line-height:1.5">Hi Aisha, reminder of your adjustment with Dr Lee at Eastside Chiropractic on Tue 8:00am. Reply YES to confirm.</p></div>
+  <div style="max-width:86%;justify-self:end;text-align:right"><p style="font-size:12px;font-weight:600;color:#64748B;margin-bottom:5px">Patient · Tue 7:21am</p><p style="background:#2E8FFF;color:#fff;padding:12px 14px;border-radius:18px 18px 5px 18px;font-size:14.5px;line-height:1.5;text-align:left">Yes but running late from drop off, could I do 8:30?</p></div>
+  <div style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:14px;box-shadow:var(--shadow-sm,0 4px 12px -6px rgba(23,32,48,.15))"><span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:#E8F8F6;color:#0B7A70;font-weight:800;display:flex;align-items:center;justify-content:center">↔</span><div><p style="font-weight:700;color:#2B3A52;font-size:14.5px">Reschedule · top of the inbox · Tue 7:21am</p><p style="font-size:13px;color:#64748B;margin-top:2px">Appointment kept until it is moved · note written</p></div></div>
+</div><div><div style="margin-bottom:28px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">A typical chiro reply</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">They are coming, just not at the time in the diary.</h2>
+  
+</div><p data-reveal="" style="font-size:1.04rem;line-height:1.75;text-wrap:pretty">Avilo reads this as a reschedule, not a yes. On Confirm, Aisha moves to the top of the inbox and the desk shifts her in Cliniko with one click through to her profile. On Automate, Avilo AI offers her the open times against the live diary and moves the booking itself. Either way, the eight o'clock is then free for whoever is waiting.</p><div data-reveal=""><ul style="list-style:none;padding:0;margin-top:20px;display:grid;gap:10px"><li style="display:grid;grid-template-columns:22px 1fr;gap:8px;line-height:1.55"><span style="width:20px;height:20px;border-radius:50%;background:#E8F8F6;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B7A70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>A yes with a time change attached is never counted as a plain confirmation.</span></li><li style="display:grid;grid-template-columns:22px 1fr;gap:8px;line-height:1.55"><span style="width:20px;height:20px;border-radius:50%;background:#E8F8F6;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B7A70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>Reschedules sit above confirmations in the inbox so they are dealt with first.</span></li><li style="display:grid;grid-template-columns:22px 1fr;gap:8px;line-height:1.55"><span style="width:20px;height:20px;border-radius:50%;background:#E8F8F6;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B7A70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span>On Confirm your team moves the appointment. On Automate, Avilo AI moves it for you.</span></li></ul></div></div></div>
   </div>
 </section>
-
-<section class="sec-tight">
-  <div class="wrap">
-    <div class="honest">
-      <h3>Where chiro clinics usually start</h3>
-      <p>Most chiropractic clinics start on Avilo Confirmations, because the volume of replies is the problem and reading them is the whole of this layer. <a href="/solutions#no-reply">Smart Reminders</a> becomes worth it when patients on care plans need a day-before nudge, or when the clinic wants to stop passing a mobile phone around the desk. The <a href="/solutions">Avilo Assistant</a> becomes worth it when same-day reschedules are the biggest cost, because the Assistant offers the patient open times against the live diary and moves the appointment itself.</p>
-    </div>
+<section data-screen-label="What matters most" style="position:relative;background:#ECF2F1;padding:96px 24px">
+  <div style="position:relative;max-width:1180px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">What matters most in chiro</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">Three features that pay off in a high-volume diary.</h2>
+  
+</div><div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px"><div data-reveal="" data-spot="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><span data-ic="" style="width:40px;height:40px;border-radius:12px;background:#E8F8F6;color:#0B7A70;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"></rect><path d="M3 9h18M9 4v17"></path></svg></span><h3 style="font-size:1.08rem;margin:16px 0 6px">Colour-coded diary</h3><p style="font-size:14.5px;line-height:1.6">A chiro column with dozens of short slots cannot be checked against a message list. Coloured by reply, the practitioner and the desk see which slots are solid and which are shaky before the day starts.</p></div><div data-reveal="" data-spot="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><span data-ic="" style="width:40px;height:40px;border-radius:12px;background:#E8F8F6;color:#0B7A70;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"></path><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Z"></path></svg></span><h3 style="font-size:1.08rem;margin:16px 0 6px">Patient inbox</h3><p style="font-size:14.5px;line-height:1.6">Reschedule requests are the everyday reply in chiro and the easiest to miss in a flat list. The inbox puts them at the top, one thread per patient, with the Cliniko profile one click away so the move takes seconds.</p></div><div data-reveal="" data-spot="" style="background:rgba(255,255,255,.66);border:1px solid rgba(23,32,48,.08);border-radius:20px;box-shadow:var(--bevel);padding:24px"><span data-ic="" style="width:40px;height:40px;border-radius:12px;background:#E8F8F6;color:#0B7A70;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg></span><h3 style="font-size:1.08rem;margin:16px 0 6px">Morning call list</h3><p style="font-size:14.5px;line-height:1.6">With this many appointments, even a small share of non-responders is a long list. Avilo sends the desk one list at 8am, sorted by appointment time, so the first calls go to the first slots.</p></div></div>
   </div>
 </section>
-
-<section class="sec soft" id="faq">
-  <div class="wrap faq-inner">
-    <div class="faq-head">
-      <span class="eyebrow">Questions</span>
-      <h2>What chiro clinics ask.</h2>
-    </div>
-    <div class="faq-grid">
-      <details class="faq-item"><summary>Our patients come in two or three times a week. Will they get extra messages?</summary><div class="faq-body"><p>No. Confirmations sends nothing. Cliniko's reminders go out exactly as they do now and Avilo only reads the replies. If you move to Smart Reminders later, you choose which appointment types get a follow-up nudge, so a patient on a frequent care plan is not nudged before every visit.</p></div></details>
-      <details class="faq-item"><summary>A patient replies asking to come at a different time today. Does Avilo move the appointment?</summary><div class="faq-body"><p>Not on Confirmations. Avilo recognises the reply as a reschedule, flags the appointment as needing a person and puts it at the top of the inbox. Your team moves it in Cliniko. Moving appointments automatically against the live diary is what the Avilo Assistant does.</p></div></details>
-      <details class="faq-item"><summary>Can Avilo cancel the slot the moment someone says no, so we can fill it the same day?</summary><div class="faq-body"><p>Yes, if you choose that rule. A plain no cancels the appointment in Cliniko within minutes, the status is written to the appointment note, and if anyone on your Avilo waitlist matches the slot the team is alerted. A no with a question attached is always flagged rather than cancelled.</p></div></details>
-      <details class="faq-item"><summary>We have several chiropractors sharing one front desk. Can the lists be split?</summary><div class="faq-body"><p>Yes. The diary, the inbox and the morning call list all filter by practitioner, and the Monday cancelled-without-rebook list can be sorted by practitioner too. The desk can work from one combined list, or each chiropractor can check their own.</p></div></details>
-    </div>
+<section id="plans" data-screen-label="Where to start" style="position:relative;background:#fff;padding:96px 24px">
+  <div style="position:relative;max-width:1080px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Where chiro clinics usually start</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">The volume of replies is the problem. Start there.</h2>
+  <p data-reveal="" style="margin-top:16px;font-size:1.06rem;text-wrap:pretty;max-width:40em;margin-left:auto;margin-right:auto">Most chiropractic clinics begin by getting every reply read and the diary coloured. The next step is letting Avilo do the moving.</p>
+</div><div class="col2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px"><div data-reveal="" style="display:flex;flex-direction:column;gap:12px;background:#fff;border:1.5px solid rgba(13,148,136,.45);border-radius:24px;box-shadow:var(--float-lg);padding:28px">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3 style="font-size:1.2rem">Confirm</h3><span style="font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:#E8F8F6;color:#0B7A70">Texts only</span></div>
+  <p style="color:#2B3A52"><b style="font-size:40px;font-weight:800;letter-spacing:-.03em">$49</b><span style="font-size:14px;color:#64748B"> a month, ex GST</span></p>
+  <p style="font-weight:600;color:#2B3A52">Where most chiro clinics start.</p>
+  <p style="font-size:14.5px;line-height:1.6">Every reply read, the diary coloured, quiet patients nudged and the morning call list sent. Your team answers from one shared inbox instead of a mobile passed around the desk. Texts are 7.5c each.</p>
+  <a href="/pricing" style="margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px">See what's included →</a>
+</div><div data-reveal="" style="display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:28px">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3 style="font-size:1.2rem">Automate</h3><span style="font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:#E8F8F6;color:#0B7A70">Texts only</span></div>
+  <p style="color:#2B3A52"><b style="font-size:40px;font-weight:800;letter-spacing:-.03em">$99</b><span style="font-size:14px;color:#64748B"> a month, ex GST</span></p>
+  <p style="font-weight:600;color:#2B3A52">When same-day reschedules are the biggest cost.</p>
+  <p style="font-size:14.5px;line-height:1.6">Everything in Confirm, plus Avilo AI: replies, rescheduling and waitlist. It offers open times against the live diary, moves the appointment, and fills the gap from your waitlist. 100 texts included, then 7.5c.</p>
+  <a href="/pricing" style="margin-top:auto;padding-top:6px;font-weight:600;font-size:14.5px">See what's included →</a>
+</div></div>
   </div>
 </section>
-
-<section class="cta">
-  <div class="wrap">
-    <h2>Every slot coloured by what the patient actually said.</h2>
-    <p>Run it on your real Cliniko diary for fourteen days. Your patients notice nothing.</p>
-    <a class="btn btn-primary btn-lg" href="/demo">Start your free trial <span class="go">→</span></a>
-    <p class="fine">No credit card · Cancel anytime · Built in Sydney for allied health</p>
+<section id="faq" data-screen-label="FAQ" style="position:relative;background:#ECF2F1;padding:96px 24px">
+  <div style="position:relative;max-width:780px;margin:0 auto">
+<div style="text-align:center;margin:0 auto 48px;max-width:760px">
+  <p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Questions</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;text-wrap:balance">What chiro clinics ask.</h2>
+  
+</div><div style="border-top:1px solid #E2E8F0"><details open="" style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Our patients come in two or three times a week. Will they get extra messages?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Only if they go quiet. Cliniko's reminders go out exactly as they do now, and Avilo nudges only a patient who has not replied. Someone on a frequent care plan who confirms each visit hears nothing extra.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">A patient replies asking to come at a different time today. Does Avilo move the appointment?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>On Confirm, no. Avilo recognises the reply as a reschedule, flags it and puts it at the top of the inbox, and your team moves it in Cliniko. On Automate, Avilo AI offers the patient open times against the live diary and moves the appointment itself.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">Can Avilo cancel the slot the moment someone says no, so we can fill it the same day?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Yes, if you choose that rule. A plain no cancels the appointment in Cliniko within minutes and the status is written to the appointment note. On Automate, the slot is offered to matching patients on your waitlist. A no with a question attached is always flagged rather than cancelled.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">We have several chiropractors sharing one front desk. Can the lists be split?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>Yes. The diary, the inbox and the morning call list all filter by practitioner, and the Monday cancelled-without-rebook list can be sorted by practitioner too. The desk can work from one combined list, or each chiropractor can check their own.</p></div></details>
+<details style="border-bottom:1px solid #E2E8F0"><summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-weight:700;color:#2B3A52;font-size:1.02rem">If someone on the desk replies to a patient, does Avilo talk over them?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;transition:transform .25s"><path d="m6 9 6 6 6-6"></path></svg></summary><div style="padding:0 0 20px;max-width:42em"><p>No. Reply in a thread and Avilo pauses on that conversation. It checks with the clinic before it picks the thread back up, so a patient never gets two answers.</p></div></details></div>
   </div>
 </section>
+<section data-screen-label="Final CTA" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:104px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div aria-hidden="true" style="position:absolute;bottom:-300px;left:50%;transform:translateX(-50%);width:900px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(13,148,136,.2),transparent 62%)"></div>
+  <div data-reveal="" style="position:relative;max-width:720px;margin:0 auto">
+    <h2 style="color:#fff;font-size:clamp(30px,4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.1;text-wrap:balance">Every slot coloured by what the patient actually said.</h2>
+    <p style="margin:18px auto 0;max-width:34em;font-size:1.08rem;line-height:1.7;text-wrap:pretty">Run it on your real Cliniko diary for fourteen days. Your patients notice nothing.</p>
+    <div style="margin-top:32px;display:flex;justify-content:center"><a class="hovr-880356" href="/demo" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 26px;border-radius:999px;background:#0D9488;color:#fff;font-weight:600;font-size:16px;box-shadow:var(--shadow-cta-pill);transition:background .2s,transform .2s">Book a demo<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span></a></div>
+    <p style="margin-top:20px;font-size:14px;color:#E2E8F0">No credit card · Month to month · Built in Sydney for allied health</p>
+  </div>
+</section>
+<p style="background:#172030;color:#CBD5E1;text-align:center;font-size:13px;padding:0 24px 28px;margin:0">Cliniko is a trademark of Red Guava Pty Ltd. Avilo is an independent product and is not endorsed by or affiliated with Cliniko.</p>
 </main>
 <footer class="ft">
   <div class="ft-wrap">
