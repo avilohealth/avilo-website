@@ -1,6 +1,7 @@
-/* Pricing page: the Texts + Calls / Texts only toggle swaps all three cards.
-   The page ships rendered in the Texts + Calls state, so it is complete
-   without JS; this only handles the swap. */
+/* Pricing page: the Texts + Calls / Texts only toggle swaps the cards.
+   Texts + Calls has three plans, Texts only has two, so the third card and
+   the grid columns change with the mode. The page ships rendered in the
+   Texts + Calls state, so it is complete without JS; this only swaps. */
 (function () {
   'use strict';
   var el = document.getElementById('pricing-data');
@@ -30,8 +31,16 @@
   var ACT = { bg: '#fff', fg: '#172030', sh: '0 2px 8px -2px rgba(23,32,48,.18)' };
   var IDLE = { bg: 'transparent', fg: '#475569', sh: 'none' };
 
+  var grid = document.querySelector('[data-grid]');
+  var card3 = document.querySelector('[data-card="3"]');
+
   function render(mode) {
     var plans = DATA[mode];
+    if (grid) {
+      grid.style.gridTemplateColumns = 'repeat(' + plans.length + ',minmax(0,1fr))';
+      grid.style.maxWidth = plans.length > 2 ? 'none' : '800px';
+    }
+    if (card3) card3.style.display = plans.length > 2 ? 'flex' : 'none';
     plans.forEach(function (p, i) {
       var n = i + 1;
       ['name', 'tag', 'price', 'over'].forEach(function (k) {

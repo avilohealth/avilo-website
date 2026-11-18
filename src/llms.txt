@@ -18,9 +18,8 @@
 All prices are AUD per clinic, per month, excluding GST. Every plan is month to month, has no setup fee, includes unlimited practitioners, and starts with a 14-day free trial with no credit card.
 
 Texts only:
-- Confirm, $49/month: reminders and confirmations, quiet patients nudged and at-risk flagged, two-way messaging platform. Texts are 7.5c each, pay as you go. No AI replies.
-- Automate, $99/month: 100 texts included, then 7.5c each. Everything in Confirm plus AI replies, rescheduling and waitlist.
-- Multi-site, $179/month: 250 texts included, then 7.5c each. Everything in Automate plus several sites with a dashboard for each.
+- Inbox, $49/month: reminders and confirmations, quiet patients nudged and at-risk flagged, two-way messaging platform. Texts are 7.5c each, pay as you go. Avilo AI is not included.
+- Automate, $99/month: 100 texts included, then 7.5c each. Everything in Inbox plus Avilo AI (replies, rescheduling and waitlist), across unlimited sites.
 
 Texts and calls, with 24/7 phone cover, calls and texts in one inbox, and unlimited web chat:
 - Starter, $139/month: 40 calls and 150 texts included.

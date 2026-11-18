@@ -59,7 +59,22 @@
     });
   }
 
-  function tick() { navPass(); revealPass(); }
+  /* Mobile tab bar: slides away on a deliberate scroll down, comes back on
+     any scroll up or near the top. Hidden on desktop by CSS. */
+  var tabbar = d.querySelector('.tabbar');
+  var lastY = null;
+
+  function tabbarPass() {
+    if (!tabbar) return;
+    var y = w.scrollY || d.documentElement.scrollTop || 0;
+    var dy = y - (lastY === null ? y : lastY);
+    lastY = y;
+    if (menuOpen) { tabbar.classList.remove('is-hidden'); return; }
+    if (dy > 10 && y > 240) tabbar.classList.add('is-hidden');
+    else if (dy < -6 || y < 120) tabbar.classList.remove('is-hidden');
+  }
+
+  function tick() { navPass(); tabbarPass(); revealPass(); }
   w.addEventListener('scroll', tick, { passive: true });
   w.addEventListener('resize', tick);
   if ('IntersectionObserver' in w) {

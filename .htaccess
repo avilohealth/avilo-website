@@ -18,6 +18,10 @@ RewriteRule ^cliniko-integration(\.html)?$ /cliniko [R=301,L]
 RewriteRule ^start/thanks(\.html)?$ /demo [R=301,L]
 RewriteRule ^start(\.html)?$ /demo [R=301,L]
 # /blog -> /learn, but keep every /blog/<slug> article URL working
+# the two comparison pages were retired with the Nov 2026 redesign
+RewriteRule ^compare/?$ /learn [R=301,L]
+RewriteRule ^compare/.*$ /learn [R=301,L]
+RewriteRule ^hub-plus(\.html)?$ /demo [R=301,L]
 RewriteRule ^blog/?$ /learn [R=301,L]
 RewriteRule ^blog/index\.html$ /learn [R=301,L]
 RewriteRule ^app\.html$ - [R=404,L]

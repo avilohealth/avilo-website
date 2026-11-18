@@ -55,8 +55,8 @@
    provider" (src/pages/privacy.html).
    --------------------------------------------------------------- */
 window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visitor accepts ad cookies
-// window.AVILO_ANALYTICS_SRC = '';
-// window.AVILO_ANALYTICS_ATTRS = {};
+window.AVILO_ANALYTICS_SRC = 'https://static.cloudflareinsights.com/beacon.min.js';
+window.AVILO_ANALYTICS_ATTRS = { 'data-cf-beacon': '{"token": "6a8905673a294366bdb5e6b2ca6116f2"}' };
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -91,7 +91,17 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
   <a href="/pricing">Pricing</a>
   <a href="/learn">Learn</a>
   <a href="/contact">Contact</a>
+  <a href="/about">About</a>
+  <a href="/cliniko">Cliniko integration</a>
 </div>
+
+<nav class="tabbar" aria-label="Quick links">
+  <a class="tb" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg><span>Home</span></a>
+  <a class="tb" href="/solutions"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="m3 13 9 5 9-5"></path></svg><span>Solutions</span></a>
+  <a class="tb tb-cta" href="/demo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"></rect><path d="M3 9.5h18M8 3v3M16 3v3"></path></svg><span>Book demo</span></a>
+  <a class="tb" href="/pricing"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"></path><circle cx="7.5" cy="7.5" r="1.2"></circle></svg><span>Pricing</span></a>
+  <a class="tb" href="/learn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2Z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7Z"></path></svg><span>Learn</span></a>
+</nav>
 <main id="main">
 <section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:148px 24px 88px">
   <div aria-hidden="true" style="position:absolute;bottom:-260px;left:-200px;width:700px;height:700px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.09),transparent 62%)"></div>
@@ -113,7 +123,7 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
 <section data-screen-label="Why Avilo exists" style="position:relative;background:#fff;padding:96px 24px;">
   
   <div style="position:relative;max-width:760px;margin:0 auto">
-<p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Why Avilo exists</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:28px">The problem nobody warned me about.</h2><div style="display:grid;gap:20px"><p data-reveal="" style="font-size:1.06rem;line-height:1.75;color:#2B3A52;text-wrap:pretty">I work in a busy practice. Keeping on top of who's responded to a reminder is a constant, tedious task. You're treating back-to-back all day. A patient texts back to reschedule, replying to the reminder that literally says "do not reply", because everyone messages these days, and you don't see it for hours.</p><p data-reveal="" style="font-size:1.06rem;line-height:1.75;color:#2B3A52;text-wrap:pretty">They don't show up. You've got a gap in your diary. Worse, if a couple of days pass before anyone replies, the patient thinks you ignored them. That's not just a missed appointment. It's a slot that could have been filled, and a patient relationship that's a little colder than it needs to be.</p><p data-reveal="" style="font-size:1.06rem;line-height:1.75;color:#2B3A52;text-wrap:pretty">I kept hearing the same thing from colleagues at other practices. The problem isn't Cliniko. Its reminders are excellent. The problem is that when a patient replies, nothing is built to catch it. Confirm is that missing piece, and it's where most clinics start.</p></div>
+<p data-reveal="" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70;margin-bottom:14px">Why Avilo exists</p><h2 data-reveal="" style="font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:28px">The problem nobody warned me about.</h2><div style="display:grid;gap:20px"><p data-reveal="" style="font-size:1.06rem;line-height:1.75;color:#2B3A52;text-wrap:pretty">I work in a busy practice. Keeping on top of who's responded to a reminder is a constant, tedious task. You're treating back-to-back all day. A patient texts back to reschedule, replying to the reminder that literally says "do not reply", because everyone messages these days, and you don't see it for hours.</p><p data-reveal="" style="font-size:1.06rem;line-height:1.75;color:#2B3A52;text-wrap:pretty">They don't show up. You've got a gap in your diary. Worse, if a couple of days pass before anyone replies, the patient thinks you ignored them. That's not just a missed appointment. It's a slot that could have been filled, and a patient relationship that's a little colder than it needs to be.</p><p data-reveal="" style="font-size:1.06rem;line-height:1.75;color:#2B3A52;text-wrap:pretty">I kept hearing the same thing from colleagues at other practices. The problem isn't Cliniko. Its reminders are excellent. The problem is that when a patient replies, nothing is built to catch it. Inbox is that missing piece, and it's where most clinics start.</p></div>
   </div>
 </section>
 
@@ -169,6 +179,15 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
           <li><a href="/learn">Learn</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/demo">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>For clinics</h2>
+        <ul>
+          <li><a href="/for/physiotherapy">Physiotherapy</a></li>
+          <li><a href="/for/chiropractic">Chiropractic</a></li>
+          <li><a href="/for/osteopathy">Osteopathy</a></li>
+          <li><a href="/for/podiatry">Podiatry</a></li>
         </ul>
       </div>
       <div>

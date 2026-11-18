@@ -55,8 +55,8 @@
    provider" (src/pages/privacy.html).
    --------------------------------------------------------------- */
 window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visitor accepts ad cookies
-// window.AVILO_ANALYTICS_SRC = '';
-// window.AVILO_ANALYTICS_ATTRS = {};
+window.AVILO_ANALYTICS_SRC = 'https://static.cloudflareinsights.com/beacon.min.js';
+window.AVILO_ANALYTICS_ATTRS = { 'data-cf-beacon': '{"token": "6a8905673a294366bdb5e6b2ca6116f2"}' };
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -75,7 +75,7 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
   <nav class="nv-bar" aria-label="Main">
     <a class="nv-logo" href="/" aria-label="Avilo home"><img src="/brand/avilo_mark_gradient.svg" alt="" width="24" height="24" style="display:block" /><span>avilo<span style="color:#0D9488;margin-left:-.1em">.</span></span></a>
     <div class="nv-links">
-      <a href="/solutions" class="active">Solutions</a>
+      <a href="/solutions" aria-current="page">Solutions</a>
       <a href="/pricing">Pricing</a>
       <a href="/learn">Learn</a>
       <a href="/contact">Contact</a>
@@ -91,7 +91,17 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
   <a href="/pricing">Pricing</a>
   <a href="/learn">Learn</a>
   <a href="/contact">Contact</a>
+  <a href="/about">About</a>
+  <a href="/cliniko">Cliniko integration</a>
 </div>
+
+<nav class="tabbar" aria-label="Quick links">
+  <a class="tb" href="/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg><span>Home</span></a>
+  <a class="tb" href="/solutions" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"></path><path d="m3 13 9 5 9-5"></path></svg><span>Solutions</span></a>
+  <a class="tb tb-cta" href="/demo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"></rect><path d="M3 9.5h18M8 3v3M16 3v3"></path></svg><span>Book demo</span></a>
+  <a class="tb" href="/pricing"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"></path><circle cx="7.5" cy="7.5" r="1.2"></circle></svg><span>Pricing</span></a>
+  <a class="tb" href="/learn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2Z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7Z"></path></svg><span>Learn</span></a>
+</nav>
 <main id="main">
 <section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--hero-bg,#172030);color:#CBD5E1;padding:148px 24px 88px">
   <div aria-hidden="true" style="position:absolute;bottom:-260px;left:-200px;width:700px;height:700px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.09),transparent 62%)"></div>
@@ -119,7 +129,7 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
       <p data-reveal="" style="margin-top:16px;font-size:1.06rem;max-width:30em;text-wrap:pretty">The reminders went out, but half of tomorrow hasn't replied. You don't know who's actually coming until they walk in, or don't unless someone from your team spends an hour manually sorting the inbox <i>(time that could be better spent).</i></p>
     </div>
     <div data-reveal="" style="background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:28px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Essentials</p><a href="/pricing" style="font-size:13px;font-weight:600">$49/month →</a></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Inbox</p><a href="/pricing" style="font-size:13px;font-weight:600">$49/month →</a></div>
       <h3 style="font-size:1.35rem;margin:10px 0 8px">Know who's coming before they walk in.</h3>
       <p style="font-size:15px;line-height:1.6;text-wrap:pretty">Clinics see 20–30% fewer no-shows on average. Avilo shows you everyone in tomorrow's diary with their real status, nudges the ones who haven't replied, and flags who's at risk of not turning up so you can call them first.</p>
       <div style="margin-top:20px;border:1px solid #E2E8F0;border-radius:16px;padding:6px;display:grid;font-size:13.5px">
@@ -141,7 +151,7 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
       <p data-reveal="" style="margin-top:16px;font-size:1.06rem;max-width:30em;text-wrap:pretty">A patient texts "can't make it" at 7am. Nobody sees it until lunch, and by then there's no time to fill the slot.</p>
     </div>
     <div data-reveal="" style="background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:28px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Confirm</p><a href="/pricing" style="font-size:13px;font-weight:600">$49/month →</a></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Inbox</p><a href="/pricing" style="font-size:13px;font-weight:600">$49/month →</a></div>
       <h3 style="font-size:1.35rem;margin:10px 0 8px">Every reply read and sorted.</h3>
       <p style="font-size:15px;line-height:1.6;text-wrap:pretty">Avilo reads each reply and tags it as a cancel, a reschedule or a question. The ones that could cost you a slot go to the top of the list.</p>
       <div style="margin-top:20px;display:grid;gap:8px;font-size:13.5px">
@@ -162,13 +172,13 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
       <p data-reveal="" style="margin-top:16px;font-size:1.06rem;max-width:30em;text-wrap:pretty">Someone is meant to offer the time to another patient or ring around the waitlist. A busy front-desk often struggles to ring in time because patients in the clinic come first.</p>
     </div>
     <div data-reveal="" style="background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:28px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Avilo AI</p><a href="/pricing" style="font-size:13px;font-weight:600">From $99/month →</a></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Avilo AI</p><a href="/pricing" style="font-size:13px;font-weight:600">From $139/month →</a></div>
       <h3 style="font-size:1.35rem;margin:10px 0 8px">Rebooked by text, then offered to the waitlist.</h3>
       <p style="font-size:15px;line-height:1.6;text-wrap:pretty">Avilo offers the patient a new time and moves the booking. If the slot is still free, it texts matching patients on your waitlist and books whoever says yes first.</p>
       <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.45">
-        <div style="align-self:flex-end;max-width:84%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Hi, can't make Thursday 10am sorry, something's come up</div>
-        <div style="align-self:flex-start;max-width:86%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">No problem. Sam has Thursday 4:30pm or Friday 8:15am. Would either work?</div>
-        <div style="align-self:flex-end;max-width:84%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Friday works</div>
+        <div style="align-self:flex-start;max-width:84%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Hi, can't make Thursday 10am sorry, something's come up</div>
+        <div style="align-self:flex-end;max-width:86%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">No problem. Sam has Thursday 4:30pm or Friday 8:15am. Would either work?</div>
+        <div style="align-self:flex-start;max-width:84%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Friday works</div>
         <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:10px 12px;box-shadow:0 6px 16px -10px rgba(23,32,48,.3)"><span style="width:26px;height:26px;border-radius:50%;background:#DCFCE7;color:#166534;display:flex;align-items:center;justify-content:center;flex:0 0 auto"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><b style="font-size:13.5px;font-weight:600;color:#172030">Moved to Fri 8:15am · Thu 10am offered to waitlist</b></div>
       </div>
     </div>
@@ -209,16 +219,16 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
       <p data-reveal="" style="margin-top:16px;font-size:1.06rem;max-width:30em;text-wrap:pretty">A patient cancels for a work trip or sickness and means to rebook but life get's in the way and they forget... Nobody follows up, because nobody has the time, and they quietly drop off your books.</p>
     </div>
     <div data-reveal="" style="background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:28px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Avilo AI</p><a href="/pricing" style="font-size:13px;font-weight:600">From $99/month →</a></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Avilo AI</p><a href="/pricing" style="font-size:13px;font-weight:600">From $139/month →</a></div>
       <h3 style="font-size:1.35rem;margin:10px 0 8px">Follow-ups that remember why they cancelled.</h3>
       <p style="font-size:15px;line-height:1.6;text-wrap:pretty">Avilo reads the reason they gave and checks in at the right time: after the trip, or a few days after they were sick. It offers their practitioner's free times and books them in when they reply. It also catches patients who've simply drifted.</p>
       <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.45">
         <p style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#64748B"><span style="flex:1;height:1px;background:#E2E8F0"></span>Wed 6:48pm<span style="flex:1;height:1px;background:#E2E8F0"></span></p>
-        <div style="align-self:flex-end;max-width:84%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Sorry, have to cancel Thursday. Away for work the rest of the week</div>
-        <div style="align-self:flex-start;max-width:86%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">No worries Mark, all cancelled. Safe travels!</div>
+        <div style="align-self:flex-start;max-width:84%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Sorry, have to cancel Thursday. Away for work the rest of the week</div>
+        <div style="align-self:flex-end;max-width:86%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">No worries Mark, all cancelled. Safe travels!</div>
         <p style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#64748B"><span style="flex:1;height:1px;background:#E2E8F0"></span>Following Mon 9:00am<span style="flex:1;height:1px;background:#E2E8F0"></span></p>
-        <div style="align-self:flex-start;max-width:86%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Hi Mark, hope the work trip went well. Priya has Wednesday 7:30am or Thursday 4pm free this week. Want one of those?</div>
-        <div style="align-self:flex-end;max-width:84%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Thursday 4 please</div>
+        <div style="align-self:flex-end;max-width:86%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Hi Mark, hope the work trip went well. Priya has Wednesday 7:30am or Thursday 4pm free this week. Want one of those?</div>
+        <div style="align-self:flex-start;max-width:84%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Thursday 4 please</div>
         <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:10px 12px;box-shadow:0 6px 16px -10px rgba(23,32,48,.3)"><span style="width:26px;height:26px;border-radius:50%;background:#DCFCE7;color:#166534;display:flex;align-items:center;justify-content:center;flex:0 0 auto"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><b style="font-size:13.5px;font-weight:600;color:#172030">Booked Thu 4:00pm with Priya</b></div>
         <p style="font-size:13px;color:#475569;margin-top:4px">Off sick instead? Avilo checks in a few days later to see if they're feeling better and ready to rebook.</p>
       </div>
@@ -235,13 +245,13 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
       <p data-reveal="" style="margin-top:16px;font-size:1.06rem;max-width:30em;text-wrap:pretty">Parking, fees, what to bring, whether you take their health fund. Each one pulls someone away from the patient in front of them.</p>
     </div>
     <div data-reveal="" style="background:#fff;border:1px solid rgba(23,32,48,.08);border-radius:24px;box-shadow:var(--float);padding:28px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Avilo AI</p><a href="/pricing" style="font-size:13px;font-weight:600">From $99/month →</a></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center"><p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B7A70">The fix · Avilo AI</p><a href="/pricing" style="font-size:13px;font-weight:600">From $139/month →</a></div>
       <h3 style="font-size:1.35rem;margin:10px 0 8px">Answered from your clinic's own info.</h3>
       <p style="font-size:15px;line-height:1.6;text-wrap:pretty">Avilo only answers from what you've told it, never the open internet. Anything clinical or emotional goes straight to a person on your team, with no AI reply.</p>
       <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.45">
-        <div style="align-self:flex-end;max-width:84%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Is there parking near you?</div>
-        <div style="align-self:flex-start;max-width:86%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Yes, there's free 2-hour parking on Albert St, right out the front.</div>
-        <div style="align-self:flex-end;max-width:84%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Also my back's worse since Monday, should I still come?</div>
+        <div style="align-self:flex-start;max-width:84%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Is there parking near you?</div>
+        <div style="align-self:flex-end;max-width:86%;background:#2E8FFF;color:#fff;border-radius:18px 18px 5px 18px;padding:9px 13px">Yes, there's free 2-hour parking on Albert St, right out the front.</div>
+        <div style="align-self:flex-start;max-width:84%;background:#E9ECEF;color:#172030;border-radius:18px 18px 18px 5px;padding:9px 13px">Also my back's worse since Monday, should I still come?</div>
         <div style="display:flex;align-items:center;gap:10px;background:#FFFBF2;border:1px solid #F5D9A8;border-radius:12px;padding:10px 12px"><span style="width:26px;height:26px;border-radius:50%;background:#FEF3E2;color:#B45309;display:flex;align-items:center;justify-content:center;flex:0 0 auto"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></span><b style="font-size:13.5px;font-weight:600;color:#172030">Clinical question · sent to Sam, no AI reply</b></div>
       </div>
     </div>
@@ -291,9 +301,9 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
         <p data-reveal="" style="margin-top:12px;font-size:1.02rem;max-width:30em;text-wrap:pretty">Your team can message patients from the same inbox. Avilo's replies and yours sit in one thread, so everyone sees the whole conversation.</p>
       </div>
       <div data-reveal="" style="background:#ECF2F1;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.45">
-        <div style="align-self:flex-start;max-width:86%;background:#E9ECEF;color:#172030;border-radius:16px 16px 16px 5px;padding:8px 12px;border:1px solid #fff"><span style="display:block;font-size:11px;font-weight:600;color:#64748B">Avilo</span>Booked you in for Thu 4pm with Priya.</div>
-        <div style="align-self:flex-start;max-width:86%;background:#fff;border:1px solid #E2E8F0;color:#172030;border-radius:16px 16px 16px 5px;padding:8px 12px"><span style="display:block;font-size:11px;font-weight:600;color:#0B7A70">Jess, reception</span>Bring your scans along too if you have them.</div>
-        <div style="align-self:flex-end;max-width:80%;background:#2E8FFF;color:#fff;border-radius:16px 16px 5px 16px;padding:8px 12px">Will do, thanks!</div>
+        <div style="align-self:flex-end;max-width:86%;background:#2E8FFF;color:#fff;border-radius:16px 16px 5px 16px;padding:8px 12px"><span style="display:block;font-size:11px;font-weight:600;color:#DCEBFF">Avilo</span>Booked you in for Thu 4pm with Priya.</div>
+        <div style="align-self:flex-end;max-width:86%;background:#fff;border:1px solid #E2E8F0;color:#172030;border-radius:16px 16px 5px 16px;padding:8px 12px"><span style="display:block;font-size:11px;font-weight:600;color:#0B7A70">Jess, reception</span>Bring your scans along too if you have them.</div>
+        <div style="align-self:flex-start;max-width:80%;background:#E9ECEF;color:#172030;border-radius:16px 16px 16px 5px;padding:8px 12px;border:1px solid #fff">Will do, thanks!</div>
       </div>
     </div>
   </div>
@@ -334,6 +344,15 @@ window.AVILO_META_PIXEL_ID = '2738484013036129';   // fires only after the visit
           <li><a href="/learn">Learn</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/demo">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>For clinics</h2>
+        <ul>
+          <li><a href="/for/physiotherapy">Physiotherapy</a></li>
+          <li><a href="/for/chiropractic">Chiropractic</a></li>
+          <li><a href="/for/osteopathy">Osteopathy</a></li>
+          <li><a href="/for/podiatry">Podiatry</a></li>
         </ul>
       </div>
       <div>

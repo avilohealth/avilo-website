@@ -79,7 +79,7 @@ function render(tpl, vars) {
     .replace(/\{\{active:([^}]+)\}\}/g, (_, p) => {
       const cur = vars.path;
       const hit = p === '/' ? cur === '/' : (cur === p || cur.startsWith(p + '/'));
-      return hit ? ' class="active"' : '';
+      return hit ? ' aria-current="page"' : '';
     })
     .replace(/\{\{(\w+)\}\}/g, (_, k) => (k in vars ? vars[k] : ''));
 }

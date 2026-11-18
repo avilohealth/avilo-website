@@ -18,9 +18,8 @@
 All prices are AUD per clinic, per month, excluding GST. Every plan is month to month, has no setup fee, includes unlimited practitioners, and starts with a 14-day free trial with no credit card.
 
 Texts only:
-- Confirm, $49/month: reminders and confirmations, quiet patients nudged and at-risk flagged, two-way messaging platform. Texts are 7.5c each, pay as you go. No AI replies.
-- Automate, $99/month: 100 texts included, then 7.5c each. Everything in Confirm plus AI replies, rescheduling and waitlist.
-- Multi-site, $179/month: 250 texts included, then 7.5c each. Everything in Automate plus several sites with a dashboard for each.
+- Inbox, $49/month: reminders and confirmations, quiet patients nudged and at-risk flagged, two-way messaging platform. Texts are 7.5c each, pay as you go. Avilo AI is not included.
+- Automate, $99/month: 100 texts included, then 7.5c each. Everything in Inbox plus Avilo AI (replies, rescheduling and waitlist), across unlimited sites.
 
 Texts and calls, with 24/7 phone cover, calls and texts in one inbox, and unlimited web chat:
 - Starter, $139/month: 40 calls and 150 texts included.
@@ -50,8 +49,6 @@ Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.
 
 - [About Avilo | Built by a physio for allied health](https://avilo.com.au/about): Avilo was built by Keegan Brady, a practising physiotherapist, after too many patient texts were found hours too late to save the slot. Here is why it exists.
 - [Avilo and Cliniko | Reads the replies your reminders get](https://avilo.com.au/cliniko): Cliniko sends the reminder. Avilo reads what comes back, shows who is confirmed, chases the quiet ones and writes the outcome to your diary. Official API.
-- [AI receptionist vs answering service for clinics](https://avilo.com.au/compare/ai-receptionist-vs-answering-service): A fair comparison of a human answering service and an AI receptionist for Cliniko clinics: cost, hours, what each can book, and when each is the right call.
-- [AI receptionist vs hiring front desk staff](https://avilo.com.au/compare/ai-receptionist-vs-hiring-front-desk-staff): Should a Cliniko clinic hire another receptionist or add an AI receptionist? A fair comparison of cost, hours covered, and which jobs each should own.
 - [Contact Avilo | Questions, answered](https://avilo.com.au/contact): Ask us anything about Avilo: how it works with Cliniko, what it costs, how patient data is handled. We reply within one business day, with answers not scripts.
 - [Book a demo](https://avilo.com.au/demo): Thirty minutes with Keegan on your own Cliniko diary. See who is confirmed, who needs a chase, and what Avilo would have caught last week. No slides.
 - [AI receptionist and confirmations for chiro clinics](https://avilo.com.au/for/chiropractic): Avilo reads every reply to your Cliniko reminders in a busy chiropractic diary, lifts same-day reschedules to the top, and frees slots on a no. Free trial.
