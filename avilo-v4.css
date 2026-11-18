@@ -87,7 +87,9 @@ details[open] .chev{transform:rotate(180deg)}
 [data-spot]:hover{transform:translateY(-4px) !important;box-shadow:var(--float) !important;border-color:#D1F0EC !important;background-color:#fff !important;background-image:radial-gradient(240px circle at var(--mx) var(--my),rgba(13,148,136,.10),transparent 70%) !important}
 [data-spot="dark"]:hover{background-color:rgba(255,255,255,.09) !important;box-shadow:0 22px 44px -22px rgba(2,8,23,.8) !important;border-color:rgba(77,217,192,.35) !important;background-image:radial-gradient(240px circle at var(--mx) var(--my),rgba(77,217,192,.16),transparent 70%) !important}
 /* the featured pricing shell stays navy on hover, glow only */
-.pg-pricing [data-spot="dark"]:hover{background-color:#172030 !important}
+/* the highlighted pricing card keeps its navy on hover; the generic rule
+   washes it to translucent white and the plan name becomes unreadable */
+[data-plan-mode][data-spot="dark"]:hover{background-color:#172030 !important}
 [data-ic]{transition:transform .35s cubic-bezier(.34,1.4,.64,1),background .25s,color .25s}
 [data-ic] svg{transition:transform .5s var(--ease)}
 [data-spot]:hover [data-ic]{transform:scale(1.08) rotate(-6deg);background:#0D9488 !important;color:#fff !important;box-shadow:0 8px 18px -8px rgba(13,148,136,.7)}

@@ -129,8 +129,9 @@
     e.preventDefault();
     var fd = new FormData(form);
     if (fd.get('website')) return;                       // honeypot
-    fd.append('_subject', 'Avilo Inbox setup call request');
-    fd.append('source', '/inbox landing page');
+    fd.append('_subject', 'Avilo Inbox: details submitted (step 2 of 3)');
+    fd.append('source', 'offer page, ' + location.pathname);
+    fd.append('stage', 'details submitted, calendar not yet booked');
     try { (w.dataLayer = w.dataLayer || []).push({ event: 'setup_form_submitted' }); } catch (err) {}
     goto(3);                                             // never block on the network
     fetch(FORMSPREE, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
@@ -154,6 +155,19 @@
     if (ev !== 'calendly.event_scheduled' || booked) return;
     booked = true;
     show(d.querySelector('[data-booked]'), true);
+    // a second, separate email so form fills and actual bookings can be counted
+    try {
+      var bf = new FormData();
+      bf.append('_subject', 'Avilo Inbox: CALL BOOKED');
+      bf.append('stage', 'booked a time in Calendly');
+      bf.append('source', 'offer page, ' + location.pathname);
+      bf.append('name', (form.elements.name && form.elements.name.value) || '');
+      bf.append('email', (form.elements.email && form.elements.email.value) || '');
+      bf.append('clinic', (form.elements.clinic && form.elements.clinic.value) || '');
+      bf.append('phone', (form.elements.phone && form.elements.phone.value) || '');
+      fetch(FORMSPREE, { method: 'POST', body: bf, headers: { Accept: 'application/json' } })
+        .catch(function () {});
+    } catch (err) {}
     var bar = d.querySelector('.sticky-cta');
     if (bar) bar.classList.remove('is-on');
     try {
