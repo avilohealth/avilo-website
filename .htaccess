@@ -31,6 +31,8 @@ RewriteRule ^compare/.*$ /learn [R=301,L]
 RewriteRule ^hub-plus(\.html)?$ /demo [R=301,L]
 RewriteRule ^blog/?$ /learn [R=301,L]
 RewriteRule ^blog/index\.html$ /learn [R=301,L]
+# /_archive holds retired pages. They are deployed but must never be reachable.
+RewriteRule ^_archive(/.*)?$ - [R=404,L]
 RewriteRule ^app\.html$ - [R=404,L]
 
 # /page.html -> /page  (external 301), /index.html -> /
