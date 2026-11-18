@@ -35,17 +35,41 @@ const RETIRED_EXEMPT = { 'terms.html': ['two-factor', 'two-step sign-in'] };
 
 // BreadcrumbList, generated from meta.path. Skipped when the page already
 // supplies its own, and on the home page (a one-item trail says nothing).
-function breadcrumbFor(meta, headExtra) {
-  if (headExtra && headExtra.includes('BreadcrumbList')) return '';
+function breadcrumbFor(meta, headExtra, modified) {
+  const nodes = [];
+  // WebPage carries the freshness date, so a reader can tell how current the page is
+  if (modified) {
+    nodes.push({
+      '@type': 'WebPage',
+      '@id': SITE + meta.path + '#webpage',
+      url: SITE + meta.path,
+      name: meta.title,
+      description: meta.description,
+      dateModified: modified,
+      inLanguage: 'en-AU',
+      isPartOf: { '@id': SITE + '/#website' },
+      about: { '@id': SITE + '/#organization' },
+    });
+  }
+  const crumb = breadcrumbNode(meta, headExtra);
+  if (crumb) nodes.push(crumb);
+  if (!nodes.length) return '';
+  return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': nodes })}</script>`;
+}
+
+function breadcrumbNode(meta, headExtra) {
+  if (headExtra && headExtra.includes('BreadcrumbList')) return null;
   const path = meta.path;
-  if (!path || path === '/') return '';
+  if (!path || path === '/') return null;
   const items = [{ name: 'Home', item: SITE + '/' }];
   if (path.startsWith('/blog/')) items.push({ name: 'Learn', item: SITE + '/learn' });
   const slug = path.replace(/\/$/, '').split('/').pop();
   const name = meta.crumb || slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   items.push({ name, item: SITE + path });
-  const list = items.map((it, i) => `{"@type":"ListItem","position":${i + 1},"name":${JSON.stringify(it.name)},"item":${JSON.stringify(it.item)}}`).join(',');
-  return `<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[${list}]}</script>`;
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: it.item })),
+  };
 }
 
 function read(p) { return fs.readFileSync(p, 'utf8'); }
@@ -124,7 +148,7 @@ for (const file of walk(PAGES)) {
     legacy_css: meta.legacy === 'yes'
       ? '<link rel="stylesheet" href="/avilo.css" />\n<link rel="stylesheet" href="/aether-blend.css" />\n<link rel="stylesheet" href="/components.css" />'
       : '',
-    breadcrumb: breadcrumbFor(meta, h.text || ''),
+    breadcrumb: breadcrumbFor(meta, h.text || '', gitDate(file)),
     head_extra: h.text || '',
     year: String(new Date().getFullYear()),
   };
