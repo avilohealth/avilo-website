@@ -194,8 +194,7 @@
         || (slot.parentNode && slot.parentNode.querySelector('[data-cal-gate]'));
       if (gate) gate.style.display = 'none';
       slot.style.display = '';
-      var existing = slot.querySelector('iframe');
-      if (existing) { if (!existing.src) existing.src = CAL; return; }
+      if (slot.querySelector('iframe')) return;
       var frame = d.createElement('iframe');
       frame.src = CAL;
       frame.title = 'Book a 30 minute Avilo demo';
