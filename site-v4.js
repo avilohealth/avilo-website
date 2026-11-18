@@ -221,6 +221,16 @@
   /* ---------- forms ---------- */
   var ENDPOINT = 'https://formspree.io/f/maqvraqz';
 
+  // Every form posts to one Formspree endpoint, so without a subject the email
+  // just inherits whatever that form is named in the dashboard and all five
+  // look identical in the inbox.
+  var SUBJECT = {
+    enquiry: 'Website enquiry (contact page)',
+    capture: 'Website: practice software, from the home page',
+    pms: 'Website: not on Cliniko, practice software',
+    newsletter: 'Website: newsletter signup'
+  };
+
   d.querySelectorAll('form[data-form]').forEach(function (form) {
     if (!form.getAttribute('action')) form.setAttribute('action', ENDPOINT);
     form.addEventListener('submit', function (e) {
@@ -231,9 +241,13 @@
       var ok = scope.querySelector('[data-form-ok]');
       var label = btn ? btn.innerHTML : '';
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      var fd = new FormData(form);
+      var which = form.getAttribute('data-form');
+      if (!fd.get('_subject')) fd.append('_subject', SUBJECT[which] || ('Website form: ' + which));
+      if (!fd.get('source')) fd.append('source', which + ' form, ' + location.pathname);
       fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: fd,
         headers: { Accept: 'application/json' }
       }).then(function (r) {
         if (!r.ok) throw new Error('bad status');
