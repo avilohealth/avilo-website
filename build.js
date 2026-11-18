@@ -163,6 +163,17 @@ for (const file of walk(PAGES)) {
   if (/(^|[^0-9])\u2013|\u2013([^0-9]|$)/.test(html)) errors.push(`${rel}: contains an en dash outside a number range`);
   const badHref = html.match(/href="(?!https?:)[^"]*\.html"/g);
   if (badHref) errors.push(`${rel}: internal .html link(s): ${badHref.slice(0, 3).join(', ')}`);
+  // /solutions: only call answering needs a calls plan. Everything else in
+  // Avilo AI is on Automate at $99, so a bare $139 anchor overprices it.
+  if (meta.path === '/solutions') {
+    for (const m of html.matchAll(/From \$139\/month/g)) {
+      const after = html.slice(m.index, m.index + 320).replace(/<[^>]*>/g, ' ');
+      if (!/Calls answered and booked/.test(after)) {
+        errors.push(`${rel}: "From $139/month" on a feature that works on texts alone (use $99)`);
+      }
+    }
+  }
+
   const exempt = RETIRED_EXEMPT[path.basename(rel)] || [];
   for (const phrase of RETIRED) {
     if (html.includes(phrase) && !exempt.includes(phrase)) errors.push(`${rel}: retired phrase "${phrase}"`);
