@@ -53,4 +53,17 @@ Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 Header always set Content-Security-Policy "frame-ancestors 'self'"
+
+# HTML carried no cache headers, so browsers cached pages heuristically off
+# last-modified and kept serving stale copies after a deploy. Revalidate HTML
+# every time; fingerprint-free assets get a short life with revalidation.
+<FilesMatch "\.(html)$">
+Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(css|js)$">
+Header set Cache-Control "public, max-age=3600, must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(png|jpg|jpeg|webp|svg|woff2|ico)$">
+Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
 </IfModule>
