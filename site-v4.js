@@ -125,12 +125,13 @@
     if (c.analytics && w.AVILO_ANALYTICS_SRC && !d.getElementById('avilo-analytics')) {
       var s = d.createElement('script');
       s.id = 'avilo-analytics';
-      s.defer = true;
+      // type must be set before src so a module script is parsed as one
+      var attrs = w.AVILO_ANALYTICS_ATTRS;
+      if (attrs && attrs.type) s.type = attrs.type; else s.defer = true;
       s.src = w.AVILO_ANALYTICS_SRC;
       // Most privacy-first providers need an attribute as well as the src
       // (Plausible: data-domain, Fathom: data-site, Umami: data-website-id).
-      var attrs = w.AVILO_ANALYTICS_ATTRS;
-      if (attrs) for (var a in attrs) s.setAttribute(a, attrs[a]);
+      if (attrs) for (var a in attrs) { if (a !== 'type') s.setAttribute(a, attrs[a]); }
       d.head.appendChild(s);
     }
   }
