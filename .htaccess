@@ -1,5 +1,8 @@
 ErrorDocument 404 /404.html
 
+# no directory listings: /offer/ must not reveal the landing page slugs
+Options -Indexes
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
@@ -18,6 +21,10 @@ RewriteRule ^cliniko-integration(\.html)?$ /cliniko [R=301,L]
 RewriteRule ^start/thanks(\.html)?$ /demo [R=301,L]
 RewriteRule ^start(\.html)?$ /demo [R=301,L]
 # /blog -> /learn, but keep every /blog/<slug> article URL working
+# ad landing pages live under /offer/<slug>. The bare directory gives nothing away.
+RewriteRule ^offer/?$ / [R=302,L]
+RewriteRule ^inbox/?$ / [R=302,L]
+
 # the two comparison pages were retired with the Nov 2026 redesign
 RewriteRule ^compare/?$ /learn [R=301,L]
 RewriteRule ^compare/.*$ /learn [R=301,L]
