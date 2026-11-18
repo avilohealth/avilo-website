@@ -129,13 +129,31 @@
     e.preventDefault();
     var fd = new FormData(form);
     if (fd.get('website')) return;                       // honeypot
+
+    // type="email" accepts foo@bar, which Formspree rejects with a 422
+    var mail = form.elements.email;
+    if (mail && !/^[^@\s]+@[^@\s.]+(\.[^@\s.]+)+$/.test(String(mail.value).trim())) {
+      mail.setCustomValidity('Enter a complete email address, like you@clinic.com.au');
+      mail.reportValidity();
+      setTimeout(function () { mail.setCustomValidity(''); }, 50);
+      return;
+    }
     fd.append('_subject', 'Avilo Inbox: details submitted (step 2 of 3)');
     fd.append('source', 'offer page, ' + location.pathname);
     fd.append('stage', 'details submitted, calendar not yet booked');
     try { (w.dataLayer = w.dataLayer || []).push({ event: 'setup_form_submitted' }); } catch (err) {}
     goto(3);                                             // never block on the network
     fetch(FORMSPREE, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
-      .catch(function () {});
+      .then(function (r) {
+        // a silent failure here loses the lead and nobody finds out
+        if (!r.ok) return r.json().catch(function () { return {}; }).then(function (data) {
+          var why = (data.errors && data.errors.length && data.errors[0].message) || r.status;
+          if (w.console) console.warn('Avilo: setup-call details were not delivered:', why);
+        });
+      })
+      .catch(function (e) {
+        if (w.console) console.warn('Avilo: setup-call details were not delivered:', e);
+      });
   });
 
   /* ---------------- Calendly ---------------- */

@@ -342,20 +342,9 @@ label.ck-row{cursor:pointer}
 @media (max-width:720px){.wk{grid-template-columns:1fr !important}.res{grid-template-columns:1fr !important}.art h2{font-size:25px !important}.art{font-size:17px !important}.pq{font-size:22px !important}.sms{padding:18px !important}}
 @media print{header,footer,nav,.np,[aria-labelledby="ck-title"]{display:none !important}html,body{background:#fff !important}main > section{padding:16px 0 !important;background:#fff !important}.ws{box-shadow:none !important;border:1px solid #CBD5E1 !important}.ws-res{position:static !important;box-shadow:none !important}}
 
-/* ---------- mobile tab bar (under 720px) ---------- */
-.tabbar{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;align-items:center;gap:2px;padding:6px;border-radius:24px;background:rgba(255,255,255,.86);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(23,32,48,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 18px 40px -16px rgba(23,32,48,.35);transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s}
-.tabbar.is-hidden{transform:translateY(calc(100% + 24px));opacity:0}
-.tabbar .tb{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;border-radius:16px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.01em;transition:color .2s,background .2s;color:#64748B;background:transparent}
-.tabbar .tb[aria-current="page"]{color:#0B7A70;background:rgba(13,148,136,.10)}
-.tabbar .tb-cta{flex:1.15 1 0;border-radius:18px;color:#fff;background:#0D9488;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 22px -10px rgba(13,148,136,.7)}
-.tabbar .tb-cta[aria-current="page"]{color:#fff;background:#0D9488}
-
 @media (max-width:720px){
   html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
   a,button,summary,label{touch-action:manipulation}
-  .tabbar{display:flex}
-  .nv-cta{display:none !important}
-  body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   html body main > section:not([data-screen-label="Hero"]){padding-top:56px !important;padding-bottom:56px !important;padding-left:20px !important;padding-right:20px !important}
   html body main > section[data-screen-label="Hero"]{padding-left:20px !important;padding-right:20px !important}
   html body main h2[style*="clamp(30px"]{font-size:28px !important;line-height:1.14 !important}
@@ -366,13 +355,12 @@ label.ck-row{cursor:pointer}
   .g4:has(> [data-spot]){display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px !important;margin-left:-20px;margin-right:-20px;padding:4px 20px 14px;scroll-padding:0 20px}
   .g4:has(> [data-spot])::-webkit-scrollbar{display:none}
   .g4:has(> [data-spot]) > *{flex:0 0 80%;scroll-snap-align:start}
-  #ck{left:10px !important;right:10px !important;width:auto !important;bottom:calc(92px + env(safe-area-inset-bottom)) !important;max-height:calc(100vh - 200px) !important}
+  #ck{left:10px !important;right:10px !important;width:auto !important;max-height:calc(100vh - 200px) !important}
   .nv-menu{top:80px !important}
 }
 @media (hover:none){
   [data-spot]:hover [data-ic]{transform:none !important}
   [data-spot]:active{transform:scale(.985) !important;transition:transform .12s !important}
-  .tabbar a:active{transform:scale(.96);transition:transform .1s}
   summary:active{background:rgba(13,148,136,.05)}
 }
 

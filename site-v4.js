@@ -59,22 +59,7 @@
     });
   }
 
-  /* Mobile tab bar: slides away on a deliberate scroll down, comes back on
-     any scroll up or near the top. Hidden on desktop by CSS. */
-  var tabbar = d.querySelector('.tabbar');
-  var lastY = null;
-
-  function tabbarPass() {
-    if (!tabbar) return;
-    var y = w.scrollY || d.documentElement.scrollTop || 0;
-    var dy = y - (lastY === null ? y : lastY);
-    lastY = y;
-    if (menuOpen) { tabbar.classList.remove('is-hidden'); return; }
-    if (dy > 10 && y > 240) tabbar.classList.add('is-hidden');
-    else if (dy < -6 || y < 120) tabbar.classList.remove('is-hidden');
-  }
-
-  function tick() { navPass(); tabbarPass(); revealPass(); }
+  function tick() { navPass(); revealPass(); }
   w.addEventListener('scroll', tick, { passive: true });
   w.addEventListener('resize', tick);
   if ('IntersectionObserver' in w) {
@@ -231,6 +216,20 @@
     newsletter: 'Website: newsletter signup'
   };
 
+  // One inline place to tell the visitor what went wrong, per form.
+  function say(form, message) {
+    var box = form.querySelector('[data-form-err]');
+    if (!box) {
+      box = d.createElement('p');
+      box.setAttribute('data-form-err', '');
+      box.style.cssText = 'margin:10px 0 0;font-size:14px;line-height:1.5;color:#B45309';
+      form.appendChild(box);
+    }
+    box.textContent = message;
+    box.style.display = 'block';
+    box.setAttribute('role', 'alert');
+  }
+
   d.querySelectorAll('form[data-form]').forEach(function (form) {
     if (!form.getAttribute('action')) form.setAttribute('action', ENDPOINT);
     form.addEventListener('submit', function (e) {
@@ -240,6 +239,17 @@
       var scope = wrap.parentElement || d;
       var ok = scope.querySelector('[data-form-ok]');
       var label = btn ? btn.innerHTML : '';
+
+      // type="email" accepts foo@bar: the HTML spec does not require a dot in
+      // the domain, but Formspree rejects it with a 422. Catch it here so the
+      // visitor is told which field is wrong instead of "something went wrong".
+      var mail = form.querySelector('input[type=email]');
+      if (mail && mail.value && !/^[^@\s]+@[^@\s.]+(\.[^@\s.]+)+$/.test(mail.value.trim())) {
+        say(form, 'That email address looks incomplete. Check it and try again.');
+        mail.focus();
+        return;
+      }
+
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       var fd = new FormData(form);
       var which = form.getAttribute('data-form');
@@ -250,15 +260,22 @@
         body: fd,
         headers: { Accept: 'application/json' }
       }).then(function (r) {
-        if (!r.ok) throw new Error('bad status');
-        form.reset();
-        wrap.style.display = 'none';
-        if (ok) ok.style.display = 'block';
-      }).catch(function () {
+        return r.json().catch(function () { return {}; }).then(function (data) {
+          if (!r.ok) {
+            // Formspree explains what it rejected; pass that on rather than hide it
+            var why = (data.errors && data.errors.length && data.errors[0].message) || '';
+            throw new Error(why);
+          }
+          form.reset();
+          if (btn) { btn.disabled = false; btn.innerHTML = label; }
+          wrap.style.display = 'none';
+          if (ok) ok.style.display = 'block';
+        });
+      }).catch(function (e) {
         if (btn) { btn.disabled = false; btn.innerHTML = label; }
-        var err = form.querySelector('[data-form-err]');
-        if (err) err.style.display = 'block';
-        else alert('Something went wrong. Please email hello@avilo.com.au instead.');
+        say(form, (e && e.message)
+          ? e.message + ' If it keeps happening, email hello@avilo.com.au.'
+          : 'That did not send. Please email hello@avilo.com.au instead.');
       });
     });
   });
