@@ -24,7 +24,14 @@ const SITE = 'https://avilo.com.au';
 const RETIRED = [
   'AI front desk', 'Your AI front desk', 'front desk handled', 'Officially integrated',
   'Real clinics, real numbers', 'Notifications plan', 'Abby', 'Lyngo', 'Aeva', 'BookedSolid', 'Cliniq',
+  // claims the legal review found to be untrue of production (14 Nov 2026)
+  'within 60 seconds', 'web chat', 'not offshore', 'escalation threshold',
+  'Export or delete everything', 'in one click', 'patient database kept anywhere else',
+  'two-factor', 'two-step sign-in',
 ];
+// Terms §4 reserves the right to require two-step sign-in. That is a contractual
+// reservation, not a claim that the feature is live, so it is allowed there only.
+const RETIRED_EXEMPT = { 'terms.html': ['two-factor', 'two-step sign-in'] };
 
 // BreadcrumbList, generated from meta.path. Skipped when the page already
 // supplies its own, and on the home page (a one-item trail says nothing).
@@ -132,7 +139,10 @@ for (const file of walk(PAGES)) {
   if (/(^|[^0-9])\u2013|\u2013([^0-9]|$)/.test(html)) errors.push(`${rel}: contains an en dash outside a number range`);
   const badHref = html.match(/href="(?!https?:)[^"]*\.html"/g);
   if (badHref) errors.push(`${rel}: internal .html link(s): ${badHref.slice(0, 3).join(', ')}`);
-  for (const phrase of RETIRED) if (html.includes(phrase)) errors.push(`${rel}: retired phrase "${phrase}"`);
+  const exempt = RETIRED_EXEMPT[path.basename(rel)] || [];
+  for (const phrase of RETIRED) {
+    if (html.includes(phrase) && !exempt.includes(phrase)) errors.push(`${rel}: retired phrase "${phrase}"`);
+  }
   // Relative asset paths break on any page below the root. The design handoff
   // relies on <base href="/">, which the build does not emit.
   for (const m of html.matchAll(/(?:src|href)="(?!https?:|mailto:|tel:|data:|#|\/)([^"]+)"/g)) {

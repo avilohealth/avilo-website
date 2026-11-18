@@ -21,7 +21,7 @@ Texts only:
 - Inbox, $49/month: reminders and confirmations, quiet patients nudged and at-risk flagged, two-way messaging platform. Texts are 7.5c each, pay as you go. Avilo AI is not included.
 - Automate, $99/month: 100 texts included, then 7.5c each. Everything in Inbox plus Avilo AI (replies, rescheduling and waitlist), across unlimited sites.
 
-Texts and calls, with 24/7 phone cover, calls and texts in one inbox, and unlimited web chat:
+Texts and calls, with 24/7 phone cover, and calls and texts in one inbox:
 - Starter, $139/month: 40 calls and 150 texts included.
 - Growth, $299/month: 120 calls and 400 texts included.
 - Scale, $649/month: 300 calls and 1,000 texts included, plus priority support.
