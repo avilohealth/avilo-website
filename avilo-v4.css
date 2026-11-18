@@ -365,3 +365,22 @@ label.ck-row{cursor:pointer}
   .tabbar a:active{transform:scale(.96);transition:transform .1s}
   summary:active{background:rgba(13,148,136,.05)}
 }
+
+/* ---------- /inbox landing page ---------- */
+.hovr-199e5f:hover{background:#0B7A70;transform:translateY(-1px);color:#fff}
+.hovr-e7b025:hover{color:#095F58;text-decoration:underline}
+.hovr-9cf811:hover{border-color:#0D9488}
+.hovr-dc32f5:hover{color:#0A7A70}
+.hovr-dbb2fb:hover{background:#fff;transform:translateY(-4px);box-shadow:var(--float);border-color:#D1F0EC}
+.hovr-56a570:hover{transform:translateY(-4px);box-shadow:var(--float-lg)}
+.hovr-17fbaf:hover{transform:translateY(-4px);background:rgba(255,255,255,.09)}
+.hovr-2fdf36:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);color:#fff}
+.hovr-949813:hover{transform:translateY(-4px)}
+.hovr-b59271:hover{color:#fff}
+.sticky-cta{display:none}
+@media (max-width:760px){
+  .sticky-cta.is-on{display:block}
+  body:has(.sticky-cta.is-on) footer{padding-bottom:112px !important}
+  /* lift the cookie card clear of the sticky CTA */
+  body:has(.sticky-cta.is-on) #ck{bottom:96px !important}
+}
