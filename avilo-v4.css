@@ -137,8 +137,16 @@ details[open] .chev{transform:rotate(180deg)}
 .ft a{color:#CBD5E1;text-decoration:none}
 .ft a:hover{color:#fff}
 .ft-wrap{max-width:1180px;margin:0 auto}
-.ft-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:32px}
-.ft-brand{grid-column:span 1;min-width:220px}
+/* brand block plus four link columns. auto-fit only fitted four in all, which
+   dropped the last column onto a row of its own once For clinics was added. */
+.ft-cols{display:grid;grid-template-columns:1.5fr repeat(4,minmax(120px,1fr));gap:32px}
+.ft-brand{min-width:200px}
+@media (max-width:1060px){
+  .ft-cols{grid-template-columns:repeat(4,minmax(120px,1fr))}
+  .ft-brand{grid-column:1/-1}
+}
+@media (max-width:660px){.ft-cols{grid-template-columns:repeat(2,minmax(130px,1fr))}}
+@media (max-width:340px){.ft-cols{grid-template-columns:1fr}}
 .ft-mark{display:flex;align-items:center;gap:8px;color:#fff;font-weight:800;font-size:19px;letter-spacing:-.035em}
 .ft h2{color:#fff;font-weight:700;font-size:14.5px;letter-spacing:0;line-height:1.6;margin:0 0 12px}
 .ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
