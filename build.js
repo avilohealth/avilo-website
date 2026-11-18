@@ -13,6 +13,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { execSync } = require('child_process');
 
 const ROOT = __dirname;
@@ -70,6 +71,25 @@ function breadcrumbNode(meta, headExtra) {
     '@type': 'BreadcrumbList',
     itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: it.item })),
   };
+}
+
+// Cache busting. Browsers kept running old CSS and JS after a deploy, which
+// made fixed bugs look unfixed. Every local .css/.js reference gets ?v=<hash
+// of that file's contents>, so a changed file is a new URL and an unchanged
+// one still comes from cache.
+const assetHashes = new Map();
+function assetVersion(file) {
+  if (!assetHashes.has(file)) {
+    const abs = path.join(ROOT, file);
+    let v = '0';
+    try { v = crypto.createHash('sha1').update(fs.readFileSync(abs)).digest('hex').slice(0, 8); } catch (e) {}
+    assetHashes.set(file, v);
+  }
+  return assetHashes.get(file);
+}
+function versionAssets(html) {
+  return html.replace(/(src|href)="\/([A-Za-z0-9._-]+\.(?:css|js))"/g,
+    (m, attr, file) => `${attr}="/${file}?v=${assetVersion(file)}"`);
 }
 
 function read(p) { return fs.readFileSync(p, 'utf8'); }
@@ -155,7 +175,7 @@ for (const file of walk(PAGES)) {
   const nav = meta.nav === 'none' ? '' : render(partials.nav, vars);
   const footer = meta.footer === 'none' ? '' : render(partials.footer, vars);
   const body = meta.main === 'none' ? src.trim() + '\n' : '<main id="main">\n' + src.trim() + '\n</main>\n';
-  const html = render(partials.head, vars) + nav + body + footer + render(partials.tail, vars);
+  let html = render(partials.head, vars) + nav + body + footer + render(partials.tail, vars);
 
   // guards on output
   if (html.includes('\u2014')) errors.push(`${rel}: contains an em dash`);
@@ -185,6 +205,7 @@ for (const file of walk(PAGES)) {
   }
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) errors.push(`${rel}: must have exactly one <h1>`);
 
+  html = versionAssets(html);
   pages.push({ rel, file, meta, html, out: outPathFor(meta.path) });
 }
 

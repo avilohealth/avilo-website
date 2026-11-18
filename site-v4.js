@@ -190,8 +190,12 @@
     slots.forEach(function (slot) {
       if (slot.dataset.loaded) return;
       slot.dataset.loaded = '1';
-      var gate = slot.querySelector('[data-cal-gate]');
+      var gate = slot.querySelector('[data-cal-gate]')
+        || (slot.parentNode && slot.parentNode.querySelector('[data-cal-gate]'));
       if (gate) gate.style.display = 'none';
+      slot.style.display = '';
+      var existing = slot.querySelector('iframe');
+      if (existing) { if (!existing.src) existing.src = CAL; return; }
       var frame = d.createElement('iframe');
       frame.src = CAL;
       frame.title = 'Book a 30 minute Avilo demo';
