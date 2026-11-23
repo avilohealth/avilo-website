@@ -1,0 +1,664 @@
+/* ============================================================
+   AVILO — Colors & Type foundations  (v2 · reconciled to the live site + Brand v3.3)
+   AI receptionist + communication hub for allied health (Cliniko-native).
+   Source of truth for exact values: avilohealth/Avilo (marketing site + app).
+   Import this file, then use the CSS vars below.
+   ============================================================ */
+
+:root {
+  /* ---------- BRAND COLORS ---------- */
+  /* Navy — text, dark sections, app icon background */
+  --navy:          #172030;   /* Navy Dark  — hero, footer, dark bg, deepest brand colour */
+  --navy-mid:      #2B3A52;   /* Navy Mid   — ALL headings + wordmark + nav text on white */
+  --navy-light:    #3D5068;   /* Navy Light — dividers in dark UI, tertiary dark accents */
+  --navy-footer:   #0F1620;   /* Footer goes one shade deeper than hero navy */
+
+  /* Teal — the interactive colour. Teal Primary is the single most important. */
+  --teal:          #0D9488;   /* Teal Primary — CTAs, links, active UI, gradient dark end */
+  --teal-dark:     #0A7A70;   /* Hover state for teal buttons (~10% darker). Repo: --teal-hover #0B7A70 */
+  --teal-darker:   #095F58;   /* Active / pressed state (~20% darker).      Repo: --teal-active */
+  --teal-light:    #4DD9C0;   /* Logo gradient light end, accents. NEVER a solo button (low contrast) */
+  --teal-wash:     #E8F8F6;   /* Alternating section bg, card tints, tag fills */
+  --teal-wash-mid: #D1F0EC;   /* Slightly deeper wash — hover border, icon chips */
+  --teal-wash-faint: #F0FDFA; /* Faintest wash — ghost-button hover fill (repo --teal-wash) */
+
+  /* Neutrals */
+  --slate:         #475569;   /* Body copy, subtitles, secondary text on light bg */
+  --slate-light:   #94A3B8;   /* Tertiary text, captions, placeholder */
+  --border:        #E2E8F0;   /* Card borders, dividers, input borders. Never for text */
+  --border-subtle: #F1F5F9;   /* Hairline dividers, subtle row separators */
+  --bg:            #F8FAFC;   /* App canvas background (off-white) */
+  --white:         #FFFFFF;   /* Page bg, card bg, text on navy */
+
+  /* Text-on-navy (transparency, not new colours) */
+  --on-navy:        rgba(255,255,255,0.92); /* body text on navy */
+  --on-navy-dim:    rgba(255,255,255,0.70); /* subtitles on navy */
+  --on-navy-faint:  rgba(255,255,255,0.45); /* footer text, fine print on navy */
+
+  /* ---------- SEMANTIC / STATUS ---------- */
+  /* ONE canonical status set (README §4.1). Red + amber are EARNED colours:
+     cancellation / human-escalation only. Positive outcomes are success green,
+     never teal (teal = brand + interaction). */
+  --red:           #EF4444;   /* Missed / cancelled / lost — used sparingly */
+  --red-light:     #FEF2F2;   /* Alert tile / banner background */
+  --red-text:      #DC2626;   /* Red as text on red-light (repo .mt-red) */
+  --amber:         #F59E0B;   /* Needs-you / escalation / pending flag */
+  --amber-light:   #FEF3C7;
+  --amber-wash:    #FEF3E2;   /* Repo amber tag fill */
+  --amber-text:    #B45309;   /* Amber as text on amber-wash (repo --amber) */
+  --green:         #10B981;   /* Handled / booked / confirmed — the green-check card */
+  --green-light:   #ECFDF5;
+  --success:       var(--green);   /* README name for the same colour */
+  --success-wash:  #DCFCE7;        /* Booked-card check chip fill (repo .ck-tick) */
+  --success-text:  #166534;        /* Check glyph / green text on the wash (repo .ck-tick) */
+  --alert:         var(--red);     /* README name; also replaces the motion doc's #D9534F */
+  --flag-human:    var(--amber);   /* Replaces the motion doc's #E9B949 */
+
+  /* ---------- CHAT BUBBLES (v2 — exact values from the repo, avilo.css .sms-bubble) ---------- */
+  /* Two-party convention used in every SMS demo and reel:
+     patient = blue, right-aligned, white text · Avilo = grey, left-aligned, navy text.
+     Teal NEVER colours a bubble. The booking outcome is not a bubble — it's a white
+     card with a --success check ("Cliniko: booked Thu 2:00pm with Dr. Chen"). */
+  --bubble-patient:       #2E8FFF;   /* .b-patient — README §4.2 estimated #5B6EE8; repo is #2E8FFF */
+  --bubble-patient-text:  #FFFFFF;
+  --bubble-avilo:         #E9ECEF;   /* .b-avilo / .b-reminder — README estimated #EEF1F4; repo is #E9ECEF */
+  --bubble-avilo-text:    var(--navy);
+  --bubble-radius:        18px;      /* tightened to 5px on the sender-side bottom corner */
+  --bubble-reel-radius:   34px;      /* 1080-wide reels scale the same shape up */
+
+  /* ---------- MOTION / REEL SURFACES ---------- */
+  /* Diary/calendar slot states + earned red/amber for the animation system. */
+  --slot-empty:    #EEF1F5;   /* neutral grey — an unfilled diary slot */
+  --slot-filled:   #0D9488;   /* teal — a booked slot */
+  --slot-new:      #4DD9C0;   /* teal-light pulse — a slot Avilo just filled */
+  --alert-wash:    #FBEDED;   /* soft red wash — a cancellation / gone slot */
+  /* --alert and --flag-human now alias the canonical --red / --amber above
+     (the old #D9534F / #E9B949 pair is retired — README §8). */
+
+  /* Logo gradient — mark + wordmark hero treatment */
+  --grad-brand:    linear-gradient(135deg, #4DD9C0 0%, #0D9488 100%); /* @kind color */
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* Weights — the brand uses a tight set. 800 display, 700 sub-heads, 600 UI/labels, 500 medium, 400 body. */
+  --fw-body:    400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-ui:      600; /* @kind font */   /* buttons, nav, labels */
+  --fw-strong:  700; /* @kind font */   /* h3, card titles */
+  --fw-display: 800; /* @kind font */   /* h1, h2, big numbers, wordmark weight */
+
+  /* Type scale (fluid where it matters) */
+  --t-h1:    clamp(40px, 5vw, 64px); /* @kind font */
+  --t-h2:    clamp(28px, 3.5vw, 46px); /* @kind font */
+  --t-h3:    clamp(20px, 2.4vw, 28px); /* @kind font */
+  --t-h4:    18px; /* @kind font */
+  --t-lead:  17px; /* @kind font */    /* section sub / lead paragraph */
+  --t-body:  15px; /* @kind font */    /* default body */
+  --t-sm:    13.5px; /* @kind font */  /* dense UI copy */
+  --t-xs:    12px; /* @kind font */    /* captions, fine print */
+  --t-eyebrow: 11px; /* @kind font */  /* uppercase eyebrow label */
+
+  /* Letter-spacing — Plus Jakarta Sans wants negative tracking at display sizes */
+  --ls-display: -0.035em; /* @kind font */
+  --ls-h2:      -0.025em; /* @kind font */
+  --ls-tight:   -0.02em; /* @kind font */
+  --ls-eyebrow:  0.12em; /* @kind font */  /* uppercase eyebrow / section labels */
+
+  /* Line heights */
+  --lh-display: 1.05; /* @kind font */
+  --lh-heading: 1.15; /* @kind font */
+  --lh-body:    1.75; /* @kind font */
+
+  /* ---------- RADII ---------- */
+  --r-sm:   6px;    /* pills, small chips, input inner */
+  --r-md:   8px;    /* buttons (default), nav items, icon buttons */
+  --r-lg:   10px;   /* large buttons, input fields, tiles */
+  --r-xl:   14px;   /* cards */
+  --r-2xl:  16px;   /* stat cards, feature panels */
+  --r-3xl:  20px;   /* hero mockup, modals */
+  --r-full: 999px;  /* pill eyebrows, status pills */
+
+  /* ---------- SHADOWS (navy-tinted, never pure black) ---------- */
+  --shadow-sm: 0 1px 3px rgba(23,32,48,0.06), 0 1px 2px rgba(23,32,48,0.04);
+  --shadow-md: 0 4px 16px rgba(23,32,48,0.08), 0 2px 6px rgba(23,32,48,0.05);
+  --shadow-lg: 0 8px 32px rgba(23,32,48,0.10), 0 4px 12px rgba(23,32,48,0.06);
+  --shadow-xl: 0 20px 60px rgba(23,32,48,0.12), 0 8px 24px rgba(23,32,48,0.08);
+  /* Teal-tinted CTA glow */
+  --shadow-cta:       0 4px 14px rgba(13,148,136,0.30);   /* repo: 0 6px 18px -6px rgba(13,148,136,.45) */
+  --shadow-cta-hover: 0 8px 22px rgba(13,148,136,0.40);
+  --shadow-cta-feat:  inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55); /* "Most popular" card CTA */
+  --shadow-float:     0 18px 44px -14px rgba(2,8,23,.45);  /* floating demo chips over the dark hero */
+  /* Primary CTA is SOLID teal. The "gradient" read in README §4.3 is this inset bevel
+     highlight + teal glow (repo aether-blend.css .btn-primary) — not a gradient fill. */
+  --shadow-cta-pill:  inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55);
+  --shadow-nav-cta:   inset 0 1px 0 rgba(255,255,255,.14), 0 8px 18px -8px rgba(23,32,48,.5);   /* navy nav pill on light */
+  --navy-hover:       #1D2A3E;                              /* navy nav-CTA hover */
+  --nav-glass:        rgba(255,255,255,0.72);               /* floating nav pill; backdrop-filter: blur(20px) saturate(180%) */
+  --nav-glass-shadow: 0 12px 30px -16px rgba(23,48,44,.2);
+  --hero-bg:          radial-gradient(56% 90% at 86% 0%, rgba(13,148,136,.2), transparent 62%), radial-gradient(44% 74% at 2% 100%, rgba(77,217,192,.1), transparent 62%), radial-gradient(40% 60% at 50% 120%, rgba(38,51,75,.9), transparent 70%), #172030; /* @kind color */
+
+  /* ---------- GLASS SURFACE LAYER (v2 — repo aether-blend.css, loads after avilo.css) ---------- */
+  /* The "frosted-glass" redesign: pearl page ground, translucent white cards with a
+     hairline border, an inner bevel highlight, and soft navy-green float shadows. */
+  --pearl:           #ECF2F1;                       /* light-section page ground behind glass cards */
+  --glass:           rgba(255,255,255,0.66);        /* card / selector / stage surface */
+  --glass-strong:    rgba(255,255,255,0.85);        /* nav pill, ghost buttons, featured panels */
+  --hairline:        rgba(23,32,48,0.08);           /* glass card border */
+  --hairline-strong: rgba(23,32,48,0.12);
+  --bevel:           inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(23,32,48,.03); /* @kind shadow */
+  --float:           0 18px 40px -18px rgba(23,48,44,.16), 0 4px 12px -6px rgba(23,48,44,.07);
+  --float-lg:        0 32px 70px -28px rgba(23,48,44,.22), 0 8px 20px -10px rgba(23,48,44,.09);
+  --r-pill:          9999px;                        /* every marketing button is a pill */
+  --r-card:          24px;                          /* glass cards, stages, pricing tiers */
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-22: 88px; /* section vertical padding */
+
+  /* ---------- MOTION ---------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 0.15s; /* @kind other */  /* hover/press on UI */
+  --dur:      0.25s; /* @kind other */  /* buttons, cards */
+  --dur-slow: 0.5s; /* @kind other */   /* scroll reveal */
+}
+
+/* ============================================================
+   BASE ELEMENT STYLES (semantic defaults)
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  color: var(--slate);
+  background: var(--white);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--navy-mid);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-heading);
+}
+h1 { font-size: var(--t-h1); letter-spacing: var(--ls-display); line-height: var(--lh-display); }
+h2 { font-size: var(--t-h2); letter-spacing: var(--ls-h2); line-height: 1.12; }
+h3 { font-size: var(--t-h3); font-weight: var(--fw-strong); }
+h4 { font-size: var(--t-h4); font-weight: var(--fw-strong); }
+
+p { line-height: var(--lh-body); }
+a { color: var(--teal); text-decoration: none; }
+
+/* Eyebrow — uppercase teal label that sits above headings */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--t-eyebrow);
+  font-weight: var(--fw-strong);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* Lead / sub paragraph under a heading */
+.lead { font-size: var(--t-lead); line-height: 1.78; color: var(--slate); }
+
+/* On dark (navy) surfaces */
+.on-navy h1, .on-navy h2, .on-navy h3, .on-navy h4 { color: var(--white); }
+.on-navy .eyebrow { color: var(--teal-light); }
+.on-navy .lead { color: var(--on-navy-dim); }
+
+body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0D9488}a:hover{color:#0A7A70}
+.hdr{position:absolute;left:0;top:0;display:flex;align-items:center;gap:20px;font-size:36px;font-weight:700;color:#172030;white-space:nowrap}
+.hdr .num{background:#172030;color:#fff;border-radius:12px;padding:6px 16px;font-size:30px}.hdr .ty{font-size:26px;font-weight:500;color:#64748B}
+.tog{display:flex;gap:6px;background:#fff;border-radius:14px;padding:6px;border:1px solid #E2E8F0;margin-left:12px}
+.tog button{font:inherit;font-size:22px;font-weight:700;border:0;border-radius:10px;padding:10px 18px;background:transparent;color:#64748B;cursor:pointer}
+body:not(.avilo) .tog .bk,body.avilo .tog .ba{background:#0D9488;color:#fff}
+.sl{position:absolute;top:100px}.sl>.n{font-size:26px;font-weight:600;color:#64748B;margin-bottom:16px}
+.post{position:relative;width:1080px;height:1350px;overflow:hidden;color:var(--ink);box-shadow:0 30px 80px -40px rgba(23,32,48,.45)}
+.fd-navy{--ink:#fff;--acc:#4DD9C0;--sub:#A9B8CC;--ov:#4DD9C0;--line:rgba(255,255,255,.12);background:radial-gradient(110% 80% at 50% 100%,#1E3A4F 0%,#172030 55%,#0e141e 100%)}
+.fd-teal{--ink:#fff;--acc:#C2F7EC;--sub:#DDF7F1;--ov:#C9F5EC;--line:rgba(255,255,255,.2);background:linear-gradient(165deg,#17A89A 0%,#0D9488 50%,#0A7A70 100%)}
+.fd-mint{--ink:#10282F;--acc:#08605A;--sub:#1F474C;--ov:#08605A;--line:rgba(16,40,47,.16);background:linear-gradient(170deg,#B4F1E4 0%,#6FDCC7 50%,#36BBA7 100%)}
+.fd-tn{--ink:#fff;--acc:#4DD9C0;--sub:#BCCDDA;--ov:#4DD9C0;--line:rgba(255,255,255,.14);background:linear-gradient(180deg,#0D9488 0%,#0B6F69 48%,#172030 100%)}
+.ring{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.09);transform:translate(-50%,-50%);pointer-events:none}
+.fd-mint .ring{border-color:rgba(255,255,255,.32)}
+.glow{position:absolute;width:1000px;height:1000px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.36),rgba(77,217,192,0) 62%)}
+.fd-mint .glow{background:radial-gradient(circle,rgba(255,255,255,.55),rgba(255,255,255,0) 60%)}
+.in{position:absolute;inset:0;padding:96px 88px 84px;display:flex;flex-direction:column;box-sizing:border-box}
+.ov{font-size:24px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ov)}
+.h{margin-top:22px;font-size:80px;font-weight:700;line-height:1.07;letter-spacing:-.03em;text-wrap:balance;max-width:900px}
+.h.md{font-size:68px}.h.xl{font-size:96px}.h em{font-style:normal;color:var(--acc)}
+.sub{margin-top:26px;font-size:34px;font-weight:500;line-height:1.4;color:var(--sub);max-width:860px;text-wrap:pretty}
+.c{text-align:center;align-items:center}.c .h,.c .sub{margin-left:auto;margin-right:auto}
+.vis{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;margin:36px 0}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:30px;border-top:2px solid var(--line);font-size:24px;font-weight:600;color:var(--sub);text-align:left}
+.ft>span{display:flex;align-items:center;gap:14px}
+.sig{display:flex;align-items:center;gap:14px;color:var(--ink);margin-left:auto}
+.sig i{width:50px;height:50px;border-radius:15px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(6,50,46,.6)}.sig img{width:32px}
+.sig .k,.sig .a{font-size:28px;font-weight:700}.sig .a b{color:var(--acc)}
+body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
+.ex{font-size:18px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.2);color:var(--ink)}
+.g,.g2{box-sizing:border-box;color:#172030;text-align:left}
+.g{background:linear-gradient(160deg,rgba(255,255,255,.94),rgba(255,255,255,.72));border:1px solid rgba(255,255,255,.75);border-radius:30px;box-shadow:0 40px 80px -36px rgba(6,50,46,.6),inset 0 1px 0 rgba(255,255,255,.9);backdrop-filter:blur(14px)}
+.g2{background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(255,255,255,.28));border:1px solid rgba(255,255,255,.45);border-radius:30px;backdrop-filter:blur(10px)}
+.bar{height:12px;border-radius:6px;background:rgba(23,32,48,.12)}.bar.s{height:9px;background:rgba(23,32,48,.08)}
+.av{border-radius:50%;background:linear-gradient(155deg,#4DD9C0,#0D9488);flex:0 0 auto;box-shadow:0 6px 14px -6px rgba(13,148,136,.7)}
+.pill{border-radius:999px;background:linear-gradient(90deg,#2BC3AE,#0D9488);box-shadow:0 10px 20px -10px rgba(13,148,136,.8)}
+.badge{position:relative;flex:0 0 auto;border-radius:50%;background:linear-gradient(160deg,#fff,rgba(255,255,255,.78));box-shadow:0 24px 44px -18px rgba(6,50,46,.55);display:flex;align-items:center;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px !important;font-size:24px;font-weight:700;color:#0A7A70 !important;white-space:nowrap}
+.dot{width:14px;height:14px;border-radius:50%;background:#4DD9C0;box-shadow:0 0 0 6px rgba(77,217,192,.25);flex:0 0 auto}
+.bub{padding:18px 24px;font-size:28px;font-weight:600;line-height:1.35;max-width:80%}
+.bub.o{align-self:flex-end;background:linear-gradient(160deg,#17A89A,#0D9488);color:#fff;border-radius:26px 26px 8px 26px;box-shadow:0 12px 24px -12px rgba(13,148,136,.8)}
+.bub.i{align-self:flex-start;background:#E8F8F6;color:#172030;border-radius:26px 26px 26px 8px}
+.ts{font-size:20px;font-weight:700;color:#94A3B8}
+.lab{font-size:20px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0A7A70}
+.row{display:flex;align-items:center;gap:18px}
+.t26{font-size:26px;font-weight:600;line-height:1.35}.t30{font-size:30px;font-weight:600;line-height:1.35}
+/* v2 element set */
+.fd-paper{--ink:#172030;--acc:#0D9488;--sub:#516072;--ov:#0D9488;--line:#E1E8ED;background:#F6F9F8}
+.fd-ink{--ink:#fff;--acc:#4DD9C0;--sub:#9FB0C6;--ov:#4DD9C0;--line:rgba(255,255,255,.1);background:#111925}
+.fd-paper .g{border-color:#E6EDF1;box-shadow:0 30px 60px -32px rgba(23,32,48,.28),inset 0 1px 0 #fff}
+.fd-paper .ex{background:#E8F8F6;color:#0A7A70}.fd-paper .sig i{background:#E8F8F6;box-shadow:none}
+.gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(23,32,48,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(23,32,48,.05) 1px,transparent 1px);background-size:90px 90px}
+.fd-ink .gridbg,.fd-navy .gridbg{background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px)}
+.gd{box-sizing:border-box;background:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.13);border-radius:30px;backdrop-filter:blur(12px);color:#fff}
+.disp{font-weight:300;letter-spacing:-.045em;line-height:1.02;text-wrap:balance}.disp b{font-weight:800;color:var(--acc)}
+.stat{font-weight:800;letter-spacing:-.06em;line-height:.85}
+.qm{font-size:440px;font-weight:800;line-height:.62;color:var(--acc);opacity:.55;height:220px}
+.slot{box-sizing:border-box;border-radius:18px;padding:18px 22px;font-size:24px;font-weight:700;display:flex;flex-direction:column;gap:4px;line-height:1.25}
+.slot small{font-size:19px;font-weight:600;opacity:.75}
+.slot.bk{background:linear-gradient(160deg,#17A89A,#0D9488);color:#fff;box-shadow:0 14px 28px -14px rgba(13,148,136,.9)}
+.slot.em{border:2.5px dashed #A7B4C2;color:#7D8C9D;background:rgba(255,255,255,.45)}
+.slot.cx{background:#EDF1F4;color:#94A3B8;text-decoration:line-through}
+.slot.nw{background:#fff;color:#172030;box-shadow:0 0 0 4px #4DD9C0,0 20px 40px -14px rgba(13,148,136,.7)}
+.cb{width:46px;height:46px;border-radius:13px;border:3px solid #C5D0DA;flex:0 0 auto;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#fff}
+.cb.on{background:#0D9488;border-color:#0D9488}
+.idx{display:inline-flex;font-size:22px;font-weight:800;letter-spacing:.12em;padding:10px 18px;border-radius:12px;background:var(--acc);color:#0b2a2a}
+.dots{display:flex;gap:10px;align-items:center}.dots i{width:12px;height:12px;border-radius:6px;background:var(--line)}.dots i.on{width:40px;background:var(--acc)}
+.fd-paper .dots i{background:#D3DCE3}.fd-paper .dots i.on{background:#0D9488}
+.phone{box-sizing:border-box;width:500px;height:980px;border-radius:84px;background:#0A0F17;padding:16px;box-shadow:0 60px 120px -50px rgba(0,0,0,.8),inset 0 0 0 2px rgba(255,255,255,.08)}
+.phone .scr{position:relative;width:100%;height:100%;border-radius:70px;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#1E3A4F,#0E141E 70%);display:flex;flex-direction:column;align-items:center;padding:110px 26px 0;box-sizing:border-box}
+.phone .isl{position:absolute;top:22px;left:50%;transform:translateX(-50%);width:150px;height:44px;border-radius:22px;background:#000}
+.prog{position:relative;border-radius:50%;background:conic-gradient(var(--acc) 0 var(--p,70%),rgba(255,255,255,.14) 0)}
+.prog::after{content:"";position:absolute;inset:22px;border-radius:50%;background:inherit;background:var(--hole,#172030)}
+.prog>*{position:relative;z-index:1}
+.conn{position:absolute;border-top:3px dashed var(--acc);opacity:.7;transform-origin:0 0}
+.band{position:absolute;left:0;right:0}
+/* background layers — drop one .lyr inside any .post */
+.lyr{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bg-aurora{filter:blur(40px);background:radial-gradient(40% 32% at 18% 22%,rgba(77,217,192,.6),transparent 70%),radial-gradient(42% 36% at 88% 42%,rgba(13,148,136,.7),transparent 70%),radial-gradient(55% 40% at 45% 98%,rgba(110,154,224,.4),transparent 70%)}
+.bg-dots{background-image:radial-gradient(rgba(255,255,255,.28) 2.2px,transparent 2.8px);background-size:34px 34px;-webkit-mask-image:radial-gradient(58% 48% at 72% 62%,#000,transparent);mask-image:radial-gradient(58% 48% at 72% 62%,#000,transparent)}
+.fd-paper .bg-dots{background-image:radial-gradient(rgba(13,148,136,.35) 2.2px,transparent 2.8px)}
+.bg-topo{background:repeating-radial-gradient(ellipse 120% 90% at 85% 75%,transparent 0 44px,rgba(255,255,255,.13) 44px 46px),repeating-radial-gradient(ellipse 90% 70% at 5% 5%,transparent 0 52px,rgba(255,255,255,.08) 52px 54px)}
+.bg-beams{filter:blur(6px);background:repeating-linear-gradient(118deg,transparent 0 140px,rgba(255,255,255,.08) 140px 250px,transparent 250px 330px,rgba(255,255,255,.04) 330px 380px);-webkit-mask-image:linear-gradient(200deg,#000 10%,transparent 75%);mask-image:linear-gradient(200deg,#000 10%,transparent 75%)}
+.bg-grain{opacity:.32;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg-vig{background:radial-gradient(90% 70% at 50% 40%,transparent 40%,rgba(0,0,0,.28))}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0,#C2F7EC 12%,#2BC3AE 42%,#0A7A70 78%,#075E57 100%);box-shadow:0 60px 120px -40px rgba(4,40,37,.7)}
+.bg-diary{background:repeating-linear-gradient(180deg,transparent 0 118px,rgba(255,255,255,.1) 118px 120px),repeating-linear-gradient(90deg,transparent 0 268px,rgba(255,255,255,.07) 268px 270px)}
+.fd-paper .bg-diary{background:repeating-linear-gradient(180deg,transparent 0 118px,#E1E8ED 118px 120px),repeating-linear-gradient(90deg,transparent 0 268px,#EBF0F3 268px 270px)}
+.ghost-slot{position:absolute;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
+.fd-paper .ghost-slot{background:rgba(13,148,136,.07);border-color:rgba(13,148,136,.14)}
+.hill{position:absolute;border-radius:50%}
+.bg-half{background-image:radial-gradient(rgba(255,255,255,.3) 3px,transparent 3.6px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,transparent 35%,#000);mask-image:linear-gradient(180deg,transparent 35%,#000)}
+.bg-sweep{background:conic-gradient(from 210deg at 82% 82%,transparent 0deg,rgba(77,217,192,.42) 70deg,transparent 71deg,transparent 360deg)}
+.pane{position:absolute;border-radius:48px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
+
+/* Avilo design system — global entry. Consumers link this one file. */
+/* ============================================================
+   AVILO — Colors & Type foundations  (v2 · reconciled to the live site + Brand v3.3)
+   AI receptionist + communication hub for allied health (Cliniko-native).
+   Source of truth for exact values: avilohealth/Avilo (marketing site + app).
+   Import this file, then use the CSS vars below.
+   ============================================================ */
+
+:root {
+  /* ---------- BRAND COLORS ---------- */
+  /* Navy — text, dark sections, app icon background */
+  --navy:          #172030;   /* Navy Dark  — hero, footer, dark bg, deepest brand colour */
+  --navy-mid:      #2B3A52;   /* Navy Mid   — ALL headings + wordmark + nav text on white */
+  --navy-light:    #3D5068;   /* Navy Light — dividers in dark UI, tertiary dark accents */
+  --navy-footer:   #0F1620;   /* Footer goes one shade deeper than hero navy */
+
+  /* Teal — the interactive colour. Teal Primary is the single most important. */
+  --teal:          #0D9488;   /* Teal Primary — CTAs, links, active UI, gradient dark end */
+  --teal-dark:     #0A7A70;   /* Hover state for teal buttons (~10% darker). Repo: --teal-hover #0B7A70 */
+  --teal-darker:   #095F58;   /* Active / pressed state (~20% darker).      Repo: --teal-active */
+  --teal-light:    #4DD9C0;   /* Logo gradient light end, accents. NEVER a solo button (low contrast) */
+  --teal-wash:     #E8F8F6;   /* Alternating section bg, card tints, tag fills */
+  --teal-wash-mid: #D1F0EC;   /* Slightly deeper wash — hover border, icon chips */
+  --teal-wash-faint: #F0FDFA; /* Faintest wash — ghost-button hover fill (repo --teal-wash) */
+
+  /* Neutrals */
+  --slate:         #475569;   /* Body copy, subtitles, secondary text on light bg */
+  --slate-light:   #94A3B8;   /* Tertiary text, captions, placeholder */
+  --border:        #E2E8F0;   /* Card borders, dividers, input borders. Never for text */
+  --border-subtle: #F1F5F9;   /* Hairline dividers, subtle row separators */
+  --bg:            #F8FAFC;   /* App canvas background (off-white) */
+  --white:         #FFFFFF;   /* Page bg, card bg, text on navy */
+
+  /* Text-on-navy (transparency, not new colours) */
+  --on-navy:        rgba(255,255,255,0.92); /* body text on navy */
+  --on-navy-dim:    rgba(255,255,255,0.70); /* subtitles on navy */
+  --on-navy-faint:  rgba(255,255,255,0.45); /* footer text, fine print on navy */
+
+  /* ---------- SEMANTIC / STATUS ---------- */
+  /* ONE canonical status set (README §4.1). Red + amber are EARNED colours:
+     cancellation / human-escalation only. Positive outcomes are success green,
+     never teal (teal = brand + interaction). */
+  --red:           #EF4444;   /* Missed / cancelled / lost — used sparingly */
+  --red-light:     #FEF2F2;   /* Alert tile / banner background */
+  --red-text:      #DC2626;   /* Red as text on red-light (repo .mt-red) */
+  --amber:         #F59E0B;   /* Needs-you / escalation / pending flag */
+  --amber-light:   #FEF3C7;
+  --amber-wash:    #FEF3E2;   /* Repo amber tag fill */
+  --amber-text:    #B45309;   /* Amber as text on amber-wash (repo --amber) */
+  --green:         #10B981;   /* Handled / booked / confirmed — the green-check card */
+  --green-light:   #ECFDF5;
+  --success:       var(--green);   /* README name for the same colour */
+  --success-wash:  #DCFCE7;        /* Booked-card check chip fill (repo .ck-tick) */
+  --success-text:  #166534;        /* Check glyph / green text on the wash (repo .ck-tick) */
+  --alert:         var(--red);     /* README name; also replaces the motion doc's #D9534F */
+  --flag-human:    var(--amber);   /* Replaces the motion doc's #E9B949 */
+
+  /* ---------- CHAT BUBBLES (v2 — exact values from the repo, avilo.css .sms-bubble) ---------- */
+  /* Two-party convention used in every SMS demo and reel:
+     patient = blue, right-aligned, white text · Avilo = grey, left-aligned, navy text.
+     Teal NEVER colours a bubble. The booking outcome is not a bubble — it's a white
+     card with a --success check ("Cliniko: booked Thu 2:00pm with Dr. Chen"). */
+  --bubble-patient:       #2E8FFF;   /* .b-patient — README §4.2 estimated #5B6EE8; repo is #2E8FFF */
+  --bubble-patient-text:  #FFFFFF;
+  --bubble-avilo:         #E9ECEF;   /* .b-avilo / .b-reminder — README estimated #EEF1F4; repo is #E9ECEF */
+  --bubble-avilo-text:    var(--navy);
+  --bubble-radius:        18px;      /* tightened to 5px on the sender-side bottom corner */
+  --bubble-reel-radius:   34px;      /* 1080-wide reels scale the same shape up */
+
+  /* ---------- MOTION / REEL SURFACES ---------- */
+  /* Diary/calendar slot states + earned red/amber for the animation system. */
+  --slot-empty:    #EEF1F5;   /* neutral grey — an unfilled diary slot */
+  --slot-filled:   #0D9488;   /* teal — a booked slot */
+  --slot-new:      #4DD9C0;   /* teal-light pulse — a slot Avilo just filled */
+  --alert-wash:    #FBEDED;   /* soft red wash — a cancellation / gone slot */
+  /* --alert and --flag-human now alias the canonical --red / --amber above
+     (the old #D9534F / #E9B949 pair is retired — README §8). */
+
+  /* Logo gradient — mark + wordmark hero treatment */
+  --grad-brand:    linear-gradient(135deg, #4DD9C0 0%, #0D9488 100%); /* @kind color */
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* Weights — the brand uses a tight set. 800 display, 700 sub-heads, 600 UI/labels, 500 medium, 400 body. */
+  --fw-body:    400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-ui:      600; /* @kind font */   /* buttons, nav, labels */
+  --fw-strong:  700; /* @kind font */   /* h3, card titles */
+  --fw-display: 800; /* @kind font */   /* h1, h2, big numbers, wordmark weight */
+
+  /* Type scale (fluid where it matters) */
+  --t-h1:    clamp(40px, 5vw, 64px); /* @kind font */
+  --t-h2:    clamp(28px, 3.5vw, 46px); /* @kind font */
+  --t-h3:    clamp(20px, 2.4vw, 28px); /* @kind font */
+  --t-h4:    18px; /* @kind font */
+  --t-lead:  17px; /* @kind font */    /* section sub / lead paragraph */
+  --t-body:  15px; /* @kind font */    /* default body */
+  --t-sm:    13.5px; /* @kind font */  /* dense UI copy */
+  --t-xs:    12px; /* @kind font */    /* captions, fine print */
+  --t-eyebrow: 11px; /* @kind font */  /* uppercase eyebrow label */
+
+  /* Letter-spacing — Plus Jakarta Sans wants negative tracking at display sizes */
+  --ls-display: -0.035em; /* @kind font */
+  --ls-h2:      -0.025em; /* @kind font */
+  --ls-tight:   -0.02em; /* @kind font */
+  --ls-eyebrow:  0.12em; /* @kind font */  /* uppercase eyebrow / section labels */
+
+  /* Line heights */
+  --lh-display: 1.05; /* @kind font */
+  --lh-heading: 1.15; /* @kind font */
+  --lh-body:    1.75; /* @kind font */
+
+  /* ---------- RADII ---------- */
+  --r-sm:   6px;    /* pills, small chips, input inner */
+  --r-md:   8px;    /* buttons (default), nav items, icon buttons */
+  --r-lg:   10px;   /* large buttons, input fields, tiles */
+  --r-xl:   14px;   /* cards */
+  --r-2xl:  16px;   /* stat cards, feature panels */
+  --r-3xl:  20px;   /* hero mockup, modals */
+  --r-full: 999px;  /* pill eyebrows, status pills */
+
+  /* ---------- SHADOWS (navy-tinted, never pure black) ---------- */
+  --shadow-sm: 0 1px 3px rgba(23,32,48,0.06), 0 1px 2px rgba(23,32,48,0.04);
+  --shadow-md: 0 4px 16px rgba(23,32,48,0.08), 0 2px 6px rgba(23,32,48,0.05);
+  --shadow-lg: 0 8px 32px rgba(23,32,48,0.10), 0 4px 12px rgba(23,32,48,0.06);
+  --shadow-xl: 0 20px 60px rgba(23,32,48,0.12), 0 8px 24px rgba(23,32,48,0.08);
+  /* Teal-tinted CTA glow */
+  --shadow-cta:       0 4px 14px rgba(13,148,136,0.30);   /* repo: 0 6px 18px -6px rgba(13,148,136,.45) */
+  --shadow-cta-hover: 0 8px 22px rgba(13,148,136,0.40);
+  --shadow-cta-feat:  inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55); /* "Most popular" card CTA */
+  --shadow-float:     0 18px 44px -14px rgba(2,8,23,.45);  /* floating demo chips over the dark hero */
+  /* Primary CTA is SOLID teal. The "gradient" read in README §4.3 is this inset bevel
+     highlight + teal glow (repo aether-blend.css .btn-primary) — not a gradient fill. */
+  --shadow-cta-pill:  inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55);
+  --shadow-nav-cta:   inset 0 1px 0 rgba(255,255,255,.14), 0 8px 18px -8px rgba(23,32,48,.5);   /* navy nav pill on light */
+  --navy-hover:       #1D2A3E;                              /* navy nav-CTA hover */
+  --nav-glass:        rgba(255,255,255,0.72);               /* floating nav pill; backdrop-filter: blur(20px) saturate(180%) */
+  --nav-glass-shadow: 0 12px 30px -16px rgba(23,48,44,.2);
+  --hero-bg:          radial-gradient(56% 90% at 86% 0%, rgba(13,148,136,.2), transparent 62%), radial-gradient(44% 74% at 2% 100%, rgba(77,217,192,.1), transparent 62%), radial-gradient(40% 60% at 50% 120%, rgba(38,51,75,.9), transparent 70%), #172030; /* @kind color */
+
+  /* ---------- GLASS SURFACE LAYER (v2 — repo aether-blend.css, loads after avilo.css) ---------- */
+  /* The "frosted-glass" redesign: pearl page ground, translucent white cards with a
+     hairline border, an inner bevel highlight, and soft navy-green float shadows. */
+  --pearl:           #ECF2F1;                       /* light-section page ground behind glass cards */
+  --glass:           rgba(255,255,255,0.66);        /* card / selector / stage surface */
+  --glass-strong:    rgba(255,255,255,0.85);        /* nav pill, ghost buttons, featured panels */
+  --hairline:        rgba(23,32,48,0.08);           /* glass card border */
+  --hairline-strong: rgba(23,32,48,0.12);
+  --bevel:           inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(23,32,48,.03); /* @kind shadow */
+  --float:           0 18px 40px -18px rgba(23,48,44,.16), 0 4px 12px -6px rgba(23,48,44,.07);
+  --float-lg:        0 32px 70px -28px rgba(23,48,44,.22), 0 8px 20px -10px rgba(23,48,44,.09);
+  --r-pill:          9999px;                        /* every marketing button is a pill */
+  --r-card:          24px;                          /* glass cards, stages, pricing tiers */
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-22: 88px; /* section vertical padding */
+
+  /* ---------- MOTION ---------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 0.15s; /* @kind other */  /* hover/press on UI */
+  --dur:      0.25s; /* @kind other */  /* buttons, cards */
+  --dur-slow: 0.5s; /* @kind other */   /* scroll reveal */
+}
+
+/* ============================================================
+   BASE ELEMENT STYLES (semantic defaults)
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  color: var(--slate);
+  background: var(--white);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--navy-mid);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-heading);
+}
+h1 { font-size: var(--t-h1); letter-spacing: var(--ls-display); line-height: var(--lh-display); }
+h2 { font-size: var(--t-h2); letter-spacing: var(--ls-h2); line-height: 1.12; }
+h3 { font-size: var(--t-h3); font-weight: var(--fw-strong); }
+h4 { font-size: var(--t-h4); font-weight: var(--fw-strong); }
+
+p { line-height: var(--lh-body); }
+a { color: var(--teal); text-decoration: none; }
+
+/* Eyebrow — uppercase teal label that sits above headings */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--t-eyebrow);
+  font-weight: var(--fw-strong);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* Lead / sub paragraph under a heading */
+.lead { font-size: var(--t-lead); line-height: 1.78; color: var(--slate); }
+
+/* On dark (navy) surfaces */
+.on-navy h1, .on-navy h2, .on-navy h3, .on-navy h4 { color: var(--white); }
+.on-navy .eyebrow { color: var(--teal-light); }
+.on-navy .lead { color: var(--on-navy-dim); }
+
+body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0D9488}a:hover{color:#0A7A70}
+.hdr{position:absolute;left:0;top:0;display:flex;align-items:center;gap:20px;font-size:36px;font-weight:700;color:#172030;white-space:nowrap}
+.hdr .num{background:#172030;color:#fff;border-radius:12px;padding:6px 16px;font-size:30px}.hdr .ty{font-size:26px;font-weight:500;color:#64748B}
+.tog{display:flex;gap:6px;background:#fff;border-radius:14px;padding:6px;border:1px solid #E2E8F0;margin-left:12px}
+.tog button{font:inherit;font-size:22px;font-weight:700;border:0;border-radius:10px;padding:10px 18px;background:transparent;color:#64748B;cursor:pointer}
+body:not(.avilo) .tog .bk,body.avilo .tog .ba{background:#0D9488;color:#fff}
+.sl{position:absolute;top:100px}.sl>.n{font-size:26px;font-weight:600;color:#64748B;margin-bottom:16px}
+.post{position:relative;width:1080px;height:1350px;overflow:hidden;color:var(--ink);box-shadow:0 30px 80px -40px rgba(23,32,48,.45)}
+.fd-navy{--ink:#fff;--acc:#4DD9C0;--sub:#A9B8CC;--ov:#4DD9C0;--line:rgba(255,255,255,.12);background:radial-gradient(110% 80% at 50% 100%,#1E3A4F 0%,#172030 55%,#0e141e 100%)}
+.fd-teal{--ink:#fff;--acc:#C2F7EC;--sub:#DDF7F1;--ov:#C9F5EC;--line:rgba(255,255,255,.2);background:linear-gradient(165deg,#17A89A 0%,#0D9488 50%,#0A7A70 100%)}
+.fd-mint{--ink:#10282F;--acc:#08605A;--sub:#1F474C;--ov:#08605A;--line:rgba(16,40,47,.16);background:linear-gradient(170deg,#B4F1E4 0%,#6FDCC7 50%,#36BBA7 100%)}
+.fd-tn{--ink:#fff;--acc:#4DD9C0;--sub:#BCCDDA;--ov:#4DD9C0;--line:rgba(255,255,255,.14);background:linear-gradient(180deg,#0D9488 0%,#0B6F69 48%,#172030 100%)}
+.ring{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.09);transform:translate(-50%,-50%);pointer-events:none}
+.fd-mint .ring{border-color:rgba(255,255,255,.32)}
+.glow{position:absolute;width:1000px;height:1000px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle,rgba(77,217,192,.36),rgba(77,217,192,0) 62%)}
+.fd-mint .glow{background:radial-gradient(circle,rgba(255,255,255,.55),rgba(255,255,255,0) 60%)}
+.in{position:absolute;inset:0;padding:96px 88px 84px;display:flex;flex-direction:column;box-sizing:border-box}
+.ov{font-size:24px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ov)}
+.h{margin-top:22px;font-size:80px;font-weight:700;line-height:1.07;letter-spacing:-.03em;text-wrap:balance;max-width:900px}
+.h.md{font-size:68px}.h.xl{font-size:96px}.h em{font-style:normal;color:var(--acc)}
+.sub{margin-top:26px;font-size:34px;font-weight:500;line-height:1.4;color:var(--sub);max-width:860px;text-wrap:pretty}
+.c{text-align:center;align-items:center}.c .h,.c .sub{margin-left:auto;margin-right:auto}
+.vis{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;margin:36px 0}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:30px;border-top:2px solid var(--line);font-size:24px;font-weight:600;color:var(--sub);text-align:left}
+.ft>span{display:flex;align-items:center;gap:14px}
+.sig{display:flex;align-items:center;gap:14px;color:var(--ink);margin-left:auto}
+.sig i{width:50px;height:50px;border-radius:15px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(6,50,46,.6)}.sig img{width:32px}
+.sig .k,.sig .a{font-size:28px;font-weight:700}.sig .a b{color:var(--acc)}
+body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
+.ex{font-size:18px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.2);color:var(--ink)}
+.g,.g2{box-sizing:border-box;color:#172030;text-align:left}
+.g{background:linear-gradient(160deg,rgba(255,255,255,.94),rgba(255,255,255,.72));border:1px solid rgba(255,255,255,.75);border-radius:30px;box-shadow:0 40px 80px -36px rgba(6,50,46,.6),inset 0 1px 0 rgba(255,255,255,.9);backdrop-filter:blur(14px)}
+.g2{background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(255,255,255,.28));border:1px solid rgba(255,255,255,.45);border-radius:30px;backdrop-filter:blur(10px)}
+.bar{height:12px;border-radius:6px;background:rgba(23,32,48,.12)}.bar.s{height:9px;background:rgba(23,32,48,.08)}
+.av{border-radius:50%;background:linear-gradient(155deg,#4DD9C0,#0D9488);flex:0 0 auto;box-shadow:0 6px 14px -6px rgba(13,148,136,.7)}
+.pill{border-radius:999px;background:linear-gradient(90deg,#2BC3AE,#0D9488);box-shadow:0 10px 20px -10px rgba(13,148,136,.8)}
+.badge{position:relative;flex:0 0 auto;border-radius:50%;background:linear-gradient(160deg,#fff,rgba(255,255,255,.78));box-shadow:0 24px 44px -18px rgba(6,50,46,.55);display:flex;align-items:center;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px !important;font-size:24px;font-weight:700;color:#0A7A70 !important;white-space:nowrap}
+.dot{width:14px;height:14px;border-radius:50%;background:#4DD9C0;box-shadow:0 0 0 6px rgba(77,217,192,.25);flex:0 0 auto}
+.bub{padding:18px 24px;font-size:28px;font-weight:600;line-height:1.35;max-width:80%}
+.bub.o{align-self:flex-end;background:linear-gradient(160deg,#17A89A,#0D9488);color:#fff;border-radius:26px 26px 8px 26px;box-shadow:0 12px 24px -12px rgba(13,148,136,.8)}
+.bub.i{align-self:flex-start;background:#E8F8F6;color:#172030;border-radius:26px 26px 26px 8px}
+.ts{font-size:20px;font-weight:700;color:#94A3B8}
+.lab{font-size:20px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0A7A70}
+.row{display:flex;align-items:center;gap:18px}
+.t26{font-size:26px;font-weight:600;line-height:1.35}.t30{font-size:30px;font-weight:600;line-height:1.35}
+/* v2 element set */
+.fd-paper{--ink:#172030;--acc:#0D9488;--sub:#516072;--ov:#0D9488;--line:#E1E8ED;background:#F6F9F8}
+.fd-ink{--ink:#fff;--acc:#4DD9C0;--sub:#9FB0C6;--ov:#4DD9C0;--line:rgba(255,255,255,.1);background:#111925}
+.fd-paper .g{border-color:#E6EDF1;box-shadow:0 30px 60px -32px rgba(23,32,48,.28),inset 0 1px 0 #fff}
+.fd-paper .ex{background:#E8F8F6;color:#0A7A70}.fd-paper .sig i{background:#E8F8F6;box-shadow:none}
+.gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(23,32,48,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(23,32,48,.05) 1px,transparent 1px);background-size:90px 90px}
+.fd-ink .gridbg,.fd-navy .gridbg{background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px)}
+.gd{box-sizing:border-box;background:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.13);border-radius:30px;backdrop-filter:blur(12px);color:#fff}
+.disp{font-weight:300;letter-spacing:-.045em;line-height:1.02;text-wrap:balance}.disp b{font-weight:800;color:var(--acc)}
+.stat{font-weight:800;letter-spacing:-.06em;line-height:.85}
+.qm{font-size:440px;font-weight:800;line-height:.62;color:var(--acc);opacity:.55;height:220px}
+.slot{box-sizing:border-box;border-radius:18px;padding:18px 22px;font-size:24px;font-weight:700;display:flex;flex-direction:column;gap:4px;line-height:1.25}
+.slot small{font-size:19px;font-weight:600;opacity:.75}
+.slot.bk{background:linear-gradient(160deg,#17A89A,#0D9488);color:#fff;box-shadow:0 14px 28px -14px rgba(13,148,136,.9)}
+.slot.em{border:2.5px dashed #A7B4C2;color:#7D8C9D;background:rgba(255,255,255,.45)}
+.slot.cx{background:#EDF1F4;color:#94A3B8;text-decoration:line-through}
+.slot.nw{background:#fff;color:#172030;box-shadow:0 0 0 4px #4DD9C0,0 20px 40px -14px rgba(13,148,136,.7)}
+.cb{width:46px;height:46px;border-radius:13px;border:3px solid #C5D0DA;flex:0 0 auto;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#fff}
+.cb.on{background:#0D9488;border-color:#0D9488}
+.idx{display:inline-flex;font-size:22px;font-weight:800;letter-spacing:.12em;padding:10px 18px;border-radius:12px;background:var(--acc);color:#0b2a2a}
+.dots{display:flex;gap:10px;align-items:center}.dots i{width:12px;height:12px;border-radius:6px;background:var(--line)}.dots i.on{width:40px;background:var(--acc)}
+.fd-paper .dots i{background:#D3DCE3}.fd-paper .dots i.on{background:#0D9488}
+.phone{box-sizing:border-box;width:500px;height:980px;border-radius:84px;background:#0A0F17;padding:16px;box-shadow:0 60px 120px -50px rgba(0,0,0,.8),inset 0 0 0 2px rgba(255,255,255,.08)}
+.phone .scr{position:relative;width:100%;height:100%;border-radius:70px;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#1E3A4F,#0E141E 70%);display:flex;flex-direction:column;align-items:center;padding:110px 26px 0;box-sizing:border-box}
+.phone .isl{position:absolute;top:22px;left:50%;transform:translateX(-50%);width:150px;height:44px;border-radius:22px;background:#000}
+.prog{position:relative;border-radius:50%;background:conic-gradient(var(--acc) 0 var(--p,70%),rgba(255,255,255,.14) 0)}
+.prog::after{content:"";position:absolute;inset:22px;border-radius:50%;background:inherit;background:var(--hole,#172030)}
+.prog>*{position:relative;z-index:1}
+.conn{position:absolute;border-top:3px dashed var(--acc);opacity:.7;transform-origin:0 0}
+.band{position:absolute;left:0;right:0}
+/* background layers — drop one .lyr inside any .post */
+.lyr{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bg-aurora{filter:blur(40px);background:radial-gradient(40% 32% at 18% 22%,rgba(77,217,192,.6),transparent 70%),radial-gradient(42% 36% at 88% 42%,rgba(13,148,136,.7),transparent 70%),radial-gradient(55% 40% at 45% 98%,rgba(110,154,224,.4),transparent 70%)}
+.bg-dots{background-image:radial-gradient(rgba(255,255,255,.28) 2.2px,transparent 2.8px);background-size:34px 34px;-webkit-mask-image:radial-gradient(58% 48% at 72% 62%,#000,transparent);mask-image:radial-gradient(58% 48% at 72% 62%,#000,transparent)}
+.fd-paper .bg-dots{background-image:radial-gradient(rgba(13,148,136,.35) 2.2px,transparent 2.8px)}
+.bg-topo{background:repeating-radial-gradient(ellipse 120% 90% at 85% 75%,transparent 0 44px,rgba(255,255,255,.13) 44px 46px),repeating-radial-gradient(ellipse 90% 70% at 5% 5%,transparent 0 52px,rgba(255,255,255,.08) 52px 54px)}
+.bg-beams{filter:blur(6px);background:repeating-linear-gradient(118deg,transparent 0 140px,rgba(255,255,255,.08) 140px 250px,transparent 250px 330px,rgba(255,255,255,.04) 330px 380px);-webkit-mask-image:linear-gradient(200deg,#000 10%,transparent 75%);mask-image:linear-gradient(200deg,#000 10%,transparent 75%)}
+.bg-grain{opacity:.32;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg-vig{background:radial-gradient(90% 70% at 50% 40%,transparent 40%,rgba(0,0,0,.28))}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0,#C2F7EC 12%,#2BC3AE 42%,#0A7A70 78%,#075E57 100%);box-shadow:0 60px 120px -40px rgba(4,40,37,.7)}
+.bg-diary{background:repeating-linear-gradient(180deg,transparent 0 118px,rgba(255,255,255,.1) 118px 120px),repeating-linear-gradient(90deg,transparent 0 268px,rgba(255,255,255,.07) 268px 270px)}
+.fd-paper .bg-diary{background:repeating-linear-gradient(180deg,transparent 0 118px,#E1E8ED 118px 120px),repeating-linear-gradient(90deg,transparent 0 268px,#EBF0F3 268px 270px)}
+.ghost-slot{position:absolute;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
+.fd-paper .ghost-slot{background:rgba(13,148,136,.07);border-color:rgba(13,148,136,.14)}
+.hill{position:absolute;border-radius:50%}
+.bg-half{background-image:radial-gradient(rgba(255,255,255,.3) 3px,transparent 3.6px);background-size:22px 22px;-webkit-mask-image:linear-gradient(180deg,transparent 35%,#000);mask-image:linear-gradient(180deg,transparent 35%,#000)}
+.bg-sweep{background:conic-gradient(from 210deg at 82% 82%,transparent 0deg,rgba(77,217,192,.42) 70deg,transparent 71deg,transparent 360deg)}
+.pane{position:absolute;border-radius:48px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
+
+    @media (max-width: 900px) { .stack5 { grid-template-columns: 1fr !important; } }
+    body { margin: 0; background: #fff; }
+    *, *::before, *::after { box-sizing: border-box; }
+    h1, h2, h3, h4, p { margin: 0; }
+    a { color: #0D9488; text-decoration: none; }
+    a:hover { color: #0A7A70; }
+    :focus-visible { outline: 3px solid #4DD9C0; outline-offset: 3px; }
+    input:focus-visible, select:focus-visible { outline: 3px solid rgba(13,148,136,.35); outline-offset: 0; border-color: #0D9488 !important; }
+    input[type=range] { accent-color: #0D9488; }
+    input[type=radio] { accent-color: #0D9488; }
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+/* hover states lifted out of style-hover attributes */
+.hv1:hover{background: #0B7A70}
+.hv2:hover{border-color: #0D9488}
+.hv3:hover{color: #fff}
+.hv4:hover{background: #0B7A70; transform: translateY(-1px); color: #fff}
+.hv5:hover{color: #0A7A70}
+
+/* ============================================================
+   Integration layer: state the design tool expressed as React
+   props, rebuilt as CSS so offer-5c.js only toggles classes.
+   ============================================================ */
+
+/* hidden must beat the inline display on these flex/grid boxes */
+[hidden]{display:none !important}
+
+/* nav: transparent at the top of the page, glass pill once scrolled */
+[data-nav]{top:0;padding:0}
+[data-nav] > nav{max-width:100%;border-radius:0;background:transparent;box-shadow:none;border-color:transparent;padding:0 32px}
+[data-nav].is-solid{top:14px;padding:0 20px}
+[data-nav].is-solid > nav{
+  max-width:980px;border-radius:999px;background:rgba(255,255,255,.72);
+  box-shadow:var(--bevel,0 1px 0 rgba(255,255,255,.6) inset), 0 10px 30px -12px rgba(23,32,48,.25);
+  border-color:rgba(23,32,48,.08);padding:0 8px 0 20px;
+}
+@media (max-width:760px){
+  [data-nav] > nav{padding:0 16px}
+  [data-nav].is-solid{padding:0 12px}
+}
+
+/* the Calendly frame offer-5c.js builds (the handoff shipped a lazy
+   iframe inside a hidden box, which never loads) */
+[data-cal-slot]:empty{display:none}
+[data-cal-slot] iframe{width:100%;min-height:680px;border:0;border-radius:16px;display:block}
+@media (max-width:760px){[data-cal-slot] iframe{min-height:900px}}
+
+/* form error line */
+[data-form-err]{margin:10px 0 0;font-size:14px;line-height:1.5;color:#B45309;display:none}
