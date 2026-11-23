@@ -253,7 +253,11 @@
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       var fd = new FormData(form);
       var which = form.getAttribute('data-form');
-      if (!fd.get('_subject')) fd.append('_subject', SUBJECT[which] || ('Website form: ' + which));
+      // Formspree reads "subject"; "_subject" is the old name it ignores,
+      // so notifications fell back to the dashboard form's own title.
+      var subj = SUBJECT[which] || ('Website form: ' + which);
+      if (!fd.get('subject')) fd.append('subject', subj);
+      if (!fd.get('_subject')) fd.append('_subject', subj);
       if (!fd.get('source')) fd.append('source', which + ' form, ' + location.pathname);
       fetch(form.action, {
         method: 'POST',

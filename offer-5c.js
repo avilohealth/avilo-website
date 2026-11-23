@@ -158,6 +158,10 @@
     var fd = new FormData(form);
     /* the markup carries these as hidden inputs for the no-JS path, so set
        rather than append or Formspree receives each one twice */
+    /* Formspree's documented field is "subject"; "_subject" is the old
+       convention and is ignored, which is why every email arrived titled
+       after the dashboard form's own name. Both are sent so either works. */
+    fd.set('subject', 'Avilo Inbox 5c: details submitted (step 2 of 3)');
     fd.set('_subject', 'Avilo Inbox 5c: details submitted (step 2 of 3)');
     fd.set('source', 'offer page, ' + location.pathname);
     fd.set('stage', 'details submitted, calendar not yet booked');
@@ -224,6 +228,7 @@
     /* a second, separate email, so form fills and real bookings can be compared */
     try {
       var bf = new FormData();
+      bf.append('subject', 'Avilo Inbox 5c: CALL BOOKED');
       bf.append('_subject', 'Avilo Inbox 5c: CALL BOOKED');
       bf.append('stage', 'booked a time in Calendly');
       bf.append('source', 'offer page, ' + location.pathname);
