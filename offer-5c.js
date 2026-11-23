@@ -156,9 +156,12 @@
     }
 
     var fd = new FormData(form);
-    fd.append('_subject', 'Avilo Inbox 5c: details submitted (step 2 of 3)');
-    fd.append('source', 'offer page, ' + location.pathname);
-    fd.append('stage', 'details submitted, calendar not yet booked');
+    /* the markup carries these as hidden inputs for the no-JS path, so set
+       rather than append or Formspree receives each one twice */
+    fd.set('_subject', 'Avilo Inbox 5c: details submitted (step 2 of 3)');
+    fd.set('source', 'offer page, ' + location.pathname);
+    fd.set('stage', 'details submitted, calendar not yet booked');
+    fd.delete('_next');
     try { (w.dataLayer = w.dataLayer || []).push({ event: 'setup_form_submitted' }); } catch (err) {}
 
     goTo(3);                              /* never block the visitor on the network */
