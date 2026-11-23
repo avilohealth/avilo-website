@@ -162,7 +162,13 @@
     fd.set('source', 'offer page, ' + location.pathname);
     fd.set('stage', 'details submitted, calendar not yet booked');
     fd.delete('_next');
-    try { (w.dataLayer = w.dataLayer || []).push({ event: 'setup_form_submitted' }); } catch (err) {}
+    /* Meta Pixel. fbq exists only once the visitor has accepted ad cookies,
+       so this is a no-op for anyone who declined. PageView is fired by
+       site-v4.js on load; Lead here, Schedule on an actual booking. */
+    try {
+      if (w.fbq) w.fbq('track', 'Lead', { content_name: 'Avilo Inbox 5c setup call' });
+      (w.dataLayer = w.dataLayer || []).push({ event: 'setup_form_submitted' });
+    } catch (err) {}
 
     goTo(3);                              /* never block the visitor on the network */
 

@@ -5,6 +5,10 @@
    Import this file, then use the CSS vars below.
    ============================================================ */
 
+/**/
+
+/**/
+
 :root {
   /* ---------- BRAND COLORS ---------- */
   /* Navy — text, dark sections, app icon background */
@@ -306,12 +310,17 @@ body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
 .pane{position:absolute;border-radius:48px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
 
 /* Avilo design system — global entry. Consumers link this one file. */
+/**/
 /* ============================================================
    AVILO — Colors & Type foundations  (v2 · reconciled to the live site + Brand v3.3)
    AI receptionist + communication hub for allied health (Cliniko-native).
    Source of truth for exact values: avilohealth/Avilo (marketing site + app).
    Import this file, then use the CSS vars below.
    ============================================================ */
+
+/**/
+
+/**/
 
 :root {
   /* ---------- BRAND COLORS ---------- */
@@ -517,6 +526,8 @@ a { color: var(--teal); text-decoration: none; }
 .on-navy .eyebrow { color: var(--teal-light); }
 .on-navy .lead { color: var(--on-navy-dim); }
 
+/**/
+/**/
 body{margin:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:#0D9488}a:hover{color:#0A7A70}
 .hdr{position:absolute;left:0;top:0;display:flex;align-items:center;gap:20px;font-size:36px;font-weight:700;color:#172030;white-space:nowrap}
@@ -613,6 +624,8 @@ body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
 .bg-sweep{background:conic-gradient(from 210deg at 82% 82%,transparent 0deg,rgba(77,217,192,.42) 70deg,transparent 71deg,transparent 360deg)}
 .pane{position:absolute;border-radius:48px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
 
+/**/
+
     @media (max-width: 900px) { .stack5 { grid-template-columns: 1fr !important; } }
     body { margin: 0; background: #fff; }
     *, *::before, *::after { box-sizing: border-box; }
@@ -624,14 +637,18 @@ body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
     input[type=range] { accent-color: #0D9488; }
     input[type=radio] { accent-color: #0D9488; }
     @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+    [data-rv] { opacity: 0; transform: translateY(18px); transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.22,1,.36,1); will-change: opacity, transform; }
+    [data-rv="in"] { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+  
+
+/* the handoff blanket-set Geist here; the rest of the site is Plus Jakarta Sans, so it is left to --font-sans */main h1,main h2{letter-spacing:-.045em !important}[data-wordmark],[data-wordmark] *{font-family:'Plus Jakarta Sans',system-ui,sans-serif !important}
 /* hover states lifted out of style-hover attributes */
 .hv1:hover{background: #0B7A70}
 .hv2:hover{border-color: #0D9488}
 .hv3:hover{color: #fff}
 .hv4:hover{background: #0B7A70; transform: translateY(-1px); color: #fff}
 .hv5:hover{color: #0A7A70}
-
 /* ============================================================
    Integration layer: state the design tool expressed as React
    props, rebuilt as CSS so offer-5c.js only toggles classes.

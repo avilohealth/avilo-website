@@ -205,6 +205,17 @@ for (const file of walk(PAGES)) {
   }
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) errors.push(`${rel}: must have exactly one <h1>`);
 
+  // site-v4.js submits every form[data-form] itself. A page with its own form
+  // handler must not also carry data-form, or Formspree gets the lead twice:
+  // once labelled, once as a bare "Website form". Two handoffs have shipped
+  // this, and a duplicate lead is invisible until someone counts the emails.
+  for (const m of html.matchAll(/<form\b[^>]*>/g)) {
+    const tag = m[0];
+    if (/\sdata-form=/.test(tag) && /\sdata-offer-form\b/.test(tag)) {
+      errors.push(`${rel}: form has both data-form and data-offer-form, so site-v4.js and the page would each post it`);
+    }
+  }
+
   html = versionAssets(html);
   pages.push({ rel, file, meta, html, out: outPathFor(meta.path) });
 }
