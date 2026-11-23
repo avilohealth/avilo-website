@@ -205,6 +205,15 @@ for (const file of walk(PAGES)) {
   }
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) errors.push(`${rel}: must have exactly one <h1>`);
 
+  // The design tool writes pseudo-element and state styles as style-after,
+  // style-hover and friends. They are not real HTML: left in place they do
+  // nothing at all, and the design quietly loses a piece (the red line
+  // through the old 10c rate went missing exactly this way). Lift them into
+  // offer-5c.css or avilo-v4.css as a real rule.
+  for (const m of html.matchAll(/\sstyle-([a-z-]+)="/g)) {
+    errors.push(`${rel}: inert "style-${m[1]}" attribute (lift it into a real CSS rule)`);
+  }
+
   // site-v4.js submits every form[data-form] itself. A page with its own form
   // handler must not also carry data-form, or Formspree gets the lead twice:
   // once labelled, once as a bare "Website form". Two handoffs have shipped

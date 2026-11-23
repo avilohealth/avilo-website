@@ -679,3 +679,11 @@ body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
 
 /* form error line */
 [data-form-err]{margin:10px 0 0;font-size:14px;line-height:1.5;color:#B45309;display:none}
+
+/* The red line through the old 10c rate. The handoff expressed it as a
+   style-after attribute, which is inert markup: lifted to a real ::after. */
+.strike-old-rate::after{
+  content:'';position:absolute;left:-6%;right:-6%;top:54%;
+  height:.085em;border-radius:9999px;background:#EF4444;
+  transform:rotate(-11deg);
+}
