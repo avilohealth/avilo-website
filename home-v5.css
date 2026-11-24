@@ -48,7 +48,7 @@ footer{padding-left:16px !important;padding-right:16px !important}.capture{grid-
 [data-spot] li svg{transition:transform .25s}
 @media (hover:none),(prefers-reduced-motion:reduce){[data-spot]:hover{transform:none !important}[data-spot]:hover [data-ic]{transform:none}[data-spot]:hover [data-ic] svg{animation:none}}
 
-@media (max-width:900px){[data-anim="left"],[data-anim="right"]{transform:translateY(24px)}html,body{overflow-x:hidden}}
+@media (max-width:900px){[data-anim="left"],[data-anim="right"]{transform:translateY(24px)}html,body{overflow-x:clip}main{overflow-x:hidden;overflow-x:clip}}
 @media (max-width:720px){.hv-diary{height:420px !important}
 main > section[data-screen-label="Hero"] h1{font-size:clamp(32px,9vw,40px) !important}
 [role="tablist"]{justify-content:flex-start !important;overflow-x:auto;flex-wrap:nowrap !important;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
@@ -76,6 +76,9 @@ main > section[data-hero="light"]{--h-bg:radial-gradient(900px 560px at 50% -10%
 @media (max-width:900px){.pdiv{border-left:0 !important;border-top:1px solid #DDE5E4}}
 @media (max-width:720px){[aria-live="polite"]{height:560px !important}}
 @keyframes wv{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@media (max-width:720px){[data-anim="blur"]{filter:none}.hv-chip{-webkit-backdrop-filter:none !important;backdrop-filter:none !important}}
+@media (max-width:720px){[data-screen-label="Hero colour bursts"]{height:560px !important}[data-screen-label="Hero colour bursts"] > div{filter:none !important}[data-screen-label="Hero colour bursts"] > div:nth-child(1){left:-170px !important;top:10px !important;width:400px !important;height:340px !important}[data-screen-label="Hero colour bursts"] > div:nth-child(2){left:calc(100% - 210px) !important;top:120px !important;width:380px !important;height:320px !important}[data-screen-label="Hero colour bursts"] > div:nth-child(3){left:-120px !important;top:300px !important;width:320px !important;height:260px !important}[data-screen-label="Hero colour bursts"] > div:nth-child(4){left:calc(100% - 260px) !important;top:-70px !important;width:340px !important;height:280px !important}[data-screen-label="Hero colour bursts"] > div:nth-child(5){left:calc(50% - 60px) !important;top:330px !important;width:300px !important;height:230px !important}}
+@media (max-width:720px){#leaks .leak-tabs{flex-direction:row !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;padding:2px 20px 6px;scroll-padding:0 20px}#leaks .leak-tabs::-webkit-scrollbar{display:none}#leaks .leak-tabs > button{flex:0 0 auto;width:auto !important;min-height:44px;padding:10px 16px !important;border-radius:999px !important;scroll-snap-align:start}#leaks .leak-tabs > button > b{font-size:14.5px !important;white-space:nowrap}#leaks .leak-tabs > button > span{display:none !important}#leaks .stack{gap:16px !important}#leaks .stack:first-child{margin-bottom:24px !important}}
 
 /* hover states lifted out of style-hover attributes */
 .home-hv1:hover{background:#0B7A70;transform:translateY(-1px);color:#fff}

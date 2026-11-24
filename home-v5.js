@@ -183,7 +183,8 @@
     ticks++;
     if (!visible('leaks') && !visible('system')) return;
     lt++;
-    if (!leakStop && lt % 5 === 0 && visible('leaks')) {
+    /* below 720px the tabs scroll horizontally, so auto-rotation fights the reader */
+    if (!leakStop && w.innerWidth >= 720 && lt % 5 === 0 && visible('leaks')) {
       leak = (leak + 1) % 4;
       leakAt = lt;
     }

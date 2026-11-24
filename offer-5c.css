@@ -642,7 +642,8 @@ body:not(.avilo) .sig .a{display:none}body.avilo .sig .k{display:none}
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
   
 
-/* the handoff blanket-set Geist here; the rest of the site is Plus Jakarta Sans, so it is left to --font-sans */main h1,main h2{letter-spacing:-.045em !important}[data-wordmark],[data-wordmark] *{font-family:'Plus Jakarta Sans',system-ui,sans-serif !important}
+/* Geist, at Keegan's request: this page only. Faces are in /fonts-geist.css. */
+body,body *{font-family:'Geist','Plus Jakarta Sans',system-ui,sans-serif}main h1,main h2{letter-spacing:-.045em !important}[data-wordmark],[data-wordmark] *{font-family:'Plus Jakarta Sans',system-ui,sans-serif !important}
 /* hover states lifted out of style-hover attributes */
 .hv1:hover{background: #0B7A70}
 .hv2:hover{border-color: #0D9488}
