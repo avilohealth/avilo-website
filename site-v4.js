@@ -273,7 +273,7 @@
           form.reset();
           if (btn) { btn.disabled = false; btn.innerHTML = label; }
           wrap.style.display = 'none';
-          if (ok) ok.style.display = 'block';
+          if (ok) { ok.removeAttribute('hidden'); ok.style.display = 'block'; }
         });
       }).catch(function (e) {
         if (btn) { btn.disabled = false; btn.innerHTML = label; }

@@ -1,0 +1,212 @@
+/* ============================================================
+   AVILO — Colors & Type foundations  (v2 · reconciled to the live site + Brand v3.3)
+   AI receptionist + communication hub for allied health (Cliniko-native).
+   Source of truth for exact values: avilohealth/Avilo (marketing site + app).
+   Import this file, then use the CSS vars below.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ---------- BRAND COLORS ---------- */
+  /* Navy — text, dark sections, app icon background */
+  --navy:          #172030;   /* Navy Dark  — hero, footer, dark bg, deepest brand colour */
+  --navy-mid:      #2B3A52;   /* Navy Mid   — ALL headings + wordmark + nav text on white */
+  --navy-light:    #3D5068;   /* Navy Light — dividers in dark UI, tertiary dark accents */
+  --navy-footer:   #0F1620;   /* Footer goes one shade deeper than hero navy */
+
+  /* Teal — the interactive colour. Teal Primary is the single most important. */
+  --teal:          #0D9488;   /* Teal Primary — CTAs, links, active UI, gradient dark end */
+  --teal-dark:     #0A7A70;   /* Hover state for teal buttons (~10% darker). Repo: --teal-hover #0B7A70 */
+  --teal-darker:   #095F58;   /* Active / pressed state (~20% darker).      Repo: --teal-active */
+  --teal-light:    #4DD9C0;   /* Logo gradient light end, accents. NEVER a solo button (low contrast) */
+  --teal-wash:     #E8F8F6;   /* Alternating section bg, card tints, tag fills */
+  --teal-wash-mid: #D1F0EC;   /* Slightly deeper wash — hover border, icon chips */
+  --teal-wash-faint: #F0FDFA; /* Faintest wash — ghost-button hover fill (repo --teal-wash) */
+
+  /* Neutrals */
+  --slate:         #475569;   /* Body copy, subtitles, secondary text on light bg */
+  --slate-light:   #94A3B8;   /* Tertiary text, captions, placeholder */
+  --border:        #E2E8F0;   /* Card borders, dividers, input borders. Never for text */
+  --border-subtle: #F1F5F9;   /* Hairline dividers, subtle row separators */
+  --bg:            #F8FAFC;   /* App canvas background (off-white) */
+  --white:         #FFFFFF;   /* Page bg, card bg, text on navy */
+
+  /* Text-on-navy (transparency, not new colours) */
+  --on-navy:        rgba(255,255,255,0.92); /* body text on navy */
+  --on-navy-dim:    rgba(255,255,255,0.70); /* subtitles on navy */
+  --on-navy-faint:  rgba(255,255,255,0.45); /* footer text, fine print on navy */
+
+  /* ---------- SEMANTIC / STATUS ---------- */
+  /* ONE canonical status set (README §4.1). Red + amber are EARNED colours:
+     cancellation / human-escalation only. Positive outcomes are success green,
+     never teal (teal = brand + interaction). */
+  --red:           #EF4444;   /* Missed / cancelled / lost — used sparingly */
+  --red-light:     #FEF2F2;   /* Alert tile / banner background */
+  --red-text:      #DC2626;   /* Red as text on red-light (repo .mt-red) */
+  --amber:         #F59E0B;   /* Needs-you / escalation / pending flag */
+  --amber-light:   #FEF3C7;
+  --amber-wash:    #FEF3E2;   /* Repo amber tag fill */
+  --amber-text:    #B45309;   /* Amber as text on amber-wash (repo --amber) */
+  --green:         #10B981;   /* Handled / booked / confirmed — the green-check card */
+  --green-light:   #ECFDF5;
+  --success:       var(--green);   /* README name for the same colour */
+  --success-wash:  #DCFCE7;        /* Booked-card check chip fill (repo .ck-tick) */
+  --success-text:  #166534;        /* Check glyph / green text on the wash (repo .ck-tick) */
+  --alert:         var(--red);     /* README name; also replaces the motion doc's #D9534F */
+  --flag-human:    var(--amber);   /* Replaces the motion doc's #E9B949 */
+
+  /* ---------- CHAT BUBBLES (v2 — exact values from the repo, avilo.css .sms-bubble) ---------- */
+  /* Two-party convention used in every SMS demo and reel:
+     patient = blue, right-aligned, white text · Avilo = grey, left-aligned, navy text.
+     Teal NEVER colours a bubble. The booking outcome is not a bubble — it's a white
+     card with a --success check ("Cliniko: booked Thu 2:00pm with Dr. Chen"). */
+  --bubble-patient:       #2E8FFF;   /* .b-patient — README §4.2 estimated #5B6EE8; repo is #2E8FFF */
+  --bubble-patient-text:  #FFFFFF;
+  --bubble-avilo:         #E9ECEF;   /* .b-avilo / .b-reminder — README estimated #EEF1F4; repo is #E9ECEF */
+  --bubble-avilo-text:    var(--navy);
+  --bubble-radius:        18px;      /* tightened to 5px on the sender-side bottom corner */
+  --bubble-reel-radius:   34px;      /* 1080-wide reels scale the same shape up */
+
+  /* ---------- MOTION / REEL SURFACES ---------- */
+  /* Diary/calendar slot states + earned red/amber for the animation system. */
+  --slot-empty:    #EEF1F5;   /* neutral grey — an unfilled diary slot */
+  --slot-filled:   #0D9488;   /* teal — a booked slot */
+  --slot-new:      #4DD9C0;   /* teal-light pulse — a slot Avilo just filled */
+  --alert-wash:    #FBEDED;   /* soft red wash — a cancellation / gone slot */
+  /* --alert and --flag-human now alias the canonical --red / --amber above
+     (the old #D9534F / #E9B949 pair is retired — README §8). */
+
+  /* Logo gradient — mark + wordmark hero treatment */
+  --grad-brand:    linear-gradient(135deg, #4DD9C0 0%, #0D9488 100%); /* @kind color */
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* Weights — the brand uses a tight set. 800 display, 700 sub-heads, 600 UI/labels, 500 medium, 400 body. */
+  --fw-body:    400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-ui:      600; /* @kind font */   /* buttons, nav, labels */
+  --fw-strong:  700; /* @kind font */   /* h3, card titles */
+  --fw-display: 800; /* @kind font */   /* h1, h2, big numbers, wordmark weight */
+
+  /* Type scale (fluid where it matters) */
+  --t-h1:    clamp(40px, 5vw, 64px); /* @kind font */
+  --t-h2:    clamp(28px, 3.5vw, 46px); /* @kind font */
+  --t-h3:    clamp(20px, 2.4vw, 28px); /* @kind font */
+  --t-h4:    18px; /* @kind font */
+  --t-lead:  17px; /* @kind font */    /* section sub / lead paragraph */
+  --t-body:  15px; /* @kind font */    /* default body */
+  --t-sm:    13.5px; /* @kind font */  /* dense UI copy */
+  --t-xs:    12px; /* @kind font */    /* captions, fine print */
+  --t-eyebrow: 11px; /* @kind font */  /* uppercase eyebrow label */
+
+  /* Letter-spacing — Plus Jakarta Sans wants negative tracking at display sizes */
+  --ls-display: -0.035em; /* @kind font */
+  --ls-h2:      -0.025em; /* @kind font */
+  --ls-tight:   -0.02em; /* @kind font */
+  --ls-eyebrow:  0.12em; /* @kind font */  /* uppercase eyebrow / section labels */
+
+  /* Line heights */
+  --lh-display: 1.05; /* @kind font */
+  --lh-heading: 1.15; /* @kind font */
+  --lh-body:    1.75; /* @kind font */
+
+  /* ---------- RADII ---------- */
+  --r-sm:   6px;    /* pills, small chips, input inner */
+  --r-md:   8px;    /* buttons (default), nav items, icon buttons */
+  --r-lg:   10px;   /* large buttons, input fields, tiles */
+  --r-xl:   14px;   /* cards */
+  --r-2xl:  16px;   /* stat cards, feature panels */
+  --r-3xl:  20px;   /* hero mockup, modals */
+  --r-full: 999px;  /* pill eyebrows, status pills */
+
+  /* ---------- SHADOWS (navy-tinted, never pure black) ---------- */
+  --shadow-sm: 0 1px 3px rgba(23,32,48,0.06), 0 1px 2px rgba(23,32,48,0.04);
+  --shadow-md: 0 4px 16px rgba(23,32,48,0.08), 0 2px 6px rgba(23,32,48,0.05);
+  --shadow-lg: 0 8px 32px rgba(23,32,48,0.10), 0 4px 12px rgba(23,32,48,0.06);
+  --shadow-xl: 0 20px 60px rgba(23,32,48,0.12), 0 8px 24px rgba(23,32,48,0.08);
+  /* Teal-tinted CTA glow */
+  --shadow-cta:       0 4px 14px rgba(13,148,136,0.30);   /* repo: 0 6px 18px -6px rgba(13,148,136,.45) */
+  --shadow-cta-hover: 0 8px 22px rgba(13,148,136,0.40);
+  --shadow-cta-feat:  inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55); /* "Most popular" card CTA */
+  --shadow-float:     0 18px 44px -14px rgba(2,8,23,.45);  /* floating demo chips over the dark hero */
+  /* Primary CTA is SOLID teal. The "gradient" read in README §4.3 is this inset bevel
+     highlight + teal glow (repo aether-blend.css .btn-primary) — not a gradient fill. */
+  --shadow-cta-pill:  inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px -10px rgba(13,148,136,.55);
+  --shadow-nav-cta:   inset 0 1px 0 rgba(255,255,255,.14), 0 8px 18px -8px rgba(23,32,48,.5);   /* navy nav pill on light */
+  --navy-hover:       #1D2A3E;                              /* navy nav-CTA hover */
+  --nav-glass:        rgba(255,255,255,0.72);               /* floating nav pill; backdrop-filter: blur(20px) saturate(180%) */
+  --nav-glass-shadow: 0 12px 30px -16px rgba(23,48,44,.2);
+  --hero-bg:          radial-gradient(56% 90% at 86% 0%, rgba(13,148,136,.2), transparent 62%), radial-gradient(44% 74% at 2% 100%, rgba(77,217,192,.1), transparent 62%), radial-gradient(40% 60% at 50% 120%, rgba(38,51,75,.9), transparent 70%), #172030; /* @kind color */
+
+  /* ---------- GLASS SURFACE LAYER (v2 — repo aether-blend.css, loads after avilo.css) ---------- */
+  /* The "frosted-glass" redesign: pearl page ground, translucent white cards with a
+     hairline border, an inner bevel highlight, and soft navy-green float shadows. */
+  --pearl:           #ECF2F1;                       /* light-section page ground behind glass cards */
+  --glass:           rgba(255,255,255,0.66);        /* card / selector / stage surface */
+  --glass-strong:    rgba(255,255,255,0.85);        /* nav pill, ghost buttons, featured panels */
+  --hairline:        rgba(23,32,48,0.08);           /* glass card border */
+  --hairline-strong: rgba(23,32,48,0.12);
+  --bevel:           inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(23,32,48,.03); /* @kind shadow */
+  --float:           0 18px 40px -18px rgba(23,48,44,.16), 0 4px 12px -6px rgba(23,48,44,.07);
+  --float-lg:        0 32px 70px -28px rgba(23,48,44,.22), 0 8px 20px -10px rgba(23,48,44,.09);
+  --r-pill:          9999px;                        /* every marketing button is a pill */
+  --r-card:          24px;                          /* glass cards, stages, pricing tiers */
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-22: 88px; /* section vertical padding */
+
+  /* ---------- MOTION ---------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 0.15s; /* @kind other */  /* hover/press on UI */
+  --dur:      0.25s; /* @kind other */  /* buttons, cards */
+  --dur-slow: 0.5s; /* @kind other */   /* scroll reveal */
+}
+
+/* ============================================================
+   BASE ELEMENT STYLES (semantic defaults)
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  color: var(--slate);
+  background: var(--white);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--navy-mid);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-heading);
+}
+h1 { font-size: var(--t-h1); letter-spacing: var(--ls-display); line-height: var(--lh-display); }
+h2 { font-size: var(--t-h2); letter-spacing: var(--ls-h2); line-height: 1.12; }
+h3 { font-size: var(--t-h3); font-weight: var(--fw-strong); }
+h4 { font-size: var(--t-h4); font-weight: var(--fw-strong); }
+
+p { line-height: var(--lh-body); }
+a { color: var(--teal); text-decoration: none; }
+
+/* Eyebrow — uppercase teal label that sits above headings */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--t-eyebrow);
+  font-weight: var(--fw-strong);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* Lead / sub paragraph under a heading */
+.lead { font-size: var(--t-lead); line-height: 1.78; color: var(--slate); }
+
+/* On dark (navy) surfaces */
+.on-navy h1, .on-navy h2, .on-navy h3, .on-navy h4 { color: var(--white); }
+.on-navy .eyebrow { color: var(--teal-light); }
+.on-navy .lead { color: var(--on-navy-dim); }
