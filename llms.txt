@@ -26,7 +26,7 @@ Texts and calls, with 24/7 phone cover, and calls and texts in one inbox:
 - Growth, $299/month: 120 calls and 400 texts included.
 - Scale, $649/month: 300 calls and 1,000 texts included, plus priority support.
 
-Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.5c. A clinic never pays more in usage than the next plan up; if it would, Avilo moves them across automatically. Full detail: https://avilo.com.au/pricing
+Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.5c. A clinic never pays more in usage than the next plan up; if it would, Avilo moves them across automatically. To talk through which plan fits: https://avilo.com.au/demo
 
 ## Integration
 
@@ -57,7 +57,6 @@ Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.
 - [AI receptionist and confirmations for podiatrists](https://avilo.com.au/for/podiatry): For podiatry clinics with recall cycles and regulars who phone rather than text. Avilo reads your Cliniko reminder replies and lists who to ring each morning.
 - [Avilo | AI receptionist for Cliniko clinics](https://avilo.com.au/): Avilo answers your clinic's texts and calls, books straight into Cliniko, and refills the gaps. Built in Sydney for allied health.
 - [Learn](https://avilo.com.au/learn): Practical guides for a calmer front desk in allied health.
-- [Pricing](https://avilo.com.au/pricing): Plans from $49 a month. Texts only, or texts and calls with 24/7 phone cover. Month to month, no setup fee. AUD, ex GST.
 - [Privacy Policy](https://avilo.com.au/privacy): How Avilo Health collects, uses, stores and protects clinic and patient information, under the Australian Privacy Principles. Includes our cookie policy.
 - [Security and patient data](https://avilo.com.au/security): Where Avilo stores patient data, who can see it, and what we never do with it. Australian hosting, encrypted in transit and at rest, never used to train models.
 - [Solutions](https://avilo.com.au/solutions): No-shows, unanswered replies, cancellation gaps, after-hours calls, recalls and FAQs. How Avilo fixes each one, inside Cliniko.

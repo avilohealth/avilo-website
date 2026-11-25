@@ -26,7 +26,7 @@ Texts and calls, with 24/7 phone cover, and calls and texts in one inbox:
 - Growth, $299/month: 120 calls and 400 texts included.
 - Scale, $649/month: 300 calls and 1,000 texts included, plus priority support.
 
-Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.5c. A clinic never pays more in usage than the next plan up; if it would, Avilo moves them across automatically. Full detail: https://avilo.com.au/pricing
+Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.5c. A clinic never pays more in usage than the next plan up; if it would, Avilo moves them across automatically. To talk through which plan fits: https://avilo.com.au/demo
 
 ## Integration
 
