@@ -22,8 +22,10 @@ body:not(.avilo) .tog .bk,body.avilo .tog .ba{background:#0D9488;color:#fff}
 .sub{margin-top:26px;font-size:34px;font-weight:500;line-height:1.4;color:var(--sub);max-width:860px;text-wrap:pretty}
 .c{text-align:center;align-items:center}.c .h,.c .sub{margin-left:auto;margin-right:auto}
 .vis{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;margin:36px 0}
-.ft{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:30px;border-top:2px solid var(--line);font-size:24px;font-weight:600;color:var(--sub);text-align:left}
-.ft>span{display:flex;align-items:center;gap:14px}
+/* renamed from .ft: it collided with the site footer's own .ft class and
+   won on load order, blowing the footer links up to 24px. Nothing uses it. */
+.pk-ft{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:30px;border-top:2px solid var(--line);font-size:24px;font-weight:600;color:var(--sub);text-align:left}
+.pk-ft>span{display:flex;align-items:center;gap:14px}
 .sig{display:flex;align-items:center;gap:14px;color:var(--ink);margin-left:auto}
 .sig i{width:50px;height:50px;border-radius:15px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(6,50,46,.6)}.sig img{width:32px}
 .sig .k,.sig .a{font-size:28px;font-weight:700}.sig .a b{color:var(--acc)}
