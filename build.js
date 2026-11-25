@@ -169,6 +169,10 @@ for (const file of walk(PAGES)) {
       ? '<link rel="stylesheet" href="/avilo.css" />\n<link rel="stylesheet" href="/aether-blend.css" />\n<link rel="stylesheet" href="/components.css" />'
       : '',
     breadcrumb: breadcrumbFor(meta, h.text || '', gitDate(file)),
+    // Most pages now open on a pale hero, so the nav is dark by default and
+    // only the navy-hero pages ask for white. Getting this wrong makes the
+    // nav invisible until the visitor scrolls.
+    nav_class: meta.hero === 'dark' ? ' nv-on-dark' : '',
     head_extra: h.text || '',
     year: String(new Date().getFullYear()),
   };

@@ -13,20 +13,25 @@
 - Dashboard and reporting: conversations handled, median reply time, slots freed, appointments booked and estimated revenue captured.
 - Escalation: anything clinical, emotional or outside what Avilo is confident about goes to a "Needs you" list for a human. Replying in a thread pauses Avilo there, and it checks with the clinic before picking the thread back up.
 
-## Pricing
+## Plans
 
-All prices are AUD per clinic, per month, excluding GST. Every plan is month to month, has no setup fee, includes unlimited practitioners, and starts with a 14-day free trial with no credit card.
+Pricing is not published on the site; Keegan talks it through on the demo call,
+because the right plan depends on a clinic's call and text volume. Every plan is
+AUD per clinic per month excluding GST, month to month, with no setup fee,
+unlimited practitioners, and a 14-day free trial with no credit card.
 
-Texts only:
-- Inbox, $49/month: reminders and confirmations, quiet patients nudged and at-risk flagged, two-way messaging platform. Texts are 7.5c each, pay as you go. Avilo AI is not included.
-- Automate, $99/month: 100 texts included, then 7.5c each. Everything in Inbox plus Avilo AI (replies, rescheduling and waitlist), across unlimited sites.
+There are two shapes:
+- Texts only: reminders and confirmations with a two-way messaging inbox, and a
+  step up that adds Avilo AI (replies, rescheduling and waitlist) across
+  unlimited sites.
+- Texts and calls: everything above plus 24/7 phone cover, with calls and texts
+  in one inbox. Larger tiers add bigger allowances and priority support.
 
-Texts and calls, with 24/7 phone cover, and calls and texts in one inbox:
-- Starter, $139/month: 40 calls and 150 texts included.
-- Growth, $299/month: 120 calls and 400 texts included.
-- Scale, $649/month: 300 calls and 1,000 texts included, plus priority support.
+Each plan includes an allowance of calls and texts, with a per-item rate beyond
+it. A clinic never pays more in usage than the next plan up; if it would, Avilo
+moves them across automatically.
 
-Beyond the included allowance, extra calls are $2.50 each and extra texts are 7.5c. A clinic never pays more in usage than the next plan up; if it would, Avilo moves them across automatically. To talk through which plan fits: https://avilo.com.au/demo
+To get a number for a specific clinic: https://avilo.com.au/demo
 
 ## Integration
 
