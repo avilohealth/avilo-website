@@ -109,8 +109,6 @@ details[open] .chev{transform:rotate(180deg)}
 .nv-links a:hover{color:inherit}
 .nv-links a[aria-current="page"]{border-bottom-color:#0D9488}
 .nv-right{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:12px}
-.nv-login{display:flex;align-items:center;min-height:44px;padding:0 4px;color:inherit;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
-.nv-login:hover{color:inherit}
 .nv-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:14px;color:#fff;white-space:nowrap;text-decoration:none;background:#0D9488;box-shadow:inset 0 1px 0 rgba(255,255,255,.18);transition:background .3s}
 .nv-cta:hover{color:#fff;background:#0B7A70}
 .nv-toggle{display:none;width:44px;height:44px;border:0;border-radius:12px;background:transparent;color:inherit;cursor:pointer;align-items:center;justify-content:center}
@@ -187,29 +185,19 @@ label.ck-row{cursor:pointer}
 @media (max-width:1180px){.plans{grid-template-columns:1fr !important}}
 @media (max-width:1100px){
   .hg{grid-template-columns:1fr !important;gap:48px !important}
-  .hg > .hv{width:100%;max-width:760px}
-  .plans3{grid-template-columns:1fr !important}
-  .plans-right{padding-left:0 !important;border-left:0 !important;padding-top:28px;border-top:1px dashed #CBD5E1}
 }
 @media (max-width:900px){
   .col2{grid-template-columns:1fr !important;gap:48px !important}
   .g3{grid-template-columns:1fr !important}
   .g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
-  .hide-t{display:none !important}
   .sticky{position:static !important}
-  .ladder > div{margin-top:0 !important}
-  .ladder-arrow{display:none !important}
   .dapp{grid-template-columns:1fr !important}
   .dsb{display:none !important}
-  .flip > *{order:0 !important}
-  .pstat{border-left:0 !important;padding-left:0 !important}
-  .pgrid{gap:22px !important}
   .rv [data-anim="left"],.rv [data-anim="right"]{transform:translateY(24px)}
   html,body{overflow-x:hidden}
 }
 @media (max-width:760px){
   .plans2{grid-template-columns:1fr !important;gap:28px !important}
-  .sizes{grid-template-columns:1fr !important;gap:22px !important}
 }
 @media (max-width:720px){
   main > section{padding-left:16px !important;padding-right:16px !important;padding-top:64px !important;padding-bottom:64px !important}
@@ -218,22 +206,14 @@ label.ck-row{cursor:pointer}
   .tbl{font-size:13px}
   .tbl td,.tbl th{padding:10px 8px !important}
   .fgrid{grid-template-columns:1fr !important}
-  .hide-m{display:none !important}
   .capture{grid-template-columns:1fr !important}
-  .hv{height:auto !important;display:flex;flex-direction:column;gap:8px !important}
-  .hv-svg,.hv-dot{display:none !important}
-  .hv-chip{position:relative !important;top:auto !important;transform:none !important;width:auto !important;opacity:1 !important;transition:border-color .3s,box-shadow .3s !important}
-  .hv-diary{position:relative !important;left:auto !important;top:auto !important;bottom:auto !important;height:420px !important;margin-top:6px}
+  .hv-svg,
   main > section[data-screen-label="Hero"] h1{font-size:clamp(32px,9vw,40px) !important}
-  .crow{grid-template-columns:44px minmax(0,1fr) !important;row-gap:6px !important}
-  .crow > span:last-child{grid-column:2 !important;justify-self:start !important}
   .ft{padding-left:16px !important;padding-right:16px !important}
   [role="tablist"]{justify-content:flex-start !important;overflow-x:auto;flex-wrap:nowrap !important;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
   [role="tablist"] > *{flex:0 0 auto}
   blockquote{font-size:1.2rem !important}
 }
-@media (max-width:420px){.hv-diary{height:400px !important}}
-
 @media (hover:none),(prefers-reduced-motion:reduce){
   [data-spot]:hover{transform:none !important}
   [data-spot]:hover [data-ic]{transform:none}
@@ -255,86 +235,6 @@ label.ck-row{cursor:pointer}
 .hovr-9c7bc4:hover{background:#E8F8F6}
 .hovr-bcb2ff:hover{background:#0B7A70;color:#fff}
 .hovr-c0e5e6:hover{border-color:#0D9488;color:#0B7A70}
-
-/* ---------- hero diary animation: initial state ----------
-   Generated from heroVals() in home-v4.js, so the paint before JS runs
-   matches the first animation frame instead of flashing every chip. */
-.hv{
-  --c0Bd:rgba(255,255,255,.16);
-  --c0Op:0;
-  --c0Sh:none;
-  --c0Tf:translate(-14px,-50%);
-  --c1Bd:rgba(255,255,255,.16);
-  --c1Op:0;
-  --c1Sh:none;
-  --c1Tf:translate(-14px,-50%);
-  --c2Bd:rgba(255,255,255,.16);
-  --c2Op:0;
-  --c2Sh:none;
-  --c2Tf:translate(-14px,-50%);
-  --c3Bd:rgba(255,255,255,.16);
-  --c3Op:0;
-  --c3Sh:none;
-  --c3Tf:translate(-14px,-50%);
-  --d0Op:0;
-  --d0Sh:0 0 0 4px rgba(77,217,192,.25);
-  --d1Op:0;
-  --d1Sh:0 0 0 4px rgba(77,217,192,.25);
-  --d2Op:0;
-  --d2Sh:0 0 0 4px rgba(77,217,192,.25);
-  --d3Op:0;
-  --d3Sh:0 0 0 4px rgba(77,217,192,.25);
-  --f0Op:0;
-  --g0Op:0;
-  --g0Tf:translateY(4px);
-  --g1Op:0;
-  --g1Tf:translateY(4px);
-  --g2Op:0;
-  --g2Tf:translateY(4px);
-  --g3Op:0;
-  --g3Tf:translateY(4px);
-  --l0Off:1;
-  --l0Tr:stroke-dashoffset .5s;
-  --l1Off:1;
-  --l1Tr:stroke-dashoffset .5s;
-  --l2Off:1;
-  --l2Tr:stroke-dashoffset .5s;
-  --l3Off:1;
-  --l3Tr:stroke-dashoffset .5s;
-  --m0L:40px;
-  --m0Op:1;
-  --m0T:150px;
-  --m0Tf:none;
-  --m0Tr:opacity .4s;
-  --m1L:40px;
-  --m1Op:0;
-  --m1T:278px;
-  --m1Tf:scale(.85);
-  --m1Tr:opacity .5s, transform .6s cubic-bezier(.34,1.4,.64,1);
-  --m2L:40px;
-  --m2Op:0;
-  --m2T:0px;
-  --m2Tf:scale(.85);
-  --m2Tr:opacity .5s, transform .6s cubic-bezier(.34,1.4,.64,1);
-  --m3L:40px;
-  --m3Op:0;
-  --m3T:0px;
-  --m3Tf:scale(.85);
-  --m3Tr:opacity .5s, transform .6s cubic-bezier(.34,1.4,.64,1);
-  --p0Off:0.16;
-  --p0Tr:none;
-  --p1Off:0.16;
-  --p1Tr:none;
-  --p2Off:0.16;
-  --p2Tr:none;
-  --p3Off:0.16;
-  --p3Tr:none;
-  --wOp:0;
-  --wT:150px;
-  --wTf:scale(.85);
-  --wgOp:0;
-  --wgTf:translateY(4px);
-}
 
 /* --- brought across with the /for, /compare and /blog pages ---------------- */
 .hovr-4eb23a:hover{color:#fff}
@@ -376,10 +276,6 @@ label.ck-row{cursor:pointer}
 .hovr-2fdf36:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);color:#fff}
 .hovr-949813:hover{transform:translateY(-4px)}
 .hovr-b59271:hover{color:#fff}
-.sticky-cta{display:none}
 @media (max-width:760px){
   .sticky-cta.is-on{display:block}
-  body:has(.sticky-cta.is-on) footer{padding-bottom:112px !important}
-  /* lift the cookie card clear of the sticky CTA */
-  body:has(.sticky-cta.is-on) #ck{bottom:96px !important}
 }
