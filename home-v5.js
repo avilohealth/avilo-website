@@ -8,8 +8,15 @@
   var d = document, w = window, root = d.documentElement;
   var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function setVars(v) {
-    for (var k in v) root.style.setProperty('--' + k, String(v[k]));
+  /* avilo-v4.css still carries a .hv block from the previous homepage that
+     pins every hero variable to its initial state. A rule on .hv beats one on
+     :root, so the hero's values have to be written to that element or the
+     chips stay at opacity 0 for ever. Everything else goes on the root. */
+  var hv = d.querySelector('.hv') || root;
+
+  function setVars(v, el) {
+    var target = el || root;
+    for (var k in v) target.style.setProperty('--' + k, String(v[k]));
   }
 
   /* ============================ hero ============================
@@ -86,7 +93,7 @@
     else if (h.i < N) n = { i: h.i + 1, ph: 0, out: false, nt: false };
     else n = { i: h.i, ph: h.ph, out: true, nt: false };
     h = n;
-    setVars(heroVals());
+    setVars(heroVals(), hv);
     var dur = n.nt ? 500 : n.out ? 800
       : n.i === 0 ? [800, 1100, 1300, 1500][n.ph]
       : [600, 900, 900, n.i < N ? 1200 : 3200][n.ph];
@@ -307,7 +314,7 @@
     try { CONVS = JSON.parse(convData.textContent); } catch (e) { CONVS = null; }
   }
 
-  setVars(heroVals());
+  setVars(heroVals(), hv);
   paintLeaks();
   paintJobs();
   revealPass();
@@ -321,7 +328,7 @@
     setInterval(accTick, 1100);
   } else {
     h = { i: 9, ph: 3, out: false, nt: false };
-    setVars(heroVals());
+    setVars(heroVals(), hv);
   }
 
   setTimeout(function () {
