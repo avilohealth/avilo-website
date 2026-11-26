@@ -85,3 +85,17 @@ main > section[data-hero="light"]{--h-bg:radial-gradient(900px 560px at 50% -10%
 .home-hv2:hover{border-color:rgba(13,148,136,.45);color:#0B7A70}
 .home-hv3:hover{background:#E8F8F6}
 .home-hv4:hover{background:#172030}
+
+/* The mobile layout shows all four leak cards at once, but their
+   illustrations read the same --lv* variables as the desktop tab switcher,
+   where only the selected leak is lit. Three cards were therefore blank.
+   Pinning them on .leak-mob beats the values home-v5.js sets on :root. */
+@media (max-width:720px){
+  .leak-mob{
+    --lv0a:1;--lv0aT:none;--lv0b:1;--lv0bT:none;
+    --lv1a:1;--lv1aT:none;--lv1b:1;--lv1bT:none;
+    --lv2a:1;--lv2aT:none;--lv2b:1;--lv2bT:none;
+    --lv3a:1;--lv3aT:none;--lv3b:1;--lv3bT:none;
+    --ls0:1;--ls1:1;--ls2:1;--ls3:1;
+  }
+}

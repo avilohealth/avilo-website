@@ -324,7 +324,41 @@
   setInterval(revealPass, 200);
 
   if (!reduce) {
-    ht = setTimeout(heroTick, 1300);
+    /* Nothing animates until it has been scrolled to. The leak and job
+       scenes already wait on visible(); the hero used to start on a timer
+       from page load, so on a deep link or a fast scroll it had played out
+       before anyone saw it. It now waits for its own panel to come into
+       view, and starts from the first beat when it does. */
+    var heroStarted = false;
+    function beginHero() {
+      if (heroStarted) return;
+      heroStarted = true;
+      ht = setTimeout(heroTick, 600);
+    }
+    /* Observing has to wait for load: an observer fires immediately on
+       observe(), and at that point a #hash landing has not been applied yet,
+       so the hero would start while it is thousands of pixels off screen. */
+    function watchHero() {
+      var heroObs = new w.IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          heroObs.disconnect();
+          beginHero();
+        });
+      }, { threshold: 0.25 });
+      heroObs.observe(hv);
+    }
+
+    if (hv && w.IntersectionObserver) {
+      if (d.readyState === 'complete') {
+        w.requestAnimationFrame(watchHero);
+      } else {
+        w.addEventListener('load', function () { w.requestAnimationFrame(watchHero); });
+      }
+    } else {
+      beginHero();
+    }
+
     setInterval(accTick, 1100);
   } else {
     h = { i: 9, ph: 3, out: false, nt: false };
