@@ -335,26 +335,40 @@
       heroStarted = true;
       ht = setTimeout(heroTick, 600);
     }
-    /* Observing has to wait for load: an observer fires immediately on
-       observe(), and at that point a #hash landing has not been applied yet,
-       so the hero would start while it is thousands of pixels off screen. */
-    function watchHero() {
-      var heroObs = new w.IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          heroObs.disconnect();
-          beginHero();
-        });
-      }, { threshold: 0.25 });
-      heroObs.observe(hv);
+    /* The hero starts the first time it is genuinely on screen.
+       Detecting that by observer or by "has scrolling settled" both proved
+       unreliable: the browser applies a #hash jump on its own schedule, and
+       anything that samples once can sample before it lands. Polling live
+       geometry cannot fire early, because every check reads where the panel
+       actually is. The first 700ms are skipped so a hash landing has room to
+       happen; after that it simply waits for the visitor. */
+    var heroArmed = false, lastY = null, steadyInView = 0;
+
+    function heroInView() {
+      var r = hv.getBoundingClientRect();
+      return r.bottom > w.innerHeight * 0.15 && r.top < w.innerHeight * 0.85;
     }
 
-    if (hv && w.IntersectionObserver) {
-      if (d.readyState === 'complete') {
-        w.requestAnimationFrame(watchHero);
-      } else {
-        w.addEventListener('load', function () { w.requestAnimationFrame(watchHero); });
-      }
+    /* The hero starts once the page has stopped moving and the panel has
+       been on screen for two consecutive checks. Sampling once was never
+       safe: a #hash jump is applied on the browser's own schedule and can
+       land after load, after a frame, or after a timer, so any single
+       reading can be taken before the page has gone where it is going.
+       Requiring stillness plus continuity means a late jump just resets the
+       count and the hero waits for the visitor, as intended. */
+    function pollHero() {
+      if (heroStarted || !heroArmed) return;
+      var y = Math.round(w.scrollY || w.pageYOffset || 0);
+      if (y !== lastY) { lastY = y; steadyInView = 0; return; }
+      if (!heroInView()) { steadyInView = 0; return; }
+      if (++steadyInView >= 2) beginHero();
+    }
+
+    if (hv) {
+      setTimeout(function () { heroArmed = true; }, 400);
+      w.addEventListener('scroll', function () { steadyInView = 0; }, { passive: true });
+      w.addEventListener('resize', function () { steadyInView = 0; });
+      setInterval(pollHero, 200);
     } else {
       beginHero();
     }
