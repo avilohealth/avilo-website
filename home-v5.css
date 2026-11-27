@@ -99,3 +99,16 @@ main > section[data-hero="light"]{--h-bg:radial-gradient(900px 560px at 50% -10%
     --ls0:1;--ls1:1;--ls2:1;--ls3:1;
   }
 }
+
+/* Conversation replay: the bubbles ship with transition:opacity .4s,transform
+   .4s, which is the browser default ease and reads as a snap next to the
+   reveals elsewhere on the page. Match those instead, and give the travel a
+   little more distance so the movement is legible. */
+[data-conv-msgs] > *{
+  transition:opacity .55s cubic-bezier(.22,1,.36,1),
+             transform .65s cubic-bezier(.22,1,.36,1) !important;
+  will-change:opacity,transform;
+}
+@media (prefers-reduced-motion:reduce){
+  [data-conv-msgs] > *{transition:none !important}
+}

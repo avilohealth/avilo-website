@@ -207,27 +207,47 @@
     variants[t.getAttribute('data-kind')] = t.innerHTML;
   });
 
-  function renderConv(upTo) {
+  /* Build the whole conversation once, hidden, then reveal a message at a
+     time by flipping its two custom properties. The previous version rebuilt
+     the markup on every step, so each bubble was a brand new element painted
+     straight at its final style and no transition ever ran: the messages
+     snapped in. Keeping the elements means the CSS transition does the work,
+     which is what makes it read like the other reveals on the page. */
+  function buildConv() {
     if (!CONVS || !msgBox) return;
     var c = CONVS[conv];
     msgBox.innerHTML = '';
-    c.m.forEach(function (pair, idx) {
-      var kind = pair[0], text = pair[1];
-      var tpl = variants[kind];
+    c.m.forEach(function (pair) {
+      var tpl = variants[pair[0]];
       if (!tpl) return;
       var wrap = d.createElement('div');
-      wrap.innerHTML = tpl.replace('<span data-v="m.t"></span>', escapeHtml(text));
+      wrap.innerHTML = tpl.replace('<span data-v="m.t"></span>', escapeHtml(pair[1]));
       var el = wrap.firstElementChild;
       if (!el) return;
-      var shown = idx < upTo;
-      el.style.setProperty('--m-op', shown ? '1' : '0');
-      el.style.setProperty('--m-tf', shown ? 'none' : 'translateY(6px)');
+      /* set opacity and transform directly, not through the custom
+         properties the markup uses: changing a custom property recomputes
+         the value it feeds but does not start a transition, so the bubbles
+         appeared instantly however long the duration said. */
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(10px)';
       msgBox.appendChild(el);
     });
     ['ini', 'name', 'sub', 'cap'].forEach(function (k) {
       var el = d.querySelector('[data-v="conv.' + k + '"]');
       if (el) el.textContent = c[k];
     });
+    /* commit the hidden state before anything flips, or the browser
+       collapses both styles into one paint and skips the transition */
+    void msgBox.offsetHeight;
+  }
+
+  function showUpTo(n) {
+    if (!msgBox) return;
+    for (var i = 0; i < msgBox.children.length; i++) {
+      var shown = i < n;
+      msgBox.children[i].style.opacity = shown ? '1' : '0';
+      msgBox.children[i].style.transform = shown ? 'none' : 'translateY(10px)';
+    }
   }
 
   function escapeHtml(s) {
@@ -240,11 +260,14 @@
     if (!CONVS) return;
     clearTimeout(playTimer);
     var total = CONVS[conv].m.length;
-    if (reduce) { renderConv(total); return; }
-    renderConv(0);
+    buildConv();
+    if (reduce) { showUpTo(total); return; }
+    /* buildConv has already forced a reflow, so the hidden state is
+       committed and the first reveal transitions straight away. A rAF here
+       only delays the start when the tab throttles frames. */
     (function step(n) {
-      renderConv(n);
-      if (n < total) playTimer = setTimeout(function () { step(n + 1); }, 1200);
+      showUpTo(n);
+      if (n < total) playTimer = setTimeout(function () { step(n + 1); }, 820);
     })(1);
   }
 
