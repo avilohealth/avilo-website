@@ -77,10 +77,27 @@
       v[p + 'gTf'] = at(k, 3) ? 'none' : 'translateY(4px)';
     });
 
+    /* Opacity and transform are applied to the elements directly rather
+       than left to the custom properties the markup reads. Changing a custom
+       property recomputes whatever depends on it but does not start a
+       transition, so every chip appeared and every booking jumped, however
+       long the declared duration was. The vars are still set for the border,
+       shadow and line work that has no per-element hook. */
     d.querySelectorAll('[data-card]').forEach(function (el) {
       var k = +el.getAttribute('data-card');
       el.setAttribute('data-live', (live && k === Math.min(i, 4)) ? '1' : '0');
+      el.style.opacity = v['c' + k + 'Op'];
+      el.style.transform = v['c' + k + 'Tf'];
     });
+
+    var move = d.querySelector('[data-move]');
+    if (move) {
+      move.style.left = v.mvL;
+      move.style.top = v.mvT;
+      move.style.opacity = v.mvOp;
+      move.style.transform = v.mvTf;
+      move.style.transition = v.mvTr;
+    }
     return v;
   }
 
