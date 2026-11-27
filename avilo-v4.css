@@ -279,3 +279,21 @@ label.ck-row{cursor:pointer}
 @media (max-width:760px){
   .sticky-cta.is-on{display:block}
 }
+
+/* Cookie card on phones: it was 284px tall, about a third of the screen,
+   mostly because the three buttons wrapped onto two rows and the padding
+   was tuned for desktop. Layout only; the consent wording is unchanged. */
+@media (max-width:560px){
+  .ck{left:10px;right:10px;bottom:10px;width:auto;padding:14px;gap:10px;border-radius:16px}
+  .ck-ico{width:28px;height:28px;border-radius:8px}
+  .ck-ico svg{width:15px;height:15px}
+  .ck h2{font-size:15px}
+  .ck p{font-size:12.5px;line-height:1.5}
+  .ck-hd{gap:8px}
+  .ck-actions{gap:6px;flex-wrap:nowrap}
+  .ck-btn,.ck-btn2{min-height:44px;padding:0 12px;font-size:13px;flex:1 1 auto;white-space:nowrap}
+  .ck-btn3{min-height:44px;padding:0 2px;font-size:12.5px;flex:0 0 auto}
+  .ck-row{padding:10px 12px;min-height:44px}
+  .ck-row b{font-size:13px}
+  .ck-row span{font-size:12px}
+}
